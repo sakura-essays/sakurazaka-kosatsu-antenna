@@ -23,6 +23,14 @@ class Rules(unittest.TestCase):
   self.assertEqual(collect.detect_groups('正源司陽子の歌唱','',RULES),['日向坂46'])
   self.assertEqual(collect.detect_groups('乃木坂46と日向坂46','',RULES),['乃木坂46','日向坂46'])
   self.assertEqual(collect.detect_groups('AKB48の衣装','',RULES),[])
+ def test_aobazaka_detection(self):
+  self.assertEqual(collect.detect_groups('青葉坂46のオーディション制度を考察','',RULES),['青葉坂46'])
+  self.assertEqual(collect.detect_groups('青葉坂46の坂道選抜に藤吉夏鈴がいない理由','',RULES),['櫻坂46','青葉坂46'])
+  self.assertEqual(collect.detect_groups('Aobazaka46の構造','',RULES),['青葉坂46'])
+  self.assertEqual(collect.detect_groups('青葉の写真を考察','',RULES),[])
+  self.assertEqual(collect.detect_groups('青葉坂46の仕組み','櫻坂46とも関係する',RULES),['青葉坂46'])
+  self.assertEqual(collect.classify('青葉坂46のオーディション制度を考察','',RULES)[0],'published')
+  self.assertEqual(collect.classify('青葉坂46 自己紹介','',RULES)[0],'pending')
  def test_akimoto_creator_focus(self):
   examples=['秋元康は今、いくつのアイドルをプロデュースしているのか？',
             '秋元康氏は坂道グループから離れるべきか？',
@@ -120,6 +128,20 @@ class Integration(unittest.TestCase):
   collect.run(self.cache)
   self.assertEqual(next(a for a in self.rows() if a['id']=='legacy')['status'],'published')
   self.assertEqual(restored['groups'],['乃木坂46'])
+ def test_aobazaka_legacy_groups_and_override(self):
+  old={'id':'legacy','url':'https://note.com/test/n/old','author_id':'test',
+       'title':'青葉坂46の坂道選抜に藤吉夏鈴はいない理由','published_at':'2026-09-24T00:00:00+00:00',
+       'status':'published','reason':'管理者承認済み','categories':['グループ運営・アイドル論'],
+       'members':['藤吉夏鈴'],'songs':[],'groups':['櫻坂46']}
+  collect.write(self.root/'state/articles.json',[old])
+  collect.run(self.cache)
+  restored=next(a for a in self.rows() if a['id']=='legacy')
+  self.assertEqual(restored['groups'],['櫻坂46','青葉坂46'])
+  self.assertEqual(restored['status'],'published')
+  self.assertEqual(restored['published_at'],old['published_at'])
+  collect.write(self.root/'config/overrides.json',{'articles':{old['url']:{'groups':['櫻坂46']}}})
+  collect.run(self.cache)
+  self.assertEqual(next(a for a in self.rows() if a['id']=='legacy')['groups'],['櫻坂46'])
  def test_previous_published_survives_changed_description(self):
   old={'id':'legacy','url':'https://note.com/test/n/abc','author_id':'test',
        'title':'櫻坂46 MV','published_at':'2026-01-01T00:00:00+00:00',

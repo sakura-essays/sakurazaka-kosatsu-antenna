@@ -77,12 +77,13 @@
 .random-essay-author{font-size:11px;color:var(--green)}
 @media(max-width:600px){.random-essay{padding:14px 16px}.random-essay-trigger{padding:6px 9px}.random-essay-top{align-items:start}.sort-controls{gap:8px}}
 
-/* Quiet paper, three group accents, and consistent touch targets. */
-:root{--nogi-bg:#eee8f5;--nogi-ink:#573b76;--sakura-bg:#f8e9ef;--sakura-ink:#813f5b;--hinata-bg:#e3f2fa;--hinata-ink:#245c78}
+/* Quiet paper, four group accents, and consistent touch targets. */
+:root{--nogi-bg:#eee8f5;--nogi-ink:#573b76;--sakura-bg:#f8e9ef;--sakura-ink:#813f5b;--hinata-bg:#e3f2fa;--hinata-ink:#245c78;--aoba-bg:#e8f3e7;--aoba-ink:#386247}
 .group-tab{min-height:44px;border-width:2px;padding:7px 16px;display:inline-flex;align-items:center;justify-content:center;gap:5px}
 .group-tab[data-tone="nogi"],.tone-nogi{--group-bg:var(--nogi-bg);--group-ink:var(--nogi-ink)}
 .group-tab[data-tone="sakura"],.tone-sakura{--group-bg:var(--sakura-bg);--group-ink:var(--sakura-ink)}
 .group-tab[data-tone="hinata"],.tone-hinata{--group-bg:var(--hinata-bg);--group-ink:var(--hinata-ink)}
+.group-tab[data-tone="aoba"],.tone-aoba{--group-bg:var(--aoba-bg);--group-ink:var(--aoba-ink)}
 .group-tab[data-tone]:not([data-tone="neutral"]){background:var(--group-bg);color:var(--group-ink);border-color:transparent}
 .group-tab.active[data-tone]:not([data-tone="neutral"]){border-color:var(--group-ink);font-weight:700}
 .group-tab::before{content:'✓';visibility:hidden;font-size:12px;width:12px;flex-shrink:0}
@@ -145,6 +146,7 @@ select,.filter-grid input,#author-query{border-radius:8px;min-height:44px}
  .hero{padding:24px 0 18px}h1{font-size:28px;line-height:1.5;margin-bottom:12px}.intro{font-size:11px}.stats{margin-top:12px}.stats strong{font-size:20px}
  .group-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:14px;padding:6px 0 14px}
  .group-tab{padding:7px 9px;font-size:12px}
+ .group-tab:first-child{grid-column:1/-1}
  .pickup-section{padding:0 14px;margin-bottom:16px}
  .pickup-disclosure>summary{gap:4px 8px;padding:12px 0;min-height:56px}
  .pickup-disclosure>summary .eyebrow{display:none}

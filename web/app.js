@@ -28,9 +28,9 @@
  const articleGroups=a=>a.groups?.length?a.groups:(a.categories?.includes('秋元康・制作者論')?[]:['櫻坂46']);
  const articleLabels=a=>articleGroups(a).length?articleGroups(a):['制作論'];
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
- const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46'];
+ const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46','青葉坂46'];
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
- const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata'};
+ const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata','青葉坂46':'aoba'};
  const toneFor=a=>articleGroups(a).length===1?(tones[articleGroups(a)[0]]||'neutral'):'neutral';
  // Relations use published metadata only. Require a concrete title-level match;
  // group/category overlap alone can never create a recommendation.
@@ -138,8 +138,7 @@
   if(!visible.length){$('pickup-list').innerHTML='';return;}
   $('pickup-list').innerHTML=visible.map(({article:a,note})=>{
    const w=byId[a.author_id],groups=articleGroups(a);
-   const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata'};
-   const tone=groups.length===1?(tones[groups[0]]||'neutral'):'neutral';
+   const tone=toneFor(a);
    const themes={
     'メンバー考察・人物論':['person','人物を読む'],
     '楽曲・歌詞考察':['music','楽曲・歌詞を読む'],

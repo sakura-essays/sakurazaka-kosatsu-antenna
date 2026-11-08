@@ -86,7 +86,7 @@ def song_match(song,text):
     if re.fullmatch('[a-z]+',key):return bool(re.search(r'(?<![a-z])'+re.escape(key)+r'(?![a-z])',text))
     return key in text
 
-GROUP_ORDER=('乃木坂46','櫻坂46','日向坂46')
+GROUP_ORDER=('乃木坂46','櫻坂46','日向坂46','青葉坂46')
 
 def fiction_guard(title,text):
     """Article-level guard. Creative work elsewhere never disqualifies an author."""
@@ -211,8 +211,15 @@ def run(cache_dir=None):
     # Earlier releases curated Sakura/Keyaki only. Title clues override that
     # legacy default, while group-ambiguous old articles keep their grouping.
     for article in records.values():
-        if not article.get('groups'):
-            article['groups']=(detect_groups(article['title'],'',rules)
+        title_groups=detect_groups(article['title'],'',rules)
+        # Reclassify old Aobazaka essays without overriding moderation or manual grouping.
+        group_override=overrides.get('articles',{}).get(article['url'],{})
+        if ('青葉坂46' in title_groups and
+                '青葉坂46' not in article.get('groups',[]) and
+                'groups' not in group_override):
+            article['groups']=title_groups
+        elif not article.get('groups'):
+            article['groups']=(title_groups
                                or ([] if creator_focus(article['title'])
                                    and '秋元康・制作者論' in article.get('categories',[])
                                    else ['櫻坂46']))
