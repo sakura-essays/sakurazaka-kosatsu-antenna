@@ -1,5 +1,5 @@
 """Publish metadata only; never copy review queues/feed bodies to dist."""
-import collections,html,json,os,pathlib,re,shutil,urllib.parse
+import collections,hashlib,html,json,os,pathlib,re,shutil,urllib.parse
 from collect import ROOT,read,write,detect_groups,GROUP_ORDER
 
 def sync_github_owner(settings):
@@ -66,9 +66,13 @@ def build(public=False):
  out=ROOT/'dist';out.mkdir(exist_ok=True)
  for p in (ROOT/'web').iterdir():shutil.copy2(p,out/p.name)
  write(out/'data/articles.json',articles);write(out/'data/authors.json',authors);write(out/'data/status.json',data['status'])
- payload=json.dumps(data,ensure_ascii=False).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
+ payload=json.dumps(data,ensure_ascii=False,separators=(',',':')).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
  (out/'data.js').write_text('window.ANTENNA='+payload+';\n',encoding='utf-8')
  template=(ROOT/'web/index.html').read_text()
+ # Never combine newly deployed HTML with an older cached data/app bundle.
+ for asset in ('data.js','app.js','style.css'):
+  version=hashlib.sha256((out/asset).read_bytes()).hexdigest()[:12]
+  template=template.replace(chr(34)+asset+chr(34),chr(34)+asset+'?v='+version+chr(34))
  def fallback(rows):return '<ul>'+''.join('<li><a href="'+html.escape(a['url'],quote=True)+'">'+html.escape(a['title'])+'</a></li>' for a in rows)+'</ul>'
  (out/'index.html').write_text(template.replace('<!-- FALLBACK -->',fallback(articles[:40])))
  ad=out/'authors';shutil.rmtree(ad,ignore_errors=True);ad.mkdir()
