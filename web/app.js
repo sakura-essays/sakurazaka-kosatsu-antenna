@@ -17,6 +17,20 @@
  const articleGroups=a=>a.groups?.length?a.groups:['櫻坂46'];
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46'];
+ const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
+ const picks=(D.pickups||[]).map(p=>({article:articlesByUrl.get(p.url),note:p.note})).filter(p=>p.article&&byId[p.article.author_id]);
+ for(let i=picks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[picks[i],picks[j]]=[picks[j],picks[i]];}
+ function renderPickups(){
+  const block=$('pickup-section');
+  const narrowed=state.q||state.cat||state.author||state.member||state.song||state.platform||state.from||state.to;
+  const visible=narrowed?[]:picks.filter(p=>inGroup(p.article));
+  block.hidden=!visible.length;
+  if(!visible.length){$('pickup-list').innerHTML='';return;}
+  $('pickup-list').innerHTML=visible.map(({article:a,note})=>{
+   const w=byId[a.author_id];
+   return `<article class="pickup-card"><div class="group-labels">${articleGroups(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><p class="pickup-author">${esc(w.name)}</p><p class="pickup-reason">${esc(note)}</p></article>`;
+  }).join('');
+ }
  function options(id,items){$(id).insertAdjacentHTML('beforeend',items.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join(''));}
  options('author',D.authors.map(a=>[a.id,a.name]));
  for(const [id,field] of [['member','members'],['song','songs']])options(id,[...new Set(D.articles.flatMap(a=>a[field]))].sort((a,b)=>a.localeCompare(b,'ja')).map(x=>[x,x]));
@@ -32,6 +46,7 @@
   if(state.view==='authors'){$('authors-grid').innerHTML=D.authors.filter(a=>!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x))).map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join('');return;}
   if(state.view!=='articles')return;
   $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
+  renderPickups();
   $('categories').innerHTML=['',...D.categories].map(c=>`<button class="category ${state.cat===c?'active':''}" aria-pressed="${state.cat===c}" data-category="${esc(c)}"><span>${esc(c||'すべての記事')}</span><span class="num">${D.articles.filter(a=>inGroup(a)&&(!c||a.categories.includes(c))).length}</span></button>`).join('');
   let filtered=D.articles.filter(a=>{
    const author=byId[a.author_id];const hay=normalize([a.title,author.name,...a.members,...a.songs,...a.categories].join(' '));

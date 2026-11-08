@@ -5,3 +5,16 @@
 .search-box button{flex-shrink:0;white-space:nowrap}.search-box input{flex:1}
 
 .group-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px;padding:12px 0;border-bottom:1px solid var(--line)}.group-tab{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 17px;color:var(--ink);font-size:13px}.group-tab.active,.group-tab[aria-pressed="true"]{background:var(--ink);color:white;border-color:var(--ink)}.group-tab .num{font-size:11px;opacity:.7;margin-left:6px}.group-labels{display:flex;gap:6px;flex-wrap:wrap}.group-label{font-size:10px;line-height:1.4;padding:2px 7px;background:var(--soft);color:var(--accent);border-radius:3px}@media(max-width:560px){.group-tabs{gap:7px}.group-tab{padding:7px 11px;font-size:12px}}
+
+/* Curated picks: deliberately no scores, ranking, or engagement badges. */
+.pickup-section{margin:6px 0 38px;padding:22px 24px 24px;background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--accent)}
+.pickup-head{display:flex;gap:20px;align-items:end;justify-content:space-between;margin-bottom:18px}
+.pickup-head .eyebrow{margin-bottom:5px}.pickup-head h2{font-family:"Yu Mincho","Hiragino Mincho ProN",serif;font-weight:500;font-size:23px;letter-spacing:.04em;margin:0}
+.pickup-head>p{font-size:11px;line-height:1.8;color:var(--muted);max-width:400px;margin:0}
+.pickup-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.pickup-card{padding:17px 18px;background:var(--bg);border:1px solid var(--line);min-width:0}
+.pickup-card .group-labels{margin-bottom:10px}.pickup-card h3{font-size:15px;font-weight:550;line-height:1.75;margin:0 0 9px}
+.pickup-card h3 a{text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px}.pickup-card h3 a:hover{text-decoration-color:currentColor}
+.pickup-card .pickup-author{font-size:11px;color:var(--muted);margin:0 0 12px}
+.pickup-card .pickup-reason{font-size:12px;line-height:1.8;margin:0;color:var(--ink)}
+@media(max-width:650px){.pickup-section{padding:19px 16px;margin-bottom:26px}.pickup-head{display:block}.pickup-head>p{margin-top:8px}.pickup-list{grid-template-columns:1fr}.pickup-card{padding:15px}}

@@ -21,6 +21,27 @@ def sync_github_owner(settings):
  settings['repository_url']=new_repo
  write(ROOT/'config/settings.json',settings)
 
+def curated_pickups(articles, selections):
+ """Return public, manually vetted picks only; never publish internal ratings."""
+ if not isinstance(selections,list):raise ValueError('config/pickups.json must be an array')
+ available={a['url'] for a in articles}
+ seen=set();chosen=[]
+ for entry in selections:
+  if not isinstance(entry,dict):raise ValueError('Each pick must be a JSON object')
+  url=entry.get('url','')
+  note=entry.get('note','')
+  if not isinstance(url,str) or not url.startswith('https://'):
+   raise ValueError('Pickup URL must be HTTPS')
+  if not isinstance(note,str) or not (1<=len(note.strip())<=160):
+   raise ValueError('Pickup note must be 1–160 characters')
+  if url in seen:continue
+  seen.add(url)
+  # A removed, held or blocked article must never reappear via the feature.
+  if url not in available:continue
+  chosen.append({'url':url,'note':note.strip()})
+  if len(chosen)>=6:break
+ return chosen
+
 def build(public=False):
  settings=read(ROOT/'config/settings.json',{})
  if public:
@@ -41,7 +62,7 @@ def build(public=False):
   own=[a for a in articles if a['author_id']==s['id']]
   authors.append({k:s[k] for k in ('id','name','url','platform')}|{'count':len(own),'themes':[c for c,n in collections.Counter(c for a in own for c in a['categories']).most_common(3)]})
  authors.sort(key=lambda a:a['name'])
- data={'articles':articles,'authors':authors,'settings':settings,'categories':list(rules['categories']),'groups':list(GROUP_ORDER),'status':read(ROOT/'state/status.json',{})}
+ data={'articles':articles,'authors':authors,'settings':settings,'categories':list(rules['categories']),'groups':list(GROUP_ORDER),'pickups':curated_pickups(articles,read(ROOT/'config/pickups.json',[])),'status':read(ROOT/'state/status.json',{})}
  out=ROOT/'dist';out.mkdir(exist_ok=True)
  for p in (ROOT/'web').iterdir():shutil.copy2(p,out/p.name)
  write(out/'data/articles.json',articles);write(out/'data/authors.json',authors);write(out/'data/status.json',data['status'])

@@ -36,6 +36,20 @@ class Rules(unittest.TestCase):
  def test_html_not_feed(self):
   with self.assertRaises(ValueError):list(collect.parse(b'<html/>'))
 
+class Picks(unittest.TestCase):
+ def setUp(self):
+  self.article={'url':'https://note.com/test/n/abc','title':'実在の考察','author_id':'test'}
+ def test_pickup_requires_published_article(self):
+  picks=[{'url':self.article['url'],'note':'具体的な読みを提示している'}]
+  self.assertEqual(build.curated_pickups([self.article],picks),picks)
+  self.assertEqual(build.curated_pickups([],picks),[])
+ def test_pickup_deduplicates_and_hides_private_scores(self):
+  picks=[{'url':self.article['url'],'note':'要再読','score':98}]*2
+  self.assertEqual(build.curated_pickups([self.article],picks),[{'url':self.article['url'],'note':'要再読'}])
+ def test_pickup_invalid_entry_rejected(self):
+  for x in [{'url':'javascript:alert(1)','note':'いい記事'}, {'url':self.article['url'],'note':''}]:
+   with self.assertRaises(ValueError):build.curated_pickups([self.article],[x])
+
 class Integration(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name);self.mock=patch.object(collect,'ROOT',self.root);self.mock.start()
