@@ -23,6 +23,24 @@ class Rules(unittest.TestCase):
   self.assertEqual(collect.detect_groups('正源司陽子の歌唱','',RULES),['日向坂46'])
   self.assertEqual(collect.detect_groups('乃木坂46と日向坂46','',RULES),['乃木坂46','日向坂46'])
   self.assertEqual(collect.detect_groups('AKB48の衣装','',RULES),[])
+ def test_akimoto_creator_focus(self):
+  examples=['秋元康は今、いくつのアイドルをプロデュースしているのか？',
+            '秋元康氏は坂道グループから離れるべきか？',
+            '秋元康の作詞観とAKB48の関係について']
+  for title in examples:
+   self.assertTrue(collect.creator_focus(title))
+   status,_,cats,_,_=collect.classify(title,'',RULES)
+   self.assertEqual(status,'published')
+   self.assertIn('秋元康・制作者論',cats)
+ def test_incidental_reference_not_focus(self):
+  for title,text in [('今週のアイドルニュース','秋元康が作詞する。'),
+                     ('秋元康さん誕生日おめでとう',''),
+                     ('AKB48 新曲の感想','')]:
+   self.assertFalse(collect.creator_focus(title,text))
+   self.assertNotIn('秋元康・制作者論',collect.classify(title,text,RULES)[2])
+ def test_non_akimoto_creator_requires_group(self):
+  self.assertTrue(collect.creator_focus('茅野しのぶのAKB48衣装制作を考察'))
+  self.assertFalse(collect.creator_focus('茅野しのぶの衣装制作を考察'))
  def test_song_context(self):
   self.assertEqual(collect.classify('帰り道は遠回りしたくなる 歌詞考察','',RULES)[0],'published')
   self.assertEqual(collect.classify('乃木坂46 自己紹介','',RULES)[0],'pending')
@@ -120,6 +138,18 @@ class Integration(unittest.TestCase):
   collect.run(self.cache)
   # Changed titles are intentionally re-evaluated instead of whitelisted.
   self.assertEqual(self.rows()[0]['status'],'excluded')
+ def test_group_neutral_creator_is_published(self):
+  item='''<rss><channel><item><title>秋元康は今、いくつのアイドルをプロデュースしているのか？</title>
+  <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
+  <description>作詞家の制作体制を検討</description></item></channel></rss>'''.encode()
+  (self.cache/'test.xml').write_bytes(item)
+  collect.run(self.cache)
+  row=self.rows()[0]
+  self.assertEqual(row['status'],'published')
+  self.assertEqual(row['groups'],[])
+  self.assertIn('秋元康・制作者論',row['categories'])
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['groups'],[])
  def test_foreign_author_skipped(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'/test/n/',b'/other/n/'));collect.run(self.cache);self.assertEqual(self.rows(),[])
 if __name__=='__main__':unittest.main()

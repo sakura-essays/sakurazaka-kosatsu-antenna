@@ -14,7 +14,8 @@
  function reshuffle(){const items=[...D.articles];for(let i=items.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[items[i],items[k]]=[items[k],items[i]];}randomRanks=new Map(items.map((a,i)=>[a.url,i]));}
  reshuffle();
  const controls=['author','member','song','platform','from','to','sort'];
- const articleGroups=a=>a.groups?.length?a.groups:['櫻坂46'];
+ const articleGroups=a=>a.groups?.length?a.groups:(a.categories?.includes('秋元康・制作者論')?[]:['櫻坂46']);
+ const articleLabels=a=>articleGroups(a).length?articleGroups(a):['制作論'];
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46'];
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
@@ -53,7 +54,7 @@
  function sync(){ $('query').value=state.q;controls.forEach(id=>$(id).value=state[id]);if(controls.some(k=>k!=='sort'&&state[k]))document.querySelector('.filters').open=true;}
  function save(){const p=new URLSearchParams();Object.entries(state).forEach(([k,v])=>{if(v)p.set(k,v)});if(window.PRESET_AUTHOR&&!state.author)p.set('author','');history.pushState(null,'','?'+p.toString());render();}
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
- function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleGroups(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
+ function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
   document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===state.view);if(a.dataset.view===state.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});

@@ -36,5 +36,13 @@
     "magazine_url": "https://note.com/sakura_hinata46/m/m4e2f3485b7ea",
     "require_relevance": true,
     "verification": "2026-11-07: 管理者指定のまさたか（川島 雅隆）公開マガジン『櫻坂46』。本人の記事のみ収録。日常・別グループ中心の記事の混入を防ぐため櫻坂46関連性判定を適用。全過去記事の網羅はRSSでは保証しない。"
+  },
+  {
+    "author_id": "tsukagirei",
+    "name": "晩期秋元康",
+    "feed": "https://note.com/tsukagirei/m/mcdecccddf0aa/rss",
+    "magazine_url": "https://note.com/tsukagirei/m/mcdecccddf0aa",
+    "require_creator_focus": true,
+    "verification": "2026-11-08: 公開マガジン15本を確認。筆者本人の記事のみ、秋元康・制作者への考察が確認できるものだけ追加。"
   }
 ]

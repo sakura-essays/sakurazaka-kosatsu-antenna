@@ -7783,6 +7783,19 @@
       ],
       "reviewed_at": "2026-11-08",
       "reason": "既存調査本文を実活動の考察・感想として再確認"
+    },
+    "https://note.com/nibunibutea2708/n/n7807045a8b4e": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "groups": [
+        "乃木坂46",
+        "櫻坂46",
+        "日向坂46"
+      ]
+    },
+    "https://note.com/you_your_yumu2/n/n42ee9fb16235": {
+      "status": "published",
+      "verified_nonfiction": true
     }
   },
   "blocked_urls": [],

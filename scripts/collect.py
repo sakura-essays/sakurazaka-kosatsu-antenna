@@ -134,6 +134,25 @@ def detect_groups(title,text,rules):
     # Several groups in the excerpt without a title clue cannot be attributed safely.
     return body_matches if len(body_matches)==1 else []
 
+def creator_focus(title,text=''):
+    """Title-led essays about Akimoto or production staff, not incidental credits."""
+    t=norm(title)
+    if not t:return False
+    perspective=('なぜ','どう','考察','批評','評価','論','分析','構造','功罪','課題','問題',
+                 '責任','役割','必要','離れ','関与','賛否','行き詰まり','未来','理由',
+                 '影響','限界','矛盾','作詞','歌詞','プロデュース','制作',
+                 '振付','演出','衣装','感覚','言葉','終活','変え','思う','について',
+                 'もの','仕事','関係','仕組み')
+    if not any(word in t for word in perspective):return False
+    if '秋元康' in t or '秋元さん' in t or '秋元p' in t:return True
+    creators=('takahiro','今野義雄','茅野しのぶ','杉山勝彦','いしわたり淳治','池田一真')
+    maker_terms=('制作','作詞','作曲','歌詞','振付','衣装','演出','プロデュース',
+                 '運営','映像','mv','楽曲','フォーメーション','表現')
+    return (any(name in t for name in creators)
+            and any(word in t for word in maker_terms)
+            and any(group in norm(title+' '+text) for group in
+                    ('乃木坂','櫻坂','欅坂','日向坂','akb48','坂道','48グループ')))
+
 def classify(title,text,rules):
     t,b=norm(title),norm(text);whole=t+' '+b
     members=[m for m in rules['members'] if norm(m) in whole]
@@ -170,6 +189,11 @@ def classify(title,text,rules):
     cats=[cat for cat,keys in rules['categories'].items() if any(norm(k) in whole for k in keys)]
     if member_title and 'メンバー考察・人物論' not in cats:cats.insert(0,'メンバー考察・人物論')
     if song_title and '楽曲・歌詞考察' not in cats:cats.append('楽曲・歌詞考察')
+    if creator_focus(title,text):
+        if '秋元康・制作者論' not in cats:cats.append('秋元康・制作者論')
+        if status!='published' and not any(k in t for k in
+             ('自己紹介','このnoteについて','お知らせ','販売開始','商品紹介','アフィリエイト')):
+            status,reason='published','タイトルで確認できる秋元康・制作者への考察'
     guard=fiction_guard(title,text)
     if guard:status,reason=guard
     return status,reason,cats or ['その他の感想・批評'],members,songs
@@ -184,7 +208,11 @@ def run(cache_dir=None):
     # Earlier releases curated Sakura/Keyaki only. Title clues override that
     # legacy default, while group-ambiguous old articles keep their grouping.
     for article in records.values():
-        article['groups']=article.get('groups') or detect_groups(article['title'],'',rules) or ['櫻坂46']
+        if not article.get('groups'):
+            article['groups']=(detect_groups(article['title'],'',rules)
+                               or ([] if creator_focus(article['title'])
+                                   and '秋元康・制作者論' in article.get('categories',[])
+                                   else ['櫻坂46']))
 
     state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
     for source in sources:
@@ -288,6 +316,8 @@ def run(cache_dir=None):
                 if u in blocked or not item['title'] or target.hostname!=home.hostname or not target.path.startswith(home.path.rstrip('/')+'/n/'):
                     continue
                 status,reason,cats,members,songs=classify(item['title'],item['text'],rules)
+                if magazine.get('require_creator_focus') and not creator_focus(item['title'],item['text']):
+                    continue
                 # General idol magazines also carry Nogizaka/Hinata-only essays.
                 # Keep only confidently Sakura-relevant records when requested.
                 if magazine.get('require_relevance') and status!='published':
@@ -365,18 +395,21 @@ def run(cache_dir=None):
                         published_at=parsed_pub or pub.isoformat(),first_seen_at=stamp,
                         last_seen_at=stamp,status=status,reason=reason,
                         categories=cats,members=members,songs=songs,
-                        groups=item.get('groups') or detect_groups(title,'',rules) or ['櫻坂46'])
+                        groups=(item['groups'] if 'groups' in item else (detect_groups(title,'',rules) or ['櫻坂46'])))
         manually_added+=1
     if manually_added:print('Manually backfilled:',manually_added,flush=True)
-    # Do not publish ungrouped records during the scope expansion.
+    # Group-neutral creator essays belong to the overall feed, not Sakura by default.
     for a in records.values():
-        if not a.get('groups') and a['status']=='published':
+        if (not a.get('groups') and a['status']=='published'
+                and '秋元康・制作者論' not in a.get('categories',[])):
             a['status']='pending';a['reason']='対象グループを確認待ち'
     # Apply moderation also to articles no longer present in recent feeds.
     for u,a in records.items():
         o=overrides.get('articles',{}).get(u,{})
         if o.get('status') in ('published','pending','excluded') and a.get('published_at'):a['status']=o['status']
         if 'categories' in o:a['categories']=o['categories']
+        elif creator_focus(a['title']) and '秋元康・制作者論' not in a.get('categories',[]):
+            a.setdefault('categories',[]).append('秋元康・制作者論')
         # Apply to retained records too, including ones outside the recent RSS.
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
         if a.get('content_warning') and not o.get('verified_nonfiction'):
@@ -384,7 +417,7 @@ def run(cache_dir=None):
         if o.get('groups'):a['groups']=o['groups']
         stored_date=a.get('published_at') or ''
         parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')
-        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or not a.get('groups')):
+        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or (not a.get('groups') and '秋元康・制作者論' not in a.get('categories',[]))):
             a['status']='pending';a['reason']='公開日時・対象グループを確認待ち'
     articles=sorted(records.values(),key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
     write(ROOT/'state/articles.json',articles);write(ROOT/'state/feeds.json',state)

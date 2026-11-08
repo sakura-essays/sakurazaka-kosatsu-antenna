@@ -52,7 +52,10 @@ def build(public=False):
  articles=[a for a in read(ROOT/'state/articles.json',[]) if a['status']=='published']
  rules=read(ROOT/'config/rules.json',{})
  for a in articles:
-  a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']
+  if not a.get('groups') and '秋元康・制作者論' in a.get('categories',[]):
+   a['groups']=[]
+  else:
+   a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']
  for a in articles:
   for key in ['status','reason','last_seen_at']:a.pop(key,None)
  sources=read(ROOT/'config/sources.json',[]);authors=[]

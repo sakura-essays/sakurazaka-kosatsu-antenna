@@ -1898,5 +1898,25 @@
     "platform": "note",
     "verified_at": "2026-11-08T04:14:02.341394+00:00",
     "verification": "既存候補を再判定。複数の実活動考察を本文で確認。"
+  },
+  {
+    "id": "nibunibutea2708",
+    "url": "https://note.com/nibunibutea2708",
+    "feed": "https://note.com/nibunibutea2708/rss",
+    "platform": "note",
+    "name": "にぶにぶしいティー",
+    "enabled": true,
+    "article_policy": "review_required",
+    "verification": "2026-11-08: noteの公開プロフィール、秋元康論と日向坂ライブ感想を確認。無関係な記事を取り込まないよう記事ごと承認。"
+  },
+  {
+    "id": "you_your_yumu2",
+    "url": "https://note.com/you_your_yumu2",
+    "feed": "https://note.com/you_your_yumu2/rss",
+    "platform": "note",
+    "name": "望月優夢｜日本のアイドルをビジネス視点で考察する",
+    "enabled": true,
+    "article_policy": "review_required",
+    "verification": "2026-11-08: noteで秋元康のプロデュース事業論とアイドル市場分析を確認。横断的なアイドル記事は記事ごと承認。"
   }
 ]
