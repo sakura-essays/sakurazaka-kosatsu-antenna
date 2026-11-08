@@ -14,7 +14,8 @@
  function reshuffle(){const items=[...D.articles];for(let i=items.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[items[i],items[k]]=[items[k],items[i]];}randomRanks=new Map(items.map((a,i)=>[a.url,i]));}
  reshuffle();
  const controls=['author','member','song','platform','from','to','sort'];
- const articleGroups=a=>a.groups?.length?a.groups:['櫻坂46'];
+ const articleGroups=a=>a.groups?.length?a.groups:(a.categories?.includes('秋元康・制作者論')?[]:['櫻坂46']);
+ const articleLabels=a=>articleGroups(a).length?articleGroups(a):['制作論'];
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46'];
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
@@ -27,8 +28,23 @@
   block.hidden=!visible.length;
   if(!visible.length){$('pickup-list').innerHTML='';return;}
   $('pickup-list').innerHTML=visible.map(({article:a,note})=>{
-   const w=byId[a.author_id];
-   return `<article class="pickup-card"><div class="group-labels">${articleGroups(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><p class="pickup-author">${esc(w.name)}</p><p class="pickup-reason">${esc(note)}</p></article>`;
+   const w=byId[a.author_id],groups=articleGroups(a);
+   const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata'};
+   const tone=groups.length===1?(tones[groups[0]]||'neutral'):'neutral';
+   const themes={
+    'メンバー考察・人物論':['person','人物を読む'],
+    '楽曲・歌詞考察':['music','楽曲・歌詞を読む'],
+    'ダンス・パフォーマンス考察':['performance','表現を読む'],
+    'ライブ・コンサート':['live','ライブの余韻'],
+    'そこ曲がったら、櫻坂？':['program','番組を読む'],
+    '乃木坂工事中':['program','番組を読む'],
+    '日向坂で会いましょう':['program','番組を読む'],
+    'グループ運営・アイドル論':['group','グループを読む'],
+    'ファンダム・ファン文化':['group','ファン文化を読む']
+   };
+   const [theme,label]=themes[a.categories.find(c=>themes[c])]||['essay','考察・感想'];
+   const titleId='pickup-title-'+a.id;
+   return `<article class="pickup-card pickup-tone-${tone} pickup-theme-${theme}"><a class="pickup-link tracked-article" aria-labelledby="${esc(titleId)}" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener"><div class="pickup-cover" aria-hidden="true"><span class="pickup-cover-group">${esc(groups.join(' / '))}</span><p class="pickup-cover-title">${esc(a.title)}</p><span class="pickup-cover-theme">${esc(label)}</span></div><div class="pickup-body"><span class="sr-only">${esc(groups.join('、'))}。${esc(label)}。</span><h3 id="${esc(titleId)}">${esc(a.title)}<span class="sr-only">（元記事を新しいタブで開く）</span></h3><p class="pickup-author">${esc(w.name)}</p><p class="pickup-reason">${esc(note)}</p></div></a></article>`;
   }).join('');
  }
  function options(id,items){$(id).insertAdjacentHTML('beforeend',items.map(([v,l])=>`<option value="${esc(v)}">${esc(l)}</option>`).join(''));}
@@ -38,7 +54,7 @@
  function sync(){ $('query').value=state.q;controls.forEach(id=>$(id).value=state[id]);if(controls.some(k=>k!=='sort'&&state[k]))document.querySelector('.filters').open=true;}
  function save(){const p=new URLSearchParams();Object.entries(state).forEach(([k,v])=>{if(v)p.set(k,v)});if(window.PRESET_AUTHOR&&!state.author)p.set('author','');history.pushState(null,'','?'+p.toString());render();}
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
- function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleGroups(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
+ function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
   document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===state.view);if(a.dataset.view===state.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
