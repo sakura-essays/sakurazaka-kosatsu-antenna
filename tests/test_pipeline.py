@@ -70,6 +70,18 @@ class Integration(unittest.TestCase):
   collect.run(self.cache);collect.write(self.root/'config/overrides.json',{'blocked_authors':['test']});collect.run(self.cache);self.assertEqual(self.rows(),[])
  def test_future_hold(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'2026',b'2099'));collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'pending')
+ def test_body_fiction_cannot_be_republished_by_unverified_override(self):
+  (self.cache/'test.xml').write_bytes(RSS.replace(b'Test body','ここからはフィクションです'.encode()))
+  collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'status':'published'}}})
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'excluded')
+  self.assertNotIn('text',self.rows()[0])
+ def test_mixed_source_article_approval_is_separate(self):
+  sources=collect.read(self.root/'config/sources.json',[]);sources[0]['article_policy']='review_required'
+  collect.write(self.root/'config/sources.json',sources);collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'pending')
+  collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'status':'published','verified_nonfiction':True}}})
+  collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'published')
  def test_absent_from_feed_retained(self):
   collect.run(self.cache);(self.cache/'test.xml').write_bytes(RSS.replace(b'/abc?',b'/def?'));collect.run(self.cache);self.assertEqual(len(self.rows()),2)
  def test_legacy_other_group_reclassification(self):
@@ -80,7 +92,10 @@ class Integration(unittest.TestCase):
   collect.write(self.root/'state/articles.json',[old])
   collect.run(self.cache)
   restored=next(a for a in self.rows() if a['id']=='legacy')
-  self.assertEqual(restored['status'],'published')
+  self.assertEqual(restored['status'],'pending')
+  collect.write(self.root/'config/overrides.json',{'articles':{old['url']:{'status':'published','verified_nonfiction':True}}})
+  collect.run(self.cache)
+  self.assertEqual(next(a for a in self.rows() if a['id']=='legacy')['status'],'published')
   self.assertEqual(restored['groups'],['乃木坂46'])
  def test_previous_published_survives_changed_description(self):
   old={'id':'legacy','url':'https://note.com/test/n/abc','author_id':'test',

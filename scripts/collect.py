@@ -88,6 +88,32 @@ def song_match(song,text):
 
 GROUP_ORDER=('乃木坂46','櫻坂46','日向坂46')
 
+def fiction_guard(title,text):
+    """Article-level guard. Creative work elsewhere never disqualifies an author."""
+    t=unicodedata.normalize('NFKC',title)
+    b=unicodedata.normalize('NFKC',text or '')
+    fiction=r'妄ツイ|妄リク|夢小説|創作小説|二次創作|夢日記|恋愛小説|短編小説|連載小説|妄想小説|妄想ストーリー'
+    criticism=r'批評|考察|レビュー|感想|文化|について|とは'
+    if re.search(fiction,t) and not re.search(criticism,t):
+        return 'excluded','創作作品の明示（記事単位）'
+    if re.search(r'(?:この物語は|この作品は|ここから[^。]{0,40})(?:[^。]{0,40})フィクション|配役も架空|妄想の中で開催|メンバーとは何ら関係のない物語',b):
+        return 'excluded','本文に架空の物語・公演である明示'
+    # A real MV/drama may contain dialogue, romance and fictional characters.
+    # Ambiguous fiction signals go to review, never straight to publication.
+    if (re.search(fiction,t+' '+b) or re.search(r'[〇○]{2}[「:：]',b)):
+        return 'pending','創作の手掛かりあり・批評や引用との区別を確認待ち'
+    if re.search(r'第\s*[0-9０-９一二三四五六七八九十]+\s*話|幼馴染|幼なじみ|同棲',t) and not re.search(criticism,t):
+        return 'pending','物語形式の可能性・実活動との関係を確認待ち'
+    return None
+
+def publication_gate(source,title,text,status,reason,override):
+    guard=fiction_guard(title,text)
+    if guard and not override.get('verified_nonfiction'):
+        return guard
+    if source.get('article_policy')=='review_required' and status=='published' and not (override.get('status')=='published' and override.get('verified_nonfiction')):
+        return 'pending','創作混在の書き手・記事ごとの確認待ち'
+    return status,reason
+
 def detect_groups(title,text,rules):
     """Assign group(s) from the article title first; body text is only a fallback."""
     t,b=norm(title),norm(text)
@@ -144,6 +170,8 @@ def classify(title,text,rules):
     cats=[cat for cat,keys in rules['categories'].items() if any(norm(k) in whole for k in keys)]
     if member_title and 'メンバー考察・人物論' not in cats:cats.insert(0,'メンバー考察・人物論')
     if song_title and '楽曲・歌詞考察' not in cats:cats.append('楽曲・歌詞考察')
+    guard=fiction_guard(title,text)
+    if guard:status,reason=guard
     return status,reason,cats or ['その他の感想・批評'],members,songs
 
 def run(cache_dir=None):
@@ -157,11 +185,6 @@ def run(cache_dir=None):
     # legacy default, while group-ambiguous old articles keep their grouping.
     for article in records.values():
         article['groups']=article.get('groups') or detect_groups(article['title'],'',rules) or ['櫻坂46']
-        if (article.get('status')=='pending'
-                and article.get('reason')=='他グループ中心の可能性・比較内容の確認待ち'
-                and any(g in article['groups'] for g in ('乃木坂46','日向坂46'))):
-            article['status']='published'
-            article['reason']='対象拡張に伴い旧グループ保留記事を再分類'
 
     state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
     for source in sources:
@@ -207,8 +230,13 @@ def run(cache_dir=None):
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
+                status,reason=publication_gate(source,item['title'],item['text'],status,reason,override)
+                if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):
+                    status,reason='pending','公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
                 count+=1
+                warning=fiction_guard(item['title'],item['text'])
+                if warning:records[u]['content_warning']=list(warning)
             state[sid]={'etag':headers.get('ETag'),'modified':headers.get('Last-Modified'),'last_success':stamp}
             log.update(status='ok',items=count,last_success=stamp);success+=1
         except urllib.error.HTTPError as e:
@@ -267,14 +295,16 @@ def run(cache_dir=None):
                 pub=item['published_at']
                 if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
                     status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
-                else:
-                    status,reason='published','櫻坂46マガジンRSSに収録された筆者本人の記事'
+                # Magazine membership alone is not evidence of relevance/nonfiction.
                 override=overrides.get('articles',{}).get(u,{})
                 if pub:status=override.get('status',status)
                 prev=records.get(u,{})
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
+                status,reason=publication_gate(source,item['title'],item['text'],status,reason,override)
+                if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
+                    status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
                                 url=u,title=item['title'],author_id=sid,
                                 published_at=prev.get('published_at') or pub,
@@ -284,6 +314,8 @@ def run(cache_dir=None):
                                 members=members,songs=songs,
                                 groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]) or (['櫻坂46'] if '櫻坂' in magazine.get('name','') else []))
                 count+=1
+                warning=fiction_guard(item['title'],item['text'])
+                if warning:records[u]['content_warning']=list(warning)
             state[feed_id]={'etag':headers.get('ETag'),
                             'modified':headers.get('Last-Modified'),
                             'last_success':stamp}
@@ -315,7 +347,10 @@ def run(cache_dir=None):
         if target.hostname!=home.hostname or (home.hostname=='note.com' and not target.path.startswith(home.path.rstrip('/')+'/n/')):
             raise ValueError('Manual article URL is outside its author feed')
         if u in blocked or u in records:continue
-        pub=dt.date.fromisoformat(item['published_at'])
+        raw_pub=item['published_at']
+        parsed_pub=date(raw_pub) if 'T' in raw_pub else None
+        if 'T' in raw_pub and not parsed_pub:raise ValueError('Invalid manual article timestamp')
+        pub=dt.datetime.fromisoformat(parsed_pub).date() if parsed_pub else dt.date.fromisoformat(raw_pub)
         if pub>now.date():raise ValueError('Manual article date is in the future')
         cats=item.get('categories',[])
         if not cats or any(c not in rules['categories'] for c in cats):
@@ -323,11 +358,12 @@ def run(cache_dir=None):
         title=item['title'].strip()
         if not title:raise ValueError('Empty manual article title')
         _,_,_,members,songs=classify(title,'',rules)
+        manual_override=overrides.get('articles',{}).get(u,{})
+        status,reason=publication_gate(src,title,'','published','管理者が元記事のタイトル・URL・公開日を照合して追加',manual_override)
         records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
                         url=u,title=title,author_id=sid,
-                        published_at=pub.isoformat(),first_seen_at=stamp,
-                        last_seen_at=stamp,status='published',
-                        reason='管理者が元記事のタイトル・URL・公開日を照合して追加',
+                        published_at=parsed_pub or pub.isoformat(),first_seen_at=stamp,
+                        last_seen_at=stamp,status=status,reason=reason,
                         categories=cats,members=members,songs=songs,
                         groups=item.get('groups') or detect_groups(title,'',rules) or ['櫻坂46'])
         manually_added+=1
@@ -341,6 +377,15 @@ def run(cache_dir=None):
         o=overrides.get('articles',{}).get(u,{})
         if o.get('status') in ('published','pending','excluded') and a.get('published_at'):a['status']=o['status']
         if 'categories' in o:a['categories']=o['categories']
+        # Apply to retained records too, including ones outside the recent RSS.
+        a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
+        if a.get('content_warning') and not o.get('verified_nonfiction'):
+            a['status'],a['reason']=a['content_warning']
+        if o.get('groups'):a['groups']=o['groups']
+        stored_date=a.get('published_at') or ''
+        parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')
+        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or not a.get('groups')):
+            a['status']='pending';a['reason']='公開日時・対象グループを確認待ち'
     articles=sorted(records.values(),key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
     write(ROOT/'state/articles.json',articles);write(ROOT/'state/feeds.json',state)
     write(ROOT/'state/review.json',[a for a in articles if a['status']!='published'])

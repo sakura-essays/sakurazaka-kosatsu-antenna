@@ -1,29 +1,217 @@
 [
-["sonkami","SON｜エンタメから組織を学ぶ","https://note.com/sonkami"],
-["sakura_hinata46","まさたか（川島 雅隆）","https://note.com/sakura_hinata46"],
-["sama_migirou","左間右郎","https://note.com/sama_migirou"],
-["tsukagirei","通過儀礼","https://note.com/tsukagirei"],
-["lively_fennel526","深山1234｜感情の置き場","https://note.com/lively_fennel526"],
-["modern_willet231","RYO","https://note.com/modern_willet231"],
-["guzen_sakura46","ぐうぜんの答え","https://note.com/guzen_sakura46"],
-["honoyuzu_skz46","ほのゆづ【櫻坂 歌詞考察】","https://note.com/honoyuzu_skz46"],
-["cozy_poppy3166","気づいて","https://note.com/cozy_poppy3166"],
-["novel_oxalis6466","ymtmnn","https://note.com/novel_oxalis6466"],
-["sign_at_deep","貴志 砂印","https://note.com/sign_at_deep"],
-["mio_yu_know","あ り あ","https://note.com/mio_yu_know"],
-["keyasaku_4646","キウイ","https://note.com/keyasaku_4646"],
-["serene_shark4853","くう","https://note.com/serene_shark4853"],
-["matobanaoki","matobanaoki","https://note.com/matobanaoki"],
-["archie_archiee","Archie","https://note.com/archie_archiee"],
-["kurikintom","栗きんとん","https://note.com/kurikintom"],
-["mild_orca9446","櫻坂46 Buddiesデータ研究部","https://note.com/mild_orca9446"],
-["sana__note","すーさー","https://note.com/sana__note"],
-["fine_llama166","まつじゃん","https://note.com/fine_llama166"],
-["firm_fennel8957","山内勇","https://note.com/firm_fennel8957"],
-["ao_urawazakanote","アオ 34","https://note.com/ao_urawazakanote"],
-["ryouta-mizuking","ポタクのあれこれ。","https://ryouta-mizuking.hatenablog.com"],
-["rush283","アイドルオタクの備忘録","https://rush283.hatenablog.com"],
-["hi0220","てんさい","https://hi0220.hatenablog.com"],
-["tkfuji","TOKIOは一日にして成らず","https://tkfuji.hatenablog.com"],
-["mdai","みやだい","https://mdai.jp/keyaki-sakura/"]
+  [
+    "air88energy",
+    "中野 祐輔",
+    "https://note.com/air88energy"
+  ],
+  [
+    "bluehuman.hatenablog.com",
+    "半々生活な日々",
+    "https://bluehuman.hatenablog.com"
+  ],
+  [
+    "blueroll.hatenablog.com",
+    "blueroll",
+    "https://blueroll.hatenablog.com"
+  ],
+  [
+    "calpasngz.hatenablog.com",
+    "かるぱすのブログ",
+    "https://calpasngz.hatenablog.com"
+  ],
+  [
+    "choumiryou",
+    "ぎんちゃん",
+    "https://note.com/choumiryou"
+  ],
+  [
+    "ganchang",
+    "岩嵜",
+    "https://note.com/ganchang"
+  ],
+  [
+    "grsn_note",
+    "sowai",
+    "https://note.com/grsn_note"
+  ],
+  [
+    "hakoniwa_sports",
+    "hakoniwa_sports",
+    "https://note.com/hakoniwa_sports"
+  ],
+  [
+    "harryk01outeredge.hatenablog.com",
+    "エンタメの辺境から中心地を観測するブログ-Watching entertainment movement!",
+    "https://harryk01outeredge.hatenablog.com"
+  ],
+  [
+    "haruka_kaworu",
+    "遙",
+    "https://note.com/haruka_kaworu"
+  ],
+  [
+    "hibicoto",
+    "小沢あや",
+    "https://note.com/hibicoto"
+  ],
+  [
+    "higenne.hatenablog.com",
+    "ひげんぬの書き捨て場",
+    "https://higenne.hatenablog.com"
+  ],
+  [
+    "hiko1985.hatenablog.com",
+    "青春ゾンビ",
+    "https://hiko1985.hatenablog.com"
+  ],
+  [
+    "hina_kawago",
+    "川後陽菜 | Hina Kawago",
+    "https://note.com/hina_kawago"
+  ],
+  [
+    "hkw140",
+    "かおる",
+    "https://note.com/hkw140"
+  ],
+  [
+    "iks03.hatenablog.com",
+    "Modern Age Idol",
+    "https://iks03.hatenablog.com"
+  ],
+  [
+    "junyawatanabe",
+    "Junya Watanabe | 渡辺順也",
+    "https://note.com/junyawatanabe"
+  ],
+  [
+    "kanemiku_0910",
+    "みくすし",
+    "https://note.com/kanemiku_0910"
+  ],
+  [
+    "kataritangzk",
+    "ＳｏＬ",
+    "https://note.com/kataritangzk"
+  ],
+  [
+    "lair_rare",
+    "lair",
+    "https://note.com/lair_rare"
+  ],
+  [
+    "luciferlove",
+    "イブリース",
+    "https://note.com/luciferlove"
+  ],
+  [
+    "maemuki.hatenablog.com",
+    "さわやかトラウマ日記",
+    "https://maemuki.hatenablog.com"
+  ],
+  [
+    "metakit",
+    "橘川幸夫",
+    "https://note.com/metakit"
+  ],
+  [
+    "metropoliskun.hatenablog.com",
+    "好きなものは好きと言いたい",
+    "https://metropoliskun.hatenablog.com"
+  ],
+  [
+    "mii46",
+    "mii",
+    "https://note.com/mii46"
+  ],
+  [
+    "mimoimo.hatenablog.com",
+    "考察と解釈と鑑賞",
+    "https://mimoimo.hatenablog.com"
+  ],
+  [
+    "nancy.hatenablog.com",
+    "アイドル好きの言い訳",
+    "https://nancy.hatenablog.com"
+  ],
+  [
+    "nar-mattaru.hatenablog.com",
+    "ゴリラブログ",
+    "https://nar-mattaru.hatenablog.com"
+  ],
+  [
+    "oboeteitekure913",
+    "中村 辰之介(旧 栄、覚えていてくれ)",
+    "https://note.com/oboeteitekure913"
+  ],
+  [
+    "on-okuri-zaka.hatenablog.com",
+    "doiya_on_okuri’s blog",
+    "https://on-okuri-zaka.hatenablog.com"
+  ],
+  [
+    "rakami",
+    "村上裕一 yuichi murakami",
+    "https://note.com/rakami"
+  ],
+  [
+    "rillrillnote",
+    "末吉 克在（SDGs de 地方創生 公認ファシリテーター）",
+    "https://note.com/rillrillnote"
+  ],
+  [
+    "royal_liger3902",
+    "伝え方コーチ｜えにあ",
+    "https://note.com/royal_liger3902"
+  ],
+  [
+    "saegusajournal",
+    "サエグサジャーナル編集部員",
+    "https://note.com/saegusajournal"
+  ],
+  [
+    "shiki_nok",
+    "四季折々",
+    "https://note.com/shiki_nok"
+  ],
+  [
+    "tantanmenznonno",
+    "離島",
+    "https://note.com/tantanmenznonno"
+  ],
+  [
+    "tedpapa.hatenablog.com",
+    "AKB48 チームBのファンより",
+    "https://tedpapa.hatenablog.com"
+  ],
+  [
+    "toto122446",
+    "龘々(トト)",
+    "https://note.com/toto122446"
+  ],
+  [
+    "utokyo_yuri",
+    "東京大学百合愛好会",
+    "https://note.com/utokyo_yuri"
+  ],
+  [
+    "yohakunihaku",
+    "余白",
+    "https://note.com/yohakunihaku"
+  ],
+  [
+    "sana__note",
+    "すーさー",
+    "https://note.com/sana__note"
+  ],
+  [
+    "fine_llama166",
+    "まつじゃん",
+    "https://note.com/fine_llama166"
+  ],
+  [
+    "mdai",
+    "櫻の頂点はいつも「今」（櫻坂46FanBlog）｜みやだい",
+    "https://mdai.jp/keyaki-sakura/"
+  ]
 ]
