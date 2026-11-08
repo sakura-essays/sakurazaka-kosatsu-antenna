@@ -202,6 +202,18 @@
     ]
   },
   {
+    "id": "hurohuro",
+    "name": "The Ailurus fulgens",
+    "url": "https://note.com/hurohuro",
+    "platform": "note",
+    "count": 13,
+    "themes": [
+      "メンバー考察・人物論",
+      "グループ運営・アイドル論",
+      "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
     "id": "j_y545",
     "name": "YASHI",
     "url": "https://note.com/j_y545",
@@ -367,6 +379,18 @@
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "r1242",
+    "name": "r1242（いくはら）",
+    "url": "https://note.com/r1242",
+    "platform": "note",
+    "count": 3,
+    "themes": [
+      "ライブ・コンサート",
+      "ダンス・パフォーマンス考察",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -549,6 +573,18 @@
     ]
   },
   {
+    "id": "keyaki3rd",
+    "name": "おしゃかな",
+    "url": "https://note.com/keyaki3rd",
+    "platform": "note",
+    "count": 4,
+    "themes": [
+      "ファンダム・ファン文化",
+      "ライブ・コンサート",
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "legit_hare5977",
     "name": "おひさま、尚己",
     "url": "https://note.com/legit_hare5977",
@@ -727,6 +763,18 @@
     ]
   },
   {
+    "id": "siragen",
+    "name": "しらげん",
+    "url": "https://note.com/siragen",
+    "platform": "note",
+    "count": 5,
+    "themes": [
+      "楽曲・歌詞考察",
+      "ファンダム・ファン文化",
+      "メンバー考察・人物論"
+    ]
+  },
+  {
     "id": "6669kt",
     "name": "じーの",
     "url": "https://note.com/6669kt",
@@ -796,6 +844,18 @@
       "ファンダム・ファン文化",
       "グループ運営・アイドル論",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "tamuraharuki",
+    "name": "たむら はるき",
+    "url": "https://note.com/tamuraharuki",
+    "platform": "note",
+    "count": 4,
+    "themes": [
+      "ダンス・パフォーマンス考察",
+      "グループ運営・アイドル論",
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -939,6 +999,30 @@
       "乃木坂工事中",
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "babuchi",
+    "name": "ばぶち",
+    "url": "https://note.com/babuchi",
+    "platform": "note",
+    "count": 5,
+    "themes": [
+      "グループ運営・アイドル論",
+      "メンバー考察・人物論",
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "forest_bulky",
+    "name": "ばるきー",
+    "url": "https://note.com/forest_bulky",
+    "platform": "note",
+    "count": 11,
+    "themes": [
+      "ライブ・コンサート",
+      "グループ運営・アイドル論",
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1540,6 +1624,17 @@
     ]
   },
   {
+    "id": "hearty_iris9009",
+    "name": "三鷹鞦韆",
+    "url": "https://note.com/hearty_iris9009",
+    "platform": "note",
+    "count": 5,
+    "themes": [
+      "グループ運営・アイドル論",
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "ui_ui",
     "name": "中村玲太",
     "url": "https://note.com/ui_ui",
@@ -1597,6 +1692,17 @@
       "メンバー考察・人物論",
       "乃木坂工事中",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "shiho_yofukashi",
+    "name": "夜ふかしシフォン",
+    "url": "https://note.com/shiho_yofukashi",
+    "platform": "note",
+    "count": 3,
+    "themes": [
+      "楽曲・歌詞考察",
+      "メンバー考察・人物論"
     ]
   },
   {
