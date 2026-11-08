@@ -25,3 +25,12 @@
 変更直前の最新版8bc663f5ccbc1946491462a2f3649dc2b5545e70をbackup/before-bulk-approval-20261108に保存。作業中に追加されたピックアップ機能も取り込んだ。既存のURL、GA4 G-48Y73ZJHVL、6時間ごとのRSS更新スケジュールは保持。
 
 一覧：[承認書き手CSV](approved-writers-20261108.csv)。全判定と確認記事URLはconfig/moderation_decisions.json。
+
+## 公開後の検証
+
+- 承認処理: https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/actions/runs/42446316093 （収集・生成・Pages公開成功）
+- 軽量化・キャッシュ対策後: https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/actions/runs/42447235617 （37テスト、収集・生成・Pages公開成功）
+- 書き手RSS166件＋既存マガジン5件、計171件を正常取得。6時間ごとの更新を維持。
+- 公開HTTPデータと実ブラウザーで1963記事・166人を確認。乃木坂627／櫻坂805／日向坂665件の絞り込み、新承認者の個別ページから元記事へのリンクを確認。
+- 既存674記事の欠落・公開日の変更・URL重複はいずれも0件。GA4のIDと公開URLを維持。
+- 表示確認で配信JSの読み込み問題を検知したため、JSONの余分な空白を削減し、data.js・app.js・style.cssに内容ハッシュによる版番号を付けた。再公開後の画面で解消を確認。
