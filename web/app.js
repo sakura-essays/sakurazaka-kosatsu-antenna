@@ -32,6 +32,50 @@
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
  const picks=(D.pickups||[]).map(p=>({article:articlesByUrl.get(p.url),note:p.note})).filter(p=>p.article&&byId[p.article.author_id]);
  for(let i=picks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[picks[i],picks[j]]=[picks[j],picks[i]];}
+ // An opt-in, non-editorial way to encounter an archived essay. Choose a writer
+ // first so prolific authors are not automatically overrepresented.
+ const curatedUrls=new Set(picks.map(p=>p.article.url));
+ const sampledUrls=new Set();
+ let lastSampledAuthor='',randomEssay=null;
+ function randomPool(){
+  const cutoff=Date.now()-30*24*60*60*1000;
+  return D.articles.filter(a=>a.published_at&&Date.parse(a.published_at)<=cutoff
+   &&byId[a.author_id]&&!curatedUrls.has(a.url)
+   &&inGroup(a)&&(!state.cat||a.categories.includes(state.cat)));
+ }
+ function randomAllowed(){
+  return !(state.q||state.author||state.member||state.song||state.platform||state.from||state.to);
+ }
+ function renderRandomEssay(){
+  const enabled=randomAllowed()&&randomPool().length>0;
+  const button=$('random-essay-trigger'),panel=$('random-essay');
+  button.hidden=!enabled;
+  if(!enabled||!randomEssay||!randomPool().some(a=>a.url===randomEssay.url)){
+   if(!enabled||randomEssay&&!randomPool().some(a=>a.url===randomEssay.url))randomEssay=null;
+   panel.hidden=true;
+   button.setAttribute('aria-expanded','false');
+   return;
+  }
+  const a=randomEssay,w=byId[a.author_id];
+  panel.hidden=false;
+  button.setAttribute('aria-expanded','true');
+  $('random-essay-body').innerHTML=`<div class="random-essay-meta"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span>${esc(articleLabels(a).join(' / '))}</span><span>${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)} <span aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><a class="random-essay-author" href="${esc(authorPath(w.id))}">${esc(w.name)}</a>`;
+ }
+ function drawRandomEssay(){
+  let available=randomPool();
+  if(!available.length){randomEssay=null;renderRandomEssay();return;}
+  let fresh=available.filter(a=>!sampledUrls.has(a.url));
+  if(!fresh.length){sampledUrls.clear();fresh=available;}
+  const otherAuthors=fresh.filter(a=>a.author_id!==lastSampledAuthor);
+  if(otherAuthors.length)fresh=otherAuthors;
+  const writers=[...new Set(fresh.map(a=>a.author_id))];
+  const writer=writers[Math.floor(Math.random()*writers.length)];
+  const writerArticles=fresh.filter(a=>a.author_id===writer);
+  randomEssay=writerArticles[Math.floor(Math.random()*writerArticles.length)];
+  sampledUrls.add(randomEssay.url);
+  lastSampledAuthor=writer;
+  renderRandomEssay();
+ }
  function renderPickups(){
   const block=$('pickup-section');
   const narrowed=state.q||state.cat||state.author||state.member||state.song||state.platform||state.from||state.to;
@@ -82,6 +126,7 @@
   $('article-view').hidden=state.view!=='articles';$('authors-view').hidden=state.view!=='authors';$('about-view').hidden=state.view!=='about';
   if(state.view==='authors'){renderAuthors();return;}
   if(state.view!=='articles')return;
+  renderRandomEssay();
   $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
   renderPickups();
   $('categories').innerHTML=['',...D.categories].map(c=>`<button class="category ${state.cat===c?'active':''}" aria-pressed="${state.cat===c}" data-category="${esc(c)}"><span>${esc(c||'すべての記事')}</span><span class="num">${D.articles.filter(a=>inGroup(a)&&(!c||a.categories.includes(c))).length}</span></button>`).join('');
@@ -119,6 +164,13 @@
  $('query').addEventListener('input',()=>{state.q=$('query').value;limit=30;render();});
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));
  $('reshuffle').addEventListener('click',()=>{reshuffle();limit=30;render();});
+ $('random-essay-trigger').addEventListener('click',drawRandomEssay);
+ $('random-essay-next').addEventListener('click',drawRandomEssay);
+ $('random-essay-close').addEventListener('click',()=>{
+  randomEssay=null;
+  renderRandomEssay();
+  $('random-essay-trigger').focus();
+ });
  $('author-reshuffle').addEventListener('click',()=>{reshuffleAuthors();if(state.view==='authors')renderAuthors();});
  $('author-search-form').addEventListener('submit',e=>e.preventDefault());
  $('author-query').addEventListener('input',()=>{
