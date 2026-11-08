@@ -78,15 +78,24 @@ def build(public=False):
   template=template.replace(chr(34)+asset+chr(34),chr(34)+asset+'?v='+version+chr(34))
  def fallback(rows):return '<ul>'+''.join('<li><a href="'+html.escape(a['url'],quote=True)+'">'+html.escape(a['title'])+'</a></li>' for a in rows)+'</ul>'
  (out/'index.html').write_text(template.replace('<!-- FALLBACK -->',fallback(articles[:40])))
+ base=settings.get('base_url','').rstrip('/')
  ad=out/'authors';shutil.rmtree(ad,ignore_errors=True);ad.mkdir()
  for a in authors:
-  page=template.replace('<head>','<head><base href="../">').replace('<title>坂道考察アンテナ｜個人の考察・批評・感想を読む</title>','<title>'+html.escape(a['name'])+'の記事｜坂道考察アンテナ</title>')
+  page=template.replace('<head>','<head><base href="../">')
+  author_title=html.escape(a['name']+'の記事｜坂道考察アンテナ')
+  author_desc=html.escape(a['name']+'の坂道シリーズに関する考察・批評・感想記事を探せます。元のブログやnoteへのリンクを掲載しています。',quote=True)
+  author_url=base+'/authors/'+urllib.parse.quote(a['id'],safe='')+'.html' if base else ''
+  page=re.sub(r'<title>[^<]*</title>','<title>'+author_title+'</title>',page,count=1)
+  page=re.sub(r'<meta name="description" content="[^"]*">','<meta name="description" content="'+author_desc+'">',page,count=1)
+  if author_url:
+   page=re.sub(r'<link rel="canonical" href="[^"]*">','<link rel="canonical" href="'+html.escape(author_url,quote=True)+'">',page,count=1)
+  else:
+   page=re.sub(r'<link rel="canonical" href="[^"]*">','',page,count=1)
   page=page.replace('</head>','<script>window.PRESET_AUTHOR='+json.dumps(a['id'])+';</script></head>')
   page=page.replace('<!-- FALLBACK -->',fallback([x for x in articles if x['author_id']==a['id']]))
   (ad/(a['id']+'.html')).write_text(page)
  (out/'contact.html').write_text((ROOT/'web/contact.html').read_text().replace('{{CONTACT_URL}}',html.escape(settings.get('contact_url',''),quote=True)))
  (out/'.nojekyll').touch()
- base=settings.get('base_url','').rstrip('/')
  if base:
   pages=[base+'/',base+'/contact.html']+[base+'/authors/'+a['id']+'.html' for a in authors]
   (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(u)+'</loc></url>' for u in pages)+'</urlset>')
