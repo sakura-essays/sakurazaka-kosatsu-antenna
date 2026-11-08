@@ -90,6 +90,11 @@
 .group-tab.active::before{visibility:visible}
 .group-tab .num{margin-left:0;opacity:1;font-weight:400;font-size:10px}
 .group-label{background:var(--group-bg,#eeeee9);color:var(--group-ink,#535a55);border-radius:999px;padding:4px 8px}
+/* Writer categories reflect collected articles; preserve all relevant groups. */
+.writer-groups{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 10px;font-size:10px;line-height:1.5}
+.writer-groups .group-label{display:inline-block;max-width:100%;font-weight:600;white-space:normal}
+.writer-group-none{color:var(--muted);font-weight:400}
+
 .search-form,.author-profile,.writer-card,.random-essay{border-radius:12px}
 .search-form{margin-bottom:26px;padding:16px 20px}
 .search-box{border-radius:10px;overflow:visible}

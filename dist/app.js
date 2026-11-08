@@ -31,6 +31,13 @@
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46','青葉坂46'];
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
  const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata','青葉坂46':'aoba'};
+ // Writer badges describe collected essay topics, not a writer's exclusive affiliation.
+ const writerGroupSets=new Map(D.authors.map(a=>[a.id,new Set()]));
+ for(const article of D.articles){
+   const groups=writerGroupSets.get(article.author_id);
+   if(groups) for(const group of articleGroups(article)) if(allGroups.includes(group)) groups.add(group);
+ }
+ const writerGroups=id=>allGroups.filter(group=>writerGroupSets.get(id)?.has(group));
  const toneFor=a=>articleGroups(a).length===1?(tones[articleGroups(a)[0]]||'neutral'):'neutral';
  // Relations use published metadata only. Require a concrete title-level match;
  // group/category overlap alone can never create a recommendation.
@@ -180,7 +187,7 @@
   );
   $('author-result-count').textContent=`${matching.length}人の書き手`;
   $('author-clear').hidden=!writerQuery;
-  $('authors-grid').innerHTML=matching.length?matching.map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join(''):'<p class="author-empty">該当する書き手が見つかりません。別の名前やユーザーIDで検索してください。</p>';
+  $('authors-grid').innerHTML=matching.length?matching.map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><div class="writer-groups" aria-label="収集記事で扱うグループ">${writerGroups(a.id).map(g=>`<span class="group-label tone-${tones[g]||'neutral'}">${esc(g)}</span>`).join('')||'<span class="writer-group-none">グループ別の収集記事なし</span>'}</div><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join(''):'<p class="author-empty">該当する書き手が見つかりません。別の名前やユーザーIDで検索してください。</p>';
  }
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
