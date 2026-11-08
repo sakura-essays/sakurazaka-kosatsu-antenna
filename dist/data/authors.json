@@ -4,9 +4,10 @@
     "name": "Haru",
     "url": "https://note.com/halu1023",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -26,11 +27,11 @@
     "name": "KEI",
     "url": "https://note.com/kkwus_nmomo",
     "platform": "note",
-    "count": 13,
+    "count": 15,
     "themes": [
-      "ライブ・コンサート",
       "メンバー考察・人物論",
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "ライブ・コンサート"
     ]
   },
   {
@@ -50,7 +51,7 @@
     "name": "RYO",
     "url": "https://note.com/modern_willet231",
     "platform": "note",
-    "count": 21,
+    "count": 22,
     "themes": [
       "楽曲・歌詞考察",
       "そこ曲がったら、櫻坂？",
@@ -86,7 +87,7 @@
     "name": "TOKIOは一日にして成らず",
     "url": "https://tkfuji.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 25,
+    "count": 30,
     "themes": [
       "ファンダム・ファン文化",
       "楽曲・歌詞考察",
@@ -98,7 +99,7 @@
     "name": "cathouse",
     "url": "https://note.com/cathouse",
     "platform": "note",
-    "count": 25,
+    "count": 24,
     "themes": [
       "楽曲・歌詞考察",
       "ライブ・コンサート",
@@ -110,11 +111,11 @@
     "name": "driftwood",
     "url": "https://note.com/driftwood",
     "platform": "note",
-    "count": 7,
+    "count": 19,
     "themes": [
       "楽曲・歌詞考察",
       "メンバー考察・人物論",
-      "ライブ・コンサート"
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -122,11 +123,11 @@
     "name": "ka2の語り場",
     "url": "https://note.com/kn_ykh_1985",
     "platform": "note",
-    "count": 2,
+    "count": 10,
     "themes": [
-      "グループ運営・アイドル論",
       "メンバー考察・人物論",
-      "ファンダム・ファン文化"
+      "ライブ・コンサート",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -238,11 +239,11 @@
     "name": "てんさい",
     "url": "https://hi0220.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 12,
+    "count": 11,
     "themes": [
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
-      "ダンス・パフォーマンス考察"
+      "ライブ・コンサート"
     ]
   },
   {
@@ -273,11 +274,11 @@
     "name": "まりも🇫🇮",
     "url": "https://note.com/malymo_rinne",
     "platform": "note",
-    "count": 16,
+    "count": 21,
     "themes": [
       "楽曲・歌詞考察",
-      "ライブ・コンサート",
-      "グループ運営・アイドル論"
+      "グループ運営・アイドル論",
+      "ライブ・コンサート"
     ]
   },
   {
@@ -297,7 +298,7 @@
     "name": "アイドルオタクの備忘録",
     "url": "https://rush283.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 5,
+    "count": 22,
     "themes": [
       "ライブ・コンサート",
       "グループ運営・アイドル論",
@@ -333,7 +334,7 @@
     "name": "ポタクのあれこれ。",
     "url": "https://ryouta-mizuking.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 11,
+    "count": 14,
     "themes": [
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
@@ -345,11 +346,11 @@
     "name": "ミリョク",
     "url": "https://note.com/kusofantasy",
     "platform": "note",
-    "count": 15,
+    "count": 22,
     "themes": [
       "メンバー考察・人物論",
       "そこ曲がったら、櫻坂？",
-      "ダンス・パフォーマンス考察"
+      "その他の感想・批評"
     ]
   },
   {
@@ -383,8 +384,8 @@
     "platform": "note",
     "count": 18,
     "themes": [
-      "グループ運営・アイドル論",
       "ライブ・コンサート",
+      "グループ運営・アイドル論",
       "ファンダム・ファン文化"
     ]
   },
@@ -405,9 +406,11 @@
     "name": "左間右郎",
     "url": "https://note.com/sama_migirou",
     "platform": "note",
-    "count": 9,
+    "count": 14,
     "themes": [
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "ライブ・コンサート",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -497,7 +500,7 @@
     "name": "通過儀礼",
     "url": "https://note.com/tsukagirei",
     "platform": "note",
-    "count": 17,
+    "count": 20,
     "themes": [
       "メンバー考察・人物論",
       "楽曲・歌詞考察",
@@ -509,7 +512,11 @@
     "name": "鈴木　健治郎",
     "url": "https://note.com/suzukikenjiro",
     "platform": "note",
-    "count": 0,
-    "themes": []
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論",
+      "グループ運営・アイドル論",
+      "乃木坂工事中"
+    ]
   }
 ]
