@@ -417,6 +417,11 @@ def run(cache_dir=None):
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
         if a.get('content_warning') and not o.get('verified_nonfiction'):
             a['status'],a['reason']=a['content_warning']
+        # Creator essays without a title-specific Sakamichi group stay in the
+        # overall creator category, even when old records guessed Sakura.
+        if ('秋元康・制作者論' in a.get('categories',[])
+                and not detect_groups(a['title'],'',rules)):
+            a['groups']=[]
         if 'groups' in o:a['groups']=o['groups']
         stored_date=a.get('published_at') or ''
         parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')

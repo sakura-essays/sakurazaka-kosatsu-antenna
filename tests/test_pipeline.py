@@ -155,6 +155,17 @@ class Integration(unittest.TestCase):
   self.assertIn('秋元康・制作者論',row['categories'])
   collect.run(self.cache)
   self.assertEqual(self.rows()[0]['groups'],[])
+ def test_legacy_creator_group_does_not_fall_back_to_sakura(self):
+  old={'id':'legacy','url':'https://note.com/test/n/old','author_id':'test',
+       'title':'秋元康やめろ。でも曲は書け。――AKBを聴き直して分かったこと',
+       'published_at':'2026-01-01T00:00:00+00:00','status':'published',
+       'reason':'旧分類','categories':['グループ運営・アイドル論'],
+       'members':[],'songs':[],'groups':['櫻坂46']}
+  collect.write(self.root/'state/articles.json',[old]);collect.run(self.cache)
+  fixed=next(x for x in self.rows() if x['id']=='legacy')
+  self.assertEqual(fixed['status'],'published')
+  self.assertEqual(fixed['groups'],[])
+  self.assertIn('秋元康・制作者論',fixed['categories'])
  def test_explicit_empty_group_override_for_creator_essay(self):
   item='''<rss><channel><item><title>秋元康と櫻坂46の制作論</title>
   <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
