@@ -48,3 +48,6 @@
 @media(max-width:650px){.pickup-section{padding:19px 16px;margin-bottom:26px}.pickup-head{display:block}.pickup-head>p{margin-top:8px}.pickup-list{grid-template-columns:1fr;gap:20px}.pickup-cover{padding:18px 20px}.pickup-cover-title{font-size:22px}.pickup-body{padding:18px 20px}}
 @media(max-width:360px){.pickup-cover{padding:14px;gap:6px}.pickup-cover-title{font-size:19px}.pickup-cover-group,.pickup-cover-theme{font-size:9px}.pickup-body{padding:16px}}
 @media(prefers-reduced-motion:reduce){.pickup-link{transition:none}}
+
+/* Randomized author browsing: let visitors reshuffle without implying ranks. */
+#author-reshuffle{margin-top:10px;display:inline-flex;align-items:center;gap:7px}
