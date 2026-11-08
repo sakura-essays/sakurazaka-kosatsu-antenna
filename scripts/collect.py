@@ -142,12 +142,15 @@ def creator_focus(title,text=''):
                  '責任','役割','必要','離れ','関与','賛否','行き詰まり','未来','理由',
                  '影響','限界','矛盾','作詞','歌詞','プロデュース','制作',
                  '振付','演出','衣装','感覚','言葉','終活','変え','思う','について',
-                 'もの','仕事','関係','仕組み')
+                 'もの','仕事','関係','仕組み','レビュー','何を','予想','やめろ','書け','書く','凄さ','作れ','読む')
     if not any(word in t for word in perspective):return False
     if '秋元康' in t or '秋元さん' in t or '秋元p' in t:return True
+    if any(group in t for group in ('乃木坂','櫻坂','欅坂','日向坂','akb48','坂道')) and any(
+        focus in t for focus in ('表現は誰が作','誰が作っている','制作体制','制作者の役割')):
+        return True
     creators=('takahiro','今野義雄','茅野しのぶ','杉山勝彦','いしわたり淳治','池田一真')
     maker_terms=('制作','作詞','作曲','歌詞','振付','衣装','演出','プロデュース',
-                 '運営','映像','mv','楽曲','フォーメーション','表現')
+                 '運営','映像','mv','楽曲','フォーメーション','表現','振り付け','いなかったら','読む')
     return (any(name in t for name in creators)
             and any(word in t for word in maker_terms)
             and any(group in norm(title+' '+text) for group in
@@ -414,7 +417,7 @@ def run(cache_dir=None):
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
         if a.get('content_warning') and not o.get('verified_nonfiction'):
             a['status'],a['reason']=a['content_warning']
-        if o.get('groups'):a['groups']=o['groups']
+        if 'groups' in o:a['groups']=o['groups']
         stored_date=a.get('published_at') or ''
         parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')
         if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or (not a.get('groups') and '秋元康・制作者論' not in a.get('categories',[]))):

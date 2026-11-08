@@ -38,6 +38,11 @@ class Rules(unittest.TestCase):
                      ('AKB48 新曲の感想','')]:
    self.assertFalse(collect.creator_focus(title,text))
    self.assertNotIn('秋元康・制作者論',collect.classify(title,text,RULES)[2])
+ def test_production_magazine_title_variants(self):
+  for title in ['秋元康やめろ。でも曲は書け。――AKBを聴き直して分かったこと',
+                'TAKAHIROがいなかったら、櫻坂46はどうなっていたのか',
+                '櫻坂46の表現は誰が作っているのか']:
+   self.assertTrue(collect.creator_focus(title),title)
  def test_non_akimoto_creator_requires_group(self):
   self.assertTrue(collect.creator_focus('茅野しのぶのAKB48衣装制作を考察'))
   self.assertFalse(collect.creator_focus('茅野しのぶの衣装制作を考察'))
@@ -149,6 +154,15 @@ class Integration(unittest.TestCase):
   self.assertEqual(row['groups'],[])
   self.assertIn('秋元康・制作者論',row['categories'])
   collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['groups'],[])
+ def test_explicit_empty_group_override_for_creator_essay(self):
+  item='''<rss><channel><item><title>秋元康と櫻坂46の制作論</title>
+  <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
+  <description>グループの制作</description></item></channel></rss>'''.encode()
+  (self.cache/'test.xml').write_bytes(item)
+  collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'groups':[]}}})
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'published')
   self.assertEqual(self.rows()[0]['groups'],[])
  def test_foreign_author_skipped(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'/test/n/',b'/other/n/'));collect.run(self.cache);self.assertEqual(self.rows(),[])
