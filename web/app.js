@@ -11,6 +11,16 @@
  const day=s=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(s));
  let state={},limit=30;
  let randomRanks=new Map();
+ // Keep one stable randomized author order per page load, until explicitly remixed.
+ let shuffledAuthors=[];
+ function reshuffleAuthors(){
+  shuffledAuthors=[...D.authors];
+  for(let i=shuffledAuthors.length-1;i>0;i--){
+   const j=Math.floor(Math.random()*(i+1));
+   [shuffledAuthors[i],shuffledAuthors[j]]=[shuffledAuthors[j],shuffledAuthors[i]];
+  }
+ }
+ reshuffleAuthors();
  function reshuffle(){const items=[...D.articles];for(let i=items.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[items[i],items[k]]=[items[k],items[i]];}randomRanks=new Map(items.map((a,i)=>[a.url,i]));}
  reshuffle();
  const controls=['author','member','song','platform','from','to','sort'];
@@ -55,11 +65,14 @@
  function save(){const p=new URLSearchParams();Object.entries(state).forEach(([k,v])=>{if(v)p.set(k,v)});if(window.PRESET_AUTHOR&&!state.author)p.set('author','');history.pushState(null,'','?'+p.toString());render();}
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
  function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
+ function renderAuthors(){
+  $('authors-grid').innerHTML=shuffledAuthors.filter(a=>!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x))).map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join('');
+ }
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
   document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===state.view);if(a.dataset.view===state.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   $('article-view').hidden=state.view!=='articles';$('authors-view').hidden=state.view!=='authors';$('about-view').hidden=state.view!=='about';
-  if(state.view==='authors'){$('authors-grid').innerHTML=D.authors.filter(a=>!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x))).map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join('');return;}
+  if(state.view==='authors'){renderAuthors();return;}
   if(state.view!=='articles')return;
   $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
   renderPickups();
@@ -87,7 +100,7 @@
  const errors=D.status.feeds.filter(f=>f.status==='error').length;
  $('notice').textContent=(D.settings.public_release?'RSSを定期確認。公開日を基準に記事を表示しています。':'確認用サイトです。一般公開・定期更新はまだ開始していません。')+(errors?` 現在 ${errors} 件の取得エラーがあります。既存記事は保持しています。`:'')+(Date.now()-new Date(D.status.attempted_at).getTime()>86400000?' 最終取得から24時間以上経過しています。':'');
  $('updated').textContent=`最終取得：${date(D.status.attempted_at)} ${new Intl.DateTimeFormat('ja-JP',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit'}).format(new Date(D.status.attempted_at))} JST`;
- $('authors-grid').innerHTML=D.authors.filter(a=>!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x))).map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join('');
+ renderAuthors();
  const contact=D.settings.contact_url;const repo=D.settings.repository_url;
  $('contact').innerHTML=contact?`<p><a href="${url(contact)}" target="_blank" rel="noopener">お問い合わせ・掲載取り下げ窓口 ↗</a></p>`:'<p>現在は確認用サイトのため、受付窓口は未開設です。一般公開前に運営者の連絡窓口を設定します。</p>';
  if(repo)$('contact').insertAdjacentHTML('beforeend',`<p><a href="${url(repo+'/issues/new/choose')}" target="_blank" rel="noopener">書き手の推薦・訂正を申請する ↗</a>（GitHubアカウントが必要です。個人情報は記載しないでください。）</p>`);
@@ -98,6 +111,7 @@
  $('query').addEventListener('input',()=>{state.q=$('query').value;limit=30;render();});
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));
  $('reshuffle').addEventListener('click',()=>{reshuffle();limit=30;render();});
+ $('author-reshuffle').addEventListener('click',()=>{reshuffleAuthors();if(state.view==='authors')renderAuthors();});
  $('reset').addEventListener('click',reset);$('more').addEventListener('click',()=>{limit+=30;render();});
  $('past-shortcut').addEventListener('click',()=>{const d=new Date();d.setMonth(d.getMonth()-3);state.to=day(d.toISOString());state.sort='new';state.view='articles';limit=30;sync();save();});
  window.addEventListener('popstate',readState);readState();
