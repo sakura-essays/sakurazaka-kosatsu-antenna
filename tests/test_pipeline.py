@@ -68,6 +68,29 @@ class Integration(unittest.TestCase):
   restored=next(a for a in self.rows() if a['id']=='legacy')
   self.assertEqual(restored['status'],'published')
   self.assertEqual(restored['groups'],['乃木坂46'])
+ def test_previous_published_survives_changed_description(self):
+  old={'id':'legacy','url':'https://note.com/test/n/abc','author_id':'test',
+       'title':'櫻坂46 MV','published_at':'2026-01-01T00:00:00+00:00',
+       'status':'published','reason':'管理者承認済み','categories':['楽曲・歌詞考察'],
+       'members':[],'songs':[],'groups':['櫻坂46']}
+  collect.write(self.root/'state/articles.json',[old])
+  rules=copy.deepcopy(RULES)
+  rules['group_rules']={}
+  rules['members']=[]
+  rules['songs']=[]
+  collect.write(self.root/'config/rules.json',rules)
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'published')
+ def test_previously_published_remains_published(self):
+  old={'id':'legacy','url':'https://note.com/test/n/abc','author_id':'test',
+       'title':'櫻坂46 MV','published_at':'2026-01-01T00:00:00+00:00',
+       'status':'published','reason':'管理者承認済み','categories':['楽曲・歌詞考察'],
+       'members':[],'songs':[],'groups':['櫻坂46']}
+  collect.write(self.root/'state/articles.json',[old])
+  (self.cache/'test.xml').write_bytes(RSS.replace(b'\xe6\xab\xbb\xe5\x9d\x8246 MV',b'Unrelated'))
+  collect.run(self.cache)
+  # Changed titles are intentionally re-evaluated instead of whitelisted.
+  self.assertEqual(self.rows()[0]['status'],'excluded')
  def test_foreign_author_skipped(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'/test/n/',b'/other/n/'));collect.run(self.cache);self.assertEqual(self.rows(),[])
 if __name__=='__main__':unittest.main()

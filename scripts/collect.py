@@ -202,6 +202,11 @@ def run(cache_dir=None):
                 if published:status=override.get('status',status)
                 if status not in ('published','pending','excluded'):raise ValueError('Invalid article status override')
                 prev=records.get(u,{})
+                # Keep an already published article visible after dictionary changes.
+                # Explicit administrator status overrides always take precedence.
+                if (prev.get('status')=='published' and status!='published'
+                        and 'status' not in override and prev.get('title')==item['title']):
+                    status,reason='published','以前の公開判定を維持'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
                 count+=1
             state[sid]={'etag':headers.get('ETag'),'modified':headers.get('Last-Modified'),'last_success':stamp}
@@ -267,6 +272,9 @@ def run(cache_dir=None):
                 override=overrides.get('articles',{}).get(u,{})
                 if pub:status=override.get('status',status)
                 prev=records.get(u,{})
+                if (prev.get('status')=='published' and status!='published'
+                        and 'status' not in override and prev.get('title')==item['title']):
+                    status,reason='published','以前の公開判定を維持'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
                                 url=u,title=item['title'],author_id=sid,
                                 published_at=prev.get('published_at') or pub,
