@@ -1,0 +1,50 @@
+'use strict';
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const {run,article}=require('./test_pickup_cards.js');
+const make=(id,title,extras={})=>({...article(id,['櫻坂46'],['楽曲・歌詞考察'],title),...extras});
+const source=make('source','「静寂の暴力」のコールを考える',{songs:['静寂の暴力']});
+const same=make('same','静寂の暴力の沈黙',{songs:['静寂の暴力']});
+const other=make('other','静寂の暴力のパフォーマンス',{songs:['静寂の暴力'],author_id:'different'});
+const duplicate={...source,url:source.url+'?from=share'};
+const unrelated=make('unrelated','櫻坂46の新しいライブ');
+const incidental=make('incidental','新曲を聴いた感想',{songs:['静寂の暴力']});
+const r=run([source,same,other,duplicate,unrelated,incidental],[]);
+const selected=r.related(source);
+assert.equal(selected.length,2);
+assert.equal(selected[0].article.author_id,'different','equally direct matches prioritize another voice');
+assert.ok(selected.every(x=>x.article.url!==source.url&&x.article.url!==duplicate.url));
+assert.ok(selected.every(x=>x.reason==='共通の楽曲：静寂の暴力'));
+assert.equal(r.related(unrelated).length,0,'group/category alone never creates a relation');
+assert.equal(r.related(incidental).length,0,'incidental RSS entities need title evidence');
+assert.match(r.element('articles').innerHTML,/<details class="related"><summary>関連記事を見る/);
+const noMatches=run([unrelated],[]);
+assert.doesNotMatch(noMatches.element('articles').innerHTML,/class="related"/);
+const person=make('p','藤吉夏鈴の表情',{members:['藤吉夏鈴']});
+const personOther=make('po','藤吉夏鈴の沈黙',{members:['藤吉夏鈴'],author_id:'voice'});
+assert.match(run([person,personOther],[]).related(person)[0].reason,/共通のメンバー/);
+const tiny=make('tiny','「元凶」の歌詞',{songs:['元凶']});
+const metaphor=make('metaphor','運営こそが問題の元凶',{songs:['元凶'],author_id:'metaphor'});
+assert.equal(run([tiny,metaphor],[]).related(tiny).length,0,'short song names require quotation marks');
+const many=Array.from({length:8},(_,i)=>make('many'+i,'静寂の暴力の視点'+i,{songs:['静寂の暴力'],author_id:'voice'+i}));
+assert.equal(run([source,...many],[]).related(source).length,3,'at most three related links');
+const neutral=make('neutral','制作現場の話',{groups:[],categories:['秋元康・制作者論']});
+assert.match(run([neutral],[]).element('articles').innerHTML,/tone-neutral/);
+const actual=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../dist/data/articles.json')));
+const before=JSON.stringify(actual);
+const production=run(actual,[]);
+for(const a of actual.slice(0,100)){
+ const rows=production.related(a);
+ assert.ok(rows.length<=3);
+ assert.equal(new Set(rows.map(x=>x.article.url)).size,rows.length);
+ assert.ok(rows.every(x=>x.article.url!==a.url));
+}
+assert.equal(JSON.stringify(actual),before,'relations never mutate original metadata or dates');
+for(const term of ['静寂の暴力','齋藤飛鳥','世代交代']){
+ const a=actual.find(a=>a.title.includes(term));
+ console.log(JSON.stringify({source:a.title,related:production.related(a).map(x=>({title:x.article.title,author:x.article.author_id,reason:x.reason}))}));
+}
+console.log('Related articles: identity, evidence, author preference, limits, no matches, metadata integrity: passed');
+const programA=make('program-a','「そこ曲がったら、櫻坂？」の今回の感想');
+const programB=make('program-b','「そこ曲がったら、櫻坂？」の別の回');
+assert.equal(run([programA,programB],[]).related(programA).length,0,'a program name alone is not a specific shared subject');

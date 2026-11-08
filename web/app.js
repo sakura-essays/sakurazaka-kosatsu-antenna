@@ -30,6 +30,60 @@
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46'];
  const articlesByUrl=new Map(D.articles.map(a=>[a.url,a]));
+ const tones={'乃木坂46':'nogi','櫻坂46':'sakura','日向坂46':'hinata'};
+ const toneFor=a=>articleGroups(a).length===1?(tones[articleGroups(a)[0]]||'neutral'):'neutral';
+ // Relations use published metadata only. Require a concrete title-level match;
+ // group/category overlap alone can never create a recommendation.
+ const canonical=s=>{try{const u=new URL(s);return u.hostname==='note.com'&&/\/n\/(n[a-z0-9]+)/.test(u.pathname)?'note:'+u.pathname.match(/\/n\/(n[a-z0-9]+)/)[1]:u.origin+u.pathname.replace(/\/$/,'');}catch{return s;}};
+ const genericQuotes=new Set(['乃木坂46','櫻坂46','日向坂46','欅坂46','考察','ライブ','アイドル','感想','歌詞','楽曲','選抜','アンダー','乃木坂工事中','そこ曲がったら、櫻坂？','日向坂で会いましょう','グループ運営','メンバー考察','楽曲・歌詞考察',...D.categories].map(normalize));
+ const songNames=[...new Set(D.articles.flatMap(a=>a.songs||[]))];
+ const memberNames=[...new Set(D.articles.flatMap(a=>a.members||[]))];
+ const topicNames=['選抜制度','選抜発表','選抜とアンダー','ミーグリ','オンライン握手会','握手会','生歌','口パク','衣装デザイン','茅野しのぶ','秋元康の歌詞','卒業センター','センター交代','世代交代','合同オーディション','恋愛禁止','ファンのコール','コール問題','フォーメーション'];
+ const relationFeatures=new Map(D.articles.map(a=>{
+  const title=normalize(a.title);
+  const quotes=[...a.title.matchAll(/[「『“\"]([^「」『』“”\"]+)[」』”\"]/g)].map(m=>m[1].trim());
+  const quoted=new Set(quotes.map(normalize));
+  return [a.url,{
+   songs:songNames.filter(s=>{const n=normalize(s);return n.length>=3?title.includes(n):quoted.has(n);}),
+   members:memberNames.filter(m=>title.includes(normalize(m))),
+   phrases:quotes.filter(q=>normalize(q).length>=5&&!genericQuotes.has(normalize(q))),
+   topics:topicNames.filter(t=>title.includes(normalize(t)))
+  }];
+ }));
+ const relationCache=new Map();
+ function relatedArticles(a){
+  if(relationCache.has(a.url))return relationCache.get(a.url);
+  const source=relationFeatures.get(a.url),seen=new Set([canonical(a.url)]),candidates=[];
+  for(const b of D.articles){
+   if(seen.has(canonical(b.url))||!byId[b.author_id])continue;
+   const target=relationFeatures.get(b.url);
+   const common=key=>source[key].filter(v=>target[key].some(t=>normalize(t)===normalize(v)));
+   const songs=common('songs'),members=common('members'),phrases=common('phrases'),topics=common('topics');
+   const group=articleGroups(a).some(g=>articleGroups(b).includes(g));
+   const category=a.categories.some(c=>b.categories.includes(c));
+   let weight=0,reason='';
+   if(songs.length){weight=100;reason='共通の楽曲：'+songs[0];}
+   else if(members.length){weight=70;reason='共通のメンバー：'+members[0];}
+   else if(phrases.length){weight=80;reason='タイトルの共通語：'+phrases[0];}
+   else if(topics.length&&group&&category){weight=40;reason='共通のテーマ：'+topics[0];}
+   if(!weight)continue;
+   candidates.push({article:b,reason,weight:weight+(group?3:0)+(category?2:0),other:b.author_id!==a.author_id});
+  }
+  // Prefer other voices within a comparable level of direct relevance.
+  candidates.sort((x,y)=>Math.floor(y.weight/30)-Math.floor(x.weight/30)||Number(y.other)-Number(x.other)||y.weight-x.weight||y.article.published_at.localeCompare(x.article.published_at)||x.article.url.localeCompare(y.article.url));
+  const selected=[],writers=new Set();
+  for(const distinct of [true,false])for(const row of candidates){
+   const b=row.article,key=canonical(b.url);
+   if(selected.length===3)break;
+   if(seen.has(key)||(distinct&&writers.has(b.author_id)))continue;
+   selected.push(row);seen.add(key);writers.add(b.author_id);
+  }
+  relationCache.set(a.url,selected);return selected;
+ }
+ function relatedMarkup(a){
+  const rows=relatedArticles(a);if(!rows.length)return '';
+  return `<details class="related"><summary>関連記事を見る <span class="related-count">${rows.length}件</span><span class="sr-only">：${esc(a.title)}</span></summary><div class="related-body"><p class="related-note">公開メタデータの共通点から。異なる書き手の視点も探せます。</p><ul>${rows.map(({article:b,reason})=>`<li><p class="related-reason">${esc(reason)}</p><a class="tracked-article related-title" data-author-id="${esc(b.author_id)}" data-article-title="${esc(b.title)}" href="${url(b.url)}" target="_blank" rel="noopener">${esc(b.title)}<span class="sr-only">（元記事を新しいタブで開く）</span></a><div class="related-meta"><a href="${esc(authorPath(b.author_id))}">${esc(byId[b.author_id].name)}</a><time datetime="${esc(b.published_at)}">${date(b.published_at)}</time></div></li>`).join('')}</ul></div></details>`;
+ }
  const picks=(D.pickups||[]).map(p=>({article:articlesByUrl.get(p.url),note:p.note})).filter(p=>p.article&&byId[p.article.author_id]);
  for(let i=picks.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[picks[i],picks[j]]=[picks[j],picks[i]];}
  // An opt-in, non-editorial way to encounter an archived essay. Choose a writer
@@ -109,7 +163,16 @@
  function sync(){ $('query').value=state.q;controls.forEach(id=>$(id).value=state[id]);if(controls.some(k=>k!=='sort'&&state[k]))document.querySelector('.filters').open=true;}
  function save(){const p=new URLSearchParams();Object.entries(state).forEach(([k,v])=>{if(v)p.set(k,v)});if(window.PRESET_AUTHOR&&!state.author)p.set('author','');history.pushState(null,'','?'+p.toString());render();}
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
- function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
+ function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label tone-${toneFor(a)}">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" aria-pressed="${state.cat===c}" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div>${relatedMarkup(a)}</article>`;}
+ function renderActiveFilters(){
+  const labels={group:'グループ',q:'検索',cat:'テーマ',author:'書き手',member:'メンバー',song:'楽曲',platform:'媒体',from:'開始日',to:'終了日'};
+  const active=Object.entries(labels).filter(([key])=>state[key]);
+  $('active-filters').hidden=!active.length;
+  $('active-filters').innerHTML=active.map(([key,label])=>{
+   const value=key==='author'?(byId[state.author]?.name||state.author):state[key];
+   return `<button type="button" class="filter-chip" data-clear-filter="${key}" aria-label="${esc(label+'：'+value+' の条件を解除')}">${esc(label)}：${esc(value)} <span aria-hidden="true">×</span></button>`;
+  }).join('');
+ }
  function renderAuthors(){
   const words=writerQuery.trim().split(/\s+/).filter(Boolean).map(normalize);
   const matching=shuffledAuthors.filter(a=>
@@ -127,7 +190,7 @@
   if(state.view==='authors'){renderAuthors();return;}
   if(state.view!=='articles')return;
   renderRandomEssay();
-  $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
+  $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" data-tone="${tones[g]||'neutral'}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
   renderPickups();
   $('categories').innerHTML=['',...D.categories].map(c=>`<button class="category ${state.cat===c?'active':''}" aria-pressed="${state.cat===c}" data-category="${esc(c)}"><span>${esc(c||'すべての記事')}</span><span class="num">${D.articles.filter(a=>inGroup(a)&&(!c||a.categories.includes(c))).length}</span></button>`).join('');
   let filtered=D.articles.filter(a=>{
@@ -145,6 +208,7 @@
   const has=state.group||state.q||state.cat||state.author||state.member||state.song||state.platform||state.from||state.to;
   $('list-title').textContent=has?'条件に合う記事':state.sort==='old'?'過去の記事':state.sort==='balanced'?'書き手を交互に':state.sort==='random'?'ランダムに読む':'新着記事';
   $('list-eyebrow').textContent=has?'EXPLORE ESSAYS':state.sort==='old'?'FROM THE ARCHIVE':state.sort==='random'?'DISCOVER AT RANDOM':'LATEST ESSAYS';
+  renderActiveFilters();
   $('result-count').textContent=`${filtered.length} 件${filtered.length>limit?` / ${limit} 件を表示`:''}`;
   $('articles').innerHTML=filtered.length?filtered.slice(0,limit).map(card).join(''):'<div class="empty"><p>この条件に合う記事はまだありません。</p><p>キーワードを短くするか、絞り込み条件を減らしてください。</p></div>';
   $('more').hidden=filtered.length<=limit;
@@ -159,7 +223,7 @@
  if(repo)$('contact').insertAdjacentHTML('beforeend',`<p><a href="${url(repo+'/issues/new/choose')}" target="_blank" rel="noopener">書き手の推薦・訂正を申請する ↗</a>（GitHubアカウントが必要です。個人情報は記載しないでください。）</p>`);
  $('feed-status').innerHTML=`<p>${D.status.successful_feeds} / ${D.status.total_feeds} フィード取得成功。各記事の公開日はRSS、または手動登録時に確認した日付に基づきます。</p><table class="status-table"><thead><tr><th>書き手</th><th>状態</th><th>最終成功日</th></tr></thead><tbody>${D.status.feeds.map(f=>`<tr><td>${esc(byId[f.id]?.name||f.id)}</td><td>${f.status==='error'?'取得失敗：'+esc(f.error):'取得成功'}</td><td>${date(f.last_success)}</td></tr>`).join('')}</tbody></table>`;
  document.addEventListener('click',e=>{const link=e.target.closest('a.tracked-article');if(!link||typeof window.gtag!=='function')return;const author=byId[link.dataset.authorId];window.gtag('event','article_click',{link_url:link.href,article_title:link.dataset.articleTitle||'',author_id:link.dataset.authorId||'',author_name:author?.name||''});});
- document.addEventListener('click',e=>{const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
+ document.addEventListener('click',e=>{const clear=e.target.closest('[data-clear-filter]');if(clear){state[clear.dataset.clearFilter]='';limit=30;sync();save();$('reset').focus();return;}const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();document.querySelector('.group-tab.active').focus();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();document.querySelector('.category.active').focus();return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
  $('search-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('query').value;limit=30;save();});
  $('query').addEventListener('input',()=>{state.q=$('query').value;limit=30;render();});
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));

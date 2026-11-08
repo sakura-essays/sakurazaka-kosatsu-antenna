@@ -15,8 +15,8 @@ function run(articles,pickups,search=''){
  const document={baseURI:'https://example.test/',getElementById:element,querySelector:()=>element('filters'),querySelectorAll:()=>[],addEventListener(k,f){(events[k]??=[]).push(f);}};
  const location={search};
  const context={document,location,history:{pushState(_,__,s){location.search=s;}},URL,URLSearchParams,Intl,Date,Math,window:{ANTENNA:{articles,authors,pickups,groups:['乃木坂46','櫻坂46','日向坂46'],categories:['楽曲・歌詞考察'],settings:{public_release:true},status:{feeds:[],attempted_at:new Date().toISOString(),successful_feeds:0,total_feeds:0}},addEventListener(){}}};
- vm.runInNewContext(app,context);
- return {element,html:()=>element('pickup-list').innerHTML,clickButton(id){const el=element(id);assert.equal(typeof el.events.click,'function',id+' click listener');el.events.click();},clickGroup(group){for(const f of events.click)f({target:{closest(selector){return selector==='[data-group]'?{dataset:{group}}:null;}}});}};
+ vm.runInNewContext(app.replace(" window.addEventListener('popstate'", " window.__testRelated=relatedArticles; window.__testFeatures=relationFeatures;\n window.addEventListener('popstate'"),context);
+ return {element,related:a=>context.window.__testRelated(a),features:context.window.__testFeatures,html:()=>element('pickup-list').innerHTML,clickButton(id){const el=element(id);assert.equal(typeof el.events.click,'function',id+' click listener');el.events.click();},clickGroup(group){for(const f of events.click)f({target:{closest(selector){return selector==='[data-group]'?{dataset:{group}}:null;}}});}};
 }
 const article=(id,groups,categories=['楽曲・歌詞考察'],title='元のタイトル')=>({id,url:'https://note.com/writer/n/'+id,title,author_id:'writer',published_at:'2026-01-01T00:00:00Z',groups,categories,members:[],songs:[]});
 const cases=[['乃木坂46','nogi'],['櫻坂46','sakura'],['日向坂46','hinata']];
@@ -93,3 +93,5 @@ assert.doesNotMatch(css,/url\s*\(/i,'no external image or font assets');
 assert.match(css,/aspect-ratio:16\/9/);
 assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
 console.log('Pickup cards + random archive: render, colors, escaping, opt-in, dates, category groups, close, author fairness: passed');
+
+module.exports={run,article};
