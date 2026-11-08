@@ -13,6 +13,7 @@
  let randomRanks=new Map();
  // Keep one stable randomized author order per page load, until explicitly remixed.
  let shuffledAuthors=[];
+ let writerQuery='';
  function reshuffleAuthors(){
   shuffledAuthors=[...D.authors];
   for(let i=shuffledAuthors.length-1;i>0;i--){
@@ -66,7 +67,14 @@
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
  function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div></article>`;}
  function renderAuthors(){
-  $('authors-grid').innerHTML=shuffledAuthors.filter(a=>!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x))).map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join('');
+  const words=writerQuery.trim().split(/\s+/).filter(Boolean).map(normalize);
+  const matching=shuffledAuthors.filter(a=>
+    (!state.group||D.articles.some(x=>x.author_id===a.id&&inGroup(x)))&&
+    words.every(w=>normalize(a.name+' '+a.id).includes(w))
+  );
+  $('author-result-count').textContent=`${matching.length}人の書き手`;
+  $('author-clear').hidden=!writerQuery;
+  $('authors-grid').innerHTML=matching.length?matching.map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join(''):'<p class="author-empty">該当する書き手が見つかりません。別の名前やユーザーIDで検索してください。</p>';
  }
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
@@ -112,6 +120,17 @@
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));
  $('reshuffle').addEventListener('click',()=>{reshuffle();limit=30;render();});
  $('author-reshuffle').addEventListener('click',()=>{reshuffleAuthors();if(state.view==='authors')renderAuthors();});
+ $('author-search-form').addEventListener('submit',e=>e.preventDefault());
+ $('author-query').addEventListener('input',()=>{
+  writerQuery=$('author-query').value;
+  if(state.view==='authors')renderAuthors();
+ });
+ $('author-clear').addEventListener('click',()=>{
+  writerQuery='';
+  $('author-query').value='';
+  renderAuthors();
+  $('author-query').focus();
+ });
  $('reset').addEventListener('click',reset);$('more').addEventListener('click',()=>{limit+=30;render();});
  $('past-shortcut').addEventListener('click',()=>{const d=new Date();d.setMonth(d.getMonth()-3);state.to=day(d.toISOString());state.sort='new';state.view='articles';limit=30;sync();save();});
  window.addEventListener('popstate',readState);readState();

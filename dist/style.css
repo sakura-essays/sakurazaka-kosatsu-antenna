@@ -51,3 +51,15 @@
 
 /* Randomized author browsing: let visitors reshuffle without implying ranks. */
 #author-reshuffle{margin-top:10px;display:inline-flex;align-items:center;gap:7px}
+
+/* Find writers by name or public profile ID, without losing shuffled order. */
+.author-search-form{margin-top:22px;max-width:640px}
+.author-search-form>label{display:block;font-size:12px;font-weight:600;margin-bottom:8px}
+.author-search-row{display:flex;align-items:center;gap:14px}
+#author-query{flex:1;min-width:0;width:100%;background:var(--paper);border:1px solid #d6d7d0;border-radius:3px;padding:11px 13px;font-size:16px;color:var(--ink)}
+#author-clear{flex-shrink:0}
+.author-search-meta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 18px;margin:10px 0 20px}
+#author-result-count{color:var(--muted);font-size:12px;margin:0}
+#author-reshuffle{margin:0}
+.author-empty{grid-column:1/-1;color:var(--muted);font-size:13px;background:var(--paper);border:1px solid var(--line);padding:26px}
+@media(max-width:600px){.author-search-form{margin-top:18px}.author-search-row{gap:10px}#author-query{font-size:16px}#author-clear{font-size:11px}}
