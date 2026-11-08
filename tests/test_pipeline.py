@@ -14,7 +14,18 @@ class Rules(unittest.TestCase):
  def test_body_related(self):self.assertEqual(collect.classify('あの夜に見たもの','櫻坂46のライブを見た感想です',RULES)[0],'published')
  def test_unrelated(self):self.assertEqual(collect.classify('今日のお昼ご飯','カレーを食べた。',RULES)[0],'excluded')
  def test_ambiguous(self):self.assertEqual(collect.classify('最近の暮らし','櫻坂のCDも買いました。',RULES)[0],'pending')
- def test_cross_group_hold(self):self.assertEqual(collect.classify('乃木坂46 ライブ感想','櫻坂にも触れる',RULES)[0],'pending')
+ def test_cross_group_uses_title(self):
+  self.assertEqual(collect.classify('乃木坂46 ライブ感想','櫻坂にも触れる',RULES)[0],'published')
+  self.assertEqual(collect.detect_groups('乃木坂46 ライブ感想','櫻坂にも触れる',RULES),['乃木坂46'])
+ def test_each_group(self):
+  self.assertEqual(collect.detect_groups('藤吉夏鈴の表現','',RULES),['櫻坂46'])
+  self.assertEqual(collect.detect_groups('井上和のセンター論','',RULES),['乃木坂46'])
+  self.assertEqual(collect.detect_groups('正源司陽子の歌唱','',RULES),['日向坂46'])
+  self.assertEqual(collect.detect_groups('乃木坂46と日向坂46','',RULES),['乃木坂46','日向坂46'])
+  self.assertEqual(collect.detect_groups('AKB48の衣装','',RULES),[])
+ def test_song_context(self):
+  self.assertEqual(collect.classify('帰り道は遠回りしたくなる 歌詞考察','',RULES)[0],'published')
+  self.assertEqual(collect.classify('乃木坂46 自己紹介','',RULES)[0],'pending')
  def test_english_song_false_match(self):self.assertFalse(collect.song_match('BAN',collect.norm('urban research')))
  def test_promotion_hold(self):self.assertEqual(collect.classify('櫻坂46 自己紹介','',RULES)[0],'pending')
  def test_canonical(self):self.assertEqual(collect.canonical('https://note.com/test/n/abc?utm_source=x#foo'),'https://note.com/test/n/abc')
@@ -47,6 +58,16 @@ class Integration(unittest.TestCase):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'2026',b'2099'));collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'pending')
  def test_absent_from_feed_retained(self):
   collect.run(self.cache);(self.cache/'test.xml').write_bytes(RSS.replace(b'/abc?',b'/def?'));collect.run(self.cache);self.assertEqual(len(self.rows()),2)
+ def test_legacy_other_group_reclassification(self):
+  old={'id':'legacy','url':'https://note.com/test/n/old','author_id':'test',
+       'title':'乃木坂46の楽曲考察','published_at':'2026-01-01T00:00:00+00:00',
+       'status':'pending','reason':'他グループ中心の可能性・比較内容の確認待ち',
+       'categories':['楽曲・歌詞考察'],'members':[],'songs':[]}
+  collect.write(self.root/'state/articles.json',[old])
+  collect.run(self.cache)
+  restored=next(a for a in self.rows() if a['id']=='legacy')
+  self.assertEqual(restored['status'],'published')
+  self.assertEqual(restored['groups'],['乃木坂46'])
  def test_foreign_author_skipped(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'/test/n/',b'/other/n/'));collect.run(self.cache);self.assertEqual(self.rows(),[])
 if __name__=='__main__':unittest.main()

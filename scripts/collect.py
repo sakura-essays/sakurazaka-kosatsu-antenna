@@ -86,23 +86,61 @@ def song_match(song,text):
     if re.fullmatch('[a-z]+',key):return bool(re.search(r'(?<![a-z])'+re.escape(key)+r'(?![a-z])',text))
     return key in text
 
+GROUP_ORDER=('乃木坂46','櫻坂46','日向坂46')
+
+def detect_groups(title,text,rules):
+    """Assign group(s) from the article title first; body text is only a fallback."""
+    t,b=norm(title),norm(text)
+    config=rules.get('group_rules',{})
+    title_matches=[]
+    body_matches=[]
+    for group in GROUP_ORDER:
+        spec=config.get(group,{})
+        keys=[norm(k) for k in spec.get('keywords',[])]
+        members=[norm(m) for m in spec.get('members',[])]
+        songs=spec.get('songs',[])
+        if (any(k in t for k in keys) or any(m in t for m in members)
+                or any(song_match(s,t) for s in songs)):
+            title_matches.append(group)
+        if any(k in b for k in keys):
+            body_matches.append(group)
+    if title_matches:return title_matches
+    # Several groups in the excerpt without a title clue cannot be attributed safely.
+    return body_matches if len(body_matches)==1 else []
+
 def classify(title,text,rules):
     t,b=norm(title),norm(text);whole=t+' '+b
     members=[m for m in rules['members'] if norm(m) in whole]
     songs=[s for s in rules['songs'] if song_match(s,whole)]
-    group=any(k in t for k in ['櫻坂','欅坂','sakurazaka','keyakizaka','そこさく','ちょこさく'])
+    for spec in rules.get('group_rules',{}).values():
+        for m in spec.get('members',[]):
+            if norm(m) in whole and m not in members:members.append(m)
+        for s in spec.get('songs',[]):
+            if song_match(s,whole) and s not in songs:songs.append(s)
+    groups=detect_groups(title,text,rules)
+    title_groups=detect_groups(title,'',rules)
+    body_groups=detect_groups('',text,rules)
     member_title=any(norm(m) in t for m in members)
     song_title=any(song_match(s,t) for s in songs)
-    body_group=any(k in b for k in ['櫻坂','欅坂','sakurazaka','keyakizaka'])
     analysis=any(norm(k) in whole for k in ['考察','感想','批評','レビュー','ライブ','歌詞','MV','ダンス','パフォーマンス'])
-    if any(k in t for k in ['自己紹介','このnoteについて','お知らせ','販売開始','商品紹介','アフィリエイト']):status,reason='pending','告知・自己紹介・宣伝の可能性'
-    elif group or member_title:status,reason='published','タイトルにグループ・メンバー・番組名'
-    elif song_title and (body_group or analysis):status,reason='published','楽曲名と関連文脈'
-    elif any(k in t for k in ['乃木坂','日向坂','アイマス','akb']) and not group and not member_title:status,reason='pending','他グループ中心の可能性・比較内容の確認待ち'
-    elif body_group and analysis:status,reason='published','RSS本文にグループ名と考察・感想の文脈'
-    elif body_group or members or song_title:status,reason='pending','関連の手掛かりはあるが主題が不明'
-    elif not text:status,reason='pending','RSS本文がなく判定材料不足'
-    else:status,reason='excluded','取得できたRSSの範囲で関連性なし（全文は未確認）'
+    if any(k in t for k in ['自己紹介','このnoteについて','お知らせ','販売開始','商品紹介','アフィリエイト']):
+        status,reason='pending','告知・自己紹介・宣伝の可能性'
+    elif title_groups:
+        # A song title alone is less convincing than a group/member/TV show.
+        explicit=any(norm(k) in t for spec in rules.get('group_rules',{}).values()
+                     for k in spec.get('keywords',[])) or member_title
+        if explicit or analysis or body_groups:
+            status,reason='published','タイトルに坂道グループ・メンバー・楽曲などの手掛かり'
+        else:
+            status,reason='pending','楽曲名のみで主題が不明'
+    elif groups and analysis:
+        status,reason='published','RSS本文に坂道グループ名と考察・感想の文脈'
+    elif groups or members or song_title:
+        status,reason='pending','関連の手掛かりはあるが主題が不明'
+    elif not text:
+        status,reason='pending','RSS本文がなく判定材料不足'
+    else:
+        status,reason='excluded','取得できたRSSの範囲で関連性なし（全文は未確認）'
     cats=[cat for cat,keys in rules['categories'].items() if any(norm(k) in whole for k in keys)]
     if member_title and 'メンバー考察・人物論' not in cats:cats.insert(0,'メンバー考察・人物論')
     if song_title and '楽曲・歌詞考察' not in cats:cats.append('楽曲・歌詞考察')
@@ -115,6 +153,16 @@ def run(cache_dir=None):
     blocked={canonical(u) for u in overrides.get('blocked_urls',[])}
     prior=read(ROOT/'state/articles.json',[])
     records={a['url']:a for a in prior if a['author_id'] in allowed and a['url'] not in blocked}
+    # Earlier releases curated Sakura/Keyaki only. Title clues override that
+    # legacy default, while group-ambiguous old articles keep their grouping.
+    for article in records.values():
+        article['groups']=article.get('groups') or detect_groups(article['title'],'',rules) or ['櫻坂46']
+        if (article.get('status')=='pending'
+                and article.get('reason')=='他グループ中心の可能性・比較内容の確認待ち'
+                and any(g in article['groups'] for g in ('乃木坂46','日向坂46'))):
+            article['status']='published'
+            article['reason']='対象拡張に伴い旧グループ保留記事を再分類'
+
     state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
     for source in sources:
         if source['id'] not in allowed:continue
@@ -154,7 +202,7 @@ def run(cache_dir=None):
                 if published:status=override.get('status',status)
                 if status not in ('published','pending','excluded'):raise ValueError('Invalid article status override')
                 prev=records.get(u,{})
-                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs)
+                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
                 count+=1
             state[sid]={'etag':headers.get('ETag'),'modified':headers.get('Last-Modified'),'last_success':stamp}
             log.update(status='ok',items=count,last_success=stamp);success+=1
@@ -225,7 +273,8 @@ def run(cache_dir=None):
                                 first_seen_at=prev.get('first_seen_at',stamp),
                                 last_seen_at=stamp,status=status,reason=reason,
                                 categories=override.get('categories',cats),
-                                members=members,songs=songs)
+                                members=members,songs=songs,
+                                groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]) or (['櫻坂46'] if '櫻坂' in magazine.get('name','') else []))
                 count+=1
             state[feed_id]={'etag':headers.get('ETag'),
                             'modified':headers.get('Last-Modified'),
@@ -271,9 +320,14 @@ def run(cache_dir=None):
                         published_at=pub.isoformat(),first_seen_at=stamp,
                         last_seen_at=stamp,status='published',
                         reason='管理者が元記事のタイトル・URL・公開日を照合して追加',
-                        categories=cats,members=members,songs=songs)
+                        categories=cats,members=members,songs=songs,
+                        groups=item.get('groups') or detect_groups(title,'',rules) or ['櫻坂46'])
         manually_added+=1
     if manually_added:print('Manually backfilled:',manually_added,flush=True)
+    # Do not publish ungrouped records during the scope expansion.
+    for a in records.values():
+        if not a.get('groups') and a['status']=='published':
+            a['status']='pending';a['reason']='対象グループを確認待ち'
     # Apply moderation also to articles no longer present in recent feeds.
     for u,a in records.items():
         o=overrides.get('articles',{}).get(u,{})

@@ -1,6 +1,6 @@
 """Publish metadata only; never copy review queues/feed bodies to dist."""
 import collections,html,json,os,pathlib,re,shutil,urllib.parse
-from collect import ROOT,read,write
+from collect import ROOT,read,write,detect_groups,GROUP_ORDER
 
 def sync_github_owner(settings):
  """Keep Pages and Issue URLs valid after a GitHub account rename."""
@@ -29,6 +29,9 @@ def build(public=False):
   if not re.fullmatch(r'https://github.com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+',settings.get('repository_url','')):raise ValueError('repository_url を設定してください')
   settings['public_release']=True
  articles=[a for a in read(ROOT/'state/articles.json',[]) if a['status']=='published']
+ rules=read(ROOT/'config/rules.json',{})
+ for a in articles:
+  a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']
  for a in articles:
   for key in ['status','reason','last_seen_at']:a.pop(key,None)
  sources=read(ROOT/'config/sources.json',[]);authors=[]
@@ -38,7 +41,7 @@ def build(public=False):
   own=[a for a in articles if a['author_id']==s['id']]
   authors.append({k:s[k] for k in ('id','name','url','platform')}|{'count':len(own),'themes':[c for c,n in collections.Counter(c for a in own for c in a['categories']).most_common(3)]})
  authors.sort(key=lambda a:a['name'])
- data={'articles':articles,'authors':authors,'settings':settings,'categories':list(read(ROOT/'config/rules.json',{})['categories']),'status':read(ROOT/'state/status.json',{})}
+ data={'articles':articles,'authors':authors,'settings':settings,'categories':list(rules['categories']),'groups':list(GROUP_ORDER),'status':read(ROOT/'state/status.json',{})}
  out=ROOT/'dist';out.mkdir(exist_ok=True)
  for p in (ROOT/'web').iterdir():shutil.copy2(p,out/p.name)
  write(out/'data/articles.json',articles);write(out/'data/authors.json',authors);write(out/'data/status.json',data['status'])
@@ -49,7 +52,7 @@ def build(public=False):
  (out/'index.html').write_text(template.replace('<!-- FALLBACK -->',fallback(articles[:40])))
  ad=out/'authors';shutil.rmtree(ad,ignore_errors=True);ad.mkdir()
  for a in authors:
-  page=template.replace('<head>','<head><base href="../">').replace('<title>櫻坂46考察アンテナ｜個人の考察・批評・感想を読む</title>','<title>'+html.escape(a['name'])+'の記事｜櫻坂46考察アンテナ</title>')
+  page=template.replace('<head>','<head><base href="../">').replace('<title>坂道考察アンテナ｜個人の考察・批評・感想を読む</title>','<title>'+html.escape(a['name'])+'の記事｜坂道考察アンテナ</title>')
   page=page.replace('</head>','<script>window.PRESET_AUTHOR='+json.dumps(a['id'])+';</script></head>')
   page=page.replace('<!-- FALLBACK -->',fallback([x for x in articles if x['author_id']==a['id']]))
   (ad/(a['id']+'.html')).write_text(page)
