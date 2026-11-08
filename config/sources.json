@@ -1918,5 +1918,104 @@
     "enabled": true,
     "article_policy": "review_required",
     "verification": "2026-11-08: noteで秋元康のプロデュース事業論とアイドル市場分析を確認。横断的なアイドル記事は記事ごと承認。"
+  },
+  {
+    "id": "siragen",
+    "name": "しらげん",
+    "url": "https://note.com/siragen",
+    "feed": "https://note.com/siragen/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "babuchi",
+    "name": "ばぶち",
+    "url": "https://note.com/babuchi",
+    "feed": "https://note.com/babuchi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "hearty_iris9009",
+    "name": "三鷹鞦韆",
+    "url": "https://note.com/hearty_iris9009",
+    "feed": "https://note.com/hearty_iris9009/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "keyaki3rd",
+    "name": "おしゃかな",
+    "url": "https://note.com/keyaki3rd",
+    "feed": "https://note.com/keyaki3rd/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "tamuraharuki",
+    "name": "たむら はるき",
+    "url": "https://note.com/tamuraharuki",
+    "feed": "https://note.com/tamuraharuki/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "shiho_yofukashi",
+    "name": "夜ふかしシフォン",
+    "url": "https://note.com/shiho_yofukashi",
+    "feed": "https://note.com/shiho_yofukashi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "r1242",
+    "name": "r1242（いくはら）",
+    "url": "https://note.com/r1242",
+    "feed": "https://note.com/r1242/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "hurohuro",
+    "name": "The Ailurus fulgens",
+    "url": "https://note.com/hurohuro",
+    "feed": "https://note.com/hurohuro/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "forest_bulky",
+    "name": "ばるきー",
+    "url": "https://note.com/forest_bulky",
+    "feed": "https://note.com/forest_bulky/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-08T14:45:52.245064+00:00",
+    "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
   }
 ]
