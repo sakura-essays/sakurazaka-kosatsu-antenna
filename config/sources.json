@@ -2017,5 +2017,16 @@
     "article_policy": "automatic",
     "verified_at": "2026-11-08T14:45:52.245064+00:00",
     "verification": "公開プロフィール・公開RSSと複数の実活動の考察・感想を確認。2026-11-08に管理者が登録を指示。"
+  },
+  {
+    "id": "yiyi_sakuradron",
+    "name": "櫻のポーリーヌ",
+    "url": "https://note.com/yiyi_sakuradron",
+    "feed": "https://note.com/yiyi_sakuradron/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-09",
+    "verification": "note公開プロフィール、および櫻坂46のMV・個人PVについての考察記事を複数確認。RSSはnote標準URLを設定（次回収集時に検証）。2026-11-09に管理者が登録を指示。"
   }
 ]
