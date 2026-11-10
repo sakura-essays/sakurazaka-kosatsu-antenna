@@ -34,7 +34,7 @@ def main():
   if action=='remove_article':overrides.setdefault('blocked_urls',[]).append(u)
   else:
    overrides['blocked_urls']=[x for x in overrides.get('blocked_urls',[]) if x!=u]
-   overrides.setdefault('articles',{})[u]={'status':'published' if action=='approve_article' else 'pending'}
+   overrides.setdefault('articles',{}).setdefault(u,{})['status']='published' if action=='approve_article' else 'pending'
    if action=='approve_article':overrides['articles'][u]['verified_nonfiction']=True
   write(ROOT/'config/overrides.json',overrides)
  else:raise ValueError('Unsupported action')

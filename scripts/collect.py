@@ -93,25 +93,46 @@ def fiction_guard(title,text):
     t=unicodedata.normalize('NFKC',title)
     b=unicodedata.normalize('NFKC',text or '')
     fiction=r'妄ツイ|妄リク|夢小説|創作小説|二次創作|夢日記|恋愛小説|短編小説|連載小説|妄想小説|妄想ストーリー'
-    criticism=r'批評|考察|レビュー|感想|文化|について|とは'
+    criticism=r'批評|考察|レビュー|感想|文化|について|とは|消費|倫理|規制|是非|問題|やめよう|書き手|界隈'
+    # A bracketed genre label remains fiction even if its subtitle says 感想.
+    if re.search(r'[【〖\[](?:妄ツイ|夢小説|連載小説)(?:[・/](?:妄ツイ|小説|連載小説|短編小説))*[】〗\]]',t):
+        return 'excluded','創作ジャンルの明示（記事単位）'
+    if re.match(r'^(?:【全文無料】)?脚本[「『]',t) and not re.search(r'(?:の|を)(?:考察|批評|感想|レビュー)',t):
+        return 'excluded','創作脚本の明示（記事単位）'
     if re.search(fiction,t) and not re.search(criticism,t):
         return 'excluded','創作作品の明示（記事単位）'
     if re.search(r'(?:この物語は|この作品は|ここから[^。]{0,40})(?:[^。]{0,40})フィクション|配役も架空|妄想の中で開催|メンバーとは何ら関係のない物語',b):
         return 'excluded','本文に架空の物語・公演である明示'
     # A real MV/drama may contain dialogue, romance and fictional characters.
     # Ambiguous fiction signals go to review, never straight to publication.
-    if (re.search(fiction,t+' '+b) or re.search(r'[〇○]{2}[「:：]',b)):
+    if (re.search(fiction,t+' '+b) or re.search(r'[〇○△×]{1,2}\s*[「:：]',b)):
         return 'pending','創作の手掛かりあり・批評や引用との区別を確認待ち'
     if re.search(r'第\s*[0-9０-９一二三四五六七八九十]+\s*話|幼馴染|幼なじみ|同棲',t) and not re.search(criticism,t):
         return 'pending','物語形式の可能性・実活動との関係を確認待ち'
     return None
 
 def publication_gate(source,title,text,status,reason,override):
+    # Holds/removals must win over both fiction warnings and old approvals.
+    if override.get('status') in ('pending','excluded'):
+        return override['status'],override.get('reason','管理者による記事単位の判定')
+    if override.get('reviewed_title') and override['reviewed_title']!=title:
+        return 'pending','確認後にタイトル変更・再確認待ち'
     guard=fiction_guard(title,text)
     if guard and not override.get('verified_nonfiction'):
         return guard
     if source.get('article_policy')=='review_required' and status=='published' and not (override.get('status')=='published' and override.get('verified_nonfiction')):
         return 'pending','創作混在の書き手・記事ごとの確認待ち'
+    return status,reason
+
+def rss_publication_gate(source,title,text,status,reason,override,previous=None):
+    status,reason=publication_gate(source,title,text,status,reason,override)
+    # A title, group/member name or isolated 感想 is not body evidence. Preserve
+    # established publications, but hold new entries with insufficient excerpts.
+    if (status=='published' and len(norm(text))<40
+            and not override.get('verified_nonfiction')
+            and not ((previous or {}).get('status')=='published'
+                     and (previous or {}).get('title')==title)):
+        return 'pending','RSS本文の判定材料不足・公開本文を確認待ち'
     return status,reason
 
 def detect_groups(title,text,rules):
@@ -201,11 +222,13 @@ def classify(title,text,rules):
     if guard:status,reason=guard
     return status,reason,cats or ['その他の感想・批評'],members,songs
 
-def run(cache_dir=None):
+def run(cache_dir=None, source_ids=None):
     now=dt.datetime.now(UTC);stamp=now.isoformat();rules=read(ROOT/'config/rules.json',{})
     sources=read(ROOT/'config/sources.json',[]);overrides=read(ROOT/'config/overrides.json',{})
     allowed={s['id'] for s in sources if s.get('enabled') and s['id'] not in overrides.get('blocked_authors',[])}
     blocked={canonical(u) for u in overrides.get('blocked_urls',[])}
+    selected=set(source_ids) if source_ids else allowed
+    if not selected <= allowed:raise ValueError('Selected source is unknown, disabled or blocked')
     prior=read(ROOT/'state/articles.json',[])
     records={a['url']:a for a in prior if a['author_id'] in allowed and a['url'] not in blocked}
     # Earlier releases curated Sakura/Keyaki only. Title clues override that
@@ -226,7 +249,7 @@ def run(cache_dir=None):
 
     state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
     for source in sources:
-        if source['id'] not in allowed:continue
+        if source['id'] not in selected:continue
         sid=source['id'];url=source['feed'];log={'id':sid,'checked_at':stamp};old=state.get(sid,{})
         try:
             if cache_dir:
@@ -268,7 +291,7 @@ def run(cache_dir=None):
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
-                status,reason=publication_gate(source,item['title'],item['text'],status,reason,override)
+                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev)
                 if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):
                     status,reason='pending','公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
@@ -287,7 +310,7 @@ def run(cache_dir=None):
     # author's general recent-25 RSS window. Preserve the original author ID.
     for magazine in read(ROOT/'config/magazine_feeds.json',[]):
         sid=magazine['author_id']
-        if sid not in allowed:continue
+        if sid not in selected:continue
         source=next(s for s in sources if s['id']==sid)
         feed=canonical(magazine['feed'])
         prefix=source['url'].rstrip('/')+'/m/'
@@ -342,7 +365,7 @@ def run(cache_dir=None):
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
-                status,reason=publication_gate(source,item['title'],item['text'],status,reason,override)
+                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev)
                 if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
                     status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
@@ -422,7 +445,7 @@ def run(cache_dir=None):
             a.setdefault('categories',[]).append('秋元康・制作者論')
         # Apply to retained records too, including ones outside the recent RSS.
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
-        if a.get('content_warning') and not o.get('verified_nonfiction'):
+        if a.get('content_warning') and not o.get('verified_nonfiction') and o.get('status') not in ('pending','excluded'):
             a['status'],a['reason']=a['content_warning']
         # Creator essays without a title-specific Sakamichi group stay in the
         # overall creator category, even when old records guessed Sakura.
@@ -437,9 +460,14 @@ def run(cache_dir=None):
     articles=sorted(records.values(),key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
     write(ROOT/'state/articles.json',articles);write(ROOT/'state/feeds.json',state)
     write(ROOT/'state/review.json',[a for a in articles if a['status']!='published'])
-    report={'attempted_at':stamp,'successful_feeds':success,'total_feeds':len(statuses),'feeds':statuses,'counts':{s:sum(a['status']==s for a in articles) for s in ('published','pending','excluded')}}
+    attempted_statuses=list(statuses)
+    if source_ids:
+        previous_logs=read(ROOT/'state/status.json',{}).get('feeds',[])
+        statuses=[f for f in previous_logs if f['id'] not in selected and f['id'] in allowed]+statuses
+    report={'attempted_at':stamp,'successful_feeds':sum(f['status'] in ('ok','unchanged') for f in statuses),'total_feeds':len(statuses),'feeds':statuses,'counts':{s:sum(a['status']==s for a in articles) for s in ('published','pending','excluded')}}
+    if source_ids:report.update(scope='selected',refreshed_source_ids=sorted(selected))
     write(ROOT/'state/status.json',report)
-    return 0 if success and success==len(statuses) else 2
+    return 0 if success and success==len(attempted_statuses) else 2
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--cache-dir',help='Development only: pre-fetched RSS files');a=p.parse_args();sys.exit(run(a.cache_dir))
+    p=argparse.ArgumentParser();p.add_argument('--cache-dir',help='Development only: pre-fetched RSS files');p.add_argument('--source-id',action='append',help='Refresh selected sources; retain other records and last feed checks');a=p.parse_args();sys.exit(run(a.cache_dir,a.source_id))

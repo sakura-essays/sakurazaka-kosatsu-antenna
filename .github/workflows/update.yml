@@ -51,6 +51,8 @@ jobs:
         id: collect
         continue-on-error: true
         run: python scripts/collect.py
+      - name: Stop unexpected public article losses
+        run: python scripts/check_release.py
       - name: Build metadata-only public site
         run: python scripts/build.py --public
       - name: Save cumulative records and moderation state

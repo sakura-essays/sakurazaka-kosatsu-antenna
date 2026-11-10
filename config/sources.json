@@ -2028,5 +2028,38 @@
     "article_policy": "automatic",
     "verified_at": "2026-11-09",
     "verification": "note公開プロフィール、および櫻坂46のMV・個人PVについての考察記事を複数確認。RSSはnote標準URLを設定（次回収集時に検証）。2026-11-09に管理者が登録を指示。"
+  },
+  {
+    "id": "holy_oxalis1429",
+    "name": "覚醒前の革命児",
+    "url": "https://note.com/holy_oxalis1429",
+    "feed": "https://note.com/holy_oxalis1429/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "verified_at": "2026-11-10",
+    "verification": "創作連載と青葉坂・坂道選抜への批評を公開本文で確認。書き手全体の公開承認ではなく記事ごとに確認。"
+  },
+  {
+    "id": "gam_note",
+    "name": "gam_note",
+    "url": "https://note.com/gam_note",
+    "feed": "https://note.com/gam_note/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "verified_at": "2026-11-10",
+    "verification": "本文で妄ツイ執筆を自己紹介し、実際の乃木坂の代打制度を論じる記事を確認。書き手全体の公開承認ではなく記事ごとに確認。"
+  },
+  {
+    "id": "skr_souken",
+    "name": "櫻総研",
+    "url": "https://note.com/skr_souken",
+    "feed": "https://note.com/skr_souken/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "verified_at": "2026-11-10",
+    "verification": "妄ツイ文化への批評を公開本文で確認。その他のアイドル論との混在を記事単位で確認。書き手全体の公開承認ではなく記事ごとに確認。"
   }
 ]

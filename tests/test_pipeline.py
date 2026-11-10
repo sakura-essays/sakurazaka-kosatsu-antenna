@@ -90,6 +90,20 @@ class Integration(unittest.TestCase):
   self.cache=self.root/'cache';self.cache.mkdir();(self.cache/'test.xml').write_bytes(RSS)
  def tearDown(self):self.mock.stop();self.tmp.cleanup()
  def rows(self):return collect.read(self.root/'state/articles.json',[])
+ def test_selected_refresh_preserves_other_sources_and_feed_status(self):
+  sources=collect.read(self.root/'config/sources.json',[])
+  sources.append({'id':'other','url':'https://note.com/other','feed':'https://note.com/other/rss','enabled':True})
+  collect.write(self.root/'config/sources.json',sources)
+  other={'id':'other','url':'https://note.com/other/n/old','author_id':'other','title':'乃木坂46の歌詞考察','published_at':'2025-01-01','status':'published','reason':'確認済み','categories':['楽曲・歌詞考察'],'groups':['乃木坂46']}
+  collect.write(self.root/'state/articles.json',[other])
+  collect.write(self.root/'state/status.json',{'feeds':[{'id':'other','checked_at':'2025-01-01','status':'ok','last_success':'2025-01-01'}]})
+  self.assertEqual(collect.run(self.cache,['test']),0)
+  self.assertEqual(next(a for a in self.rows() if a['author_id']=='other'),other)
+  report=collect.read(self.root/'state/status.json',{})
+  self.assertEqual(report['scope'],'selected');self.assertEqual(report['total_feeds'],2)
+  self.assertEqual(next(f for f in report['feeds'] if f['id']=='other')['checked_at'],'2025-01-01')
+ def test_selected_disabled_or_unknown_source_rejected(self):
+  with self.assertRaises(ValueError):collect.run(self.cache,['unknown'])
  def test_dedup_and_date(self):
   collect.run(self.cache);collect.run(self.cache);self.assertEqual(len(self.rows()),1);self.assertEqual(self.rows()[0]['published_at'],'2026-01-01T00:00:00+00:00')
   self.assertNotIn('text',self.rows()[0])
@@ -168,7 +182,7 @@ class Integration(unittest.TestCase):
  def test_group_neutral_creator_is_published(self):
   item='''<rss><channel><item><title>秋元康は今、いくつのアイドルをプロデュースしているのか？</title>
   <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
-  <description>作詞家の制作体制を検討</description></item></channel></rss>'''.encode()
+  <description>作詞家の制作体制を検討。多くのグループを同時に担当する制作体制が各楽曲の歌詞にどのような影響を及ぼすのか、過去の作品と比較しながら考察します。</description></item></channel></rss>'''.encode()
   (self.cache/'test.xml').write_bytes(item)
   collect.run(self.cache)
   row=self.rows()[0]
@@ -191,7 +205,7 @@ class Integration(unittest.TestCase):
  def test_explicit_empty_group_override_for_creator_essay(self):
   item='''<rss><channel><item><title>秋元康と櫻坂46の制作論</title>
   <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
-  <description>グループの制作</description></item></channel></rss>'''.encode()
+  <description>グループの制作体制を考察します。櫻坂46の歌詞や演出に関する具体的な作品を比較しながら、作詞家と制作チームの役割について検討します。</description></item></channel></rss>'''.encode()
   (self.cache/'test.xml').write_bytes(item)
   collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'groups':[]}}})
   collect.run(self.cache)
