@@ -111,7 +111,19 @@ def fiction_guard(title,text):
         return 'pending','物語形式の可能性・実活動との関係を確認待ち'
     return None
 
-def publication_gate(source,title,text,status,reason,override):
+def clear_nonfiction_title(title,rules):
+    """Identify article genre, never assess the quality of the essay."""
+    if not rules:
+        return False
+    t=norm(title)
+    essay_terms=('考察','批評','感想','レビュー','分析','解説','論評','振り返り','レポート','参戦記')
+    if not any(word in t for word in essay_terms):
+        return False
+    # A general essay-like word without a title-level Sakamichi/creator subject
+    # is too weak to release a creative writer's entry automatically.
+    return bool(detect_groups(title,'',rules) or creator_focus(title))
+
+def publication_gate(source,title,text,status,reason,override,rules=None):
     # Holds/removals must win over both fiction warnings and old approvals.
     if override.get('status') in ('pending','excluded'):
         return override['status'],override.get('reason','管理者による記事単位の判定')
@@ -121,11 +133,16 @@ def publication_gate(source,title,text,status,reason,override):
     if guard and not override.get('verified_nonfiction'):
         return guard
     if source.get('article_policy')=='review_required' and status=='published' and not (override.get('status')=='published' and override.get('verified_nonfiction')):
+        # Clear, on-topic essay titles are eligible regardless of writing quality.
+        # Fiction warnings above still take precedence. RSS excerpts get an
+        # additional length check in rss_publication_gate().
+        if clear_nonfiction_title(title,rules):
+            return 'published','創作混在の書き手・考察や感想と分かる見出し'
         return 'pending','創作混在の書き手・記事ごとの確認待ち'
     return status,reason
 
-def rss_publication_gate(source,title,text,status,reason,override,previous=None):
-    status,reason=publication_gate(source,title,text,status,reason,override)
+def rss_publication_gate(source,title,text,status,reason,override,previous=None,rules=None):
+    status,reason=publication_gate(source,title,text,status,reason,override,rules)
     # A title, group/member name or isolated 感想 is not body evidence. Preserve
     # established publications, but hold new entries with insufficient excerpts.
     if (status=='published' and len(norm(text))<40
@@ -291,7 +308,7 @@ def run(cache_dir=None, source_ids=None):
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
-                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev)
+                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev,rules)
                 if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):
                     status,reason='pending','公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
@@ -365,7 +382,7 @@ def run(cache_dir=None, source_ids=None):
                 if (prev.get('status')=='published' and status!='published'
                         and 'status' not in override and prev.get('title')==item['title']):
                     status,reason='published','以前の公開判定を維持'
-                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev)
+                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev,rules)
                 if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
                     status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
                 records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
@@ -422,7 +439,7 @@ def run(cache_dir=None, source_ids=None):
         if not title:raise ValueError('Empty manual article title')
         _,_,_,members,songs=classify(title,'',rules)
         manual_override=overrides.get('articles',{}).get(u,{})
-        status,reason=publication_gate(src,title,'','published','管理者が元記事のタイトル・URL・公開日を照合して追加',manual_override)
+        status,reason=publication_gate(src,title,'','published','管理者が元記事のタイトル・URL・公開日を照合して追加',manual_override,rules)
         records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
                         url=u,title=title,author_id=sid,
                         published_at=parsed_pub or pub.isoformat(),first_seen_at=stamp,
@@ -444,7 +461,7 @@ def run(cache_dir=None, source_ids=None):
         elif creator_focus(a['title']) and '秋元康・制作者論' not in a.get('categories',[]):
             a.setdefault('categories',[]).append('秋元康・制作者論')
         # Apply to retained records too, including ones outside the recent RSS.
-        a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o)
+        a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o,rules)
         if a.get('content_warning') and not o.get('verified_nonfiction') and o.get('status') not in ('pending','excluded'):
             a['status'],a['reason']=a['content_warning']
         # Creator essays without a title-specific Sakamichi group stay in the

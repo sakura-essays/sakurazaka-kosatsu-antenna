@@ -90,6 +90,13 @@ class Integration(unittest.TestCase):
   self.cache=self.root/'cache';self.cache.mkdir();(self.cache/'test.xml').write_bytes(RSS)
  def tearDown(self):self.mock.stop();self.tmp.cleanup()
  def rows(self):return collect.read(self.root/'state/articles.json',[])
+ def write_rss(self,title,body):
+  payload=RSS.replace('櫻坂46 MV'.encode(),title.encode()).replace(b'Test body',body.encode())
+  (self.cache/'test.xml').write_bytes(payload)
+ def require_review_for_test_author(self):
+  sources=collect.read(self.root/'config/sources.json',[])
+  sources[0]['article_policy']='review_required'
+  collect.write(self.root/'config/sources.json',sources)
  def test_selected_refresh_preserves_other_sources_and_feed_status(self):
   sources=collect.read(self.root/'config/sources.json',[])
   sources.append({'id':'other','url':'https://note.com/other','feed':'https://note.com/other/rss','enabled':True})
@@ -121,6 +128,56 @@ class Integration(unittest.TestCase):
   collect.run(self.cache)
   self.assertEqual(self.rows()[0]['status'],'excluded')
   self.assertNotIn('text',self.rows()[0])
+ def test_mixed_author_plain_live_impression_is_auto_published(self):
+  # An ordinary impression is eligible; depth and literary merit are not scored.
+  self.require_review_for_test_author()
+  self.write_rss('櫻坂46のライブ感想',
+                 '櫻坂46のライブを見て感じたことを書きました。歌やダンスについての感想をいくつか並べただけですが、自分が見た範囲で印象に残った場面を振り返っています。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'published')
+ def test_mixed_author_creator_essay_is_auto_published(self):
+  self.require_review_for_test_author()
+  self.write_rss('秋元康の作詞についての考察',
+                 '秋元康の作詞がアイドルの楽曲制作にどう関わるかを考えました。複数の作品を見比べ、詞と歌唱について思ったことをまとめています。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'published')
+  self.assertEqual(self.rows()[0]['groups'],[])
+ def test_mixed_author_labeled_fiction_still_excluded(self):
+  self.require_review_for_test_author()
+  self.write_rss('【妄ツイ】櫻坂46と過ごした日の感想',
+                 '櫻坂46のメンバーと休日を過ごすフィクションを書きました。実際の活動に関する批評ではなく、架空のストーリーを描いた創作です。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'excluded')
+ def test_mixed_author_unlabeled_fiction_like_title_held(self):
+  self.require_review_for_test_author()
+  self.write_rss('藤吉夏鈴と過ごす放課後',
+                 '藤吉夏鈴と学校から一緒に帰る物語を想像しました。帰り道で話をして、放課後の教室に戻り、二人だけで秘密の会話を続ける架空の物語です。')
+  collect.run(self.cache)
+  self.assertNotEqual(self.rows()[0]['status'],'published')
+ def test_mixed_author_ambiguous_generic_essay_held(self):
+  self.require_review_for_test_author()
+  self.write_rss('日々の考察',
+                 '櫻坂46の活動について考えることもありましたが、日々の暮らしの話が中心です。自分の感想としてさまざまな話題を書いています。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'pending')
+ def test_mixed_author_short_rss_excerpt_held(self):
+  self.require_review_for_test_author()
+  self.write_rss('日向坂46のライブ感想','とても楽しかったです。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'pending')
+ def test_mixed_author_admin_hold_wins(self):
+  self.require_review_for_test_author()
+  self.write_rss('櫻坂46のライブ感想',
+                 '櫻坂46のライブに行った日の感想です。楽曲やメンバーの歌唱、ダンス、舞台演出などについて、自分の印象をまとめています。')
+  collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'status':'pending','reason':'管理者確認待ち'}}})
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'pending')
+ def test_mixed_author_critique_of_fiction_is_not_auto_excluded(self):
+  self.require_review_for_test_author()
+  self.write_rss('櫻坂46の妄ツイ文化を批評する',
+                 '妄ツイという表現形式が櫻坂46のファンダムに与える影響を考えます。書き手と読み手が何を楽しんでいるかという文化論です。')
+  collect.run(self.cache)
+  self.assertEqual(self.rows()[0]['status'],'pending')
  def test_mixed_source_article_approval_is_separate(self):
   sources=collect.read(self.root/'config/sources.json',[]);sources[0]['article_policy']='review_required'
   collect.write(self.root/'config/sources.json',sources);collect.run(self.cache)
