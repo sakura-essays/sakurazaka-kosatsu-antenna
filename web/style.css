@@ -169,3 +169,20 @@ select,.filter-grid input,#author-query{border-radius:8px;min-height:44px}
  .author-search-row{flex-wrap:wrap}.author-search-row input{flex-basis:190px}
 }
 @media(forced-colors:active){.group-tab.active,.category.active,.tag[aria-pressed="true"]{outline:2px solid Highlight}.filter-chip{border:1px solid ButtonText}}
+
+/* One-page song index. The main article search UI stays unchanged. */
+.song-index{max-width:860px;padding-top:45px}
+.song-index h1{font-size:36px;margin-bottom:14px}
+.song-index>.intro{margin:0 0 17px}
+.song-index-note{font-size:12px;color:var(--muted);line-height:2;border-bottom:1px solid var(--line);padding-bottom:24px}
+.song-index-note a{text-decoration:underline;text-underline-offset:3px;color:var(--accent)}
+.song-group{margin-top:42px}
+.song-group>h2{font-size:21px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.song-block{padding:19px 0 6px;border-bottom:1px solid var(--line)}
+.song-block h3{font-size:16px;font-weight:600;margin:0 0 9px;line-height:1.7;overflow-wrap:anywhere}
+.song-count{font-size:11px;font-weight:400;color:var(--muted);white-space:nowrap}
+.song-links{list-style:none;padding:0;margin:0}
+.song-links li{padding:7px 0;line-height:1.65;font-size:13px;overflow-wrap:anywhere}
+.song-links li>a{color:var(--green);text-decoration:underline;text-decoration-color:#b8c5be;text-underline-offset:3px}
+.song-author{display:block;color:var(--muted);font-size:11px}
+@media(max-width:600px){.song-index{padding-top:30px}.song-index h1{font-size:28px}.song-group{margin-top:32px}.song-group>h2{font-size:19px}.song-block h3{font-size:15px}}
