@@ -16,6 +16,9 @@ class Gate(unittest.TestCase):
   args=({},'藤吉夏鈴の表現','感想','published','',{})
   self.assertEqual(collect.rss_publication_gate(*args)[0],'pending')
   self.assertEqual(collect.rss_publication_gate(*args,{'title':args[1],'status':'published'})[0],'published')
+ def test_circle_section_heading_is_not_fictional_dialogue(self):
+  self.assertIsNone(collect.fiction_guard('レコードを整理しようとしたけれど／青い影のこと','〇「青い影」のその後。乃木坂46の音楽についての感想。'))
+  self.assertEqual(collect.fiction_guard('アイドルとの休日','〇：おはよう。')[0],'pending')
  def test_moderation_wins_over_fiction_and_verification(self):
   for status in ('pending','excluded'):
    self.assertEqual(collect.publication_gate({},'妄ツイ','〇〇「会話」','published','',{'status':status,'verified_nonfiction':True})[0],status)

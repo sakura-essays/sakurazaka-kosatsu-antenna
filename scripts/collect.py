@@ -105,7 +105,7 @@ def fiction_guard(title,text):
         return 'excluded','本文に架空の物語・公演である明示'
     # A real MV/drama may contain dialogue, romance and fictional characters.
     # Ambiguous fiction signals go to review, never straight to publication.
-    if (re.search(fiction,t+' '+b) or re.search(r'[〇○△×]{1,2}\s*[「:：]',b)):
+    if (re.search(fiction,t+' '+b) or re.search(r'(?:[〇○△×]{2}\s*[「:：]|[〇○△×]\s*[:：])',b)):
         return 'pending','創作の手掛かりあり・批評や引用との区別を確認待ち'
     if re.search(r'第\s*[0-9０-９一二三四五六七八九十]+\s*話|幼馴染|幼なじみ|同棲',t) and not re.search(criticism,t):
         return 'pending','物語形式の可能性・実活動との関係を確認待ち'
