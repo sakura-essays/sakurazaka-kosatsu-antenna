@@ -1,4 +1,4 @@
-import copy,json,pathlib,sys,tempfile,unittest
+import copy,json,pathlib,shutil,sys,tempfile,unittest
 from unittest.mock import patch
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'scripts'))
 import collect,build
@@ -80,6 +80,63 @@ class Picks(unittest.TestCase):
  def test_pickup_invalid_entry_rejected(self):
   for x in [{'url':'javascript:alert(1)','note':'いい記事'}, {'url':self.article['url'],'note':''}]:
    with self.assertRaises(ValueError):build.curated_pickups([self.article],[x])
+
+
+class SongIndex(unittest.TestCase):
+ def setUp(self):
+  self.tmp=tempfile.TemporaryDirectory()
+  self.root=pathlib.Path(self.tmp.name)
+  shutil.copytree(collect.ROOT/'web',self.root/'web')
+  collect.write(self.root/'config/rules.json',RULES)
+  collect.write(self.root/'config/settings.json',{'base_url':'https://example.com/antenna','title':'坂道考察アンテナ'})
+  collect.write(self.root/'config/sources.json',[{'id':'author1','enabled':True,'name':'架空の書き手','url':'https://note.com/author1','platform':'note'}])
+  collect.write(self.root/'config/overrides.json',{})
+  collect.write(self.root/'config/pickups.json',[])
+ def tearDown(self):self.tmp.cleanup()
+ def article(self,title,slug='one',status='published',groups=None,songs=None):
+  return {'id':slug,'url':'https://note.com/author1/n/'+slug,
+          'title':title,'author_id':'author1','status':status,
+          'published_at':'2026-11-09T00:00:00+00:00','groups':groups if groups is not None else ['櫻坂46'],
+          'categories':['楽曲・歌詞考察'],'members':[],'songs':songs or []}
+ def render(self,articles):
+  collect.write(self.root/'state/articles.json',articles)
+  with patch.object(build,'ROOT',self.root):
+   build.build()
+  return (self.root/'dist/songs.html').read_text(encoding='utf-8')
+ def test_song_index_has_real_titles_authors_and_sitemap(self):
+  html_doc=self.render([self.article('『無言の宇宙』を考える'),
+                        self.article('サヨナラの意味の歌詞考察',slug='two',groups=['乃木坂46'])])
+  self.assertIn('無言の宇宙',html_doc)
+  self.assertIn('サヨナラの意味',html_doc)
+  self.assertIn('架空の書き手',html_doc)
+  self.assertIn('https://note.com/author1/n/one',html_doc)
+  self.assertNotIn('data.js',html_doc)
+  self.assertIn('href="songs.html"',(self.root/'dist/index.html').read_text())
+  self.assertIn('https://example.com/antenna/songs.html',(self.root/'dist/sitemap.xml').read_text())
+  self.assertIn('rel="canonical" href="https://example.com/antenna/songs.html"',html_doc)
+ def test_unpublished_and_rss_only_song_mentions_not_indexed(self):
+  html_doc=self.render([
+    self.article('『無言の宇宙』の感想',slug='pending',status='pending'),
+    self.article('『無言の宇宙』の考察',slug='excluded',status='excluded'),
+    self.article('日々の活動を振り返る',slug='rss-only',songs=['無言の宇宙']),
+    self.article('BANANAの話',slug='banana')])
+  self.assertNotIn('href="https://note.com/author1/n/pending"',html_doc)
+  self.assertNotIn('href="https://note.com/author1/n/excluded"',html_doc)
+  self.assertNotIn('href="https://note.com/author1/n/rss-only"',html_doc)
+  self.assertNotIn('href="https://note.com/author1/n/banana"',html_doc)
+  self.assertIn('現在、楽曲名が記事タイトルに含まれる収録記事はありません',html_doc)
+ def test_wrong_group_not_indexed(self):
+  html_doc=self.render([self.article('無言の宇宙を考える',groups=['乃木坂46'])])
+  self.assertNotIn('href="https://note.com/author1/n/one"',html_doc)
+ def test_escapes_article_title_and_does_not_copy_text(self):
+  title='無言の宇宙 <script>alert(1)</script> を読む'
+  html_doc=self.render([self.article(title)])
+  self.assertIn('無言の宇宙 &lt;script&gt;alert(1)&lt;/script&gt; を読む',html_doc)
+  self.assertNotIn('<script>alert(1)</script>',html_doc)
+ def test_empty_songs_still_has_navigable_page(self):
+  html_doc=self.render([])
+  self.assertIn('楽曲別索引',html_doc)
+  self.assertIn('現在、楽曲名が記事タイトルに含まれる収録記事はありません',html_doc)
 
 class Integration(unittest.TestCase):
  def setUp(self):
