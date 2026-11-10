@@ -7,6 +7,26 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 UTC=dt.timezone.utc
 UA='SakuraEssayAntenna/1.0 (noncommercial RSS index)'
 LIMIT=4_000_000
+CREATOR_CATEGORY='制作者・クリエイター論'
+LEGACY_CREATOR_CATEGORY='秋元康・制作者論'
+# Relevant production contributors. A name match alone cannot publish an essay.
+CREATOR_NAMES=(
+    'TAKAHIRO','上野隆博','今野義雄','茅野しのぶ','杉山勝彦','いしわたり淳治','池田一真',
+    'INFINITY','インフィニティ','川村茜','樋口美沙','北畑向夏花','吉岡夏穂','吉岡夏穗',
+    '古山栞帆','米山美優','米花沙希','小川陽穂','佐藤美波','加藤由唯','齋藤冬優花',
+    '代田梨花','高井初緑','今井誠優','松栄美海','池田鈴佳','渡辺佳穂',
+    'CRE8BOY','クリエイトボーイ','Seishiro','LICO','WARNER',
+    '高橋栄樹','大久保拓朗','新宮良平','山岸聖太',
+)
+def normalize_categories(categories):
+    """Upgrade old creator labels without affecting any other category."""
+    return list(dict.fromkeys(CREATOR_CATEGORY if c==LEGACY_CREATOR_CATEGORY else c
+                              for c in categories))
+
+def creator_name_in_title(t):
+    # ASCII word boundaries avoid matching e.g. LICO inside another word.
+    return any(bool(re.search(r'(?<![a-z0-9])'+re.escape(norm(name))+r'(?![a-z0-9])',t))
+               if name.isascii() else norm(name) in t for name in CREATOR_NAMES)
 
 def read(path, default):
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
@@ -173,26 +193,27 @@ def detect_groups(title,text,rules):
     return body_matches if len(body_matches)==1 else []
 
 def creator_focus(title,text=''):
-    """Title-led essays about Akimoto or production staff, not incidental credits."""
+    """Title-led criticism of creative staff, not incidental production credits."""
     t=norm(title)
     if not t:return False
     perspective=('なぜ','どう','考察','批評','評価','論','分析','構造','功罪','課題','問題',
-                 '責任','役割','必要','離れ','関与','賛否','行き詰まり','未来','理由',
-                 '影響','限界','矛盾','作詞','歌詞','プロデュース','制作',
-                 '振付','演出','衣装','感覚','言葉','終活','変え','思う','について',
-                 'もの','仕事','関係','仕組み','レビュー','何を','予想','やめろ','書け','書く','凄さ','作れ','読む','表現','作っている')
+                 '責任','役割','必要','離れ','関与','賛否','未来','理由','影響','限界','矛盾',
+                 '感覚','言葉','終活','変え','思う','について','仕事','関係','仕組み',
+                 'レビュー','何を','予想','やめろ','書け','書く','凄さ','作れ','読む',
+                 '表現','作っている','いなかったら','支える','違い','思想','のか','？','?')
     if not any(word in t for word in perspective):return False
     if '秋元康' in t or '秋元さん' in t or '秋元p' in t:return True
-    if any(group in t for group in ('乃木坂','櫻坂','欅坂','日向坂','akb48','坂道')) and any(
-        focus in t for focus in ('表現は誰が作','誰が作っている','制作体制','制作者の役割')):
+    group_names=('乃木坂','櫻坂','欅坂','日向坂','akb48','坂道','48グループ','ひなた坂')
+    if not any(g in norm(title+' '+text) for g in group_names):return False
+    if any(g in t for g in group_names) and any(
+        focus in t for focus in ('表現は誰が作','誰が作っている','制作体制','制作者の役割',
+                                 '振付師の','制作陣の','クリエイターの','mv監督の')):
         return True
-    creators=('takahiro','今野義雄','茅野しのぶ','杉山勝彦','いしわたり淳治','池田一真')
-    maker_terms=('制作','作詞','作曲','歌詞','振付','衣装','演出','プロデュース',
-                 '運営','映像','mv','楽曲','フォーメーション','表現','振り付け','いなかったら','読む')
-    return (any(name in t for name in creators)
-            and any(word in t for word in maker_terms)
-            and any(group in norm(title+' '+text) for group in
-                    ('乃木坂','櫻坂','欅坂','日向坂','akb48','坂道','48グループ')))
+    maker_terms=('制作','作詞','作曲','歌詞','振付','振り付け','衣装','演出',
+                 'プロデュース','運営','映像','mv','楽曲','フォーメーション',
+                 '表現','いなかったら','ステージング','振付師','ダンサー','監督',
+                 'クリエイター','制作陣','制作スタッフ','制作体制','音楽','ライブ')
+    return creator_name_in_title(t) and any(word in t for word in maker_terms)
 
 def classify(title,text,rules):
     t,b=norm(title),norm(text);whole=t+' '+b
@@ -231,7 +252,7 @@ def classify(title,text,rules):
     if member_title and 'メンバー考察・人物論' not in cats:cats.insert(0,'メンバー考察・人物論')
     if song_title and '楽曲・歌詞考察' not in cats:cats.append('楽曲・歌詞考察')
     if creator_focus(title,text):
-        if '秋元康・制作者論' not in cats:cats.append('秋元康・制作者論')
+        if '制作者・クリエイター論' not in cats:cats.append('制作者・クリエイター論')
         if status!='published' and not any(k in t for k in
              ('自己紹介','このnoteについて','お知らせ','販売開始','商品紹介','アフィリエイト')):
             status,reason='published','タイトルで確認できる秋元康・制作者への考察'
@@ -251,6 +272,7 @@ def run(cache_dir=None, source_ids=None):
     # Earlier releases curated Sakura/Keyaki only. Title clues override that
     # legacy default, while group-ambiguous old articles keep their grouping.
     for article in records.values():
+        article['categories']=normalize_categories(article.get('categories',[]))
         title_groups=detect_groups(article['title'],'',rules)
         # Reclassify old Aobazaka essays without overriding moderation or manual grouping.
         group_override=overrides.get('articles',{}).get(article['url'],{})
@@ -261,7 +283,7 @@ def run(cache_dir=None, source_ids=None):
         elif not article.get('groups'):
             article['groups']=(title_groups
                                or ([] if creator_focus(article['title'])
-                                   and '秋元康・制作者論' in article.get('categories',[])
+                                   and '制作者・クリエイター論' in article.get('categories',[])
                                    else ['櫻坂46']))
 
     state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
@@ -311,7 +333,7 @@ def run(cache_dir=None, source_ids=None):
                 status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev,rules)
                 if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):
                     status,reason='pending','公開日時が未確認・未来日'
-                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=override.get('categories',cats),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
+                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=normalize_categories(override.get('categories',cats)),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
                 count+=1
                 warning=fiction_guard(item['title'],item['text'])
                 if warning:records[u]['content_warning']=list(warning)
@@ -390,7 +412,7 @@ def run(cache_dir=None, source_ids=None):
                                 published_at=prev.get('published_at') or pub,
                                 first_seen_at=prev.get('first_seen_at',stamp),
                                 last_seen_at=stamp,status=status,reason=reason,
-                                categories=override.get('categories',cats),
+                                categories=normalize_categories(override.get('categories',cats)),
                                 members=members,songs=songs,
                                 groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]) or (['櫻坂46'] if '櫻坂' in magazine.get('name','') else []))
                 count+=1
@@ -432,7 +454,7 @@ def run(cache_dir=None, source_ids=None):
         if 'T' in raw_pub and not parsed_pub:raise ValueError('Invalid manual article timestamp')
         pub=dt.datetime.fromisoformat(parsed_pub).date() if parsed_pub else dt.date.fromisoformat(raw_pub)
         if pub>now.date():raise ValueError('Manual article date is in the future')
-        cats=item.get('categories',[])
+        cats=normalize_categories(item.get('categories',[]))
         if not cats or any(c not in rules['categories'] for c in cats):
             raise ValueError('Unknown manual article category')
         title=item['title'].strip()
@@ -451,28 +473,28 @@ def run(cache_dir=None, source_ids=None):
     # Group-neutral creator essays belong to the overall feed, not Sakura by default.
     for a in records.values():
         if (not a.get('groups') and a['status']=='published'
-                and '秋元康・制作者論' not in a.get('categories',[])):
+                and '制作者・クリエイター論' not in a.get('categories',[])):
             a['status']='pending';a['reason']='対象グループを確認待ち'
     # Apply moderation also to articles no longer present in recent feeds.
     for u,a in records.items():
         o=overrides.get('articles',{}).get(u,{})
         if o.get('status') in ('published','pending','excluded') and a.get('published_at'):a['status']=o['status']
-        if 'categories' in o:a['categories']=o['categories']
-        elif creator_focus(a['title']) and '秋元康・制作者論' not in a.get('categories',[]):
-            a.setdefault('categories',[]).append('秋元康・制作者論')
+        if 'categories' in o:a['categories']=normalize_categories(o['categories'])
+        elif creator_focus(a['title']) and '制作者・クリエイター論' not in a.get('categories',[]):
+            a.setdefault('categories',[]).append('制作者・クリエイター論')
         # Apply to retained records too, including ones outside the recent RSS.
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o,rules)
         if a.get('content_warning') and not o.get('verified_nonfiction') and o.get('status') not in ('pending','excluded'):
             a['status'],a['reason']=a['content_warning']
         # Creator essays without a title-specific Sakamichi group stay in the
         # overall creator category, even when old records guessed Sakura.
-        if ('秋元康・制作者論' in a.get('categories',[])
+        if ('制作者・クリエイター論' in a.get('categories',[])
                 and not detect_groups(a['title'],'',rules)):
             a['groups']=[]
         if 'groups' in o:a['groups']=o['groups']
         stored_date=a.get('published_at') or ''
         parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')
-        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or (not a.get('groups') and '秋元康・制作者論' not in a.get('categories',[]))):
+        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or (not a.get('groups') and '制作者・クリエイター論' not in a.get('categories',[]))):
             a['status']='pending';a['reason']='公開日時・対象グループを確認待ち'
     articles=sorted(records.values(),key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
     write(ROOT/'state/articles.json',articles);write(ROOT/'state/feeds.json',state)

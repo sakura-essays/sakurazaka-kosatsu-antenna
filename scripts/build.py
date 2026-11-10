@@ -1,6 +1,6 @@
 """Publish metadata only; never copy review queues/feed bodies to dist."""
 import collections,hashlib,html,json,os,pathlib,re,shutil,urllib.parse
-from collect import ROOT,read,write,detect_groups,GROUP_ORDER,song_match,norm
+from collect import ROOT,read,write,detect_groups,GROUP_ORDER,song_match,norm,normalize_categories
 
 def sync_github_owner(settings):
  """Keep Pages and Issue URLs valid after a GitHub account rename."""
@@ -83,7 +83,8 @@ def build(public=False):
  articles=[a for a in read(ROOT/'state/articles.json',[]) if a['status']=='published']
  rules=read(ROOT/'config/rules.json',{})
  for a in articles:
-  if not a.get('groups') and '秋元康・制作者論' in a.get('categories',[]):
+  a['categories']=normalize_categories(a.get('categories',[]))
+  if not a.get('groups') and '制作者・クリエイター論' in a.get('categories',[]):
    a['groups']=[]
   else:
    a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']

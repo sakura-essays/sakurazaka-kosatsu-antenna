@@ -39,13 +39,13 @@ class Rules(unittest.TestCase):
    self.assertTrue(collect.creator_focus(title))
    status,_,cats,_,_=collect.classify(title,'',RULES)
    self.assertEqual(status,'published')
-   self.assertIn('秋元康・制作者論',cats)
+   self.assertIn('制作者・クリエイター論',cats)
  def test_incidental_reference_not_focus(self):
   for title,text in [('今週のアイドルニュース','秋元康が作詞する。'),
                      ('秋元康さん誕生日おめでとう',''),
                      ('AKB48 新曲の感想','')]:
    self.assertFalse(collect.creator_focus(title,text))
-   self.assertNotIn('秋元康・制作者論',collect.classify(title,text,RULES)[2])
+   self.assertNotIn('制作者・クリエイター論',collect.classify(title,text,RULES)[2])
  def test_production_magazine_title_variants(self):
   for title in ['秋元康やめろ。でも曲は書け。――AKBを聴き直して分かったこと',
                 'TAKAHIROがいなかったら、櫻坂46はどうなっていたのか',
@@ -54,6 +54,33 @@ class Rules(unittest.TestCase):
  def test_non_akimoto_creator_requires_group(self):
   self.assertTrue(collect.creator_focus('茅野しのぶのAKB48衣装制作を考察'))
   self.assertFalse(collect.creator_focus('茅野しのぶの衣装制作を考察'))
+ def test_choreographers_and_creators_across_three_groups(self):
+  examples=[
+   ('TAKAHIROがいなかったら、櫻坂46の振付はどうなっていたか','櫻坂46'),
+   ('INFINITYのダンサーが日向坂46のライブ表現を支える理由','日向坂46'),
+   ('川村茜が乃木坂46の振付に与えた影響','乃木坂46'),
+   ('米山美優のステージングは日向坂46をどう変えるか','日向坂46'),
+   ('CRE8BOYによる乃木坂46の振付を考察','乃木坂46'),
+   ('Seishiroの乃木坂46ダンス演出を分析','乃木坂46'),
+   ('北畑向夏花による櫻坂46のMV振付の表現を読む','櫻坂46')]
+  for title,group in examples:
+   with self.subTest(title=title):
+    self.assertTrue(collect.creator_focus(title))
+    status,_,cats,_,_=collect.classify(title,'',RULES)
+    self.assertEqual(status,'published')
+    self.assertIn('制作者・クリエイター論',cats)
+    self.assertIn(group,collect.detect_groups(title,'',RULES))
+ def test_creator_news_or_unrelated_terms_do_not_trigger_creator_category(self):
+  cases=[
+   ('乃木坂46の新曲振付をCRE8BOYが担当',''),
+   ('日向坂46の振付にINFINITYのダンサーが参加',''),
+   ('川村茜のライブ振付を考察','他アーティストの話です'),
+   ('INFINITYの新サービスを分析','乃木坂46とは無関係なサービスです'),
+   ('乃木坂46のDeliciousを考察','LICOではありません')]
+  for title,text in cases:
+   with self.subTest(title=title):
+    self.assertFalse(collect.creator_focus(title,text))
+    self.assertNotIn('制作者・クリエイター論',collect.classify(title,text,RULES)[2])
  def test_song_context(self):
   self.assertEqual(collect.classify('帰り道は遠回りしたくなる 歌詞考察','',RULES)[0],'published')
   self.assertEqual(collect.classify('乃木坂46 自己紹介','',RULES)[0],'pending')
@@ -294,6 +321,17 @@ class Integration(unittest.TestCase):
   collect.run(self.cache)
   # Changed titles are intentionally re-evaluated instead of whitelisted.
   self.assertEqual(self.rows()[0]['status'],'excluded')
+ def test_legacy_creator_category_migrates_without_changing_publication(self):
+  old={'id':'legacy','url':'https://note.com/test/n/old','author_id':'test',
+       'title':'秋元康は坂道グループから離れるべきか','published_at':'2026-01-01T00:00:00+00:00',
+       'status':'published','reason':'旧分類','categories':['秋元康・制作者論'],
+       'members':[],'songs':[],'groups':[]}
+  collect.write(self.root/'state/articles.json',[old])
+  collect.run(self.cache)
+  fixed=next(x for x in self.rows() if x['id']=='legacy')
+  self.assertEqual(fixed['status'],'published')
+  self.assertEqual(fixed['groups'],[])
+  self.assertEqual(fixed['categories'],['制作者・クリエイター論'])
  def test_group_neutral_creator_is_published(self):
   item='''<rss><channel><item><title>秋元康は今、いくつのアイドルをプロデュースしているのか？</title>
   <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
@@ -303,7 +341,7 @@ class Integration(unittest.TestCase):
   row=self.rows()[0]
   self.assertEqual(row['status'],'published')
   self.assertEqual(row['groups'],[])
-  self.assertIn('秋元康・制作者論',row['categories'])
+  self.assertIn('制作者・クリエイター論',row['categories'])
   collect.run(self.cache)
   self.assertEqual(self.rows()[0]['groups'],[])
  def test_legacy_creator_group_does_not_fall_back_to_sakura(self):
@@ -316,7 +354,7 @@ class Integration(unittest.TestCase):
   fixed=next(x for x in self.rows() if x['id']=='legacy')
   self.assertEqual(fixed['status'],'published')
   self.assertEqual(fixed['groups'],[])
-  self.assertIn('秋元康・制作者論',fixed['categories'])
+  self.assertIn('制作者・クリエイター論',fixed['categories'])
  def test_explicit_empty_group_override_for_creator_essay(self):
   item='''<rss><channel><item><title>秋元康と櫻坂46の制作論</title>
   <link>https://note.com/test/n/abc</link><pubDate>Thu, 01 Jan 2026 09:00:00 +0900</pubDate>
