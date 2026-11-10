@@ -28,8 +28,10 @@ const metaphor=make('metaphor','運営こそが問題の元凶',{songs:['元凶'
 assert.equal(run([tiny,metaphor],[]).related(tiny).length,0,'short song names require quotation marks');
 const many=Array.from({length:8},(_,i)=>make('many'+i,'静寂の暴力の視点'+i,{songs:['静寂の暴力'],author_id:'voice'+i}));
 assert.equal(run([source,...many],[]).related(source).length,3,'at most three related links');
-const neutral=make('neutral','制作現場の話',{groups:[],categories:['秋元康・制作者論']});
+const neutral=make('neutral','制作現場の話',{groups:[],categories:['制作者・クリエイター論']});
 assert.match(run([neutral],[]).element('articles').innerHTML,/tone-neutral/);
+const oldNeutral=make('oldneutral','旧制作者の文章',{groups:[],categories:['秋元康・制作者論']});
+assert.match(run([oldNeutral],[]).element('articles').innerHTML,/tone-neutral/);
 const actual=JSON.parse(fs.readFileSync(require('node:path').join(__dirname,'../dist/data/articles.json')));
 const before=JSON.stringify(actual);
 const production=run(actual,[]);

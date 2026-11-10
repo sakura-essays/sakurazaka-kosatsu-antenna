@@ -25,7 +25,7 @@
  function reshuffle(){const items=[...D.articles];for(let i=items.length-1;i>0;i--){const k=Math.floor(Math.random()*(i+1));[items[i],items[k]]=[items[k],items[i]];}randomRanks=new Map(items.map((a,i)=>[a.url,i]));}
  reshuffle();
  const controls=['author','member','song','platform','from','to','sort'];
- const articleGroups=a=>a.groups?.length?a.groups:(a.categories?.includes('制作者・クリエイター論')?[]:['櫻坂46']);
+ const articleGroups=a=>a.groups?.length?a.groups:(a.categories?.some(c=>['制作者・クリエイター論','秋元康・制作者論'].includes(c))?[]:['櫻坂46']);
  const articleLabels=a=>articleGroups(a).length?articleGroups(a):['制作論'];
  const inGroup=a=>!state.group||articleGroups(a).includes(state.group);
  const allGroups=D.groups||['乃木坂46','櫻坂46','日向坂46','青葉坂46'];
