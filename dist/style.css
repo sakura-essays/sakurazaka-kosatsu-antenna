@@ -186,3 +186,37 @@ select,.filter-grid input,#author-query{border-radius:8px;min-height:44px}
 .song-links li>a{color:var(--green);text-decoration:underline;text-decoration-color:#b8c5be;text-underline-offset:3px}
 .song-author{display:block;color:var(--muted);font-size:11px}
 @media(max-width:600px){.song-index{padding-top:30px}.song-index h1{font-size:28px}.song-group{margin-top:32px}.song-group>h2{font-size:19px}.song-block h3{font-size:15px}}
+
+
+/* Compact, optional primary-source shelf. Native disclosure + radio tabs; no script or page-view changes. */
+.research-area{margin:0 0 18px}
+.research-resources{border:1px solid var(--line);background:var(--paper);border-radius:6px}
+.research-resources>summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:14px;padding:10px 18px;font-size:12px}
+.research-resources>summary::-webkit-details-marker{display:none}
+.research-resources>summary::after{content:'＋';margin-left:auto;color:var(--accent);font-size:17px;line-height:1}
+.research-resources[open]>summary::after{content:'−'}
+.research-title{font-size:13px;font-weight:600;color:var(--ink)}
+.research-caption{font-size:11px;color:var(--muted)}
+.research-content{border-top:1px solid var(--line);padding:15px 18px 16px}
+.research-intro,.research-footnote{font-size:11px;color:var(--muted);margin:0 0 12px;line-height:1.8}
+.research-footnote{margin:12px 0 0}
+.research-picker{display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0;border:0;min-width:0}
+.research-picker>input{position:absolute;width:1px;height:1px;opacity:0;overflow:hidden}
+.research-picker>label{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:5px 13px;cursor:pointer;color:var(--muted);background:var(--paper)}
+.research-picker>input:checked+label{color:white;background:var(--green);border-color:var(--green)}
+.research-picker>input:focus-visible+label{outline:3px solid #aa7d95;outline-offset:3px}
+.research-panels{width:100%;margin-top:7px}
+.research-panel{display:none}
+#research-nogi:checked~.research-panels .research-panel-nogi,
+#research-sakura:checked~.research-panels .research-panel-sakura,
+#research-hinata:checked~.research-panels .research-panel-hinata{display:block}
+.research-link-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.research-link-list li a{display:flex;flex-direction:column;gap:2px;min-width:0;padding:9px 10px;border:1px solid var(--line);background:#fff;border-radius:4px;color:var(--green);font-size:12px;font-weight:600}
+.research-link-list li a:hover{border-color:var(--green)}
+.research-link-list li a>span::after{content:' ↗';font-size:10px}
+.research-link-list small{color:var(--muted);font-weight:400;font-size:10px}
+.research-common{border-top:1px solid var(--line);display:flex;align-items:baseline;flex-wrap:wrap;gap:7px 15px;margin-top:14px;padding-top:12px;font-size:11px}
+.research-common>span{color:var(--muted)}
+.research-common>a{color:var(--green);text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.research-link-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.research-area{margin:0 0 12px}.research-resources>summary{padding:9px 12px;gap:8px;flex-wrap:wrap}.research-caption{font-size:10px}.research-content{padding:13px 12px}.research-picker>label{font-size:11px;padding:5px 9px}.research-link-list{gap:6px}.research-link-list li a{padding:8px}.research-footnote{font-size:10px}}
