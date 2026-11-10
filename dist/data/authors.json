@@ -310,6 +310,16 @@
     ]
   },
   {
+    "id": "gam_note",
+    "name": "gam_note",
+    "url": "https://note.com/gam_note",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "hayashi10",
     "name": "hayashi10",
     "url": "https://note.com/hayashi10",
@@ -529,7 +539,7 @@
     "name": "いわsun",
     "url": "https://note.com/iwa_m_flyer",
     "platform": "note",
-    "count": 4,
+    "count": 5,
     "themes": [
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察",
@@ -1101,11 +1111,11 @@
     "name": "ぽのぽのーぽ",
     "url": "https://note.com/ponoponono",
     "platform": "note",
-    "count": 4,
+    "count": 5,
     "themes": [
       "グループ運営・アイドル論",
       "ライブ・コンサート",
-      "日向坂で会いましょう"
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1436,11 +1446,11 @@
     "name": "ゼロ",
     "url": "https://note.com/rivzerooooo",
     "platform": "note",
-    "count": 3,
+    "count": 4,
     "themes": [
       "楽曲・歌詞考察",
-      "グループ運営・アイドル論",
-      "ライブ・コンサート"
+      "ライブ・コンサート",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -1616,10 +1626,10 @@
     "name": "三度の飯よりフライドチキン",
     "url": "https://note.com/clever_ixia399",
     "platform": "note",
-    "count": 3,
+    "count": 4,
     "themes": [
-      "ライブ・コンサート",
       "ファンダム・ファン文化",
+      "ライブ・コンサート",
       "グループ運営・アイドル論"
     ]
   },
@@ -1896,6 +1906,16 @@
     ]
   },
   {
+    "id": "skr_souken",
+    "name": "櫻総研",
+    "url": "https://note.com/skr_souken",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
     "id": "cozy_poppy3166",
     "name": "気づいて",
     "url": "https://note.com/cozy_poppy3166",
@@ -2001,6 +2021,16 @@
       "グループ運営・アイドル論",
       "ライブ・コンサート",
       "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "holy_oxalis1429",
+    "name": "覚醒前の革命児",
+    "url": "https://note.com/holy_oxalis1429",
+    "platform": "note",
+    "count": 2,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
