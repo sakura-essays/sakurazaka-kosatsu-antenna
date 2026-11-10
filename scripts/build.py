@@ -1,6 +1,6 @@
 """Publish metadata only; never copy review queues/feed bodies to dist."""
 import collections,hashlib,html,json,os,pathlib,re,shutil,urllib.parse
-from collect import ROOT,read,write,detect_groups,GROUP_ORDER
+from collect import ROOT,read,write,detect_groups,GROUP_ORDER,song_match,norm
 
 def sync_github_owner(settings):
  """Keep Pages and Issue URLs valid after a GitHub account rename."""
@@ -42,6 +42,37 @@ def curated_pickups(articles, selections):
   if len(chosen)>=6:break
  return chosen
 
+
+def song_index_content(articles, sources, rules):
+ """Static, title-led song links for humans and crawlers; no popularity ranking."""
+ writers={s['id']:s['name'] for s in sources if s.get('enabled')}
+ sections=[]
+ for group in GROUP_ORDER:
+  song_names=rules.get('group_rules',{}).get(group,{}).get('songs',[])
+  song_blocks=[]
+  seen_songs=set()
+  for song in song_names:
+   if norm(song) in seen_songs:continue
+   seen_songs.add(norm(song))
+   matches=[a for a in articles if group in a.get('groups',[])
+            and song_match(song,norm(a.get('title','')))]
+   if not matches:continue
+   # The original article title and its author are kept, without engagement data.
+   matches.sort(key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
+   anchor='song-'+hashlib.sha256((group+'\\0'+song).encode()).hexdigest()[:12]
+   rows=[]
+   for a in matches:
+    href=html.escape(a['url'],quote=True)
+    title=html.escape(a['title'])
+    author=html.escape(writers.get(a['author_id'],a['author_id']))
+    rows.append('<li><a href="'+href+'" rel="external">'+title+'</a><span class="song-author">— '+author+'</span></li>')
+   song_blocks.append('<section class="song-block" id="'+anchor+'"><h3>'+html.escape(song)+
+                      ' <span class="song-count">('+str(len(matches))+'記事)</span></h3><ul class="song-links">'+''.join(rows)+'</ul></section>')
+  if song_blocks:
+   sections.append('<section class="song-group" aria-label="'+html.escape(group,quote=True)+'"><h2>'+
+                   html.escape(group)+'</h2>'+''.join(song_blocks)+'</section>')
+ return ''.join(sections) if sections else '<p>現在、楽曲名が記事タイトルに含まれる収録記事はありません。</p>'
+
 def build(public=False):
  settings=read(ROOT/'config/settings.json',{})
  if public:
@@ -78,6 +109,11 @@ def build(public=False):
   template=template.replace(chr(34)+asset+chr(34),chr(34)+asset+'?v='+version+chr(34))
  def fallback(rows):return '<ul>'+''.join('<li><a href="'+html.escape(a['url'],quote=True)+'">'+html.escape(a['title'])+'</a></li>' for a in rows)+'</ul>'
  (out/'index.html').write_text(template.replace('<!-- FALLBACK -->',fallback(articles[:40])))
+ # One accessible static HTML index: no new song pages or home-page clutter.
+ songs_template=(ROOT/'web/songs.html').read_text(encoding='utf-8')
+ songs_html=songs_template.replace('{{SONGS_CANONICAL}}',html.escape(settings.get('base_url','').rstrip('/')+'/songs.html',quote=True))
+ songs_html=songs_html.replace('<!-- SONG_INDEX_CONTENT -->',song_index_content(articles,sources,rules))
+ (out/'songs.html').write_text(songs_html,encoding='utf-8')
  base=settings.get('base_url','').rstrip('/')
  ad=out/'authors';shutil.rmtree(ad,ignore_errors=True);ad.mkdir()
  for a in authors:
@@ -97,7 +133,7 @@ def build(public=False):
  (out/'contact.html').write_text((ROOT/'web/contact.html').read_text().replace('{{CONTACT_URL}}',html.escape(settings.get('contact_url',''),quote=True)))
  (out/'.nojekyll').touch()
  if base:
-  pages=[base+'/',base+'/contact.html']+[base+'/authors/'+a['id']+'.html' for a in authors]
+  pages=[base+'/',base+'/contact.html',base+'/songs.html']+[base+'/authors/'+a['id']+'.html' for a in authors]
   (out/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(u)+'</loc></url>' for u in pages)+'</urlset>')
   (out/'robots.txt').write_text('User-agent: *\nAllow: /\nSitemap: '+base+'/sitemap.xml\n')
  else:(out/'robots.txt').write_text('User-agent: *\nDisallow: /\n')
