@@ -88,6 +88,30 @@ const first=writers.element('random-essay-body').innerHTML;
 writers.clickButton('random-essay-next');
 const second=writers.element('random-essay-body').innerHTML;
 assert.notEqual(first,second,'draws avoid immediately repeating the same author');
+// Writer search combines group badges, names and public IDs.
+const writerArticles=[
+ {...article('nogi-post',['乃木坂46']),author_id:'nogi'},
+ {...article('sakura-post',['櫻坂46']),author_id:'sakura'},
+ {...article('hinata-post',['日向坂46']),author_id:'hinata'},
+ {...article('mixed-post',['櫻坂46','日向坂46']),author_id:'mixed'}
+];
+const writerSearch=run(writerArticles,[],'?view=authors');
+function searchWriters(query){
+ const field=writerSearch.element('author-query');
+ field.value=query;
+ field.events.input();
+ const html=writerSearch.element('authors-grid').innerHTML;
+ return [...html.matchAll(/<h3><a [^>]*>([^<]*)<\/a><\/h3>/g)].map(m=>m[1]).sort();
+}
+assert.deepEqual(searchWriters('乃木坂46'),['nogi']);
+assert.deepEqual(searchWriters('櫻坂46'),['mixed','sakura']);
+assert.deepEqual(searchWriters('日向坂46'),['hinata','mixed']);
+assert.deepEqual(searchWriters('欅坂46'),['mixed','sakura'],'historic Keyakizaka alias');
+assert.deepEqual(searchWriters('櫻坂46 mixed'),['mixed'],'combined group and writer search');
+assert.deepEqual(searchWriters('sakura'),['sakura'],'name and ID search remain supported');
+assert.deepEqual(searchWriters('不在のグループ'),[],'unmatched groups filter cleanly');
+writerSearch.clickButton('author-clear');
+assert.equal(writerSearch.element('author-result-count').textContent,'4人の書き手');
 const css=fs.readFileSync(path.join(__dirname,'../web/style.css'),'utf8');
 assert.doesNotMatch(css,/url\s*\(/i,'no external image or font assets');
 assert.match(css,/aspect-ratio:16\/9/);
