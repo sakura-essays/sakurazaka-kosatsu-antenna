@@ -52,5 +52,13 @@
     "magazine_url": "https://note.com/lively_fennel526/m/mf953dd5fbd7a",
     "require_creator_focus": true,
     "verification": "2026-11-08: 公開マガジンに秋元康、TAKAHIRO、茅野しのぶなど制作者への独自考察を確認。著者本人の関連考察だけ収集。"
+  },
+  {
+    "author_id": "sonkami",
+    "name": "櫻坂46メンバー紹介",
+    "feed": "https://note.com/sonkami/m/mec0f68024e6f/rss",
+    "magazine_url": "https://note.com/sonkami/m/mec0f68024e6f",
+    "require_relevance": true,
+    "verification": "2026-11-11: SON本人の公開マガジン『櫻坂46メンバー紹介』31記事を確認。公式マガジンRSSから本人執筆の記事のみ収集し、記事URLによる重複排除と本文抜粋の公開判定を維持。RSS掲載件数により全31本を保証しない。"
   }
 ]
