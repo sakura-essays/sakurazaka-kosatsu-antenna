@@ -23,6 +23,14 @@ def normalize_categories(categories):
     return list(dict.fromkeys(CREATOR_CATEGORY if c==LEGACY_CREATOR_CATEGORY else c
                               for c in categories))
 
+def confirmed_members(value,rules):
+    """Validate editor-confirmed names without inferring people from aliases."""
+    known=set(rules.get('members',[]))
+    for group in rules.get('group_rules',{}).values():known.update(group.get('members',[]))
+    if not isinstance(value,list) or any(not isinstance(m,str) or m not in known for m in value):
+        raise ValueError('Unknown confirmed member')
+    return list(dict.fromkeys(value))
+
 def creator_name_in_title(t):
     # ASCII word boundaries avoid matching e.g. LICO inside another word.
     return any(bool(re.search(r'(?<![a-z0-9])'+re.escape(norm(name))+r'(?![a-z0-9])',t))
@@ -482,6 +490,7 @@ def run(cache_dir=None, source_ids=None):
         if 'categories' in o:a['categories']=normalize_categories(o['categories'])
         elif creator_focus(a['title']) and '制作者・クリエイター論' not in a.get('categories',[]):
             a.setdefault('categories',[]).append('制作者・クリエイター論')
+        if 'members' in o:a['members']=confirmed_members(o['members'],rules)
         # Apply to retained records too, including ones outside the recent RSS.
         a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o,rules)
         if a.get('content_warning') and not o.get('verified_nonfiction') and o.get('status') not in ('pending','excluded'):

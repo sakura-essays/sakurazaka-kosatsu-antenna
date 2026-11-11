@@ -4,7 +4,7 @@ No scraping, body storage or author-wide approval. Validate the whole batch befo
 writing. Legacy admin approvals remain valid; new reviews record their evidence.
 """
 import argparse, datetime as dt, json, urllib.parse
-from collect import ROOT, read, write, canonical, date, UTC
+from collect import ROOT, read, write, canonical, date, UTC, confirmed_members
 
 
 def apply_reviews(entries, dry_run=False):
@@ -36,6 +36,7 @@ def apply_reviews(entries, dry_run=False):
         groups=entry.get('groups',[]);cats=entry.get('categories',[])
         if not groups or any(g not in rules['group_rules'] for g in groups):raise ValueError('Confirmed target group required')
         if not cats or any(c not in rules['categories'] for c in cats):raise ValueError('Unknown category')
+        members=confirmed_members(entry['members'],rules) if 'members' in entry else None
         prev=existing.get(u) or manual_by_url.get(u)
         if prev and (prev['author_id']!=sid or prev['title']!=title):raise ValueError('Review metadata differs from existing record: '+u)
         if prev and prev.get('published_at'):
@@ -50,6 +51,7 @@ def apply_reviews(entries, dry_run=False):
         o.update(status='published',verified_nonfiction=True,reviewed_title=title,
                  reviewed_at=now.date().isoformat(),review_method='public_article_body',
                  evidence_url=u,reason=reason,groups=groups,categories=cats)
+        if members is not None:o['members']=members
         if u not in existing and u not in manual_by_url:
             item={k:entry[k] for k in ('title','author_id','groups','categories')}
             item.update(url=u,published_at=pub)

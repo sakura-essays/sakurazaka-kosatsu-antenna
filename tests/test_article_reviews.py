@@ -46,6 +46,25 @@ class Reviews(unittest.TestCase):
   bad=copy.deepcopy(self.e);bad['url']='https://note.com/other/n/bad'
   with self.assertRaises(ValueError):review.apply_reviews([self.e,bad])
   self.assertFalse((self.root/'config/overrides.json').read_text().find('verified_nonfiction')>=0)
+ def test_confirmed_alias_members_are_retained_as_metadata(self):
+  e=self.e|{'title':'増本論','groups':['櫻坂46'],'categories':['メンバー考察・人物論'],'members':['増本綺良','増本綺良']}
+  review.apply_reviews([e])
+  o=collect.read(self.root/'config/overrides.json',{})['articles'][e['url']]
+  self.assertEqual(o['members'],['増本綺良'])
+  cache=self.root/'cache';cache.mkdir();(cache/'mixed.xml').write_text('<rss><channel/></rss>')
+  sources=collect.read(self.root/'config/sources.json',[]);sources[0]['feed']='https://note.com/mixed/rss'
+  collect.write(self.root/'config/sources.json',sources)
+  collect.run(cache)
+  a=collect.read(self.root/'state/articles.json',[])[0]
+  self.assertEqual(a['members'],['増本綺良']);self.assertEqual(a['status'],'published')
+  self.assertEqual(a['published_at'],'2025-01-02')
+  collect.run(cache)
+  self.assertEqual(collect.read(self.root/'state/articles.json',[])[0]['members'],['増本綺良'])
+ def test_unknown_confirmed_members_reject_whole_batch(self):
+  bad=self.e|{'url':'https://note.com/mixed/n/bad','members':['架空の人']}
+  with self.assertRaises(ValueError):review.apply_reviews([self.e,bad])
+  self.assertEqual(collect.read(self.root/'config/overrides.json',{}),{})
+  self.assertFalse((self.root/'config/manual_articles.json').exists())
  def test_blocks_and_explicit_holds_are_preserved(self):
   for o in [{'blocked_urls':[self.e['url']]},{'blocked_authors':['mixed']},{'articles':{self.e['url']:{'status':'excluded'}}},{'articles':{self.e['url']:{'status':'pending'}}}]:
    collect.write(self.root/'config/overrides.json',o)
