@@ -9,7 +9,7 @@
     "listing_article_urls": 5172,
     "new_candidates": 158,
     "added": 108,
-    "public_confirmation": "awaiting_github_actions_and_live_fetch",
+    "public_confirmation": "verified_live_108",
     "pending_unadded": 5,
     "out_of_scope_unadded": 45,
     "duplicate_existing_member_urls": 293,
@@ -17,7 +17,8 @@
       "free_public": 107,
       "restricted_public_preview": 1
     },
-    "complete_exhaustive_research": false
+    "complete_exhaustive_research": false,
+    "published_confirmed": 108
   },
   "official_sources": [
     "https://sakurazaka46.com/s/s46/search/artist?display=generation",
@@ -7828,6 +7829,28 @@
     "access_counts": {
       "free_public": 107,
       "restricted_public_preview": 1
+    }
+  },
+  "implementation_commit": "https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/commit/aab497f41bfdc05013baeeb1ddd7d59f41539de0",
+  "actions": {
+    "id": 42949202751,
+    "url": "https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/actions/runs/42949202751",
+    "conclusion": "success"
+  },
+  "live_verification": {
+    "verified_at": "2026-11-11T03:00:32.143820+00:00",
+    "endpoint": "https://sakura-essays.github.io/sakurazaka-kosatsu-antenna/data/articles.json",
+    "added_public": 108,
+    "public_total": 2245,
+    "old_public_preserved": 2137,
+    "all_new_authors_titles_dates_categories_members_match": true,
+    "all_new_member_search_terms_match": true,
+    "missing": [],
+    "ui_check": {
+      "query": "増本論",
+      "member": "増本綺良",
+      "found_article": "https://note.com/echoyamabikosan/n/n55a0bcf43406",
+      "result_count": 1
     }
   }
 }
