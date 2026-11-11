@@ -122,7 +122,7 @@
     "name": "ME SHOW",
     "url": "https://note.com/meshow",
     "platform": "note",
-    "count": 17,
+    "count": 18,
     "themes": [
       "グループ運営・アイドル論",
       "ライブ・コンサート",
@@ -777,11 +777,11 @@
     "name": "しらげん",
     "url": "https://note.com/siragen",
     "platform": "note",
-    "count": 5,
+    "count": 6,
     "themes": [
       "楽曲・歌詞考察",
-      "ファンダム・ファン文化",
-      "メンバー考察・人物論"
+      "ダンス・パフォーマンス考察",
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1386,10 +1386,10 @@
     "name": "コウ",
     "url": "https://note.com/eagle131",
     "platform": "note",
-    "count": 12,
+    "count": 13,
     "themes": [
-      "グループ運営・アイドル論",
       "楽曲・歌詞考察",
+      "グループ運営・アイドル論",
       "乃木坂工事中"
     ]
   },
