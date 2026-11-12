@@ -12,6 +12,26 @@
     ]
   },
   {
+    "id": "e_and_p5166",
+    "name": "A&P",
+    "url": "https://note.com/e_and_p5166",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "armi",
+    "name": "ARATA",
+    "url": "https://note.com/armi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "archie_archiee",
     "name": "Archie",
     "url": "https://note.com/archie_archiee",
@@ -20,6 +40,16 @@
     "themes": [
       "楽曲・歌詞考察",
       "ライブ・コンサート",
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "fmlrkm",
+    "name": "Codyの雑談",
+    "url": "https://note.com/fmlrkm",
+    "platform": "note",
+    "count": 1,
+    "themes": [
       "グループ運営・アイドル論"
     ]
   },
@@ -82,6 +112,16 @@
     ]
   },
   {
+    "id": "jafanalysisroom",
+    "name": "JAF Football Analysis Room",
+    "url": "https://note.com/jafanalysisroom",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "kkwus_nmomo",
     "name": "KEI",
     "url": "https://note.com/kkwus_nmomo",
@@ -94,6 +134,16 @@
     ]
   },
   {
+    "id": "44134413",
+    "name": "Kanada",
+    "url": "https://note.com/44134413",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
     "id": "kitoka_",
     "name": "Kitoka",
     "url": "https://note.com/kitoka_",
@@ -103,6 +153,16 @@
       "メンバー考察・人物論",
       "楽曲・歌詞考察",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "inti_machine",
+    "name": "Koase",
+    "url": "https://note.com/inti_machine",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
     ]
   },
   {
@@ -142,6 +202,16 @@
     ]
   },
   {
+    "id": "neruson17",
+    "name": "NERU17",
+    "url": "https://note.com/neruson17",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "modern_willet231",
     "name": "RYO",
     "url": "https://note.com/modern_willet231",
@@ -163,6 +233,26 @@
       "グループ運営・アイドル論",
       "楽曲・歌詞考察",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "hsj231od",
+    "name": "SHINJO HISASHI",
+    "url": "https://note.com/hsj231od",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "shinigamidriver",
+    "name": "SK",
+    "url": "https://note.com/shinigamidriver",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -190,6 +280,16 @@
     ]
   },
   {
+    "id": "badterumaru",
+    "name": "TERU",
+    "url": "https://note.com/badterumaru",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
     "id": "tkfuji",
     "name": "TOKIOは一日にして成らず",
     "url": "https://tkfuji.hatenablog.com",
@@ -199,6 +299,16 @@
       "ファンダム・ファン文化",
       "楽曲・歌詞考察",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "twc_corpworks",
+    "name": "TWC",
+    "url": "https://note.com/twc_corpworks",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -214,6 +324,16 @@
     ]
   },
   {
+    "id": "footballlife07",
+    "name": "Y@R",
+    "url": "https://note.com/footballlife07",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "j_y545",
     "name": "YASHI",
     "url": "https://note.com/j_y545",
@@ -223,6 +343,16 @@
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート",
       "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "yutto3843",
+    "name": "YUKI",
+    "url": "https://note.com/yutto3843",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -250,6 +380,16 @@
     ]
   },
   {
+    "id": "yuu_psychedelic",
+    "name": "Yuu",
+    "url": "https://note.com/yuu_psychedelic",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "for_tmgwa_shako",
     "name": "[OH-26] 多摩川学園前",
     "url": "https://note.com/for_tmgwa_shako",
@@ -258,6 +398,16 @@
     "themes": [
       "その他の感想・批評",
       "楽曲・歌詞考察",
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "applegalleon",
+    "name": "applegalleon",
+    "url": "https://note.com/applegalleon",
+    "platform": "note",
+    "count": 1,
+    "themes": [
       "ライブ・コンサート"
     ]
   },
@@ -283,6 +433,26 @@
       "楽曲・歌詞考察",
       "ライブ・コンサート",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "seizemen",
+    "name": "cnt",
+    "url": "https://note.com/seizemen",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "crybaby_tokyo",
+    "name": "crybaby.tokyo",
+    "url": "https://note.com/crybaby_tokyo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -322,9 +492,39 @@
     ]
   },
   {
+    "id": "fwsuk5150_0220",
+    "name": "fuwa",
+    "url": "https://note.com/fwsuk5150_0220",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
     "id": "gam_note",
     "name": "gam_note",
     "url": "https://note.com/gam_note",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "gayasu0305",
+    "name": "gayasu",
+    "url": "https://note.com/gayasu0305",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "gentle_elk1411",
+    "name": "gentle_elk1411",
+    "url": "https://note.com/gentle_elk1411",
     "platform": "note",
     "count": 1,
     "themes": [
@@ -356,6 +556,16 @@
     ]
   },
   {
+    "id": "inosato02",
+    "name": "inosato02",
+    "url": "https://note.com/inosato02",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "kn_ykh_1985",
     "name": "ka2の語り場",
     "url": "https://note.com/kn_ykh_1985",
@@ -365,6 +575,26 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "kooly317",
+    "name": "kooly317",
+    "url": "https://note.com/kooly317",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "gordon0519",
+    "name": "kuroma",
+    "url": "https://note.com/gordon0519",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -404,6 +634,36 @@
     ]
   },
   {
+    "id": "ontaikun",
+    "name": "ontaikun",
+    "url": "https://note.com/ontaikun",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "polyscore",
+    "name": "polyscore",
+    "url": "https://note.com/polyscore",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "ponzu_1220",
+    "name": "ponzu",
+    "url": "https://note.com/ponzu_1220",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "r1242",
     "name": "r1242（いくはら）",
     "url": "https://note.com/r1242",
@@ -428,6 +688,26 @@
     ]
   },
   {
+    "id": "lc_ai7",
+    "name": "shinpanzees📕小説家",
+    "url": "https://note.com/lc_ai7",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "skerok",
+    "name": "skerok",
+    "url": "https://note.com/skerok",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "swingo",
     "name": "swingo",
     "url": "https://note.com/swingo",
@@ -440,6 +720,16 @@
     ]
   },
   {
+    "id": "k_takase_02",
+    "name": "ta_",
+    "url": "https://note.com/k_takase_02",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "taketosy",
     "name": "taketosy",
     "url": "https://note.com/taketosy",
@@ -449,6 +739,16 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "takotako14",
+    "name": "takotako14",
+    "url": "https://note.com/takotako14",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -476,6 +776,16 @@
     ]
   },
   {
+    "id": "tkakab",
+    "name": "tkakab",
+    "url": "https://note.com/tkakab",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "novel_oxalis6466",
     "name": "ymtmnn",
     "url": "https://note.com/novel_oxalis6466",
@@ -500,6 +810,16 @@
     ]
   },
   {
+    "id": "_pironpan",
+    "name": "ʊ°ʒ",
+    "url": "https://note.com/_pironpan",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "3939_nekoze",
     "name": "⸝꙳",
     "url": "https://note.com/3939_nekoze",
@@ -509,6 +829,16 @@
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "maru_music",
+    "name": "。MUSiC",
+    "url": "https://note.com/maru_music",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -532,6 +862,16 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "atsu_go_",
+    "name": "あつご",
+    "url": "https://note.com/atsu_go_",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -571,6 +911,16 @@
     ]
   },
   {
+    "id": "msh46_usp",
+    "name": "うすぽての尺",
+    "url": "https://note.com/msh46_usp",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "hiyo_parumi",
     "name": "うみ。",
     "url": "https://note.com/hiyo_parumi",
@@ -580,6 +930,16 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "mito31",
+    "name": "うめがき たね",
+    "url": "https://note.com/mito31",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -607,6 +967,26 @@
     ]
   },
   {
+    "id": "oseti_46",
+    "name": "おせち(スズムラリン)",
+    "url": "https://note.com/oseti_46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "cloudy_1110",
+    "name": "おっちー",
+    "url": "https://note.com/cloudy_1110",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "legit_hare5977",
     "name": "おひさま、尚己",
     "url": "https://note.com/legit_hare5977",
@@ -628,6 +1008,36 @@
       "楽曲・歌詞考察",
       "その他の感想・批評",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "umi_diversity",
+    "name": "かい",
+    "url": "https://note.com/umi_diversity",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "jellyfish_kaimii",
+    "name": "かいみぃ",
+    "url": "https://note.com/jellyfish_kaimii",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "kazuki_mmr",
+    "name": "かずき",
+    "url": "https://note.com/kazuki_mmr",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -655,6 +1065,36 @@
     ]
   },
   {
+    "id": "earphone_half",
+    "name": "かたみみ",
+    "url": "https://note.com/earphone_half",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "kanyakoshi",
+    "name": "かにゃこし",
+    "url": "https://note.com/kanyakoshi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "kawaya333",
+    "name": "かわや",
+    "url": "https://note.com/kawaya333",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "masamk2",
     "name": "かんたむ@日向櫻",
     "url": "https://note.com/masamk2",
@@ -667,6 +1107,36 @@
     ]
   },
   {
+    "id": "kikuchiyo_956",
+    "name": "きくちょ",
+    "url": "https://note.com/kikuchiyo_956",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "kyuuriman46",
+    "name": "きゅうりまん",
+    "url": "https://note.com/kyuuriman46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "lefty_moon_18",
+    "name": "きりん公園",
+    "url": "https://note.com/lefty_moon_18",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "serene_shark4853",
     "name": "くう",
     "url": "https://note.com/serene_shark4853",
@@ -676,6 +1146,16 @@
       "ライブ・コンサート",
       "楽曲・歌詞考察",
       "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "kuminkurun2_",
+    "name": "くるるるるん",
+    "url": "https://note.com/kuminkurun2_",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -701,6 +1181,16 @@
     ]
   },
   {
+    "id": "cute_poppy614",
+    "name": "けふけふ⊿",
+    "url": "https://note.com/cute_poppy614",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "kei_menshan",
     "name": "けーご（元はづさんふらわー）",
     "url": "https://note.com/kei_menshan",
@@ -710,6 +1200,26 @@
       "グループ運営・アイドル論",
       "ライブ・コンサート",
       "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "tamamokaru_saka",
+    "name": "こえちっさ",
+    "url": "https://note.com/tamamokaru_saka",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "525_518",
+    "name": "こけまる",
+    "url": "https://note.com/525_518",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "乃木坂工事中"
     ]
   },
   {
@@ -725,6 +1235,16 @@
     ]
   },
   {
+    "id": "status_123456ak",
+    "name": "こんどう",
+    "url": "https://note.com/status_123456ak",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "nibutaro",
     "name": "さんせん",
     "url": "https://note.com/nibutaro",
@@ -734,6 +1254,16 @@
       "日向坂で会いましょう",
       "ライブ・コンサート",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "sickpplus",
+    "name": "しっく",
+    "url": "https://note.com/sickpplus",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -761,6 +1291,16 @@
     ]
   },
   {
+    "id": "sakurahinata04",
+    "name": "しめしめじ",
+    "url": "https://note.com/sakurahinata04",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "givemeyour",
     "name": "しめじジャンクション",
     "url": "https://note.com/givemeyour",
@@ -785,6 +1325,16 @@
     ]
   },
   {
+    "id": "syu_spring",
+    "name": "しゅう",
+    "url": "https://note.com/syu_spring",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "siragen",
     "name": "しらげん",
     "url": "https://note.com/siragen",
@@ -794,6 +1344,16 @@
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "jupemovie",
+    "name": "じゅぺ",
+    "url": "https://note.com/jupemovie",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
     ]
   },
   {
@@ -833,6 +1393,16 @@
     ]
   },
   {
+    "id": "senkan_sakablog",
+    "name": "せ ん か ん",
+    "url": "https://note.com/senkan_sakablog",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "takiyan_slope",
     "name": "たきやん",
     "url": "https://note.com/takiyan_slope",
@@ -841,6 +1411,16 @@
     "themes": [
       "ライブ・コンサート",
       "楽曲・歌詞考察",
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "tkycircus",
+    "name": "たっくんサーカス",
+    "url": "https://note.com/tkycircus",
+    "platform": "note",
+    "count": 1,
+    "themes": [
       "グループ運営・アイドル論"
     ]
   },
@@ -917,6 +1497,26 @@
     ]
   },
   {
+    "id": "gentle_tern772",
+    "name": "ちぇちぇ",
+    "url": "https://note.com/gentle_tern772",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "jyuntyan46",
+    "name": "ちっちゃな頃から潤ちゃん",
+    "url": "https://note.com/jyuntyan46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
     "id": "tyoroid",
     "name": "ちょろい",
     "url": "https://note.com/tyoroid",
@@ -965,6 +1565,16 @@
     ]
   },
   {
+    "id": "tomslife",
+    "name": "とむ",
+    "url": "https://note.com/tomslife",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "777incage",
     "name": "とりかご",
     "url": "https://note.com/777incage",
@@ -974,6 +1584,36 @@
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "tmcs0616",
+    "name": "とーや",
+    "url": "https://note.com/tmcs0616",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "shou_4846",
+    "name": "なごしょー",
+    "url": "https://note.com/shou_4846",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "konno723",
+    "name": "なつ",
+    "url": "https://note.com/konno723",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -989,6 +1629,26 @@
     ]
   },
   {
+    "id": "24maal",
+    "name": "にし",
+    "url": "https://note.com/24maal",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "nitani555",
+    "name": "にた",
+    "url": "https://note.com/nitani555",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "nibunibutea2708",
     "name": "にぶにぶしいティー",
     "url": "https://note.com/nibunibutea2708",
@@ -997,6 +1657,16 @@
     "themes": [
       "グループ運営・アイドル論",
       "制作者・クリエイター論"
+    ]
+  },
+  {
+    "id": "2boshiwa_082",
+    "name": "にぼちぃ",
+    "url": "https://note.com/2boshiwa_082",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1012,6 +1682,26 @@
     ]
   },
   {
+    "id": "nomuyo_gurt",
+    "name": "のむヨー",
+    "url": "https://note.com/nomuyo_gurt",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "lovely_camel310",
+    "name": "はちみつ食べたいな",
+    "url": "https://note.com/lovely_camel310",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "hot_wolf3427",
     "name": "はなさかく",
     "url": "https://note.com/hot_wolf3427",
@@ -1021,6 +1711,26 @@
       "乃木坂工事中",
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "hahifuhehox",
+    "name": "はひふへほ",
+    "url": "https://note.com/hahifuhehox",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "ice_d_tea",
+    "name": "ばでぃうち",
+    "url": "https://note.com/ice_d_tea",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1072,6 +1782,36 @@
     ]
   },
   {
+    "id": "tasty_beetle735",
+    "name": "ひなふむ",
+    "url": "https://note.com/tasty_beetle735",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "hiragana1",
+    "name": "ひらがなぜろ",
+    "url": "https://note.com/hiragana1",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "cress",
+    "name": "ぴっぽくれす",
+    "url": "https://note.com/cress",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "naoimokakikaki",
     "name": "ぴラ",
     "url": "https://note.com/naoimokakikaki",
@@ -1084,6 +1824,16 @@
     ]
   },
   {
+    "id": "peep_46",
+    "name": "ぴーぷ",
+    "url": "https://note.com/peep_46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "nitan__cuag",
     "name": "ふな",
     "url": "https://note.com/nitan__cuag",
@@ -1093,6 +1843,36 @@
       "ライブ・コンサート",
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "bellcy23",
+    "name": "べるしぃ/ Bellcy23",
+    "url": "https://note.com/bellcy23",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "sung_xing_63",
+    "name": "ほっしー",
+    "url": "https://note.com/sung_xing_63",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "gufu_honyo",
+    "name": "ほにょにょ",
+    "url": "https://note.com/gufu_honyo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
     ]
   },
   {
@@ -1143,6 +1923,16 @@
     ]
   },
   {
+    "id": "mattsu_memo",
+    "name": "まっつ",
+    "url": "https://note.com/mattsu_memo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "mamama_222",
     "name": "ままま",
     "url": "https://note.com/mamama_222",
@@ -1179,6 +1969,86 @@
     ]
   },
   {
+    "id": "1421191035",
+    "name": "まるひ【音楽】",
+    "url": "https://note.com/1421191035",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "mawaru_magari",
+    "name": "まわる まがり｜ライター",
+    "url": "https://note.com/mawaru_magari",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "tsukurumizuno",
+    "name": "みずのつくる",
+    "url": "https://note.com/tsukurumizuno",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "miyamikan",
+    "name": "みやさん",
+    "url": "https://note.com/miyamikan",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "kuroihitsuzi46",
+    "name": "みらん。ぷれみあめどれっくす。",
+    "url": "https://note.com/kuroihitsuzi46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "mendel0102",
+    "name": "めんでる",
+    "url": "https://note.com/mendel0102",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "motomoto_kz",
+    "name": "もとおみ數史",
+    "url": "https://note.com/motomoto_kz",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "制作者・クリエイター論"
+    ]
+  },
+  {
+    "id": "yasushi_diary",
+    "name": "やすっしー",
+    "url": "https://note.com/yasushi_diary",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "echoyamabikosan",
     "name": "やまびこさん",
     "url": "https://note.com/echoyamabikosan",
@@ -1188,6 +2058,26 @@
       "メンバー考察・人物論",
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "rayseimiya",
+    "name": "やーたい",
+    "url": "https://note.com/rayseimiya",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "ohisama_trainee",
+    "name": "ゆ",
+    "url": "https://note.com/ohisama_trainee",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -1227,6 +2117,26 @@
     ]
   },
   {
+    "id": "result33",
+    "name": "りざ",
+    "url": "https://note.com/result33",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "制作者・クリエイター論"
+    ]
+  },
+  {
+    "id": "naochan0918",
+    "name": "りょー",
+    "url": "https://note.com/naochan0918",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "nogi_thinker",
     "name": "るるる編集部",
     "url": "https://note.com/nogi_thinker",
@@ -1248,6 +2158,16 @@
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "runpp",
+    "name": "るんぴっぴ",
+    "url": "https://note.com/runpp",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1298,6 +2218,26 @@
     ]
   },
   {
+    "id": "blueorange",
+    "name": "アオレンジ",
+    "url": "https://note.com/blueorange",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "akirasatoru",
+    "name": "アキラサトル",
+    "url": "https://note.com/akirasatoru",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
     "id": "witty_yarrow2667",
     "name": "アト",
     "url": "https://note.com/witty_yarrow2667",
@@ -1310,6 +2250,16 @@
     ]
   },
   {
+    "id": "chugakujukentk",
+    "name": "オヌマ",
+    "url": "https://note.com/chugakujukentk",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
     "id": "ksk",
     "name": "カスキ。",
     "url": "https://ksk.hatenablog.com",
@@ -1319,6 +2269,26 @@
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "current46",
+    "name": "カラント･サンライズ",
+    "url": "https://note.com/current46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "ymzk__karimero",
+    "name": "カリメロ",
+    "url": "https://note.com/ymzk__karimero",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -1343,6 +2313,16 @@
       "その他の感想・批評",
       "グループ運営・アイドル論",
       "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "124578",
+    "name": "キャン太",
+    "url": "https://note.com/124578",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1442,6 +2422,26 @@
     ]
   },
   {
+    "id": "sakananosurimi",
+    "name": "サカナノスリミ",
+    "url": "https://note.com/sakananosurimi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "showf",
+    "name": "ショウ",
+    "url": "https://note.com/showf",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "shirokuma1112",
     "name": "シロクマ",
     "url": "https://note.com/shirokuma1112",
@@ -1451,6 +2451,26 @@
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "soupcurryhorse",
+    "name": "スープカレーうま馬",
+    "url": "https://note.com/soupcurryhorse",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "annaeuscaesar",
+    "name": "セネカ",
+    "url": "https://note.com/annaeuscaesar",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -1490,6 +2510,26 @@
     ]
   },
   {
+    "id": "jsapanexco",
+    "name": "タラカン",
+    "url": "https://note.com/jsapanexco",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "ohichantik",
+    "name": "チビちゃんちっく",
+    "url": "https://note.com/ohichantik",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
     "id": "qururi_46",
     "name": "ディスコ",
     "url": "https://note.com/qururi_46",
@@ -1499,6 +2539,16 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "日向坂で会いましょう"
+    ]
+  },
+  {
+    "id": "nyachar4869",
+    "name": "トウサカ",
+    "url": "https://note.com/nyachar4869",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1526,6 +2576,46 @@
     ]
   },
   {
+    "id": "taurusssssssss",
+    "name": "トーラス",
+    "url": "https://note.com/taurusssssssss",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "miona_mizuki",
+    "name": "ニカスのまるぴ",
+    "url": "https://note.com/miona_mizuki",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "necohanoinuzuki",
+    "name": "ネコ派の犬好き",
+    "url": "https://note.com/necohanoinuzuki",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "hattori823",
+    "name": "ハットリ",
+    "url": "https://note.com/hattori823",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "nash96",
     "name": "ハリネズミの道",
     "url": "https://nash96.hatenablog.com",
@@ -1538,6 +2628,16 @@
     ]
   },
   {
+    "id": "super_eider4334",
+    "name": "ハンセン",
+    "url": "https://note.com/super_eider4334",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "libralibera49",
     "name": "バックフライヤー",
     "url": "https://note.com/libralibera49",
@@ -1547,6 +2647,16 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "hina_english46",
+    "name": "ヒュウガ",
+    "url": "https://note.com/hina_english46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -1598,6 +2708,16 @@
     ]
   },
   {
+    "id": "takanohashi_46",
+    "name": "ボータカノハシコウモリ（RN：お腹いっぱい食べてほしいな）",
+    "url": "https://note.com/takanohashi_46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "ryouta-mizuking",
     "name": "ポタクのあれこれ。",
     "url": "https://ryouta-mizuking.hatenablog.com",
@@ -1607,6 +2727,26 @@
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "macaronloving",
+    "name": "マカロンは好きではない",
+    "url": "https://note.com/macaronloving",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "mayo_46",
+    "name": "マヨネーズ",
+    "url": "https://note.com/mayo_46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -1622,6 +2762,76 @@
     ]
   },
   {
+    "id": "millecrepes2",
+    "name": "ミルクレゥプ２",
+    "url": "https://note.com/millecrepes2",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "mukielesta",
+    "name": "ムキエレスタ",
+    "url": "https://note.com/mukielesta",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "tk39fish",
+    "name": "メニホビ",
+    "url": "https://note.com/tk39fish",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "mell15",
+    "name": "メル",
+    "url": "https://note.com/mell15",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "yangyang_film987",
+    "name": "ヤンヤン",
+    "url": "https://note.com/yangyang_film987",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "乃木坂工事中"
+    ]
+  },
+  {
+    "id": "yuuki_1001",
+    "name": "ユウキ",
+    "url": "https://note.com/yuuki_1001",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
+    ]
+  },
+  {
+    "id": "nogi_vector46",
+    "name": "ユートピア",
+    "url": "https://note.com/nogi_vector46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "lively_auklet75",
     "name": "ラノリンペースト",
     "url": "https://note.com/lively_auklet75",
@@ -1631,6 +2841,46 @@
       "楽曲・歌詞考察",
       "ライブ・コンサート",
       "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "pgdjwpap",
+    "name": "ラーグ",
+    "url": "https://note.com/pgdjwpap",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "lhd",
+    "name": "リトルハニードーナツ",
+    "url": "https://note.com/lhd",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "rollallo",
+    "name": "ロロロ",
+    "url": "https://note.com/rollallo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "askaryo3",
+    "name": "三代目齋藤飛鳥涼",
+    "url": "https://note.com/askaryo3",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1646,6 +2896,16 @@
     ]
   },
   {
+    "id": "3kumo0ka",
+    "name": "三雲零霞",
+    "url": "https://note.com/3kumo0ka",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "hearty_iris9009",
     "name": "三鷹鞦韆",
     "url": "https://note.com/hearty_iris9009",
@@ -1654,6 +2914,16 @@
     "themes": [
       "グループ運営・アイドル論",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "yutaro0518",
+    "name": "上野 裕太郎（Ueno Yutaro）",
+    "url": "https://note.com/yutaro0518",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1705,6 +2975,36 @@
     ]
   },
   {
+    "id": "kakkysan_4g46",
+    "name": "今日から一番たくましいとわ",
+    "url": "https://note.com/kakkysan_4g46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "kayn_0424",
+    "name": "佐藤心",
+    "url": "https://note.com/kayn_0424",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "satomitsuharu",
+    "name": "佐藤満春",
+    "url": "https://note.com/satomitsuharu",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
     "id": "unique_sheep9947",
     "name": "余白",
     "url": "https://note.com/unique_sheep9947",
@@ -1713,6 +3013,36 @@
     "themes": [
       "メンバー考察・人物論",
       "乃木坂工事中",
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "_yatu_hasyi",
+    "name": "八ツ橋",
+    "url": "https://note.com/_yatu_hasyi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "nice_mimosa5884",
+    "name": "千田洋幸",
+    "url": "https://note.com/nice_mimosa5884",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "sakurasaku_kira",
+    "name": "坂道オタクの徒然",
+    "url": "https://note.com/sakurasaku_kira",
+    "platform": "note",
+    "count": 1,
+    "themes": [
       "楽曲・歌詞考察"
     ]
   },
@@ -1726,6 +3056,26 @@
       "楽曲・歌詞考察",
       "メンバー考察・人物論",
       "ダンス・パフォーマンス考察"
+    ]
+  },
+  {
+    "id": "fab877",
+    "name": "夜明けの犬笛吹き",
+    "url": "https://note.com/fab877",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "soutanopapa0722",
+    "name": "太陽光線",
+    "url": "https://note.com/soutanopapa0722",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -1762,6 +3112,16 @@
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "korori_omusubi",
+    "name": "尾結 ころり",
+    "url": "https://note.com/korori_omusubi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1812,6 +3172,16 @@
     ]
   },
   {
+    "id": "araki7788",
+    "name": "新木",
+    "url": "https://note.com/araki7788",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "asu-travel",
     "name": "旅んちゅ.info",
     "url": "https://asu-travel.hatenablog.com",
@@ -1836,6 +3206,16 @@
     ]
   },
   {
+    "id": "hachon_mainichi",
+    "name": "春夏秋冬はづき(翔の毎日研究)",
+    "url": "https://note.com/hachon_mainichi",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "you_your_yumu2",
     "name": "望月優夢｜日本のアイドルをビジネス視点で考察する",
     "url": "https://note.com/you_your_yumu2",
@@ -1844,6 +3224,26 @@
     "themes": [
       "制作者・クリエイター論",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "komura3",
+    "name": "村長（旧：個村長継）",
+    "url": "https://note.com/komura3",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
+    ]
+  },
+  {
+    "id": "tsuyopongram_",
+    "name": "松本 侃士",
+    "url": "https://note.com/tsuyopongram_",
+    "platform": "note",
+    "count": 2,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1879,6 +3279,36 @@
     "themes": [
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "hiyoco_hiyo",
+    "name": "桜風ひよこ",
+    "url": "https://note.com/hiyoco_hiyo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "seichourampo",
+    "name": "梅TR",
+    "url": "https://note.com/seichourampo",
+    "platform": "note",
+    "count": 2,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "fukurou_city",
+    "name": "梟(ふくろう)の街",
+    "url": "https://note.com/fukurou_city",
+    "platform": "note",
+    "count": 1,
+    "themes": [
       "ライブ・コンサート"
     ]
   },
@@ -1954,6 +3384,16 @@
     ]
   },
   {
+    "id": "reru1003",
+    "name": "泠（れい）です",
+    "url": "https://note.com/reru1003",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "asakusabashi",
     "name": "浅草橋",
     "url": "https://note.com/asakusabashi",
@@ -1966,6 +3406,16 @@
     ]
   },
   {
+    "id": "kaigan_sen",
+    "name": "海岸線",
+    "url": "https://note.com/kaigan_sen",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
     "id": "lively_fennel526",
     "name": "深山1234｜感情の置き場",
     "url": "https://note.com/lively_fennel526",
@@ -1975,6 +3425,26 @@
       "メンバー考察・人物論",
       "楽曲・歌詞考察",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "milia639",
+    "name": "渡邉 清文",
+    "url": "https://note.com/milia639",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "kentaterunuma",
+    "name": "照沼健太",
+    "url": "https://note.com/kentaterunuma",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "その他の感想・批評"
     ]
   },
   {
@@ -2014,6 +3484,46 @@
     ]
   },
   {
+    "id": "thetheteatea",
+    "name": "竹内達也／サッカー記者",
+    "url": "https://note.com/thetheteatea",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "funahashi_ngzk46",
+    "name": "船橋和也",
+    "url": "https://note.com/funahashi_ngzk46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "brocken_jr",
+    "name": "芽依ちゃんの羊",
+    "url": "https://note.com/brocken_jr",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "日向坂で会いましょう"
+    ]
+  },
+  {
+    "id": "masashi3122",
+    "name": "菰田将司",
+    "url": "https://note.com/masashi3122",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
     "id": "richnoise",
     "name": "葱(ねぎ)",
     "url": "https://note.com/richnoise",
@@ -2023,6 +3533,16 @@
       "楽曲・歌詞考察",
       "ライブ・コンサート",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "willfq",
+    "name": "藤井　久",
+    "url": "https://note.com/willfq",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
     ]
   },
   {
@@ -2068,6 +3588,26 @@
     "themes": [
       "楽曲・歌詞考察",
       "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "akaineko",
+    "name": "赤い猫",
+    "url": "https://note.com/akaineko",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "chikazoemakoto",
+    "name": "近添真琴",
+    "url": "https://note.com/chikazoemakoto",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -2131,6 +3671,16 @@
     ]
   },
   {
+    "id": "nobihodai",
+    "name": "雑草のビホダイド",
+    "url": "https://note.com/nobihodai",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
     "id": "husigiyt",
     "name": "雑踏より愛をこめて",
     "url": "https://husigiyt.hatenablog.com",
@@ -2140,6 +3690,36 @@
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "shiroi_yuki",
+    "name": "雪峰",
+    "url": "https://note.com/shiroi_yuki",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
+    ]
+  },
+  {
+    "id": "tobita_1031",
+    "name": "飛田将行",
+    "url": "https://note.com/tobita_1031",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ファンダム・ファン文化"
+    ]
+  },
+  {
+    "id": "kuzenzetsugo",
+    "name": "食前舌語（くうぜんぜつご）",
+    "url": "https://note.com/kuzenzetsugo",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -2164,6 +3744,26 @@
       "ライブ・コンサート",
       "グループ運営・アイドル論",
       "楽曲・歌詞考察"
+    ]
+  },
+  {
+    "id": "boss_night46",
+    "name": "ﾃﾞｰ(BOSS_night46)",
+    "url": "https://note.com/boss_night46",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "ライブ・コンサート"
+    ]
+  },
+  {
+    "id": "varioion",
+    "name": "🧃",
+    "url": "https://note.com/varioion",
+    "platform": "note",
+    "count": 1,
+    "themes": [
+      "メンバー考察・人物論"
     ]
   }
 ]
