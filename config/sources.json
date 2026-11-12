@@ -2061,5 +2061,16 @@
     "article_policy": "review_required",
     "verified_at": "2026-11-10",
     "verification": "妄ツイ文化への批評を公開本文で確認。その他のアイドル論との混在を記事単位で確認。書き手全体の公開承認ではなく記事ごとに確認。"
+  },
+  {
+    "id": "for_tmgwa_shako",
+    "name": "[OH-26] 多摩川学園前",
+    "url": "https://note.com/for_tmgwa_shako",
+    "feed": "https://note.com/for_tmgwa_shako/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "verified_at": "2026-11-12",
+    "verification": "公開noteプロフィールと、櫻坂46の楽曲考察・ライブ感想および日向坂46のライブ感想を複数確認。RSSはnote標準URLを設定（次回収集時に検証）。2026-11-12に管理者が登録を指示。"
   }
 ]
