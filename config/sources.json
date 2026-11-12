@@ -2072,5 +2072,3055 @@
     "article_policy": "automatic",
     "verified_at": "2026-11-12",
     "verification": "公開noteプロフィールと、櫻坂46の楽曲考察・ライブ感想および日向坂46のライブ感想を複数確認。RSSはnote標準URLを設定（次回収集時に検証）。2026-11-12に管理者が登録を指示。"
+  },
+  {
+    "id": "gentle_elk1411",
+    "name": "gentle_elk1411",
+    "url": "https://note.com/gentle_elk1411",
+    "feed": "https://note.com/gentle_elk1411/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。43rdの選抜人数・6期生の配置とアンダー規模を具体的に比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/gentle_elk1411/n/n3b498a7c3da8",
+        "title": "【感想|考察】乃木坂46 43rd 選抜発表について【6期減員、新選抜なし、7期加入はまだ先…乃木坂全体の方針は？少数精鋭化？】（約15,000字）",
+        "published_at": "2026-10-18T18:49:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "jsapanexco",
+    "name": "タラカン",
+    "url": "https://note.com/jsapanexco",
+    "feed": "https://note.com/jsapanexco/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。五月雨よ初披露の表情の見え方とシングル全体の緩急を具体的に論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/jsapanexco/n/n43021c238758",
+        "title": "477. 欅坂って何だったんだろう？2026",
+        "published_at": "2026-11-03T10:22:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hina_english46",
+    "name": "ヒュウガ",
+    "url": "https://note.com/hina_english46",
+    "feed": "https://note.com/hina_english46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ドキュメンタリーの西野卒業への配分から個人の物語とグループの歴史を分けて論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hina_english46/n/nb1a9a96b76ba",
+        "title": "アイドルの儚さとアイドルグループの持つ宿命",
+        "published_at": "2021-03-19T17:58:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "1421191035",
+    "name": "まるひ【音楽】",
+    "url": "https://note.com/1421191035",
+    "feed": "https://note.com/1421191035/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。流れ弾の音楽的展開とそれまでのシングルを比較する。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/1421191035/n/nb8abc0df8597",
+        "title": "【流れ弾】櫻坂46の\"楽曲的戦略\"を大学生が考察",
+        "published_at": "2021-10-18T06:54:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mawaru_magari",
+    "name": "まわる まがり｜ライター",
+    "url": "https://note.com/mawaru_magari",
+    "feed": "https://note.com/mawaru_magari/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。けやき坂の特殊な立ち位置と楽曲を自身の鑑賞に即して記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mawaru_magari/n/nc59f0f7f64a5",
+        "title": "けやき坂46の魅力にいまさら気が付く",
+        "published_at": "2023-05-12T11:11:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "soutanopapa0722",
+    "name": "太陽光線",
+    "url": "https://note.com/soutanopapa0722",
+    "feed": "https://note.com/soutanopapa0722/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。生田卒業に寄せて初期楽曲・メンバー配置からブランド変化を解釈。記事単位で掲載。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/soutanopapa0722/n/n4a082f2f1019",
+        "title": "2018年の「乃木坂工事中」の生田絵梨花と白石麻衣は、いちゃいちゃしすぎじゃない？",
+        "published_at": "2021-03-09T09:46:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rollallo",
+    "name": "ロロロ",
+    "url": "https://note.com/rollallo",
+    "feed": "https://note.com/rollallo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。歌声、視線、振付の角度と配信カメラを曲ごとに観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/rollallo/n/nbeac8927765c",
+        "title": "17th Single ひなた坂46 LIVE(DAY2)の感想。",
+        "published_at": "2026-06-17T15:13:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "lhd",
+    "name": "リトルハニードーナツ",
+    "url": "https://note.com/lhd",
+    "feed": "https://note.com/lhd/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。熱量とメンバーの異なる感触、蔵盛・下田の歌声の厚みを具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/lhd/n/n7dc84665cec4",
+        "title": "18th Single ひなた坂46 LIVE 配信鑑賞後の感想",
+        "published_at": "2026-10-08T06:43:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "araki7788",
+    "name": "新木",
+    "url": "https://note.com/araki7788",
+    "feed": "https://note.com/araki7788/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。君に話しておきたいことMVの衣装・フロント・髪型や表情の具体的感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/araki7788/n/n3dac5a083c3b",
+        "title": "けやき坂46「君に話しておきたいこと」フルサイズ初視聴。ツインテールこのちゃん！",
+        "published_at": "2021-03-20T06:29:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "footballlife07",
+    "name": "Y@R",
+    "url": "https://note.com/footballlife07",
+    "feed": "https://note.com/footballlife07/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ドキュメンタリーの石森と平手の関係、0番の扱いを場面に即して論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/footballlife07/n/n305c92153947",
+        "title": "Documentary of KEYAKIZAKA 46「僕たちの嘘と真実」感想&考察 ~Discord discord~",
+        "published_at": "2020-09-07T13:36:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tkakab",
+    "name": "tkakab",
+    "url": "https://note.com/tkakab",
+    "feed": "https://note.com/tkakab/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。あゆみ両チームを観劇し、影山の役の演じ分けや終盤の配役固定を具体的に考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tkakab/n/n7416e46975ab",
+        "title": "けやき坂46初の舞台「あゆみ」を観た",
+        "published_at": "2018-05-05T06:44:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tsuyopongram_",
+    "name": "松本 侃士",
+    "url": "https://note.com/tsuyopongram_",
+    "feed": "https://note.com/tsuyopongram_/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。けやき坂の立脚点と欅坂楽曲の音作り・歌詞を複数記事で批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tsuyopongram_/n/nccdb6f2b52de",
+        "title": "けやき坂46、「空白」の存在証明",
+        "published_at": "2019-02-04T03:39:00+00:00"
+      },
+      {
+        "url": "https://note.com/tsuyopongram_/n/na89edbddeed2",
+        "title": "欅坂46、「反逆」のポップ・ミュージック10選",
+        "published_at": "2020-10-07T13:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "applegalleon",
+    "name": "applegalleon",
+    "url": "https://note.com/applegalleon",
+    "feed": "https://note.com/applegalleon/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。12thバスラのユニット配役を、原メンバーとの関係や歌唱構成から解釈。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/applegalleon/n/n582b5f28d61c",
+        "title": "乃木坂46 12thバスラ  ユニット曲ポジション解説",
+        "published_at": "2024-03-17T16:24:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "masashi3122",
+    "name": "菰田将司",
+    "url": "https://note.com/masashi3122",
+    "feed": "https://note.com/masashi3122/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2016年と2022年のブランド論でAKBとの差異と世代交代を具体的に比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/masashi3122/n/nc7399a60c585",
+        "title": "乃木坂46にみる「ブランド戦略」",
+        "published_at": "2016-02-27T02:34:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "neruson17",
+    "name": "NERU17",
+    "url": "https://note.com/neruson17",
+    "feed": "https://note.com/neruson17/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。学校を舞台にしたMVと同世代性、既に存在しないグループへの関心を自身の経験から論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/neruson17/n/nd247eb4a95b7",
+        "title": "欅坂46とは何だったのか。",
+        "published_at": "2026-01-17T10:39:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "armi",
+    "name": "ARATA",
+    "url": "https://note.com/armi",
+    "feed": "https://note.com/armi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。Time flies各曲の曲調・歌詞の印象をリリース当時の自身の記録と併記。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/armi/n/nf134ac82e1b6",
+        "title": "乃木坂46「Time flies」を聴いた感想(Disc 1)",
+        "published_at": "2022-02-09T13:08:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "fukurou_city",
+    "name": "梟(ふくろう)の街",
+    "url": "https://note.com/fukurou_city",
+    "feed": "https://note.com/fukurou_city/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。深川卒コンの2日間を現地で見た客席との一体感・演出への観察。転載時の公開日を使用。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/fukurou_city/n/n027174a36ec4",
+        "title": "[(移転掲載)伝説の２日間の記録]深川麻衣(乃木坂46) 卒業コンサートレポート 2016年６月15・16日 静岡エコパアリーナ",
+        "published_at": "2025-03-15T03:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "2boshiwa_082",
+    "name": "にぼちぃ",
+    "url": "https://note.com/2boshiwa_082",
+    "feed": "https://note.com/2boshiwa_082/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。歴代表題曲の聴き方と夜明け三銃士の初期像、ライブ経験を固有の語彙で記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/2boshiwa_082/n/nafe591724244",
+        "title": "【乃木坂46】歴代表題曲の大体ひとこと感想と42nd選抜予想",
+        "published_at": "2026-06-07T10:30:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kakkysan_4g46",
+    "name": "今日から一番たくましいとわ",
+    "url": "https://note.com/kakkysan_4g46",
+    "feed": "https://note.com/kakkysan_4g46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。太陽ノック収録曲の音色・編曲・MVとライブでの扱いを比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kakkysan_4g46/n/n793965e43b5b",
+        "title": "【乃木坂全曲感想】青春がそこにあった　12ndシングル「太陽ノック」",
+        "published_at": "2026-08-11T09:16:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "fab877",
+    "name": "夜明けの犬笛吹き",
+    "url": "https://note.com/fab877",
+    "feed": "https://note.com/fab877/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。新内卒セレの曲順・ラジオ文脈・会場体験を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/fab877/n/nb2230a1a03b7",
+        "title": "最近行った乃木坂46のライブのレポート&感想　新内眞衣卒業セレモニー編",
+        "published_at": "2022-07-29T14:51:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "akaineko",
+    "name": "赤い猫",
+    "url": "https://note.com/akaineko",
+    "feed": "https://note.com/akaineko/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。初見で33曲を聴き、ジャズ・ラテン等の音の違いやシングルのまとまりを批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/akaineko/n/n0102f621a945",
+        "title": "乃木坂４６楽曲レポート（私は初心者です。ライブに行くためのセットリスト予習を行いました。）",
+        "published_at": "2024-02-03T13:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ontaikun",
+    "name": "ontaikun",
+    "url": "https://note.com/ontaikun",
+    "feed": "https://note.com/ontaikun/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。14thバスラを現地で見て、小津の語りや池田中心期の演出を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ontaikun/n/n03758e1603f2",
+        "title": "乃木坂46 14th YEAR BIRTHDAY LIVE -Day2-",
+        "published_at": "2026-05-24T11:47:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yasushi_diary",
+    "name": "やすっしー",
+    "url": "https://note.com/yasushi_diary",
+    "feed": "https://note.com/yasushi_diary/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。5期生ライブの照明と手の同期、現地モニターと配信との差を観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yasushi_diary/n/n9625a2125d45",
+        "title": "乃木坂46 11th YEARBIRTHDAYLIVE DAY2 5期生ライブ セトリとレポ",
+        "published_at": "2023-03-05T15:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tk39fish",
+    "name": "メニホビ",
+    "url": "https://note.com/tk39fish",
+    "feed": "https://note.com/tk39fish/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。音の出ないギター等の楽曲・編曲とライブで聴きたい基準を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tk39fish/n/n0349e3809e2b",
+        "title": "坂道好き曲ランキングを作る【12】",
+        "published_at": "2026-08-25T14:36:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "naochan0918",
+    "name": "りょー",
+    "url": "https://note.com/naochan0918",
+    "feed": "https://note.com/naochan0918/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。5期生ライブの冨里の煽りと表情、過去衣装の継承を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/naochan0918/n/n89036ef2a0bf",
+        "title": "太陽のような存在　“乃木坂46 11th YEAR BIRTHDAY LIVE DAY2 〜5期生ライブ〜” 振り返り",
+        "published_at": "2023-03-01T12:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mell15",
+    "name": "メル",
+    "url": "https://note.com/mell15",
+    "feed": "https://note.com/mell15/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。大園・与田の逃げ水フロント配置から3期生の継承を解釈。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mell15/n/nbcaa28c4aabe",
+        "title": "大園桃子と乃木坂３期生という奇跡",
+        "published_at": "2023-02-21T01:59:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "taurusssssssss",
+    "name": "トーラス",
+    "url": "https://note.com/taurusssssssss",
+    "feed": "https://note.com/taurusssssssss/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。齋藤飛鳥卒業発表と神宮のロマンスのスタートでの自分の反応を結びつける。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/taurusssssssss/n/nb0fa1cd8f36a",
+        "title": "齋藤飛鳥ちゃん卒業を受けて、乃木坂46について語らせてくれ",
+        "published_at": "2022-11-04T14:21:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mito31",
+    "name": "うめがき たね",
+    "url": "https://note.com/mito31",
+    "feed": "https://note.com/mito31/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。深川のプリンシパル全役制覇を見て受け身という印象を修正した経験を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mito31/n/n6ae357223a99",
+        "title": "微笑みながら自然体で坂を登りつづける人〜深川麻衣さんの魅力〜",
+        "published_at": "2021-02-03T11:59:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "runpp",
+    "name": "るんぴっぴ",
+    "url": "https://note.com/runpp",
+    "feed": "https://note.com/runpp/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2019年の記事で僕と君の主体を分け、複数楽曲を接続する独自の読み。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/runpp/n/n6474a43e7293",
+        "title": "【欅坂46】楽曲に登場する『僕』は3年半の時を経てどのように成長したのか。「僕と君の世界」を歌詞から考察してみた - 前篇",
+        "published_at": "2019-12-27T11:23:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nice_mimosa5884",
+    "name": "千田洋幸",
+    "url": "https://note.com/nice_mimosa5884",
+    "feed": "https://note.com/nice_mimosa5884/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。歌詞主体の揺れやドキュメンタリーによる物語化を論じた長文批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nice_mimosa5884/n/na24e570bc06d",
+        "title": "抵抗と呪いと絶望と――欅坂46の歌唱世界――",
+        "published_at": "2025-04-09T13:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sakananosurimi",
+    "name": "サカナノスリミ",
+    "url": "https://note.com/sakananosurimi",
+    "feed": "https://note.com/sakananosurimi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。五月雨よの歌詞の恋愛とメンバーが表現する愛の差、再解釈の構造を考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/sakananosurimi/n/n4977af2f5a7d",
+        "title": "櫻坂46『五月雨よ』から汲み取る楽曲解釈と表現",
+        "published_at": "2022-04-27T10:57:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nitani555",
+    "name": "にた",
+    "url": "https://note.com/nitani555",
+    "feed": "https://note.com/nitani555/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3年目のデビューの場面選択やカットの不満も含めて具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nitani555/n/n4d027781fe00",
+        "title": "3年目のデビュー感想文",
+        "published_at": "2020-08-15T03:36:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "varioion",
+    "name": "🧃",
+    "url": "https://note.com/varioion",
+    "feed": "https://note.com/varioion/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。齋藤飛鳥を好む理由を容姿や接触イベントと区別して自身の経験から検討。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/varioion/n/n27f22bc55091",
+        "title": "裸足の旅人",
+        "published_at": "2020-07-02T23:48:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "current46",
+    "name": "カラント･サンライズ",
+    "url": "https://note.com/current46",
+    "feed": "https://note.com/current46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。井上のらじらーでの異なる顔と山崎との関係を好きな理由として具体化。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/current46/n/n7d5e1f6c383e",
+        "title": "さゆの卒業に思うこと② 〜推し始めたきっかけとこれまで、そして好きな理由〜",
+        "published_at": "2020-04-27T13:03:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "124578",
+    "name": "キャン太",
+    "url": "https://note.com/124578",
+    "feed": "https://note.com/124578/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。UDAGAWAの前半と後半を分け、3人の表情変化とカメラへの身体の合わせ方を読む。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/124578/n/n7dadaa83f3db",
+        "title": "櫻坂46『UDAGAWA GENERATION』批評―前半と後半―",
+        "published_at": "2025-02-05T16:31:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "msh46_usp",
+    "name": "うすぽての尺",
+    "url": "https://note.com/msh46_usp",
+    "feed": "https://note.com/msh46_usp/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。12thバスラDay3の現地レポートと、過去楽曲を現メンバーが演じる変化への感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/msh46_usp/n/nf3a66299fe3e",
+        "title": "変化を強みにする(12th YEAR BIRTHDAY LIVE)",
+        "published_at": "2024-03-30T02:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yangyang_film987",
+    "name": "ヤンヤン",
+    "url": "https://note.com/yangyang_film987",
+    "feed": "https://note.com/yangyang_film987/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。冠番組が乃木坂らしさを作った過程と、その功罪を放送企画に即して考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yangyang_film987/n/na15d36edd2fb",
+        "title": "「乃木坂って、どこ？」と「乃木坂工事中」から見る乃木坂46のモヤモヤ―アイドル番組の功罪をファンの立場から考える― 1/2",
+        "published_at": "2022-09-16T07:40:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kentaterunuma",
+    "name": "照沼健太",
+    "url": "https://note.com/kentaterunuma",
+    "feed": "https://note.com/kentaterunuma/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。平手脱退時の既発表原稿の振り返りと、2017年欅共和国のパフォーマンスへの批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kentaterunuma/n/n836e097337d3",
+        "title": "平手友梨奈を語るとき、僕は無傷でいられなかった（それは当然の話）。",
+        "published_at": "2020-01-24T13:05:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "e_and_p5166",
+    "name": "A&P",
+    "url": "https://note.com/e_and_p5166",
+    "feed": "https://note.com/e_and_p5166/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。新参者のカタミラ披露を、楽曲を引き受ける所信表明として具体的に解釈。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/e_and_p5166/n/nb2894ea82aba",
+        "title": "一人の古参が見た「語るなら未来を」【新参者最終公演感想】",
+        "published_at": "2023-12-06T09:01:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mattsu_memo",
+    "name": "まっつ",
+    "url": "https://note.com/mattsu_memo",
+    "feed": "https://note.com/mattsu_memo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2022ツアーでの山崎の笑い方、大園の動き、アンコールへの現地反応を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mattsu_memo/n/n3dddab891e77",
+        "title": "櫻坂46　2nd TOUR 2022 \"As you know?\" 東京day1参戦記",
+        "published_at": "2022-11-09T03:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "annaeuscaesar",
+    "name": "セネカ",
+    "url": "https://note.com/annaeuscaesar",
+    "feed": "https://note.com/annaeuscaesar/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。制服の人魚の守屋の表現とダンストラックの英文・演出を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/annaeuscaesar/n/n768edcfb7c13",
+        "title": "櫻坂46 2nd TOUR 2022“As you know?”＠東京ドーム",
+        "published_at": "2022-11-13T16:04:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "millecrepes2",
+    "name": "ミルクレゥプ２",
+    "url": "https://note.com/millecrepes2",
+    "feed": "https://note.com/millecrepes2/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。菅井卒業セレモニーとそこさく・歌番組の具体的な場面に対する感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/millecrepes2/n/n22b5ac14fb6d",
+        "title": "2022年11～12月の櫻坂46の感想/雑感まとめ(菅井友香卒業セレモニー含む)",
+        "published_at": "2023-01-21T02:46:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "24maal",
+    "name": "にし",
+    "url": "https://note.com/24maal",
+    "feed": "https://note.com/24maal/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。全員100点というユーモアを使い、2020年の各メンバーの活動を具体的に振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/24maal/n/nf98da414cab0",
+        "title": "どこよりも正確で厳格な2020年日向坂46メンバー通信簿",
+        "published_at": "2020-12-30T06:10:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "syu_spring",
+    "name": "しゅう",
+    "url": "https://note.com/syu_spring",
+    "feed": "https://note.com/syu_spring/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3年目のデビューの挨拶・先後輩の関係・配信ライブの場面を批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/syu_spring/n/nd493ca964e45",
+        "title": "【ネタバレあり】『3年目のデビュー』を見て【日向坂46】",
+        "published_at": "2020-08-09T08:40:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "akirasatoru",
+    "name": "アキラサトル",
+    "url": "https://note.com/akirasatoru",
+    "feed": "https://note.com/akirasatoru/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ラジオ経由の視聴者がバンジー回への反応を映画鑑賞後に変えた経緯を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/akirasatoru/n/n0ac01d98caa0",
+        "title": "ラジオと日向坂　～日向坂にハマる理由～",
+        "published_at": "2023-07-02T14:28:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tsukurumizuno",
+    "name": "みずのつくる",
+    "url": "https://note.com/tsukurumizuno",
+    "feed": "https://note.com/tsukurumizuno/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。SKEを応援した経験と映画の主人公不在という観察から日向坂を比較批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tsukurumizuno/n/n6f69aeab6559",
+        "title": "元SKE48ヲタが日向坂46に見た幻影の正体 ― ドキュメンタリー『3年目のデビュー』感想",
+        "published_at": "2020-09-12T09:24:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "jupemovie",
+    "name": "じゅぺ",
+    "url": "https://note.com/jupemovie",
+    "feed": "https://note.com/jupemovie/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。金村センターの青春の馬を代役に還元せず、表情と映像から批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/jupemovie/n/n37f8c35d03f2",
+        "title": "〈３〉全員が幸せになれる可能性",
+        "published_at": "2020-08-18T16:36:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "peep_46",
+    "name": "ぴーぷ",
+    "url": "https://note.com/peep_46",
+    "feed": "https://note.com/peep_46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。二人セゾンの君を人格・内面・概念に分け、歌詞のモチーフごとに複数の読みを検討。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/peep_46/n/n09b55304bbd2",
+        "title": "欅坂46『二人セゾン』で主人公が出会った「君」は誰かを考える",
+        "published_at": "2026-01-12T22:31:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tobita_1031",
+    "name": "飛田将行",
+    "url": "https://note.com/tobita_1031",
+    "feed": "https://note.com/tobita_1031/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2015年の応援とグループの大衆化に伴う喪失感を具体的な経験から記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tobita_1031/n/n7bba5413d32e",
+        "title": "乃木坂46 8歳の誕生日おめでとう！",
+        "published_at": "2020-02-22T10:26:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kayn_0424",
+    "name": "佐藤心",
+    "url": "https://note.com/kayn_0424",
+    "feed": "https://note.com/kayn_0424/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。歌詞群を競争・救済という原理から一貫して読解する長文論考。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kayn_0424/n/n91f112b0be18",
+        "title": "欅坂46論「第三の永遠」",
+        "published_at": "2020-12-25T20:06:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "inti_machine",
+    "name": "Koase",
+    "url": "https://note.com/inti_machine",
+    "feed": "https://note.com/inti_machine/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。佐藤心への取材を通して二人セゾンの読解と批評を書く立場を掘り下げる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/inti_machine/n/nd02ed002dcd3",
+        "title": "「美少女ゲームの臨界点」から「欅坂46」へ──作家・批評家、佐藤心さんインタビュー(後編)",
+        "published_at": "2024-12-20T08:50:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "44134413",
+    "name": "Kanada",
+    "url": "https://note.com/44134413",
+    "feed": "https://note.com/44134413/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。けやかけ視聴に基づく1期生の振る舞いやキャラクターへの具体的感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/44134413/n/n24e69446ffac",
+        "title": "欅坂46（現：櫻坂46）全メンバー解説（１期生）",
+        "published_at": "2021-04-23T04:40:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "status_123456ak",
+    "name": "こんどう",
+    "url": "https://note.com/status_123456ak",
+    "feed": "https://note.com/status_123456ak/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。漢字対ひらがな運動会の東村の走り方や佐々木久美の発言を具体的に観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/status_123456ak/n/n2ae8d73cacdd",
+        "title": "おひさま大学生のひとりごと　欅って、書けない　秋の大運動会編①",
+        "published_at": "2019-12-15T15:09:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "bellcy23",
+    "name": "べるしぃ/ Bellcy23",
+    "url": "https://note.com/bellcy23",
+    "feed": "https://note.com/bellcy23/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。当時の自分の投稿を示しながら、欅から離れ櫻に戻った距離感を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/bellcy23/n/n0bc801b0cf16",
+        "title": "夕立も、予測できない未来も　～ゆっかーお姉ちゃんと欅と櫻と僕～",
+        "published_at": "2023-02-12T18:03:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "k_takase_02",
+    "name": "ta_",
+    "url": "https://note.com/k_takase_02",
+    "feed": "https://note.com/k_takase_02/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "automatic",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。LAST LIVEで不協和音を最後に置かなかった意味と連続する感情表現を考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/k_takase_02/n/nddf5923f295f",
+        "title": "欅坂46THE LAST LIVEを語る。（Day1）",
+        "published_at": "2020-10-19T12:55:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "motomoto_kz",
+    "name": "もとおみ數史",
+    "url": "https://note.com/motomoto_kz",
+    "feed": "https://note.com/motomoto_kz/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。秋元の詞の具体から抽象への構造を乃木坂楽曲とAI対決番組の双方で比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/motomoto_kz/n/n6ae343057e64",
+        "title": "【秋元康🆚AI秋元康】AIはセンスまでは学習できない",
+        "published_at": "2025-09-21T20:45:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "takotako14",
+    "name": "takotako14",
+    "url": "https://note.com/takotako14",
+    "feed": "https://note.com/takotako14/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。実メンバーの性格・役割をサッカーのポジションの比喩で整理する論評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/takotako14/n/n27e4ba0cb30c",
+        "title": "【日向坂46 サッカー戦術分析】二期生+三期生 ~渡邉離脱後のフォーメーション考察~",
+        "published_at": "2026-06-27T14:51:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "seichourampo",
+    "name": "梅TR",
+    "url": "https://note.com/seichourampo",
+    "feed": "https://note.com/seichourampo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。乃木坂10thバスラと櫻坂1stアニラ卒業セレモニー双方に具体的な現地感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/seichourampo/n/n83aebc02bb2c",
+        "title": "ご近所にバスラがやってきた――乃木坂46  10thBIRTHDAY LIVE Day1",
+        "published_at": "2022-05-15T02:58:00+00:00"
+      },
+      {
+        "url": "https://note.com/seichourampo/n/n7d99cc53652f",
+        "title": "櫻坂には愛しかない-1stアニラ2日目感想【2】",
+        "published_at": "2022-01-12T08:23:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tamamokaru_saka",
+    "name": "こえちっさ",
+    "url": "https://note.com/tamamokaru_saka",
+    "feed": "https://note.com/tamamokaru_saka/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。宮田愛萌を知る時期への後悔と、配信や本で出会った具体的な魅力を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tamamokaru_saka/n/n45f52afa6b07",
+        "title": "宮田愛萌さんの良さをもっと早く知っていたらよかった",
+        "published_at": "2025-03-24T07:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "twc_corpworks",
+    "name": "TWC",
+    "url": "https://note.com/twc_corpworks",
+    "feed": "https://note.com/twc_corpworks/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。期ごとの初センターまでの期間と役割の反復を、予測と分けて提示。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/twc_corpworks/n/n2399a899e6bb",
+        "title": "乃木坂46は「4つの期」で一周する ── 池田瑛紗と一ノ瀬美空の初センターは、何の序章か",
+        "published_at": "2026-10-07T02:15:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kawaya333",
+    "name": "かわや",
+    "url": "https://note.com/kawaya333",
+    "feed": "https://note.com/kawaya333/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。メンバー数の推移と次期加入までの人数を使って新体制を予測。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kawaya333/n/n4e38c9b11877",
+        "title": "42ndシングル以降の乃木坂を占う",
+        "published_at": "2026-06-01T09:56:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "skerok",
+    "name": "skerok",
+    "url": "https://note.com/skerok",
+    "feed": "https://note.com/skerok/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。TGUTのMVの床の記号や撮影空間、楽曲の受け取り方を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/skerok/n/n5f59b8282872",
+        "title": "櫻坂46　14th　The growing up train（2/15追記）",
+        "published_at": "2026-02-11T17:34:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "result33",
+    "name": "りざ",
+    "url": "https://note.com/result33",
+    "feed": "https://note.com/result33/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3坂のMVと新せ界の企画書・コンテ展示を比較して制作の違いを考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/result33/n/n39ae431c5d54",
+        "title": "坂道とクリエイティブ —2023—",
+        "published_at": "2024-01-14T12:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "soupcurryhorse",
+    "name": "スープカレーうま馬",
+    "url": "https://note.com/soupcurryhorse",
+    "feed": "https://note.com/soupcurryhorse/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。桜月の鏡・指輪・壁・衣装差を手掛かりにタイムリープとして独自に読解。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/soupcurryhorse/n/ne836c6d52dbe",
+        "title": "桜月『絶望の結末を変える\"救世主\"の物語』／櫻坂46 MV考察　タイムリープ説",
+        "published_at": "2023-01-26T08:19:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mendel0102",
+    "name": "めんでる",
+    "url": "https://note.com/mendel0102",
+    "feed": "https://note.com/mendel0102/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3rdツアーのMC、ライト、舞台への登場の遅れを含む細部を現地観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mendel0102/n/ndf547fc9e770",
+        "title": "櫻坂46 3rdTOUR 愛知公演感想",
+        "published_at": "2023-04-30T08:04:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "polyscore",
+    "name": "polyscore",
+    "url": "https://note.com/polyscore",
+    "feed": "https://note.com/polyscore/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。対談形式でドライフルーツの調性感と国立ライブの曲間演出を具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/polyscore/n/n7c53ae04f587",
+        "title": "櫻坂46 国立競技場ライブDAY2を語る【対談】 ─part 2─",
+        "published_at": "2026-06-11T07:19:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "thetheteatea",
+    "name": "竹内達也／サッカー記者",
+    "url": "https://note.com/thetheteatea",
+    "feed": "https://note.com/thetheteatea/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。記者の立場で公式ブログからの関係性の読みやカバー歌唱、実際のライブ経験を振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/thetheteatea/n/n34ed6eaeeb08",
+        "title": "サッカー記者が「コロナ禍新規」のアイドルオタクになっていった話",
+        "published_at": "2023-12-23T20:20:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tasty_beetle735",
+    "name": "ひなふむ",
+    "url": "https://note.com/tasty_beetle735",
+    "feed": "https://note.com/tasty_beetle735/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。自問自答の対談形式だが、2024東京ドームの曲順・卒業生登場への実観察の感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tasty_beetle735/n/n6dd8c7b504f7",
+        "title": "「わたしたちなら」〜日向坂46東京ドーム公演2日目感想〜",
+        "published_at": "2024-12-31T09:29:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "miyamikan",
+    "name": "みやさん",
+    "url": "https://note.com/miyamikan",
+    "feed": "https://note.com/miyamikan/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。神戸2日間の座席から見たダンスやMC・客席の反応を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/miyamikan/n/nb8d2c3dcf6b8",
+        "title": "日向坂46_Happy Magical Tour 2024in神戸",
+        "published_at": "2024-11-22T10:20:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "cloudy_1110",
+    "name": "おっちー",
+    "url": "https://note.com/cloudy_1110",
+    "feed": "https://note.com/cloudy_1110/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2024ドームの演出と、ひらがなくりすます2018に重なる終幕の読み。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/cloudy_1110/n/n1dc6ce3b3e0c",
+        "title": "#26 夢の先を、日向坂と共に【Happy Magical Tour 2024 in東京ドーム 感想】",
+        "published_at": "2024-12-30T14:56:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "shinigamidriver",
+    "name": "SK",
+    "url": "https://note.com/shinigamidriver",
+    "feed": "https://note.com/shinigamidriver/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。富田卒業発表を受け、SUZUKAやラジオ体制と自身の受け止めを検討。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/shinigamidriver/n/n03c69aee1cee",
+        "title": "日向坂46　富田鈴花さんの卒業発表と卒業セレモニーについて",
+        "published_at": "2025-05-12T16:23:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ohichantik",
+    "name": "チビちゃんちっく",
+    "url": "https://note.com/ohichantik",
+    "feed": "https://note.com/ohichantik/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。影山卒業公演の選曲・コールの経験から古参になれない新規の距離を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ohichantik/n/n86b61c936024",
+        "title": "古参にはなれない　でもイッキサンが大好き",
+        "published_at": "2023-08-31T13:30:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "gentle_tern772",
+    "name": "ちぇちぇ",
+    "url": "https://note.com/gentle_tern772",
+    "feed": "https://note.com/gentle_tern772/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。加藤の外見から受けた印象が発信や後輩との関係で変わった具体例を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/gentle_tern772/n/n2da3fc84e3f8",
+        "title": "日向坂46メンバー紹介（あくまで主観）9/7更新",
+        "published_at": "2023-08-19T15:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "oseti_46",
+    "name": "おせち(スズムラリン)",
+    "url": "https://note.com/oseti_46",
+    "feed": "https://note.com/oseti_46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2024年の好きな楽曲を音・歌声・歌詞に分けた主観的レビュー。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/oseti_46/n/ndeb82d08932f",
+        "title": "2024年のハマりソングと振り返り",
+        "published_at": "2024-12-31T13:06:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "chikazoemakoto",
+    "name": "近添真琴",
+    "url": "https://note.com/chikazoemakoto",
+    "feed": "https://note.com/chikazoemakoto/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ハニーデューの果物比喩を古参ファンの視点として具体的に読み替える。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/chikazoemakoto/n/n492f5df016ea",
+        "title": "日向坂46「君はハニーデュー」は、推しは特別で僕が最古参という意味のアイドルファンニコニコの歌【感想・考察】",
+        "published_at": "2025-02-27T16:51:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "maru_music",
+    "name": "。MUSiC",
+    "url": "https://note.com/maru_music",
+    "feed": "https://note.com/maru_music/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ハニーデューの齊藤不在の声色の変化と正源司のソロを具体的に論評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/maru_music/n/n6eca01a81268",
+        "title": "日向坂46 11th singleの最速感想",
+        "published_at": "2024-03-21T17:22:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "inosato02",
+    "name": "inosato02",
+    "url": "https://note.com/inosato02",
+    "feed": "https://note.com/inosato02/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ハニーデュー収録曲のアレンジ・逆光表現・ユニット歌唱編成を短く具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/inosato02/n/n59eabd33c7fa",
+        "title": "日向坂46君はハニーデュー収録曲レビュー",
+        "published_at": "2024-06-26T12:13:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "3kumo0ka",
+    "name": "三雲零霞",
+    "url": "https://note.com/3kumo0ka",
+    "feed": "https://note.com/3kumo0ka/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。無念の努力と結果の関係への違和感など、桜月収録曲を具体的に読解。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/3kumo0ka/n/n2fc43d2d67dd",
+        "title": "櫻坂46 5thシングル“桜月”を聴いて",
+        "published_at": "2023-04-06T11:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "shou_4846",
+    "name": "なごしょー",
+    "url": "https://note.com/shou_4846",
+    "feed": "https://note.com/shou_4846/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。世界には愛しかないのポエトリー、傘のダンスや風車の場面への具体的感想を確認。舞台紹介記事は掲載根拠にしない。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/shou_4846/n/nb7dbe006994e",
+        "title": "『世界には愛しかない』欅坂46",
+        "published_at": "2025-09-08T01:47:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "cute_poppy614",
+    "name": "けふけふ⊿",
+    "url": "https://note.com/cute_poppy614",
+    "feed": "https://note.com/cute_poppy614/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。影山卒業公演の6曲の選曲を休業前後の活動と照合して自分の希望との一致を論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/cute_poppy614/n/nfb55dbca28dd",
+        "title": "影さんお疲れ様でした😭😭",
+        "published_at": "2023-07-23T10:03:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sung_xing_63",
+    "name": "ほっしー",
+    "url": "https://note.com/sung_xing_63",
+    "feed": "https://note.com/sung_xing_63/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。向井卒業の曲順・メンバーとの向き合い方・サイリウムの色への具体的な感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/sung_xing_63/n/n8a8e951fd998",
+        "title": "＃８９　向井葉月卒業セレモニー＆乃木坂46大感謝祭2024",
+        "published_at": "2024-12-27T01:35:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hsj231od",
+    "name": "SHINJO HISASHI",
+    "url": "https://note.com/hsj231od",
+    "feed": "https://note.com/hsj231od/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。向井の引退を西武応援や斉藤優里引退時の経験と結びつけて記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hsj231od/n/nb8f9a25e80e9",
+        "title": "週刊オールライター第104号（緊急特別号）　「推しの『引退』　お疲れ様でした。向井葉月さん」",
+        "published_at": "2024-11-02T03:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "macaronloving",
+    "name": "マカロンは好きではない",
+    "url": "https://note.com/macaronloving",
+    "feed": "https://note.com/macaronloving/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。一覧だけでなく3期バスラのスピーチとアンダー的歌唱の融合を具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/macaronloving/n/na540f6c9bff5",
+        "title": "2023年の坂道オタク活動振り返り",
+        "published_at": "2024-01-05T13:45:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kuminkurun2_",
+    "name": "くるるるるん",
+    "url": "https://note.com/kuminkurun2_",
+    "feed": "https://note.com/kuminkurun2_/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。佐々木久美との実際のミーグリ・現場の体験や魅力を具体的に振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kuminkurun2_/n/n125618a732ba",
+        "title": "2023年のアイドルヲタク日記",
+        "published_at": "2023-12-31T05:51:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "seizemen",
+    "name": "cnt",
+    "url": "https://note.com/seizemen",
+    "feed": "https://note.com/seizemen/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ラジオからの入口とメッセージ・音楽ゲームの体験が関心を深める経緯を記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/seizemen/n/n3387a9ef381d",
+        "title": "坂道グループにハマったことがなかった僕が日向坂46を好きになっていく3ヶ月間のお話",
+        "published_at": "2021-01-10T10:37:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "525_518",
+    "name": "こけまる",
+    "url": "https://note.com/525_518",
+    "feed": "https://note.com/525_518/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ヒムステのV6から乃木坂への流れを過去のMステ出演日・歌唱順から検証。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/525_518/n/ndb6f37e162d6",
+        "title": "日村STATIONはV6の夢を見るか",
+        "published_at": "2020-05-04T17:27:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "lc_ai7",
+    "name": "shinpanzees📕小説家",
+    "url": "https://note.com/lc_ai7",
+    "feed": "https://note.com/lc_ai7/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。二人セゾンの光・四季の歌詞をメンバーの出会いと卒業に重ねる解釈。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/lc_ai7/n/n8ef65f355caa",
+        "title": "欅坂46「二人セゾン」",
+        "published_at": "2024-10-30T03:18:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "miona_mizuki",
+    "name": "ニカスのまるぴ",
+    "url": "https://note.com/miona_mizuki",
+    "feed": "https://note.com/miona_mizuki/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。推しが増えたきっかけをレコ大・ガクたび・バスラの具体的体験から記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/miona_mizuki/n/n778e743c2440",
+        "title": "【乃木坂46】推しとの出会い",
+        "published_at": "2025-06-26T14:35:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kanyakoshi",
+    "name": "かにゃこし",
+    "url": "https://note.com/kanyakoshi",
+    "feed": "https://note.com/kanyakoshi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ほっとひといきで読まれたメールを示し、番組特有の言い回しと卒業する富田の8年を結ぶ言葉遊びを解説。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kanyakoshi/n/ncfbfac1c6be5",
+        "title": "#6 これが私のベストメール！！",
+        "published_at": "2026-04-25T09:45:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "komura3",
+    "name": "村長（旧：個村長継）",
+    "url": "https://note.com/komura3",
+    "feed": "https://note.com/komura3/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。寺田の卒業ライブと選んだ服の表現・一期一会の店への距離を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/komura3/n/n113c97eb0456",
+        "title": "寺田蘭世さんのお店＝HONEY ROSIE HOUSE でおしゃれをしよう！〔前編〕",
+        "published_at": "2023-12-27T12:02:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ponzu_1220",
+    "name": "ponzu",
+    "url": "https://note.com/ponzu_1220",
+    "feed": "https://note.com/ponzu_1220/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。国立アニラの曲間・ドローン・4期生を含む曲の配置を現地体験から論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ponzu_1220/n/n034addf72fbd",
+        "title": "トンネルの先には満開の櫻が咲いていた/櫻坂46 5thアニラレポ",
+        "published_at": "2026-04-19T17:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "showf",
+    "name": "ショウ",
+    "url": "https://note.com/showf",
+    "feed": "https://note.com/showf/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。希望と絶望を時間軸・2年間の葛藤・観客の期待という3層で読む。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/showf/n/n60aeff8938be",
+        "title": "映画「希望と絶望」の3層構造",
+        "published_at": "2022-07-25T07:29:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "takanohashi_46",
+    "name": "ボータカノハシコウモリ（RN：お腹いっぱい食べてほしいな）",
+    "url": "https://note.com/takanohashi_46",
+    "feed": "https://note.com/takanohashi_46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。12thバスラの3期生お披露目再現と阪口のセンター表現を現地で観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/takanohashi_46/n/n27963c69c95a",
+        "title": "乃木坂46 12th YEAR BIRTHDAY LIVE  2日目を振り返る",
+        "published_at": "2024-03-28T16:33:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yutaro0518",
+    "name": "上野 裕太郎（Ueno Yutaro）",
+    "url": "https://note.com/yutaro0518",
+    "feed": "https://note.com/yutaro0518/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。月スカを好めない違和感と不協和音に惹かれた自身の体験を具体化。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yutaro0518/n/nff7ed7bc3a33",
+        "title": "月曜日の朝、スカートを切られた　前編",
+        "published_at": "2020-09-09T13:01:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tmcs0616",
+    "name": "とーや",
+    "url": "https://note.com/tmcs0616",
+    "feed": "https://note.com/tmcs0616/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。32曲をキー・コード展開や音像も含めて論じた2020年の長文レビュー。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tmcs0616/n/nbd3b68ca8b91",
+        "title": "【永久保存版】【映画ネタバレあり】ほぼ全曲語り尽くします！欅坂大辞典 〜五年間の欅の轍と櫻への軌道〜",
+        "published_at": "2020-10-06T14:58:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kuzenzetsugo",
+    "name": "食前舌語（くうぜんぜつご）",
+    "url": "https://note.com/kuzenzetsugo",
+    "feed": "https://note.com/kuzenzetsugo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。選抜の加入期構成とGoogleトレンドを組み合わせてブランド継続性を分析。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kuzenzetsugo/n/n28e5a83002d5",
+        "title": "#3_10 乃木坂46のブランド継続性を、選抜の加入期と卒業から考える回②データ分析",
+        "published_at": "2021-10-26T13:18:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nomuyo_gurt",
+    "name": "のむヨー",
+    "url": "https://note.com/nomuyo_gurt",
+    "feed": "https://note.com/nomuyo_gurt/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。Actually収録曲の音色・間奏・歌唱とブランドの変化への迷いを具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nomuyo_gurt/n/ndb61f9a6aa89",
+        "title": "乃木坂46 29thシングル『Actually…』感想",
+        "published_at": "2022-03-23T02:41:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "lefty_moon_18",
+    "name": "きりん公園",
+    "url": "https://note.com/lefty_moon_18",
+    "feed": "https://note.com/lefty_moon_18/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。UDAGAWAに宇田川が映らないことを暗渠と街の関係から読解。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/lefty_moon_18/n/n7144b906f66e",
+        "title": "Are we UDAGAWA GENERATION？【櫻坂46 「UDAGAWA GENERATION」　感想",
+        "published_at": "2025-02-19T13:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kyuuriman46",
+    "name": "きゅうりまん",
+    "url": "https://note.com/kyuuriman46",
+    "feed": "https://note.com/kyuuriman46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。自業自得の円形フォーメーションと歌詞を、確信できない箇所も明示して考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kyuuriman46/n/n855cbaf0410f",
+        "title": "別冊櫻坂を語るだけ③〜9th Single 『自業自得』〜",
+        "published_at": "2024-06-06T14:01:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ice_d_tea",
+    "name": "ばでぃうち",
+    "url": "https://note.com/ice_d_tea",
+    "feed": "https://note.com/ice_d_tea/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。当時の記録を用い惰性の応援から変化した自身の受け止めを振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ice_d_tea/n/n5d13e7e56486",
+        "title": "私もBuddiesに。（ヲタ遍歴）",
+        "published_at": "2023-12-06T19:21:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nyachar4869",
+    "name": "トウサカ",
+    "url": "https://note.com/nyachar4869",
+    "feed": "https://note.com/nyachar4869/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。偶然の答えMVの台詞・演技と、少数者を描く欅楽曲との連続性を読む。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nyachar4869/n/na7c520e76048",
+        "title": "【櫻坂46】　テーマは同性愛か？　「偶然の答え」のMVを観た感想",
+        "published_at": "2021-03-24T11:20:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kikuchiyo_956",
+    "name": "きくちょ",
+    "url": "https://note.com/kikuchiyo_956",
+    "feed": "https://note.com/kikuchiyo_956/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。Actuallyの英語詞の発音・強調と日本語詞との対応を細かく分析。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kikuchiyo_956/n/nfd52812743b6",
+        "title": "英語詞を中心に乃木坂46「Actually...」分析",
+        "published_at": "2022-02-26T01:31:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "jafanalysisroom",
+    "name": "JAF Football Analysis Room",
+    "url": "https://note.com/jafanalysisroom",
+    "feed": "https://note.com/jafanalysisroom/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。フットボールを分析する視点から藤嶌らの調子や煽りを具体的に観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/jafanalysisroom/n/n29a2309a4110",
+        "title": "【短文レポート】「日向坂46 ”7回目のひな誕祭” ライブレポート」",
+        "published_at": "2026-04-06T16:18:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "brocken_jr",
+    "name": "芽依ちゃんの羊",
+    "url": "https://note.com/brocken_jr",
+    "feed": "https://note.com/brocken_jr/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。採点だけでなく高瀬の小言ツッコミと若林との関係、サンリオ企画への反応を評する。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/brocken_jr/n/n1d73ba182398",
+        "title": "日向坂で会いましょう#42 採点表",
+        "published_at": "2020-04-08T06:20:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "earphone_half",
+    "name": "かたみみ",
+    "url": "https://note.com/earphone_half",
+    "feed": "https://note.com/earphone_half/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。1stアニラの階段ステージ、曲終わりの表情、曲順を具体的に分析。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/earphone_half/n/ne7ca80790dee",
+        "title": "櫻坂46 1stアニラ初日　乱文雑文ライブレポ",
+        "published_at": "2021-12-10T08:01:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "cress",
+    "name": "ぴっぽくれす",
+    "url": "https://note.com/cress",
+    "feed": "https://note.com/cress/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。LAST LIVEのコンセントレーションの配役と人形師的振付を具体的に論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/cress/n/n4f573c029d12",
+        "title": "欅坂46 THE LAST LIVE Day.2 感想",
+        "published_at": "2020-12-09T07:29:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mukielesta",
+    "name": "ムキエレスタ",
+    "url": "https://note.com/mukielesta",
+    "feed": "https://note.com/mukielesta/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2019ドームの田村の僕は嫌だと表現の違いを現地観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mukielesta/n/nbf5ae36c8d7d",
+        "title": "欅坂46東京ドーム公演を見てきた。",
+        "published_at": "2019-09-24T05:53:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "fwsuk5150_0220",
+    "name": "fuwa",
+    "url": "https://note.com/fwsuk5150_0220",
+    "feed": "https://note.com/fwsuk5150_0220/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。柿崎卒業の日から続くファン引退前夜という距離を、自分の応援経験から記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/fwsuk5150_0220/n/n66d34135ca36",
+        "title": "fuwaのファン引退前夜 ～6回目の8月11日の夜に～",
+        "published_at": "2025-08-11T13:26:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "gufu_honyo",
+    "name": "ほにょにょ",
+    "url": "https://note.com/gufu_honyo",
+    "feed": "https://note.com/gufu_honyo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。ドキュメンタリーの鈴本の位置やMV撮影後の場面から個人的な見解を論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/gufu_honyo/n/nfcb4f5789bd8",
+        "title": "『僕たちの嘘と真実 Documentary of 欅坂46』を観終わって 【Part1：初見で感じた事】",
+        "published_at": "2020-09-15T09:32:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "gordon0519",
+    "name": "kuroma",
+    "url": "https://note.com/gordon0519",
+    "feed": "https://note.com/gordon0519/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3坂のライブ経験やセンター・櫻エイト等の違いから強みと課題を比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/gordon0519/n/nbd42b0587629",
+        "title": "僕目線から見る坂道(◢ ⁴⁶)の魅力・素晴らしさ〜これからの課題",
+        "published_at": "2023-05-31T14:19:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tomslife",
+    "name": "とむ",
+    "url": "https://note.com/tomslife",
+    "feed": "https://note.com/tomslife/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。新せ界のブラウン管映像、新聞紙の巨大絵、木の根の展示を具体的に考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tomslife/n/nfc23bb20cb9f",
+        "title": "「櫻坂46＝アイドル」は半分ホントで半分ウソだと思う【新せ界　感想】",
+        "published_at": "2023-11-02T15:33:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "jellyfish_kaimii",
+    "name": "かいみぃ",
+    "url": "https://note.com/jellyfish_kaimii",
+    "feed": "https://note.com/jellyfish_kaimii/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。神宮の空が暗くなることと観客の体験を自分の初参戦時の記憶から捉える。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/jellyfish_kaimii/n/nf54e3849d085",
+        "title": "乃木坂46にとって『神宮』とは何なのか――初神宮から9年、結成15周年の日に思ったこと",
+        "published_at": "2026-08-28T10:16:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "chugakujukentk",
+    "name": "オヌマ",
+    "url": "https://note.com/chugakujukentk",
+    "feed": "https://note.com/chugakujukentk/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2017年の橋本引退への文章の再掲でテレビと接触イベントの関係を論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/chugakujukentk/n/n1d19869490b2",
+        "title": "こうして乃木坂46 橋本奈々未は絶対的存在になった。",
+        "published_at": "2026-01-16T10:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nobihodai",
+    "name": "雑草のビホダイド",
+    "url": "https://note.com/nobihodai",
+    "feed": "https://note.com/nobihodai/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2020バスラの新4期生の自己紹介や演目を席からの見え方とともに記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nobihodai/n/n7f74549b277b",
+        "title": "乃木坂46 8th バスラ Day4 レポ",
+        "published_at": "2020-03-01T23:03:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "funahashi_ngzk46",
+    "name": "船橋和也",
+    "url": "https://note.com/funahashi_ngzk46",
+    "feed": "https://note.com/funahashi_ngzk46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。Overtureをテンポと主題反復、音色の面から具体的にレビュー。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/funahashi_ngzk46/n/n4834e55bf1e2",
+        "title": "乃木坂全曲感想　　　　　　　　　　　F-0001 Overture",
+        "published_at": "2026-01-03T01:08:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sickpplus",
+    "name": "しっく",
+    "url": "https://note.com/sickpplus",
+    "feed": "https://note.com/sickpplus/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。国立の楽曲配置、赤白のダンストラック、村井の表現への批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/sickpplus/n/n5b12ce181fd0",
+        "title": "櫻坂46 5thアニバーサリーとはなんだったのか",
+        "published_at": "2026-04-16T11:08:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "gayasu0305",
+    "name": "gayasu",
+    "url": "https://note.com/gayasu0305",
+    "feed": "https://note.com/gayasu0305/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。3rd福岡の関卒業と三期生の煽り・表情を現地席から記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/gayasu0305/n/nda637e5e5e0c",
+        "title": "2023/4/30 櫻坂46 3rdTOUR 福岡 2日目",
+        "published_at": "2023-05-07T09:59:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "willfq",
+    "name": "藤井　久",
+    "url": "https://note.com/willfq",
+    "feed": "https://note.com/willfq/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2019神宮の北野の気迫とアンダーパートで変わる客席、演奏への不満も記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/willfq/n/n9bc7ea8b3ee3",
+        "title": "潜入！乃木坂46 真夏の全国ツアー2019！",
+        "published_at": "2020-02-10T17:28:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "shiroi_yuki",
+    "name": "雪峰",
+    "url": "https://note.com/shiroi_yuki",
+    "feed": "https://note.com/shiroi_yuki/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。欅の終幕と楽曲の複数の感情、アイドルと信頼への自分の視点を長文で論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/shiroi_yuki/n/n7587814d1048",
+        "title": "夢、愛、儚さ、正義、人生、怒り、孤独、仲間、救い、未来、絶望、希望、自由、悲しみ、逃避、秘密、痛み、生きる",
+        "published_at": "2022-10-17T16:57:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kaigan_sen",
+    "name": "海岸線",
+    "url": "https://note.com/kaigan_sen",
+    "feed": "https://note.com/kaigan_sen/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。UDAGAWAの私と作詞者の影の関係を従来楽曲との違いから論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kaigan_sen/n/nd11e5ebaefed",
+        "title": "櫻坂46 「私」の役割、影の意思",
+        "published_at": "2025-02-01T15:11:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "boss_night46",
+    "name": "ﾃﾞｰ(BOSS_night46)",
+    "url": "https://note.com/boss_night46",
+    "feed": "https://note.com/boss_night46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2025ドームの曲順で残る印象、四期生の見え方、特別演出への不満を具体的に批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/boss_night46/n/n57a2eb14b600",
+        "title": "【櫻坂46】※長文注意※｢5th TOUR 2025 \"Addiction\"｣東京ドーム公演の感想。",
+        "published_at": "2025-07-29T12:26:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hachon_mainichi",
+    "name": "春夏秋冬はづき(翔の毎日研究)",
+    "url": "https://note.com/hachon_mainichi",
+    "feed": "https://note.com/hachon_mainichi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。乃木坂とKAWAII LABの強み・弱みを年齢や番組との相性から比較。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hachon_mainichi/n/nc247566043c1",
+        "title": "乃木坂46とFRUITS ZIPPER、坂道グループvsKAWAII LAB.を考察",
+        "published_at": "2025-12-30T09:44:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "_pironpan",
+    "name": "ʊ°ʒ",
+    "url": "https://note.com/_pironpan",
+    "feed": "https://note.com/_pironpan/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。アザトカワイイのセンター交代を、小坂の仕事量やグループ継続と結びつけて考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/_pironpan/n/n62ccd856bbe5",
+        "title": "「期待していない自分」から2年",
+        "published_at": "2020-08-11T10:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hiyoco_hiyo",
+    "name": "桜風ひよこ",
+    "url": "https://note.com/hiyoco_hiyo",
+    "feed": "https://note.com/hiyoco_hiyo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。期待していない自分の期待の意味と、自分のことを分かっていないという歌詞を読む。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hiyoco_hiyo/n/ne7dc9293eeea",
+        "title": "期待しなくてもいい。夢を捨てたことにはならない。私の勝負曲",
+        "published_at": "2020-09-21T09:31:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yuu_psychedelic",
+    "name": "Yuu",
+    "url": "https://note.com/yuu_psychedelic",
+    "feed": "https://note.com/yuu_psychedelic/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。欅坂アルバムの曲ごとのサウンド・年齢に寄り添う表現の変化を批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yuu_psychedelic/n/n30a723cd695b",
+        "title": "【坂岡的百枚 #71】欅坂46『真っ白なものは汚したくなる』",
+        "published_at": "2025-11-17T10:06:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "crybaby_tokyo",
+    "name": "crybaby.tokyo",
+    "url": "https://note.com/crybaby_tokyo",
+    "feed": "https://note.com/crybaby_tokyo/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。月スカのカントリー的なバッキングとBメロ、直接的な詞を3人の音楽対談で検討。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/crybaby_tokyo/n/nc0ab51ed4305",
+        "title": "2017年の音楽、30選 （その3）",
+        "published_at": "2018-01-24T14:23:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kuroihitsuzi46",
+    "name": "みらん。ぷれみあめどれっくす。",
+    "url": "https://note.com/kuroihitsuzi46",
+    "feed": "https://note.com/kuroihitsuzi46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。平手の発信と生きた人としての信頼、惹かれた演技・歌の記憶を考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kuroihitsuzi46/n/n8a7f9826e629",
+        "title": "僕は何に惹かれたの？ 僕は何に期待するの？",
+        "published_at": "2023-06-24T15:11:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "askaryo3",
+    "name": "三代目齋藤飛鳥涼",
+    "url": "https://note.com/askaryo3",
+    "feed": "https://note.com/askaryo3/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。wowの使用をシングル・カップリング・期別曲ごとに検証する独自の集計。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/askaryo3/n/n6687d2d85296",
+        "title": "乃木坂wow wow言い過ぎ説検証してみた",
+        "published_at": "2020-11-15T12:46:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "fmlrkm",
+    "name": "Codyの雑談",
+    "url": "https://note.com/fmlrkm",
+    "feed": "https://note.com/fmlrkm/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。けやき坂からの歩みとバラエティをストーリーブランディングの観点で論じる。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/fmlrkm/n/ndbd59b639ec8",
+        "title": "日向坂46から学ぶブランディング",
+        "published_at": "2021-03-08T05:07:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hahifuhehox",
+    "name": "はひふへほ",
+    "url": "https://note.com/hahifuhehox",
+    "feed": "https://note.com/hahifuhehox/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。三期生ライブのソロ声質やモニターの映し方など現地ならではの観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hahifuhehox/n/n5a8b72ee1901",
+        "title": "三期の夢は続く｜日向坂46 三期生LIVE Day 6",
+        "published_at": "2026-08-20T12:36:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hattori823",
+    "name": "ハットリ",
+    "url": "https://note.com/hattori823",
+    "feed": "https://note.com/hattori823/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。山口卒業公演の選曲と同期の映像、ユニット相手への具体的感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hattori823/n/n01a90186a775",
+        "title": "この夏をジャムにして、永久保存したい。",
+        "published_at": "2026-08-23T11:44:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "hiragana1",
+    "name": "ひらがなぜろ",
+    "url": "https://note.com/hiragana1",
+    "feed": "https://note.com/hiragana1/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。大野のブログの選曲から、音の緩急・季節感を考えて夏ライブを構成する論評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/hiragana1/n/n86adbcd70e7c",
+        "title": "まなみんの夏曲プレイリストを見ていたら、日向坂46の「夏ライブ」を作りたくなった",
+        "published_at": "2026-08-15T07:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sakurasaku_kira",
+    "name": "坂道オタクの徒然",
+    "url": "https://note.com/sakurasaku_kira",
+    "feed": "https://note.com/sakurasaku_kira/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。夏の終わりの曲をメロディ・テンポ・情景描写という具体的な理由で紹介。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/sakurasaku_kira/n/n6f4fd7caa904",
+        "title": "【夏曲特集③】女性アイドルの夏ソング☀️",
+        "published_at": "2025-08-31T23:30:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ohisama_trainee",
+    "name": "ゆ",
+    "url": "https://note.com/ohisama_trainee",
+    "feed": "https://note.com/ohisama_trainee/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2021ツアーのユニットの身長配置・歌割り・日替わり曲を具体的に振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ohisama_trainee/n/ne96076601566",
+        "title": "日向坂46「全国おひさま化計画2021」 振り返り",
+        "published_at": "2021-11-14T13:52:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "tkycircus",
+    "name": "たっくんサーカス",
+    "url": "https://note.com/tkycircus",
+    "feed": "https://note.com/tkycircus/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2023年の選曲・発信・ライブと自分の受け止めを批評する。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/tkycircus/n/nff76562fb3dd",
+        "title": "概念から見る 2023年の日向坂46",
+        "published_at": "2024-01-08T07:18:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "korori_omusubi",
+    "name": "尾結 ころり",
+    "url": "https://note.com/korori_omusubi",
+    "feed": "https://note.com/korori_omusubi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。全員選抜と三期生登用等の比較からファンのグループ比較の仕方を批評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/korori_omusubi/n/ndce00687a997",
+        "title": "日向坂46の第4章が始まろうとしている。そんな今求められる「おひさまの在り方」とは?",
+        "published_at": "2024-11-29T22:24:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "blueorange",
+    "name": "アオレンジ",
+    "url": "https://note.com/blueorange",
+    "feed": "https://note.com/blueorange/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。森本の抱負や公式ブログとサイン会体験から関係性を考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/blueorange/n/n0c4fc937d4b0",
+        "title": "#15 11月エッセイ①｜一度は言語化に挑戦してみたかった話",
+        "published_at": "2025-11-01T15:22:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kazuki_mmr",
+    "name": "かずき",
+    "url": "https://note.com/kazuki_mmr",
+    "feed": "https://note.com/kazuki_mmr/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。森本の僕なんかと雨が降ったってに見える対照的な表現を具体的に記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kazuki_mmr/n/nce9eaa1212c3",
+        "title": "推しメンと生きる話",
+        "published_at": "2026-02-23T04:22:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "atsu_go_",
+    "name": "あつご",
+    "url": "https://note.com/atsu_go_",
+    "feed": "https://note.com/atsu_go_/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。三期生公演での歌唱・表情・過去振付の引用を具体的に観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/atsu_go_/n/n32c0d572860a",
+        "title": "日向坂46 三期生ライブ 感想(前半ネタバレなし)",
+        "published_at": "2026-08-11T09:16:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "ymzk__karimero",
+    "name": "カリメロ",
+    "url": "https://note.com/ymzk__karimero",
+    "feed": "https://note.com/ymzk__karimero/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。BACKSライブの井上の弾き語り・MCやメンバー別パフォーマンスの現地感想。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/ymzk__karimero/n/nd1cb0ea5f18f",
+        "title": "7th Single BACKS LIVE!! day3 @Zepp DiverCity　~櫻坂46~",
+        "published_at": "2024-01-26T15:40:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yutto3843",
+    "name": "YUKI",
+    "url": "https://note.com/yutto3843",
+    "feed": "https://note.com/yutto3843/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。北川と新4期の関係を雑誌・公式発信を示して論じる卒業文。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yutto3843/n/n2cc214827b73",
+        "title": "北川悠理が歩んだ5年間ー新しい色・光は愛ー　#悠理ちゃんとってもありがとうございました",
+        "published_at": "2023-06-30T14:57:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "senkan_sakablog",
+    "name": "せ ん か ん",
+    "url": "https://note.com/senkan_sakablog",
+    "feed": "https://note.com/senkan_sakablog/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。12th BACKSの客席の色・増本と井上のセンター表現を具体的に評価。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/senkan_sakablog/n/n27f43ccfa817",
+        "title": "【ライブレポ】 櫻坂46 12th Single BACKS LIVE",
+        "published_at": "2025-07-23T14:23:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "pgdjwpap",
+    "name": "ラーグ",
+    "url": "https://note.com/pgdjwpap",
+    "feed": "https://note.com/pgdjwpap/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。アイドルと楽曲の僕の成長が重なるという視点から欅を紹介し考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/pgdjwpap/n/n20393160233c",
+        "title": "初見でも分かる欅坂46 〜欅坂46はアイドルなのか？〜",
+        "published_at": "2020-01-19T13:24:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "satomitsuharu",
+    "name": "佐藤満春",
+    "url": "https://note.com/satomitsuharu",
+    "feed": "https://note.com/satomitsuharu/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。共演者として卒業時に答え合わせできない思いと、番組制作上の具体的な記憶を綴る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/satomitsuharu/n/n057e00dea4d7",
+        "title": "誰かが卒業するたびに毎回思う",
+        "published_at": "2026-09-08T14:48:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "mayo_46",
+    "name": "マヨネーズ",
+    "url": "https://note.com/mayo_46",
+    "feed": "https://note.com/mayo_46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。宮田の表情や卒業への受け止めを仮説と分けて述べた文章。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/mayo_46/n/nebcc280f5e40",
+        "title": "日向坂46 宮田愛萌さんのご卒業",
+        "published_at": "2023-01-30T15:00:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "necohanoinuzuki",
+    "name": "ネコ派の犬好き",
+    "url": "https://note.com/necohanoinuzuki",
+    "feed": "https://note.com/necohanoinuzuki/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。菅井のラジオ最終回と本人インタビューを結びつけ番組の位置を考察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/necohanoinuzuki/n/n24370943398e",
+        "title": "レコメン！ゆかのすけさんレギュラー最終回を終えて",
+        "published_at": "2021-09-28T06:40:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "jyuntyan46",
+    "name": "ちっちゃな頃から潤ちゃん",
+    "url": "https://note.com/jyuntyan46",
+    "feed": "https://note.com/jyuntyan46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。架空ラジオ形式の文章だが中田のインフルエンサー裏センターでの実際の動きを評する。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/jyuntyan46/n/ndc7e77853aff",
+        "title": "中田花奈卒業を語る",
+        "published_at": "2020-07-26T05:19:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "super_eider4334",
+    "name": "ハンセン",
+    "url": "https://note.com/super_eider4334",
+    "feed": "https://note.com/super_eider4334/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。Re:Mindの密室劇と特別編の二期生出演を、当時のグループの空気として評する短評。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/super_eider4334/n/nb637ced72820",
+        "title": "今さらですがRe:MindをNetflixで一気見しました",
+        "published_at": "2025-05-10T11:39:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "lovely_camel310",
+    "name": "はちみつ食べたいな",
+    "url": "https://note.com/lovely_camel310",
+    "feed": "https://note.com/lovely_camel310/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。偶然の答えの結末と、従来の前に進ませる楽曲との違いを考える。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/lovely_camel310/n/ne6f9a2b57e33",
+        "title": "櫻坂46「偶然の答え」MVを見て①",
+        "published_at": "2023-12-28T08:03:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "umi_diversity",
+    "name": "かい",
+    "url": "https://note.com/umi_diversity",
+    "feed": "https://note.com/umi_diversity/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。偶然の答えの歌詞と映像を、告白とカミングアウトの差という視点で読解。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/umi_diversity/n/nff9387ba38ce",
+        "title": "偶然の答え/櫻坂46",
+        "published_at": "2021-04-16T13:25:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "yuuki_1001",
+    "name": "ユウキ",
+    "url": "https://note.com/yuuki_1001",
+    "feed": "https://note.com/yuuki_1001/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。四期生の舞台・ライブを踏まえ、平尾のキャラ開拓や平岡の隙を具体化。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/yuuki_1001/n/n191c6e152607",
+        "title": "日向坂46四期生に対する今の印象",
+        "published_at": "2025-03-31T01:29:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "rayseimiya",
+    "name": "やーたい",
+    "url": "https://note.com/rayseimiya",
+    "feed": "https://note.com/rayseimiya/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。菅井を応援し欅改名から距離を取った経緯を具体的な出来事から記述。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/rayseimiya/n/n817b908622a0",
+        "title": "菅井友香との出会いから卒業まで",
+        "published_at": "2022-12-14T09:49:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "_yatu_hasyi",
+    "name": "八ツ橋",
+    "url": "https://note.com/_yatu_hasyi",
+    "feed": "https://note.com/_yatu_hasyi/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。柿崎の卒業を受け、ファンと運営・メディアの役割に対する独自の見解。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/_yatu_hasyi/n/nf7a00cd84cba",
+        "title": "柿崎芽実とストーカーと…",
+        "published_at": "2019-08-28T15:33:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "kooly317",
+    "name": "kooly317",
+    "url": "https://note.com/kooly317",
+    "feed": "https://note.com/kooly317/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2016・17年の公演ごとの違いを北野・鈴木・平手・東村等の具体的な観察で振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/kooly317/n/ned48ecb76222",
+        "title": "坂道ライブ参戦記録～2016・2017年",
+        "published_at": "2021-10-04T12:16:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "badterumaru",
+    "name": "TERU",
+    "url": "https://note.com/badterumaru",
+    "feed": "https://note.com/badterumaru/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2016年当時の記録を使い、他のアイドルと欅有明へ通った体験を振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/badterumaru/n/nd408bb27b224",
+        "title": "2016年、地底から有明まで",
+        "published_at": "2026-09-09T08:31:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "reru1003",
+    "name": "泠（れい）です",
+    "url": "https://note.com/reru1003",
+    "feed": "https://note.com/reru1003/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2021ツアーを、曲の役割・ソニアの表現やMCの記憶から振り返る。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/reru1003/n/n9becf372dc85",
+        "title": "【現地参戦ライブレポート#2】櫻坂46 1st TOUR 2021　埼玉公演　1日目",
+        "published_at": "2026-05-05T02:01:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "nogi_vector46",
+    "name": "ユートピア",
+    "url": "https://note.com/nogi_vector46",
+    "feed": "https://note.com/nogi_vector46/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。君の名は希望の2人歌唱で、井上のスカートを持つ手が視線の一致後に離れる細部を読む。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/nogi_vector46/n/n0ebb3235f1c7",
+        "title": "＃3　「君の名は希望」",
+        "published_at": "2025-05-29T04:21:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "konno723",
+    "name": "なつ",
+    "url": "https://note.com/konno723",
+    "feed": "https://note.com/konno723/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。LAST LIVEのIm outで菅井が檻を蹴る場面を、曲から感じた自由への思いと結びつける。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/konno723/n/nf937b7236b1e",
+        "title": "永遠より長い一瞬〜あの頃、私の青春そのものだった〜",
+        "published_at": "2025-09-26T12:24:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "milia639",
+    "name": "渡邉 清文",
+    "url": "https://note.com/milia639",
+    "feed": "https://note.com/milia639/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。10曲それぞれのMVと公演の差、スタオバの卒コン演出を具体的にレビュー。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/milia639/n/n2d13c59584b0",
+        "title": "最新が最高の櫻坂46 おすすめの10曲　（2026年版）",
+        "published_at": "2026-10-27T19:38:00+00:00"
+      }
+    ]
+  },
+  {
+    "id": "sakurahinata04",
+    "name": "しめしめじ",
+    "url": "https://note.com/sakurahinata04",
+    "feed": "https://note.com/sakurahinata04/rss",
+    "platform": "note",
+    "enabled": true,
+    "article_policy": "review_required",
+    "registered_at": "2026-11-12",
+    "verified_at": "2026-11-12",
+    "verification": "公開記事本文と著者表示、公開RSSのHTTP 200・XML構文・配信記事URLを確認。2019ドーム映像を、映像編集・すり替わりトリック・裏方の演出から具体的に観察。 記事単位の既存審査を適用。",
+    "confirmed_articles": [
+      {
+        "url": "https://note.com/sakurahinata04/n/n74d2d9e12885",
+        "title": "#21　櫻坂46東京ドームの原点　〜受け継がれるもの〜",
+        "published_at": "2025-07-22T00:19:00+00:00"
+      }
+    ]
   }
 ]
