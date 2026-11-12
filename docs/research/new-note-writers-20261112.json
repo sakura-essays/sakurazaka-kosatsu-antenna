@@ -6585,5 +6585,36 @@
       "url": "https://note.com/yasushi_diary/n/n07fa20b903e1",
       "title": "11/16,AGESTOCK2019乃木坂4期生"
     }
-  ]
+  ],
+  "public_verification": {
+    "verified_at": "2026-11-12T11:31:32.138931+00:00",
+    "authors": 342,
+    "articles": 2419,
+    "missing_new_ids": [],
+    "missing_representative_urls": [],
+    "lost_previous_urls": [],
+    "new_public_articles": 162,
+    "rss_successful": 160,
+    "rss_errors": [],
+    "feed_attempted_at": "2026-11-12T11:21:22.997072+00:00"
+  },
+  "github_actions": {
+    "id": 43208408033,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/actions/runs/43208408033",
+    "started": "2026-11-12T11:21:12Z",
+    "updated": "2026-11-12T11:30:24Z",
+    "head_sha": "075c231526606aa4f9eea9c922fa190b118deb56"
+  },
+  "browser_verification": {
+    "writer_search": "tkakab: 1人の書き手",
+    "author_page": "https://sakura-essays.github.io/sakurazaka-kosatsu-antenna/authors/tkakab.html",
+    "article": "けやき坂46初の舞台「あゆみ」を観た",
+    "date": "2018-05-05",
+    "total_authors": 342,
+    "total_articles": 2419
+  },
+  "registration_commit": "075c231526606aa4f9eea9c922fa190b118deb56",
+  "generated_publication_commit": "13950d42bad0a71c5355b7c637ec240ff4ab8a10"
 }

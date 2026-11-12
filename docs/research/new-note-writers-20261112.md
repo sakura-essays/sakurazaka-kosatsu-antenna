@@ -249,3 +249,14 @@
 公開記事数は2,257件から2,419件。元の2,257 URLはすべて残っており、新規160人全員に確認済み記事が1件以上ある。元のsources、手動記事、既存の個別判定はすべて保持した。保留候補や対象外の書き手は登録していない。
 
 GitHub Actionsの通常公開処理はリポジトリの既存ワークフローを使用する。その自動処理は通常どおり全登録RSSを扱うが、今回の発掘調査・ローカル収集の対象は新規IDのみである。
+
+### 公開完了の確認
+
+- 登録コミット：[075c231](https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/commit/075c231526606aa4f9eea9c922fa190b118deb56)
+- 自動生成コミット：[13950d4](https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/commit/13950d42bad0a71c5355b7c637ec240ff4ab8a10)
+- [GitHub Actions #110](https://github.com/sakura-essays/sakurazaka-kosatsu-antenna/actions/runs/43208408033)：正常終了。テスト、収集、欠落防止、ビルド、Pages公開が成功。
+- 2026-11-12 20:31 JST、公開JSONを実取得して342人・2,419記事を確認。新規160 IDの欠落0、代表162 URLの欠落0、元の公開2,257 URLの欠落0。
+- 公開された収集状況でも新規160 RSSがすべて成功。全体のRSSエラーも0。
+- ブラウザの書き手一覧で342人を確認。「tkakab」で検索して1人に絞り込み、[書き手ページ](https://sakura-essays.github.io/sakurazaka-kosatsu-antenna/authors/tkakab.html)に2018年5月5日の舞台「あゆみ」記事が表示され、元記事へリンクすることを確認。
+
+公開を妨げる未解決の問題はない。調査上の未完領域と候補の確認待ちは「探索範囲と限界」に記載したとおり残る。
