@@ -12852,6 +12852,19 @@
       "status": "pending",
       "reviewed_at": "2026-11-12",
       "review_note": "新規書き手発掘時のRSS収集分。代表記事以外の本文審査は未実施のため、記事単位で確認するまで保留。"
+    },
+    "https://note.com/lively_fennel526/n/n1ee83f587471": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論",
+        "ファンダム・ファン文化"
+      ],
+      "reason": "書き手本人の収録依頼。櫻坂46の紅白と『Start over!』に関する非創作の感想・考察",
+      "reviewed_at": "2026-11-13"
     }
   },
   "blocked_urls": [],
