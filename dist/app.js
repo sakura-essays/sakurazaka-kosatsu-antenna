@@ -136,6 +136,8 @@
   sampledUrls.add(randomEssay.url);
   lastSampledAuthor=writer;
   renderRandomEssay();
+  window.AntennaAnalytics?.track('random_draw',{article_id:randomEssay.id,author_id:writer,draw_number:sampledUrls.size});
+  window.AntennaAnalytics?.observe();
  }
  function renderPickups(){
   const block=$('pickup-section');
@@ -187,16 +189,18 @@
    return (!state.group||groups.includes(state.group))&&
      words.every(w=>searchable.some(field=>field.includes(w)));
   });
+  if(state.view==='authors')window.AntennaAnalytics?.update(state,matching.length,writerQuery);
   $('author-result-count').textContent=`${matching.length}人の書き手`;
   $('author-clear').hidden=!writerQuery;
   $('authors-grid').innerHTML=matching.length?matching.map(a=>`<article class="writer-card"><span class="platform">${esc(a.platform)}</span><h3><a href="${esc(authorPath(a.id))}">${esc(a.name)}</a></h3><div class="writer-groups" aria-label="収集記事で扱うグループ">${writerGroups(a.id).map(g=>`<span class="group-label tone-${tones[g]||'neutral'}">${esc(g)}</span>`).join('')||'<span class="writer-group-none">グループ別の収集記事なし</span>'}</div><p class="count">収集済み ${a.count} 記事</p><p class="themes">${esc(a.themes.join(' / '))}</p><div class="writer-bottom"><a href="${esc(authorPath(a.id))}">記事一覧へ →</a><a href="${url(a.url)}" target="_blank" rel="noopener">元サイト ↗</a></div></article>`).join(''):'<p class="author-empty">該当する書き手が見つかりません。別の書き手名・グループ名・ユーザーIDで検索してください。</p>';
+  window.AntennaAnalytics?.observe();
  }
  function balanced(items){const buckets=new Map();for(const a of items){if(!buckets.has(a.author_id))buckets.set(a.author_id,[]);buckets.get(a.author_id).push(a);}const out=[];let more=true;while(more){more=false;for(const bucket of buckets.values()){if(bucket.length){out.push(bucket.shift());more=true}}}return out;}
  function render(){
   document.querySelectorAll('[data-view]').forEach(a=>{a.classList.toggle('active',a.dataset.view===state.view);if(a.dataset.view===state.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
   $('article-view').hidden=state.view!=='articles';$('authors-view').hidden=state.view!=='authors';$('about-view').hidden=state.view!=='about';
   if(state.view==='authors'){renderAuthors();return;}
-  if(state.view!=='articles')return;
+  if(state.view!=='articles'){window.AntennaAnalytics?.update(state,0);return;}
   renderRandomEssay();
   $('group-tabs').innerHTML=[['','すべて'],...allGroups.map(g=>[g,g])].map(([g,label])=>`<button type="button" class="group-tab ${state.group===g?'active':''}" data-group="${esc(g)}" data-tone="${tones[g]||'neutral'}" aria-pressed="${state.group===g}">${esc(label)}<span class="num">${D.articles.filter(a=>!g||articleGroups(a).includes(g)).length}</span></button>`).join('');
   renderPickups();
@@ -220,6 +224,7 @@
   $('result-count').textContent=`${filtered.length} 件${filtered.length>limit?` / ${limit} 件を表示`:''}`;
   $('articles').innerHTML=filtered.length?filtered.slice(0,limit).map(card).join(''):'<div class="empty"><p>この条件に合う記事はまだありません。</p><p>キーワードを短くするか、絞り込み条件を減らしてください。</p></div>';
   $('more').hidden=filtered.length<=limit;
+  window.AntennaAnalytics?.update(state,filtered.length);
  }
  $('stats').innerHTML=`<span><strong>${D.articles.length}</strong>記事</span><span><strong>${D.authors.length}</strong>書き手</span>`;
  const errors=D.status.feeds.filter(f=>f.status==='error').length;
@@ -230,12 +235,12 @@
  $('contact').innerHTML=contact?`<p><a href="${url(contact)}" target="_blank" rel="noopener">お問い合わせ・掲載取り下げ窓口 ↗</a></p>`:'<p>現在は確認用サイトのため、受付窓口は未開設です。一般公開前に運営者の連絡窓口を設定します。</p>';
  if(repo)$('contact').insertAdjacentHTML('beforeend',`<p><a href="${url(repo+'/issues/new/choose')}" target="_blank" rel="noopener">書き手の推薦・訂正を申請する ↗</a>（GitHubアカウントが必要です。個人情報は記載しないでください。）</p>`);
  $('feed-status').innerHTML=`<p>${D.status.successful_feeds} / ${D.status.total_feeds} フィード取得成功。各記事の公開日はRSS、または手動登録時に確認した日付に基づきます。</p><table class="status-table"><thead><tr><th>書き手</th><th>状態</th><th>最終成功日</th></tr></thead><tbody>${D.status.feeds.map(f=>`<tr><td>${esc(byId[f.id]?.name||f.id)}</td><td>${f.status==='error'?'取得失敗：'+esc(f.error):'取得成功'}</td><td>${date(f.last_success)}</td></tr>`).join('')}</tbody></table>`;
- document.addEventListener('click',e=>{const link=e.target.closest('a.tracked-article');if(!link||typeof window.gtag!=='function')return;const author=byId[link.dataset.authorId];window.gtag('event','article_click',{link_url:link.href,article_title:link.dataset.articleTitle||'',author_id:link.dataset.authorId||'',author_name:author?.name||''});});
+
  document.addEventListener('click',e=>{const clear=e.target.closest('[data-clear-filter]');if(clear){state[clear.dataset.clearFilter]='';limit=30;sync();save();$('reset').focus();return;}const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();document.querySelector('.group-tab.active').focus();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();document.querySelector('.category.active').focus();return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
- $('search-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('query').value;limit=30;save();});
+ $('search-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('query').value;limit=30;save();window.AntennaAnalytics?.flushSearch();});
  $('query').addEventListener('input',()=>{state.q=$('query').value;limit=30;render();});
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));
- $('reshuffle').addEventListener('click',()=>{reshuffle();limit=30;render();});
+ $('reshuffle').addEventListener('click',()=>{reshuffle();limit=30;render();window.AntennaAnalytics?.track('random_shuffle');});
  $('random-essay-trigger').addEventListener('click',drawRandomEssay);
  $('random-essay-next').addEventListener('click',drawRandomEssay);
  $('random-essay-close').addEventListener('click',()=>{
@@ -243,8 +248,8 @@
   renderRandomEssay();
   $('random-essay-trigger').focus();
  });
- $('author-reshuffle').addEventListener('click',()=>{reshuffleAuthors();if(state.view==='authors')renderAuthors();});
- $('author-search-form').addEventListener('submit',e=>e.preventDefault());
+ $('author-reshuffle').addEventListener('click',()=>{window.AntennaAnalytics?.track('writer_shuffle');reshuffleAuthors();if(state.view==='authors')renderAuthors();});
+ $('author-search-form').addEventListener('submit',e=>{e.preventDefault();window.AntennaAnalytics?.flushSearch();});
  $('author-query').addEventListener('input',()=>{
   writerQuery=$('author-query').value;
   if(state.view==='authors')renderAuthors();
