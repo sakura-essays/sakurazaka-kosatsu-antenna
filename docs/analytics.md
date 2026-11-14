@@ -31,7 +31,9 @@
 
 拡張計測：履歴変更によるPV、自動サイト内検索、自動フォーム操作をオフ。物理PV、スクロール、標準外部クリック等は維持。独自コードの物理PVはconfigのsend_page_view:falseで一重にする。
 
-登録するイベントスコープのカスタムディメンション：placement、author_name、article_title、article_group、site_view、filter_group、search_active、search_scope、zero_results、sort_order、measurement_version。search_termとlink_urlは標準ディメンションを使う。
+登録するイベントスコープのカスタムディメンション：placement、author_name、article_title、article_group、site_view、filter_group、search_active、search_scope、zero_results、sort_order、measurement_version。search_termとlink_urlは標準ディメンションを使う。result_countは標準単位のイベントスコープのカスタム指標「検索結果件数」として登録した。
+
+GA4の既存Internal Trafficフィルタはテスト状態を維持。自己アクセスは各端末の送信停止で除く。Production hostname audit（sakura-essays.github.io完全一致・次のみを含む）をテスト状態で追加し、判定の監査に使用できるようにした。GA4側で不可逆にデータを捨てるフィルタは有効にしていない。本番以外からの新コードの送信はクライアント側ホスト検査で停止する。
 
 ## 分析の分母
 
