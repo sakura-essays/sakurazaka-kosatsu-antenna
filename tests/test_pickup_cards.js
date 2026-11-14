@@ -13,10 +13,12 @@ function run(articles,pickups,search=''){
  };
  const authors=[...new Set(articles.map(a=>a.author_id))].map(id=>({id,name:id==='writer'?'書き手 <A> & "B"':id,platform:'note',url:'https://note.com/'+id,count:articles.filter(a=>a.author_id===id).length,themes:[]}));
  const document={baseURI:'https://example.test/',getElementById:element,querySelector:()=>element('filters'),querySelectorAll:()=>[],addEventListener(k,f){(events[k]??=[]).push(f);}};
- const location={search};
- const context={document,location,history:{pushState(_,__,s){location.search=s;}},URL,URLSearchParams,Intl,Date,Math,window:{ANTENNA:{articles,authors,pickups,groups:['乃木坂46','櫻坂46','日向坂46'],categories:['楽曲・歌詞考察'],settings:{public_release:true},status:{feeds:[],attempted_at:new Date().toISOString(),successful_feeds:0,total_feeds:0}},addEventListener(){}}};
+ const location={search,href:'https://sakura-essays.github.io/sakurazaka-kosatsu-antenna/?analytics=test'};
+ document.readyState='loading';
+ const context={navigator:{webdriver:false},localStorage:{getItem(){return null;}},setTimeout(){return 1;},clearTimeout(){},document,location,history:{pushState(_,__,s){location.search=s;}},URL,URLSearchParams,Intl,Date,Math,window:{ANTENNA:{articles,authors,pickups,groups:['乃木坂46','櫻坂46','日向坂46'],categories:['楽曲・歌詞考察'],settings:{public_release:true},status:{feeds:[],attempted_at:new Date().toISOString(),successful_feeds:0,total_feeds:0}},addEventListener(){}}};
+ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../web/analytics.js'),'utf8'),context);
  vm.runInNewContext(app.replace(" window.addEventListener('popstate'", " window.__testRelated=relatedArticles; window.__testFeatures=relationFeatures;\n window.addEventListener('popstate'"),context);
- return {element,related:a=>context.window.__testRelated(a),features:context.window.__testFeatures,html:()=>element('pickup-list').innerHTML,clickButton(id){const el=element(id);assert.equal(typeof el.events.click,'function',id+' click listener');el.events.click();},clickGroup(group){for(const f of events.click)f({target:{closest(selector){return selector==='[data-group]'?{dataset:{group}}:null;}}});}};
+ return {analytics:context.window.AntennaAnalytics,element,related:a=>context.window.__testRelated(a),features:context.window.__testFeatures,html:()=>element('pickup-list').innerHTML,clickButton(id){const el=element(id);assert.equal(typeof el.events.click,'function',id+' click listener');el.events.click();},clickGroup(group){for(const f of events.click)f({target:{closest(selector){return selector==='[data-group]'?{dataset:{group}}:null;}}});}};
 }
 const article=(id,groups,categories=['楽曲・歌詞考察'],title='元のタイトル')=>({id,url:'https://note.com/writer/n/'+id,title,author_id:'writer',published_at:'2026-01-01T00:00:00Z',groups,categories,members:[],songs:[]});
 const cases=[['乃木坂46','nogi'],['櫻坂46','sakura'],['日向坂46','hinata']];
@@ -119,3 +121,7 @@ assert.match(css,/@media\(prefers-reduced-motion:reduce\)/);
 console.log('Pickup cards + random archive: render, colors, escaping, opt-in, dates, category groups, close, author fairness: passed');
 
 module.exports={run,article};
+
+const telemetry=run([archive],[]);telemetry.clickButton('random-essay-trigger');assert.equal(telemetry.analytics.events.at(-1).event,'random_draw');
+telemetry.element('query').value='見つからない語';telemetry.element('query').events.input();telemetry.analytics.flushSearch();assert.equal(telemetry.analytics.events.at(-1).zero_results,'true');
+console.log('Application telemetry integration passed');

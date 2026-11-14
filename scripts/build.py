@@ -65,7 +65,7 @@ def song_index_content(articles, sources, rules):
     href=html.escape(a['url'],quote=True)
     title=html.escape(a['title'])
     author=html.escape(writers.get(a['author_id'],a['author_id']))
-    rows.append('<li><a href="'+href+'" rel="external">'+title+'</a><span class="song-author">— '+author+'</span></li>')
+    rows.append('<li><a class="tracked-article" data-placement="song_index" data-article-id="'+html.escape(a['id'],quote=True)+'" data-author-id="'+html.escape(a['author_id'],quote=True)+'" data-author-name="'+html.escape(writers.get(a['author_id'],a['author_id']),quote=True)+'" data-article-group="'+html.escape(' / '.join(a.get('groups',[])),quote=True)+'" href="'+href+'" rel="external">'+title+'</a><span class="song-author">— '+author+'</span></li>')
    song_blocks.append('<section class="song-block" id="'+anchor+'"><h3>'+html.escape(song)+
                       ' <span class="song-count">('+str(len(matches))+'記事)</span></h3><ul class="song-links">'+''.join(rows)+'</ul></section>')
   if song_blocks:
@@ -105,7 +105,7 @@ def build(public=False):
  (out/'data.js').write_text('window.ANTENNA='+payload+';\n',encoding='utf-8')
  template=(ROOT/'web/index.html').read_text()
  # Never combine newly deployed HTML with an older cached data/app bundle.
- for asset in ('data.js','app.js','style.css'):
+ for asset in ('data.js','app.js','style.css','analytics.js'):
   version=hashlib.sha256((out/asset).read_bytes()).hexdigest()[:12]
   template=template.replace(chr(34)+asset+chr(34),chr(34)+asset+'?v='+version+chr(34))
  def fallback(rows):return '<ul>'+''.join('<li><a href="'+html.escape(a['url'],quote=True)+'">'+html.escape(a['title'])+'</a></li>' for a in rows)+'</ul>'
@@ -114,6 +114,7 @@ def build(public=False):
  songs_template=(ROOT/'web/songs.html').read_text(encoding='utf-8')
  songs_html=songs_template.replace('{{SONGS_CANONICAL}}',html.escape(settings.get('base_url','').rstrip('/')+'/songs.html',quote=True))
  songs_html=songs_html.replace('<!-- SONG_INDEX_CONTENT -->',song_index_content(articles,sources,rules))
+ songs_html=songs_html.replace('"analytics.js"','"analytics.js?v='+hashlib.sha256((out/'analytics.js').read_bytes()).hexdigest()[:12]+'"')
  (out/'songs.html').write_text(songs_html,encoding='utf-8')
  base=settings.get('base_url','').rstrip('/')
  ad=out/'authors';shutil.rmtree(ad,ignore_errors=True);ad.mkdir()
@@ -131,7 +132,7 @@ def build(public=False):
   page=page.replace('</head>','<script>window.PRESET_AUTHOR='+json.dumps(a['id'])+';</script></head>')
   page=page.replace('<!-- FALLBACK -->',fallback([x for x in articles if x['author_id']==a['id']]))
   (ad/(a['id']+'.html')).write_text(page)
- (out/'contact.html').write_text((ROOT/'web/contact.html').read_text().replace('{{CONTACT_URL}}',html.escape(settings.get('contact_url',''),quote=True)))
+ (out/'contact.html').write_text((ROOT/'web/contact.html').read_text().replace('{{CONTACT_URL}}',html.escape(settings.get('contact_url',''),quote=True)).replace('"analytics.js"','"analytics.js?v='+hashlib.sha256((out/'analytics.js').read_bytes()).hexdigest()[:12]+'"'))
  (out/'.nojekyll').touch()
  if base:
   pages=[base+'/',base+'/contact.html',base+'/songs.html']+[base+'/authors/'+a['id']+'.html' for a in authors]

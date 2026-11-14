@@ -25,7 +25,7 @@ class DeploymentAssets(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp:
    root=pathlib.Path(tmp);(root/'web').mkdir()
    (root/'web/index.html').write_text('<head></head><script defer src="data.js"></script><script defer src="app.js"></script><link href="style.css">')
-   for name in ('app.js','style.css','contact.html','songs.html'):(root/'web'/name).write_text('')
+   for name in ('app.js','style.css','contact.html','songs.html','analytics.js'):(root/'web'/name).write_text('')
    collect.write(root/'config/settings.json',{})
    collect.write(root/'config/rules.json',{'categories':{}})
    collect.write(root/'config/sources.json',[])

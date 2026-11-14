@@ -138,7 +138,7 @@ class SongIndex(unittest.TestCase):
   self.assertIn('架空の書き手',html_doc)
   self.assertIn('https://note.com/author1/n/one',html_doc)
   self.assertNotIn('data.js',html_doc)
-  self.assertIn("gtag('config', 'G-48Y73ZJHVL')",html_doc)
+  self.assertRegex(html_doc, r'<script src="analytics\.js\?v=[a-f0-9]+"></script>')
   self.assertIn('href="songs.html"',(self.root/'dist/index.html').read_text())
   self.assertIn('https://example.com/antenna/songs.html',(self.root/'dist/sitemap.xml').read_text())
   self.assertIn('rel="canonical" href="https://example.com/antenna/songs.html"',html_doc)
