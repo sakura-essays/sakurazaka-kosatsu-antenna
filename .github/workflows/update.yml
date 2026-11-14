@@ -36,6 +36,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -47,8 +48,23 @@ jobs:
           TARGET_URL: ${{ inputs.target_url }}
           SOURCE_ID: ${{ inputs.source_id }}
         run: python scripts/admin.py
+      - name: Decide whether feed collection is needed
+        id: changes
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PREVIOUS_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          collect=true
+          if [ "$EVENT_NAME" = push ] && git cat-file -e "$PREVIOUS_SHA^{commit}" 2>/dev/null; then
+            if ! git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | rg -q '^(config/|scripts/(collect|admin|review_articles)\.py$)'; then
+              collect=false
+            fi
+          fi
+          echo "collect=$collect" >> "$GITHUB_OUTPUT"
       - name: Collect feeds (retain old records on failure)
         id: collect
+        if: steps.changes.outputs.collect == 'true'
         continue-on-error: true
         run: python scripts/collect.py
       - name: Stop unexpected public article losses

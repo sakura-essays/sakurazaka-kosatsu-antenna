@@ -48,3 +48,7 @@ GA4の既存Internal Trafficフィルタはテスト状態を維持。自己ア�
 
 `python3 -m unittest discover -s tests -v`、`python3 scripts/build.py --public`、`python3 scripts/check_release.py`。
 GA4の独自項目のレポート反映は登録後24～48時間程度。テスト画面のイベント表示はGoogleでの受信を保証するものではない。
+
+## 公開処理
+
+Web・計測・ビルドだけのpushは保存済み記事から公開し、RSS全件収集を待たない。定期実行、手動実行、configまたは収集・管理ロジック変更時は従来どおり収集する。計測のデプロイと記事取得の負荷を分ける。
