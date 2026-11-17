@@ -13033,6 +13033,97 @@
       "status": "pending",
       "reason": "日向坂46ツアー配信ライブレポートの見出しは具体的だが本文が取得できず非創作・内容の最終確認待ち",
       "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n5acf6b3a58cf": {
+      "status": "pending",
+      "reason": "日向坂46『言葉の限界』の楽曲解釈と推定されるが公開本文を取得できないため判断保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/tgmmcbg/n/nc291e619ae67": {
+      "status": "published",
+      "reason": "乃木坂46『君ロス』MVの別れの物語・旋律・個々の出演者への具体的な感想を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/legit_hare5977/n/n7881478c046b": {
+      "status": "published",
+      "reason": "日向坂46『青春の馬』の歌詞解釈・夢と現在地の距離感についての批評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/babuchi/n/n4c8ef46401ef": {
+      "status": "published",
+      "reason": "乃木坂46『君ロス』MVの場面描写、人物ごとの喪失と演出への詳しい考察を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/pokapokarin/n/ne4c1d0ede6aa": {
+      "status": "published",
+      "reason": "『日向坂で会いましょう』の番組評価、MCとの距離感とメンバーの裏回し不在という具体的な批評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/tsukagirei/n/n090ec683f540": {
+      "status": "published",
+      "reason": "井上和センター曲『君ロス』の楽曲・MV・歴代センターとの対比を通じた批評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/lively_fennel526/n/n17fffd870834": {
+      "status": "published",
+      "reason": "noteの櫻坂46タグで考察が発見しにくい問題と、考察アンテナ創設の意義を論じるメディア批評を公開本文で確認。妄ツイへの言及は創作掲載ではない",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/witty_yarrow2667/n/n4604e135c94d": {
+      "status": "excluded",
+      "reason": "自己紹介記事であり考察・批評・感想を主題とする記事ではない（本文取得不可・見出しに基づく判定）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/quomoeer/n/nedd4e10afb8b": {
+      "status": "excluded",
+      "reason": "伊藤万理華出演映画『君は映画』の作品評が主題であり、坂道グループ／メンバーのアイドル活動への考察ではない",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n7c6eed2debaa": {
+      "status": "published",
+      "reason": "日向坂46『ゴーフルと君』の青春・記憶・ハッピーオーラの表現を具体的に解釈する文章を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/witty_yarrow2667/n/ncc0c222fe03f": {
+      "status": "published",
+      "reason": "『乃木坂工事中』第589回頭NO王決定戦の回答・演出・メンバーへの具体的な感想を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/legit_hare5977/n/n0e2d17917b0f": {
+      "status": "pending",
+      "reason": "日向坂46『青春ポップコーン』の曲評と思われるが本文取得不可のため確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n35a91c16d31b": {
+      "status": "pending",
+      "reason": "日向坂46『錆つかない剣を持て！』の曲評と思われるが本文取得不可のため確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n739fdf61d68c": {
+      "status": "published",
+      "reason": "日向坂46『何度でも何度でも』の歌詞と自己認識・再出発を結びつけた解釈を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/libralibera49/n/n5221d062d40c": {
+      "status": "published",
+      "reason": "『乃木坂工事中』第5回頭NO王企画の構成・クイズ廃止・出演者の心情を論じる番組評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "乃木坂工事中"
+      ]
     }
   },
   "blocked_urls": [
