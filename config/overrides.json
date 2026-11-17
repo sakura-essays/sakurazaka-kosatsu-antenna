@@ -13234,6 +13234,114 @@
       "status": "pending",
       "reason": "乃木坂46『新参者 LIVE』の配信ライブレポートと見出しで確認できるが公開本文を取得できず掲載判定を保留",
       "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/tk39fish/n/n1cde3575cbd2": {
+      "status": "published",
+      "reason": "公開本文で欅坂46の複数楽曲をランキング形式で比較し、各曲への感想と評価基準を記していると確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/legit_hare5977/n/n21bef36a1b53": {
+      "status": "published",
+      "reason": "日向坂46のハッピーオーラをけやき坂時代の歴史や楽曲表現から論じるグループ論を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/siragen/n/n3c84e2c04993": {
+      "status": "published",
+      "reason": "櫻坂46の山川宇衣を例に個人への推しとグループ内で発揮される表現への推しを区別するファン文化考察を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/hachon_mainichi/n/na203577b40e2": {
+      "status": "excluded",
+      "reason": "記事本文は取得できないがタイトルがオードブル争奪戦で、公開ページの筆者説明・料理グルメ分類にも坂道の主題が見当たらないため対象外と判断（見出し・公開属性のみ）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/qururi_46/n/ne14043685b49": {
+      "status": "published",
+      "reason": "『日向坂で会いましょう』五期生真剣なやみ場について発言や出演者構成への感想を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/holy_oxalis1429/n/nc95c40ea5314": {
+      "status": "excluded",
+      "reason": "記事冒頭に『妄ツイ書きます』と明示され、架空の隣人アイドルとの物語であり批評ではないと本文で確認",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n5a626ab87dba": {
+      "status": "published",
+      "reason": "日向坂46『Am I ready?』を準備・決断という観点から解釈する曲評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/legit_hare5977/n/n6bb983cf65d2": {
+      "status": "published",
+      "reason": "日向坂46『君はハニーデュー』の楽曲構造と運命愛の思想を結び付けて解釈する曲評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/idle_kenkyu/n/n745fe9d4ef50": {
+      "status": "excluded",
+      "reason": "日向坂のオンラインミーグリへの言及はあるが、主題は俳優への憧れと本人の人生・仕事への意欲を綴る日記であり対象外と本文で確認",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/babuchi/n/n6ed089832a13": {
+      "status": "published",
+      "reason": "乃木坂46の選抜制度をプロ野球のスタメンやチーム内競争と比較する詳細なアイドル論を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論",
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/keyaki3rd/n/na6256441d84c": {
+      "status": "published",
+      "reason": "渡邉理佐のSNS再登場を受けた元欅坂ファンの体験・喪失感・推しとの距離を論じる文章を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/nibunibutea2708/n/n170d9a440166": {
+      "status": "excluded",
+      "reason": "2026年11月の日向坂46出演・掲載日程を列記した予定表であり考察・批評・感想ではないと公開本文で確認",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n923db5b3bb44": {
+      "status": "published",
+      "reason": "日向坂46『卒業写真だけが知ってる』の楽曲主題を歌詞・MVの解釈と結び付ける論評を公開本文で確認。作中に想像上の場面描写はあるが記事全体は楽曲解釈",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/hahifuhehox/n/n4c89d9df924f": {
+      "status": "published",
+      "reason": "櫻坂46 15th BACKS LIVE Day2での楽曲演出・遠藤理子センターへの評価や筆者の観覧体験を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/8823film/n/n1f7acc969e80": {
+      "status": "pending",
+      "reason": "筆者ページから乃木坂46のアンダーフォーメーションとアンダーライブを扱う記事と確認。ただし記事本文ページが取得エラーのため批評内容の確認待ち。旧櫻坂46分類は乃木坂46へ修正",
+      "reviewed_at": "2026-11-18",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論",
+        "ライブ・コンサート"
+      ]
     }
   },
   "blocked_urls": [
