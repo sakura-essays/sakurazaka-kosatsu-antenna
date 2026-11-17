@@ -43,6 +43,23 @@ def curated_pickups(articles, selections):
  return chosen
 
 
+def attach_article_guides(articles, guides):
+ """Attach only editor-written, title-matched notes to already published metadata."""
+ if not isinstance(guides,dict):raise ValueError('Article guides must be an object')
+ for url,item in guides.items():
+  if not isinstance(url,str) or not url.startswith('https://') or not isinstance(item,dict):
+   raise ValueError('Invalid article guide entry')
+  if not isinstance(item.get('title'),str) or not item['title'].strip():
+   raise ValueError('Article guide requires a source title')
+  guide=item.get('guide')
+  if not isinstance(guide,str) or not (8<=len(guide.strip())<=100) or '\n' in guide:
+   raise ValueError('Article guide must be 8-100 characters on one line')
+ for a in articles:
+  entry=guides.get(a['url'])
+  if entry and entry['title']==a['title']:
+   a['guide']=entry['guide'].strip()
+ return articles
+
 def song_index_content(articles, sources, rules):
  """Static, title-led song links for humans and crawlers; no popularity ranking."""
  writers={s['id']:s['name'] for s in sources if s.get('enabled')}
@@ -90,6 +107,7 @@ def build(public=False):
    a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']
  for a in articles:
   for key in ['status','reason','last_seen_at']:a.pop(key,None)
+ attach_article_guides(articles,read(ROOT/'config/article_guides.json',{}))
  sources=read(ROOT/'config/sources.json',[]);authors=[]
  blocked=read(ROOT/'config/overrides.json',{}).get('blocked_authors',[])
  for s in sources:

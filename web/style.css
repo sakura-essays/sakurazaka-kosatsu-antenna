@@ -225,3 +225,11 @@ select,.filter-grid input,#author-query{border-radius:8px;min-height:44px}
 .sister-site{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:15px 20px;margin:0 0 20px;border:1px solid var(--line);border-radius:4px;background:var(--paper)}
 .sister-site>div{min-width:0}.sister-site-label{font-size:10px;font-weight:600;letter-spacing:.12em;color:var(--accent);margin:0 0 2px}.sister-site>div>p:last-child{font-size:12px;color:var(--muted);margin:0}.sister-site>a{flex:none;font-size:12px;color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:600px){.sister-site{display:block;padding:13px 15px;margin-bottom:16px}.sister-site>div>p:last-child{font-size:11px}.sister-site>a{display:inline-block;margin-top:7px;font-size:12px}footer>div{flex-wrap:wrap}}
+
+/* Context under ambiguous original titles: editorial notes and cautious RSS terms. */
+.article-context{margin:-3px 0 13px;font-size:12px;line-height:1.75;overflow-wrap:anywhere;color:var(--muted)}
+.article-context-editor{color:var(--ink)}
+.article-context-label{display:inline-block;margin-right:9px;font-size:10px;letter-spacing:.02em;color:var(--muted)}
+.article-context-auto{font-size:11px}
+.random-essay .article-context{margin:0 0 9px}
+@media(max-width:600px){.article-context{font-size:11px;line-height:1.7}.article-context-label{font-size:9px}}
