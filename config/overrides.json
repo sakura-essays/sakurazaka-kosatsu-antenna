@@ -12945,6 +12945,94 @@
       "reason": "櫻坂46メンバーの髪型とダンスパフォーマンスの関係を考察した本文を確認",
       "reviewed_at": "2026-11-18",
       "verified_nonfiction": true
+    },
+    "https://note.com/ni46/n/nd6408b60f198": {
+      "status": "excluded",
+      "reason": "本文で宇宙人・架空のミーグリを扱う乃木坂二次創作小説と確認",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/nd74f9c0f360d": {
+      "status": "published",
+      "reason": "日向坂46『恋した魚は空を飛ぶ』を対象とした楽曲・歌詞解釈を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/legit_hare5977/n/nd5e35dabb497": {
+      "status": "pending",
+      "reason": "『真夜中の懺悔大会』の歌詞考察と思われるが本文取得できず内容確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/libralibera49/n/n1d9a8e74d44a": {
+      "status": "published",
+      "reason": "乃木坂46『君ロス』の楽曲・歌詞・MVに対する具体的な批評を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/8823film/n/n638fa69d73ec": {
+      "status": "published",
+      "reason": "乃木坂46の紅白出演をめぐる世代交代と『乃木坂らしさ』への独自の論評を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/qururi_46/n/nf0b9f92d7db7": {
+      "status": "published",
+      "reason": "日向坂46のファンダム・拡散行動・卒業グッズ等に対する体験に基づく感想・論評を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/ponoponono/n/n5be4158c0cc7": {
+      "status": "published",
+      "reason": "日向坂46の紅白落選を受けたファン主導の具体的な宣伝施策の提案と利点・懸念点の検討を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/hachon_mainichi/n/n321809bf5d6e": {
+      "status": "pending",
+      "reason": "本文取得できず、一般的な対人論と坂道に関する考察の判別ができないため保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/ready_crocus7691/n/n25b2efcf8baa": {
+      "status": "published",
+      "reason": "日向坂46の次期シングルの編成・選抜制度への提案を確認。青葉坂は副次的言及のため日向坂46に分類",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46"
+      ]
+    },
+    "https://note.com/tsukagirei/n/n3dd5ea05b878": {
+      "status": "published",
+      "reason": "『日向坂で会いましょう』のプロレス企画を手掛かりにアイドルとプロレスの受容文化を比較する批評を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/ni46/n/n0a54cddf0154": {
+      "status": "excluded",
+      "reason": "宇宙船の架空会場に乃木坂46メンバーを登場させる二次創作小説と公開本文で確認",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/n4c0fcd5bfeac": {
+      "status": "published",
+      "reason": "日向坂46『酸っぱい自己嫌悪』の楽曲テーマと感情表現を解釈する感想・考察を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/holy_oxalis1429/n/n36069ffaf616": {
+      "status": "published",
+      "reason": "乃木坂46『君ロス』の歌詞やMVを過去の別れの楽曲と比較する考察を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/firm_fennel8957/n/n1b2bbf6ee836": {
+      "status": "published",
+      "reason": "坂道・その他アイドルの音楽表現や歌唱、ファン同士の比較文化についての論評を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/reru1003/n/na715986cb633": {
+      "status": "pending",
+      "reason": "日向坂46ツアー配信ライブレポートの見出しは具体的だが本文が取得できず非創作・内容の最終確認待ち",
+      "reviewed_at": "2026-11-18"
     }
   },
   "blocked_urls": [
