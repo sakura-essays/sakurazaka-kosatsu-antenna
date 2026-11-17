@@ -13342,6 +13342,141 @@
         "グループ運営・アイドル論",
         "ライブ・コンサート"
       ]
+    },
+    "https://note.com/8823film/n/n38cf912e4eab": {
+      "status": "pending",
+      "reason": "乃木坂46『5番目の光』に関する連載だが本文3,663字がメンバーシップ限定で公開本文による記事単位の確認不可。全文非公開のため保留",
+      "reviewed_at": "2026-11-18",
+      "groups": [
+        "乃木坂46"
+      ]
+    },
+    "https://note.com/ni46/n/na5cb5dcc6db3": {
+      "status": "pending",
+      "reason": "『ハロウィンといえば、タマゴボーロ。』は本文取得できず、乃木坂の番組批評か創作・雑記か判別できないため保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/lhd/n/n98a8ae728ba1": {
+      "status": "published",
+      "reason": "元日向坂46・齊藤京子のANNXの放送を聴き、話し方や言葉選び、ソロ活動とラジオの相性を論評した感想を公開本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/tgmmcbg/n/n221ea96ea8d6": {
+      "status": "published",
+      "reason": "乃木坂46冨里奈央の声の特徴や活動・選抜基準を、本人のブログおよび歌唱・バラエティの具体例で論評した記事を確認。誤った櫻坂46分類を乃木坂46に修正",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論",
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/ni46/n/n3d5b6cc28360": {
+      "status": "published",
+      "reason": "乃木坂46のメンバー交代後もグループらしさが継続する理由を、人間関係・楽曲・ライブ表現から考察する本文を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論",
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/holy_oxalis1429/n/n7baf9ca8520f": {
+      "status": "published",
+      "reason": "乃木坂46『君ロス』公開前に曲名・冬の楽曲傾向・井上和のセンター像から方向性を予測する考察であり、創作作品ではないことを本文確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察",
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/kawaya333/n/n6df992186072": {
+      "status": "published",
+      "reason": "『乃木坂工事中』頭NO王決定戦第1・2回の場面を具体的に取り上げる回顧・感想記事を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "乃木坂工事中"
+      ]
+    },
+    "https://note.com/forest_bulky/n/nd01ce653876c": {
+      "status": "published",
+      "reason": "日向坂46『お願いバッハ』MV撮影地の聖地巡礼記。現場で感じたMVの演出・全員選抜への思いとファン体験の感想を本文確認。誤った櫻坂分類を修正",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化",
+        "その他の感想・批評"
+      ]
+    },
+    "https://note.com/sakurahinata04/n/n4ab11d26cdb3": {
+      "status": "published",
+      "reason": "櫻坂46 BACKS LIVEのBlu-ray BOX価格を日向坂46の映像商品等と比較し、商品構成・販売形態・ライブ開催曜日について具体的な批評を本文確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論",
+        "その他の感想・批評"
+      ]
+    },
+    "https://note.com/8823film/n/n10a125db2fd4": {
+      "status": "published",
+      "reason": "乃木坂46『一度好きになった人』の歌詞の視点変更と梅澤美波・鈴木佑捺への重ね合わせを詳細に解釈する公開本文を確認。誤った櫻坂分類を修正",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/ni46/n/n972ed1542474": {
+      "status": "pending",
+      "reason": "乃木坂46『マグカップとシンク』の考察と題されているが公開本文取得不可。創作混在の書き手のため記事単位で批評・創作の区別を確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/ni46/n/n210c5235188a": {
+      "status": "pending",
+      "reason": "乃木坂46『君に贈る花がない』の楽曲解釈と推測できる見出しだが公開本文取得不可。創作混在の書き手のため記事単位の確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/sakurahinata04/n/n67ab900df6b4": {
+      "status": "published",
+      "reason": "櫻坂46の海外空港出待ち映像を契機に、メンバー保護と運営・ファンの安全対策について論じた公開本文を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論",
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/8823film/n/nfce73a7a0ebd": {
+      "status": "pending",
+      "reason": "『メモ』の本文取得不可。題名から坂道考察か個人メモか判断できず保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/8823film/n/nc25c80ddcdc7": {
+      "status": "pending",
+      "reason": "乃木坂46 43rdアンダーフォーメーションの予想記事だが本文482字が有料部分のため詳細確認不可。掲載判断を保留",
+      "reviewed_at": "2026-11-18",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論"
+      ]
     }
   },
   "blocked_urls": [
