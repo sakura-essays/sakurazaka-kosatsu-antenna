@@ -1,0 +1,633 @@
+{
+  "schema_version": 1,
+  "baseline_candidates": {
+    "description": "16 URLs reconstructed from the 2026-11-09 acquisition script and its contemporaneous pickup settings; not proof of the complete first-ever evaluation set.",
+    "urls": [
+      "https://note.com/lively_fennel526/n/neb62ad6c8b65",
+      "https://note.com/kitoka_/n/n2339cbd1e75f",
+      "https://note.com/yutantheta/n/n67e461ec213f",
+      "https://note.com/fleuves_64/n/nf1a6b8b4bf31",
+      "https://note.com/nogi_thinker/n/n1160317da370",
+      "https://note.com/archie_archiee/n/nc44479ccb7ec",
+      "https://note.com/sama_migirou/n/n8826cd167f1f",
+      "https://note.com/hearty_iris9009/n/n1a65652bdafe",
+      "https://note.com/sonkami/n/n78024c01e97f",
+      "https://note.com/8823film/n/n2c52b2e6ad69",
+      "https://note.com/mn15922/n/nbcf4212d77ce",
+      "https://note.com/idle_kenkyu/n/n1d450e13da62",
+      "https://note.com/hurohuro/n/nf4e88e1aa986",
+      "https://note.com/siragen/n/nbedbdc9bfa28",
+      "https://note.com/keiichi_kaneko/n/n21a91f3a59a5",
+      "https://note.com/tsukagirei/n/n4dab64cfe4e7"
+    ]
+  },
+  "observations": [
+    {
+      "url": "https://note.com/yutantheta/n/n67e461ec213f",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/nogi_thinker/n/n1160317da370",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/clever_beetle339/n/n2e7767b7fa28",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/kitoka_/n/n2339cbd1e75f",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/showf/n/n60aeff8938be",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/bunko_x/n/n79566448598a",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/mn15922/n/nbcf4212d77ce",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/idle_kenkyu/n/n1d450e13da62",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/hearty_iris9009/n/n1a65652bdafe",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/like_dill7264/n/n016aee9af906",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/sama_migirou/n/n8826cd167f1f",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/sonkami/n/n78024c01e97f",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/siragen/n/nffcd7e0c7f5a",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/lively_fennel526/n/n327a43fd1ed0",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/lively_fennel526/n/n1ee83f587471",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/keiichi_kaneko/n/n21a91f3a59a5",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/shirokuma1112/n/n19b7530dbe8b",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/lefty_moon_18/n/n7144b906f66e",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/shiny_gerbil4204/n/n9acacb34ac63",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/e_and_p5166/n/nb2894ea82aba",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/unique_sheep9947/n/nc80e1fac9ce2",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/driftwood/n/n88915c5ed65a",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/inti_machine/n/nd02ed002dcd3",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/retore/n/ncc614bf60f2a",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/siragen/n/nbedbdc9bfa28",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/8823film/n/n2c52b2e6ad69",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/soupcurryhorse/n/ne836c6d52dbe",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/lively_fennel526/n/neb62ad6c8b65",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/sola4959/n/n22f19d853e25",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/tsukagirei/n/n4dab64cfe4e7",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/hurohuro/n/nf4e88e1aa986",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/fleuves_64/n/nf1a6b8b4bf31",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/archie_archiee/n/nc44479ccb7ec",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/siragen/n/nc9cc3141dd18",
+      "checked_on": null,
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true,
+      "evidence": "legacy_local_acquisition_record_date_and_reading_not_proven"
+    },
+    {
+      "url": "https://note.com/nibunibutea2708/n/n7807045a8b4e",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/cathouse/n/n857bb9494f7a",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/lively_fennel526/n/na99ca4bb11bd",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/legit_hare5977/n/nb56a7eece78a",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/takiyan_slope/n/ndddf49729106",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/nogi_thinker/n/n390f6c0704ba",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/8823film/n/nf2fd2d671502",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/tamuraharuki/n/nce5355a616d4",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/sakamichigroup46/n/ncd00e79bcd37",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/light_clover2567/n/n1f82f1b6942c",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/malymo_rinne/n/n5ef96e9724df",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/clever_beetle339/n/n16170bfa8606",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/mild_orca9446/n/n97c3d389eb61",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/hassin_yoh/n/n3c3238544d23",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": false,
+      "recheck_needed": true
+    },
+    {
+      "url": "https://kokokokua2.hatenablog.com/entry/2023/07/30/015142",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/kitoka_/n/n2339cbd1e75f",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/mn15922/n/nbcf4212d77ce",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    },
+    {
+      "url": "https://note.com/showf/n/n60aeff8938be",
+      "checked_on": "2026-11-17",
+      "full_text_obtained": true,
+      "full_text_read": true,
+      "recheck_needed": false
+    }
+  ],
+  "runs": [
+    {
+      "date": "2026-11-17",
+      "main_commit": "d99ec93c0d34fc82ae809bf727a388a9190a96a7",
+      "state_metadata_count": 7269,
+      "public_metadata_count": 2454,
+      "eligible_count": 2454,
+      "seed": "2026-11-17",
+      "candidates": [
+        {
+          "url": "https://note.com/witty_yarrow2667/n/nb5e1f61690a3",
+          "method": "random"
+        },
+        {
+          "url": "https://note.com/cheeeehan/n/nc97019581a3e",
+          "method": "random"
+        },
+        {
+          "url": "https://note.com/cathouse/n/n857bb9494f7a",
+          "method": "random"
+        },
+        {
+          "url": "https://note.com/nogi_thinker/n/n390f6c0704ba",
+          "method": "random"
+        },
+        {
+          "url": "https://note.com/komura3/n/n113c97eb0456",
+          "method": "random"
+        },
+        {
+          "url": "https://note.com/idle_kenkyu/n/na7280428a67e",
+          "method": "random"
+        },
+        {
+          "url": "https://tkfuji.hatenablog.com/entry/2026/08/18/100000",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/nogikeyaksh/n/nee5e9d561934",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/777incage/n/n936af06d06ab",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/legit_hare5977/n/nb56a7eece78a",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/lively_fennel526/n/na99ca4bb11bd",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/tamuraharuki/n/nce5355a616d4",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/malymo_rinne/n/n3c848fed1f0a",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/sakamichigroup46/n/ncd00e79bcd37",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/shack_46/n/n87069a76f614",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/holy_oxalis1429/n/n815bf25d8c6a",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/eagle131/n/n0ef6556a06e6",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/alone46fan/n/n03fe2c23af89",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/kitoka_/n/nb7a55d01997b",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/nibunibutea2708/n/n7807045a8b4e",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/8823film/n/nf2fd2d671502",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/takiyan_slope/n/ndddf49729106",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/fullinning/n/n5b510c2503cb",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/kn_ykh_1985/n/nd41b84b9b3f5",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/light_clover2567/n/n1f82f1b6942c",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/lofty_hyena7409/n/neb7fcbbad0b2",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/hassin_yoh/n/n3c3238544d23",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/tsukagirei/n/nd6dad1708264",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/sakamichi_lover/n/n02a64cfd9531",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/clever_beetle339/n/n16170bfa8606",
+          "method": "coverage"
+        },
+        {
+          "url": "https://note.com/malymo_rinne/n/n5ef96e9724df",
+          "method": "supplemental_title_category_search"
+        },
+        {
+          "url": "https://note.com/mild_orca9446/n/n97c3d389eb61",
+          "method": "supplemental_title_category_search"
+        },
+        {
+          "url": "https://kokokokua2.hatenablog.com/entry/2023/07/30/015142",
+          "method": "supplemental_title_category_search"
+        }
+      ],
+      "new_full_text_obtained_count": 15,
+      "new_full_text_read_count": 14,
+      "previous_pickup_comparison_count": 3,
+      "tag_pages_checked": [
+        {
+          "group": "乃木坂46",
+          "mode": "hot",
+          "url": "https://note.com/tag/%E4%B9%83%E6%9C%A8%E5%9D%8246?mode=hot",
+          "first_page": true
+        },
+        {
+          "group": "乃木坂46",
+          "mode": "new",
+          "url": "https://note.com/tag/%E4%B9%83%E6%9C%A8%E5%9D%8246?mode=new",
+          "first_page": true
+        },
+        {
+          "group": "櫻坂46",
+          "mode": "hot",
+          "url": "https://note.com/tag/%E6%AB%BB%E5%9D%8246?mode=hot",
+          "first_page": true
+        },
+        {
+          "group": "櫻坂46",
+          "mode": "new",
+          "url": "https://note.com/tag/%E6%AB%BB%E5%9D%8246?mode=new",
+          "first_page": true
+        },
+        {
+          "group": "日向坂46",
+          "mode": "hot",
+          "url": "https://note.com/tag/%E6%97%A5%E5%90%91%E5%9D%8246?mode=hot",
+          "first_page": true
+        },
+        {
+          "group": "日向坂46",
+          "mode": "new",
+          "url": "https://note.com/tag/%E6%97%A5%E5%90%91%E5%9D%8246?mode=new",
+          "first_page": true
+        },
+        {
+          "group": "青葉坂46",
+          "mode": "hot",
+          "url": "https://note.com/tag/%E9%9D%92%E8%91%89%E5%9D%8246?mode=hot",
+          "first_page": true
+        },
+        {
+          "group": "青葉坂46",
+          "mode": "new",
+          "url": "https://note.com/tag/%E9%9D%92%E8%91%89%E5%9D%8246?mode=new",
+          "first_page": true
+        },
+        {
+          "group": "欅坂46",
+          "mode": "hot",
+          "url": "https://note.com/tag/%E6%AC%85%E5%9D%8246?mode=hot",
+          "first_page": true
+        },
+        {
+          "group": "欅坂46",
+          "mode": "new",
+          "url": "https://note.com/tag/%E6%AC%85%E5%9D%8246?mode=new",
+          "first_page": true
+        }
+      ]
+    }
+  ]
+}
