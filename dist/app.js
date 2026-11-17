@@ -120,7 +120,7 @@
   const a=randomEssay,w=byId[a.author_id];
   panel.hidden=false;
   button.setAttribute('aria-expanded','true');
-  $('random-essay-body').innerHTML=`<div class="random-essay-meta"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span>${esc(articleLabels(a).join(' / '))}</span><span>${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)} <span aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><a class="random-essay-author" href="${esc(authorPath(w.id))}">${esc(w.name)}</a>`;
+  $('random-essay-body').innerHTML=`<div class="random-essay-meta"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span>${esc(articleLabels(a).join(' / '))}</span><span>${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)} <span aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3>${contextMarkup(a)}<a class="random-essay-author" href="${esc(authorPath(w.id))}">${esc(w.name)}</a>`;
  }
  function drawRandomEssay(){
   let available=randomPool();
@@ -171,7 +171,18 @@
  function sync(){ $('query').value=state.q;controls.forEach(id=>$(id).value=state[id]);if(controls.some(k=>k!=='sort'&&state[k]))document.querySelector('.filters').open=true;}
  function save(){const p=new URLSearchParams();Object.entries(state).forEach(([k,v])=>{if(v)p.set(k,v)});if(window.PRESET_AUTHOR&&!state.author)p.set('author','');history.pushState(null,'','?'+p.toString());render();}
  function reset(){state={view:'articles',group:'',q:'',cat:'',author:'',member:'',song:'',platform:'',from:'',to:'',sort:'new'};limit=30;sync();save();}
- function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label tone-${toneFor(a)}">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3><div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" aria-pressed="${state.cat===c}" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div>${relatedMarkup(a)}</article>`;}
+ function contextMarkup(a){
+  const guide=typeof a.guide==='string'?a.guide.trim():'';
+  if(guide)return `<p class="article-context article-context-editor"><span class="article-context-label">この記事の内容</span>${esc(guide)}</p>`;
+  // A detected keyword is a search aid, not a verified summary of the argument.
+  const title=normalize(a.title);
+  const cues=[
+   ...(a.songs||[]).filter(s=>!title.includes(normalize(s))).slice(0,2).map(s=>'楽曲：'+s),
+   ...(a.members||[]).filter(m=>!title.includes(normalize(m))).slice(0,2).map(m=>'人物：'+m)
+  ].slice(0,3);
+  return cues.length?`<p class="article-context article-context-auto"><span class="article-context-label">関連語（自動抽出）</span>${esc(cues.join(' / '))}</p>`:'';
+ }
+ function card(a){const w=byId[a.author_id];return `<article class="article"><div class="article-top"><time datetime="${esc(a.published_at)}">${date(a.published_at)}</time><span class="group-labels">${articleLabels(a).map(g=>`<span class="group-label tone-${toneFor(a)}">${esc(g)}</span>`).join('')}</span><span class="platform">${esc(w.platform)}</span></div><h3><a class="tracked-article" data-author-id="${esc(a.author_id)}" data-article-title="${esc(a.title)}" href="${url(a.url)}" target="_blank" rel="noopener">${esc(a.title)}<span class="external" aria-hidden="true">↗</span><span class="sr-only">（元記事を新しいタブで開く）</span></a></h3>${contextMarkup(a)}<div class="article-bottom"><a class="author-link" href="${esc(authorPath(w.id))}">${esc(w.name)}</a><div class="tags">${a.categories.map(c=>`<button class="tag" aria-pressed="${state.cat===c}" data-category="${esc(c)}">${esc(c)}</button>`).join('')}</div></div>${relatedMarkup(a)}</article>`;}
  function renderActiveFilters(){
   const labels={group:'グループ',q:'検索',cat:'テーマ',author:'書き手',member:'メンバー',song:'楽曲',platform:'媒体',from:'開始日',to:'終了日'};
   const active=Object.entries(labels).filter(([key])=>state[key]);
@@ -206,7 +217,7 @@
   renderPickups();
   $('categories').innerHTML=['',...D.categories].map(c=>`<button class="category ${state.cat===c?'active':''}" aria-pressed="${state.cat===c}" data-category="${esc(c)}"><span>${esc(c||'すべての記事')}</span><span class="num">${D.articles.filter(a=>inGroup(a)&&(!c||a.categories.includes(c))).length}</span></button>`).join('');
   let filtered=D.articles.filter(a=>{
-   const author=byId[a.author_id];const hay=normalize([a.title,author.name,...a.members,...a.songs,...a.categories].join(' '));
+   const author=byId[a.author_id];const hay=normalize([a.title,a.guide||'',author.name,...a.members,...a.songs,...a.categories].join(' '));
    return inGroup(a)&&state.q.trim().split(/\s+/).every(q=>hay.includes(normalize(q)))&&(!state.cat||a.categories.includes(state.cat))&&(!state.author||a.author_id===state.author)&&(!state.member||a.members.includes(state.member))&&(!state.song||a.songs.includes(state.song))&&(!state.platform||author.platform===state.platform)&&(!state.from||day(a.published_at)>=state.from)&&(!state.to||day(a.published_at)<=state.to);
   });
   if(state.sort==='random')filtered.sort((a,b)=>randomRanks.get(a.url)-randomRanks.get(b.url));
