@@ -1,5 +1,22 @@
 [
   {
+    "id": "fd28b96f3b7e18fdf794",
+    "url": "https://note.com/shirokuma1112/n/n70b938bacc4b",
+    "title": "櫻坂46 6thアニラで櫻坂迷子から少し脱せた話",
+    "author_id": "shirokuma1112",
+    "published_at": "2026-11-17T15:57:53+00:00",
+    "first_seen_at": "2026-11-17T16:41:53.842902+00:00",
+    "categories": [
+      "ライブ・コンサート",
+      "グループ運営・アイドル論"
+    ],
+    "members": [],
+    "songs": [],
+    "groups": [
+      "櫻坂46"
+    ]
+  },
+  {
     "id": "53983d7a741f9108f3a9",
     "url": "https://note.com/novel_oxalis6466/n/n31979ba7cf62",
     "title": "彼女の左目には何が映ったのか——櫻坂46「元凶」七回目、雨のZOZOマリン",
@@ -4678,6 +4695,26 @@
     ]
   },
   {
+    "id": "79276ab0bc5fc6a3fc69",
+    "url": "https://note.com/unique_sheep9947/n/nef5b2cf10979",
+    "title": "この続きの物語――冨里奈央、二十歳の秋",
+    "author_id": "unique_sheep9947",
+    "published_at": "2026-10-22T05:15:35+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "メンバー考察・人物論",
+      "ライブ・コンサート"
+    ],
+    "members": [
+      "冨里奈央"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "乃木坂46・冨里奈央のライブ演出、写真制作、同期との交流から、その歩みを読み解く。"
+  },
+  {
     "id": "0a890053aa3cffad82a8",
     "url": "https://note.com/kn_ykh_1985/n/n36481c8ee83f",
     "title": "免除制度がもたらした闇？〜冨里奈央の「告白」と波紋",
@@ -4696,6 +4733,25 @@
     "groups": [
       "乃木坂46"
     ]
+  },
+  {
+    "id": "d204ada96cd2596ea143",
+    "url": "https://note.com/for_tmgwa_shako/n/nbabec96dab81",
+    "title": "#61  元凶 ～こんな世界は好きになれない～",
+    "author_id": "for_tmgwa_shako",
+    "published_at": "2026-10-21T20:08:42+00:00",
+    "first_seen_at": "2026-11-12T10:32:16.928052+00:00",
+    "categories": [
+      "楽曲・歌詞考察"
+    ],
+    "members": [],
+    "songs": [
+      "元凶"
+    ],
+    "groups": [
+      "櫻坂46"
+    ],
+    "guide": "櫻坂46四期生『元凶』の音作り、歌詞、MVの表現を比較して評する。"
   },
   {
     "id": "6ffe87e02dd816302514",
@@ -4945,6 +5001,29 @@
     "groups": [
       "櫻坂46"
     ]
+  },
+  {
+    "id": "3d20c8204b170459e2f0",
+    "url": "https://note.com/kotechi20010625/n/nbd0637f6d4ac",
+    "title": "人はなぜ、ひとりになりたいのに、誰かを求めるのか。〜『エキセントリック』『もう森へ帰ろうか？』『避雷針』孤独を描くのに、なぜ大勢で踊ったのか。〜第2回",
+    "author_id": "kotechi20010625",
+    "published_at": "2026-10-20T08:42:51+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "楽曲・歌詞考察",
+      "ダンス・パフォーマンス考察"
+    ],
+    "members": [
+      "平手友梨奈"
+    ],
+    "songs": [
+      "エキセントリック",
+      "もう森へ帰ろうか？"
+    ],
+    "groups": [
+      "櫻坂46"
+    ],
+    "guide": "欅坂46の3曲を通じ、孤独を歌いながら大勢で踊る演出の意味を考える。"
   },
   {
     "id": "7a4a0124e559b32b6fc3",
@@ -5242,6 +5321,26 @@
     ]
   },
   {
+    "id": "ffcd76a0398cbbcc5048",
+    "url": "https://note.com/holy_oxalis1429/n/ne52c28a468f9",
+    "title": "もし乃木坂じゃなかったら、なんて",
+    "author_id": "holy_oxalis1429",
+    "published_at": "2026-10-19T07:44:31+00:00",
+    "first_seen_at": "2026-11-10T03:43:44.398851+00:00",
+    "categories": [
+      "メンバー考察・人物論",
+      "ファンダム・ファン文化"
+    ],
+    "members": [
+      "伊藤理々杏"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "伊藤理々杏の卒業を機に、選抜への思いと本人の言葉の間にあるずれを振り返る。"
+  },
+  {
     "id": "159d160b618a923807e6",
     "url": "https://note.com/sakamichigroup46/n/na000e0f327c3",
     "title": "乃木坂46『君ロス』選抜18人から見えた世代交代の現在地――井上和センターと5期生9人の意味",
@@ -5359,6 +5458,27 @@
     "groups": [
       "日向坂46"
     ]
+  },
+  {
+    "id": "faa9cde0beaf5e32c0cf",
+    "url": "https://note.com/twc_corpworks/n/n128fcee01dfb",
+    "title": "乃木坂46 43rd選抜の答え合わせ ── 顔ぶれは本命がほぼ的中、センターは納得の井上和",
+    "author_id": "twc_corpworks",
+    "published_at": "2026-10-18T17:30:18+00:00",
+    "first_seen_at": "2026-11-12T11:21:22.997072+00:00",
+    "categories": [
+      "グループ運営・アイドル論"
+    ],
+    "members": [
+      "井上和"
+    ],
+    "songs": [
+      "君ロス"
+    ],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "乃木坂46の43rd選抜予想を実際の発表と照合し、井上和センターの理由を考える。"
   },
   {
     "id": "69515c7d793dee891067",
@@ -5647,6 +5767,27 @@
     ]
   },
   {
+    "id": "502b29e6580b2964442d",
+    "url": "https://note.com/kotechi20010625/n/n59b75cd4c8d3",
+    "title": "『欅共和国』は、最後に何を残したのか。",
+    "author_id": "kotechi20010625",
+    "published_at": "2026-10-17T08:02:29+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "ライブ・コンサート",
+      "グループ運営・アイドル論"
+    ],
+    "members": [
+      "平手友梨奈"
+    ],
+    "songs": [],
+    "groups": [
+      "櫻坂46",
+      "日向坂46"
+    ],
+    "guide": "『欅共和国』の歴史をたどり、欅坂46とひらがなけやきが同じ場所で経験した違いを考える。"
+  },
+  {
     "id": "d627987b73ba590c8dce",
     "url": "https://note.com/light_clover2567/n/n726537e2464d",
     "title": "キルアと藤吉夏鈴から、櫻坂46「Start over!」を考える",
@@ -5818,6 +5959,25 @@
     ]
   },
   {
+    "id": "ec03b557d7ab7dca2806",
+    "url": "https://note.com/reru1003/n/ne273ce4a442b",
+    "title": "【配信ライブレポート#26】櫻坂46 3rd YEAR ANNIVERSARY LIVE 1日目＋土生瑞穂卒業セレモニー",
+    "author_id": "reru1003",
+    "published_at": "2026-10-16T12:39:09+00:00",
+    "first_seen_at": "2026-11-12T11:21:22.997072+00:00",
+    "categories": [
+      "ライブ・コンサート"
+    ],
+    "members": [
+      "土生瑞穂"
+    ],
+    "songs": [],
+    "groups": [
+      "櫻坂46"
+    ],
+    "guide": "櫻坂46・3rdアニラDAY1の楽曲演出と、土生瑞穂卒業セレモニーを振り返る。"
+  },
+  {
     "id": "1531ca30fb912fbc01fd",
     "url": "https://note.com/like_dill7264/n/n0f040e87a5a5",
     "title": "武元唯衣さんと中嶋優月さん",
@@ -5856,6 +6016,29 @@
     "groups": [
       "櫻坂46"
     ]
+  },
+  {
+    "id": "99860d6c543fb4e12b4c",
+    "url": "https://note.com/twc_corpworks/n/nb94d340adeee",
+    "title": "乃木坂46 43rd『君ロス』選抜予想 ── 本命は川﨑桜センター、対抗は6期の大越ひなの",
+    "author_id": "twc_corpworks",
+    "published_at": "2026-10-16T10:22:30+00:00",
+    "first_seen_at": "2026-11-12T11:21:22.997072+00:00",
+    "categories": [
+      "グループ運営・アイドル論"
+    ],
+    "members": [
+      "伊藤理々杏",
+      "川﨑桜",
+      "大越ひなの"
+    ],
+    "songs": [
+      "君ロス"
+    ],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "乃木坂46・43rd選抜を三つのシナリオで予想し、センター人事と期別配置を検討する。"
   },
   {
     "id": "5e7ab0523f48fe8b9ccf",
@@ -6036,6 +6219,26 @@
     ]
   },
   {
+    "id": "54174fc54628432ee93b",
+    "url": "https://note.com/unique_sheep9947/n/nb0b416a7ddee",
+    "title": "井上和が「千尋」になる。その知らせで、乃木坂46のセンター人事を思い返した",
+    "author_id": "unique_sheep9947",
+    "published_at": "2026-10-15T01:36:58+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "メンバー考察・人物論",
+      "グループ運営・アイドル論"
+    ],
+    "members": [
+      "井上和"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "井上和の舞台主演をきっかけに、乃木坂46の近年のセンター人事と5期生の役割を考える。"
+  },
+  {
     "id": "0a25365f535f062ed34a",
     "url": "https://note.com/siragen/n/nede94313e1b2",
     "title": "櫻坂16枚目シングルが素晴らしすぎたので語りたい",
@@ -6193,6 +6396,25 @@
     ]
   },
   {
+    "id": "6049058a3e48d5bfdcbc",
+    "url": "https://note.com/senkan_sakablog/n/ne7efe40f3036",
+    "title": "自称バレエダンサー 〜「肯定」と「諦念」〜",
+    "author_id": "senkan_sakablog",
+    "published_at": "2026-10-13T13:01:30+00:00",
+    "first_seen_at": "2026-11-12T11:21:22.997072+00:00",
+    "categories": [
+      "楽曲・歌詞考察"
+    ],
+    "members": [],
+    "songs": [
+      "自称バレエダンサー"
+    ],
+    "groups": [
+      "櫻坂46"
+    ],
+    "guide": "櫻坂46『自称バレエダンサー』を、語り手の視点と『肯定』『諦念』の違いから読む。"
+  },
+  {
     "id": "b3b7a2f75f3563daa8a5",
     "url": "https://note.com/tamuraharuki/n/nce5355a616d4",
     "title": "「坂道選抜のセンターじゃなくて良かったね」",
@@ -6252,6 +6474,42 @@
     ]
   },
   {
+    "id": "035a9d1da432fcefe5b3",
+    "url": "https://note.com/for_tmgwa_shako/n/ne3ebcf1d18a0",
+    "title": "#60  日向坂46「18th Single ひなた坂46 LIVE」参戦記",
+    "author_id": "for_tmgwa_shako",
+    "published_at": "2026-10-13T03:35:08+00:00",
+    "first_seen_at": "2026-11-12T10:32:16.928052+00:00",
+    "categories": [
+      "ライブ・コンサート"
+    ],
+    "members": [],
+    "songs": [],
+    "groups": [
+      "日向坂46"
+    ],
+    "guide": "日向坂46・18thひなた坂LIVEの両日を比較し、清水理央らのパフォーマンスを振り返る。"
+  },
+  {
+    "id": "daaff671d871bbeaf3c4",
+    "url": "https://note.com/tk39fish/n/n31d618bdff18",
+    "title": "坂道好き曲ランキングを作る【22】",
+    "author_id": "tk39fish",
+    "published_at": "2026-10-13T01:00:00+00:00",
+    "first_seen_at": "2026-11-12T11:21:22.997072+00:00",
+    "categories": [
+      "楽曲・歌詞考察"
+    ],
+    "members": [
+      "西野七瀬"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "乃木坂46『帰り道は遠回りしたくなる』収録7曲を、歌詞・歌唱・MVから比較する。"
+  },
+  {
     "id": "6654ef8bbfcfd0d9ffc4",
     "url": "https://note.com/babuchi/n/n4a0af74fe164",
     "title": "乃木坂46「曲名先行＝既存センター」説は本当なのか？",
@@ -6268,6 +6526,26 @@
     "groups": [
       "乃木坂46"
     ]
+  },
+  {
+    "id": "9f663d42e770f60a1595",
+    "url": "https://note.com/unique_sheep9947/n/nbeee634f3e1b",
+    "title": "遠藤さくらの欠席を探したら、本人が働いていた。――『さくちゃん捜査会議』の捜査漏れ",
+    "author_id": "unique_sheep9947",
+    "published_at": "2026-10-12T14:07:13+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "メンバー考察・人物論",
+      "乃木坂工事中"
+    ],
+    "members": [
+      "遠藤さくら"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "『乃木坂工事中』の遠藤さくら特集を起点に、欠席記録と活動の安定性を調べる。"
   },
   {
     "id": "ca80316e84ef64014c54",
@@ -6315,6 +6593,25 @@
     "groups": [
       "櫻坂46"
     ]
+  },
+  {
+    "id": "45669d1a8f0a8df14d85",
+    "url": "https://note.com/qururi_46/n/nf14575fede19",
+    "title": "#毎日決起集会　進捗",
+    "author_id": "qururi_46",
+    "published_at": "2026-10-12T12:52:04+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "ファンダム・ファン文化"
+    ],
+    "members": [
+      "森本茉莉"
+    ],
+    "songs": [],
+    "groups": [
+      "日向坂46"
+    ],
+    "guide": "森本茉莉とのミーグリを通じ、仕事の選択と卒業までの応援を考えたファン体験。"
   },
   {
     "id": "2a909c10924ee7762599",
@@ -6501,6 +6798,30 @@
     "groups": [
       "櫻坂46"
     ]
+  },
+  {
+    "id": "1244c841c6c0b381978b",
+    "url": "https://note.com/asakusabashi/n/n9845c118488a",
+    "title": "「銭湯ラプソディー」について",
+    "author_id": "asakusabashi",
+    "published_at": "2026-10-10T13:46:05+00:00",
+    "first_seen_at": "2026-11-08T04:19:14.452558+00:00",
+    "categories": [
+      "楽曲・歌詞考察",
+      "グループ運営・アイドル論"
+    ],
+    "members": [
+      "与田祐希",
+      "山下美月",
+      "梅澤美波",
+      "田村真佑",
+      "金川紗耶"
+    ],
+    "songs": [],
+    "groups": [
+      "乃木坂46"
+    ],
+    "guide": "乃木坂46『銭湯ラプソディー』の歌詞への違和感を、参加メンバーや衣装の選び方まで掘り下げる。"
   },
   {
     "id": "9fe44d80555c0f534588",
@@ -8588,7 +8909,7 @@
   {
     "id": "5cd62a34f4d2b778aa3d",
     "url": "https://note.com/malymo_rinne/n/ndea234bf7e60",
-    "title": "098.15人の共演、その先にあるもの―青葉坂46「Audition」に見る三坂選抜の構造とリスク―",
+    "title": "098.15人の共演、その先にあるもの―坂道選抜「Audition」に見る三坂選抜の構造とリスク―",
     "author_id": "malymo_rinne",
     "published_at": "2026-09-26T08:00:33+00:00",
     "first_seen_at": "2026-11-06T07:40:28.785866+00:00",

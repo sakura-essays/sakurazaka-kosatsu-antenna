@@ -308,7 +308,7 @@
     "name": "TWC",
     "url": "https://note.com/twc_corpworks",
     "platform": "note",
-    "count": 1,
+    "count": 3,
     "themes": [
       "グループ運営・アイドル論"
     ]
@@ -396,11 +396,11 @@
     "name": "[OH-26] 多摩川学園前",
     "url": "https://note.com/for_tmgwa_shako",
     "platform": "note",
-    "count": 6,
+    "count": 8,
     "themes": [
-      "その他の感想・批評",
       "楽曲・歌詞考察",
-      "ライブ・コンサート"
+      "ライブ・コンサート",
+      "その他の感想・批評"
     ]
   },
   {
@@ -1232,7 +1232,7 @@
     "name": "こてち⊿",
     "url": "https://note.com/kotechi20010625",
     "platform": "note",
-    "count": 28,
+    "count": 30,
     "themes": [
       "楽曲・歌詞考察",
       "メンバー考察・人物論",
@@ -1404,8 +1404,9 @@
     "name": "せ ん か ん",
     "url": "https://note.com/senkan_sakablog",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
+      "楽曲・歌詞考察",
       "ライブ・コンサート"
     ]
   },
@@ -2453,11 +2454,11 @@
     "name": "シロクマ",
     "url": "https://note.com/shirokuma1112",
     "platform": "note",
-    "count": 22,
+    "count": 23,
     "themes": [
       "ライブ・コンサート",
-      "ダンス・パフォーマンス考察",
-      "グループ運営・アイドル論"
+      "グループ運営・アイドル論",
+      "ダンス・パフォーマンス考察"
     ]
   },
   {
@@ -2541,7 +2542,7 @@
     "name": "ディスコ",
     "url": "https://note.com/qururi_46",
     "platform": "note",
-    "count": 7,
+    "count": 8,
     "themes": [
       "ライブ・コンサート",
       "日向坂で会いましょう",
@@ -2793,7 +2794,7 @@
     "name": "メニホビ",
     "url": "https://note.com/tk39fish",
     "platform": "note",
-    "count": 3,
+    "count": 4,
     "themes": [
       "楽曲・歌詞考察"
     ]
@@ -3017,7 +3018,7 @@
     "name": "余白",
     "url": "https://note.com/unique_sheep9947",
     "platform": "note",
-    "count": 14,
+    "count": 17,
     "themes": [
       "メンバー考察・人物論",
       "グループ運営・アイドル論",
@@ -3397,7 +3398,7 @@
     "name": "泠（れい）です",
     "url": "https://note.com/reru1003",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
       "ライブ・コンサート"
     ]
@@ -3407,7 +3408,7 @@
     "name": "浅草橋",
     "url": "https://note.com/asakusabashi",
     "platform": "note",
-    "count": 8,
+    "count": 9,
     "themes": [
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
@@ -3571,10 +3572,11 @@
     "name": "覚醒前の革命児",
     "url": "https://note.com/holy_oxalis1429",
     "platform": "note",
-    "count": 4,
+    "count": 5,
     "themes": [
       "グループ運営・アイドル論",
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "メンバー考察・人物論"
     ]
   },
   {
