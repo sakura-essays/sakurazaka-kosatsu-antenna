@@ -12865,6 +12865,86 @@
       ],
       "reason": "書き手本人の収録依頼。櫻坂46の紅白と『Start over!』に関する非創作の感想・考察",
       "reviewed_at": "2026-11-13"
+    },
+    "https://note.com/holy_oxalis1429/n/n782ddd9c337e": {
+      "status": "excluded",
+      "reason": "イコラブの紅白選曲が主題で坂道考察サイトの対象外（見出し判定・本文未確認）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/kotechi20010625/n/n6c18cfd7a28e": {
+      "status": "pending",
+      "reason": "坂道AKB・平手友梨奈の考察と思われるが公開本文を取得できず保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/light_clover2567/n/ne5cd3345930f": {
+      "status": "pending",
+      "reason": "第006話という物語形式のため、創作と実活動の区別を本文確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/like_dill7264/n/n668e5c35de82": {
+      "status": "pending",
+      "reason": "踊るヒット賞の主題が見出しのみでは不明、本文確認待ち",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/qururi_46/n/n15bfb8744d4d": {
+      "status": "pending",
+      "reason": "日向坂を話題にしているが記事全体の批評・感想性を確認できず保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/nogi_thinker/n/n7054fb439072": {
+      "status": "pending",
+      "reason": "公開検索抜粋で坂道の新参者世代論と分かるが本文全体を取得できず保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/echoyamabikosan/n/nc5a9004d3dda": {
+      "status": "published",
+      "reason": "櫻坂6thアニラDAY2の現地演出・楽曲構成・卒業セレモニーへの独自の感想を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/like_dill7264/n/n3fc0ebb9de16": {
+      "status": "pending",
+      "reason": "新キャプテンの主題・実記事内容が未確認のため保留",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/legit_hare5977/n/na7d06ab8189b": {
+      "status": "published",
+      "reason": "けやき坂46『永遠の白線』の歌詞解釈・楽曲感想を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/tk39fish/n/n48a209201df8": {
+      "status": "excluded",
+      "reason": "『みんフォト』登録用投稿で考察・感想記事ではないと見出しで判定（本文未確認）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/8823film/n/n94d1ce79fd9a": {
+      "status": "excluded",
+      "reason": "アイシールド21についての日記が見出しの中心で坂道への論評なし（本文未確認）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/qururi_46/n/nb6e88eeb6b7f": {
+      "status": "excluded",
+      "reason": "濱岸ひよりのテレビ出演情報リンクとごく短い周辺コメントが中心で作品・人物への批評ではない",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/kotechi20010625/n/n9beec68fa4e6": {
+      "status": "published",
+      "reason": "元欅坂46の平手友梨奈『Kill or Kiss』MVの実際の映像を対象にした独自の解釈を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/kusofantasy/n/na8fde89519d8": {
+      "status": "published",
+      "reason": "『そこ曲がったら、櫻坂？』のMC・ガヤ・番組構造への批評を本文で確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
+    },
+    "https://note.com/armi/n/n55aa29e438b9": {
+      "status": "published",
+      "reason": "櫻坂46メンバーの髪型とダンスパフォーマンスの関係を考察した本文を確認",
+      "reviewed_at": "2026-11-18",
+      "verified_nonfiction": true
     }
   },
   "blocked_urls": [
