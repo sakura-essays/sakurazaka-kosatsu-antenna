@@ -12867,6 +12867,10 @@
       "reviewed_at": "2026-11-13"
     }
   },
-  "blocked_urls": [],
+  "blocked_urls": [
+    "https://note.com/legit_hare5977/n/n57160ebb5d83",
+    "https://note.com/legit_hare5977/n/nd1b8e93d15be",
+    "https://note.com/legit_hare5977/n/nc84a38e898b9"
+  ],
   "blocked_authors": []
 }
