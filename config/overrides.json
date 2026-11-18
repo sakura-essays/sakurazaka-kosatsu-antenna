@@ -18075,7 +18075,7 @@
       "reviewed_at": "2026-11-18",
       "review_method": "public_article_body",
       "evidence_url": "https://note.com/asakusabashi/n/n98809b92bdae",
-      "reason": "林瑠奈が卒業を報告したブログや、そこで引用したandymoriの曲と言葉を読んだ感想。",
+      "reason": "林瑠奈が大学卒業を報告したブログや、そこで引用したandymoriの曲と言葉を読んだ感想。",
       "groups": [
         "乃木坂46"
       ],
@@ -18208,6 +18208,222 @@
       "reviewed_at": "2026-11-18",
       "review_method": "public_rss",
       "evidence_url": "https://note.com/kyuuriman46/rss"
+    },
+    "https://note.com/pokapokarin/n/nafe737100e9e": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "日向坂46　五期生のバラエティーエースを考えてみる",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/pokapokarin/n/nafe737100e9e",
+      "reason": "日向坂46の五期生がバラエティで見せる持ち味を、メンバーごとに捉える記事。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論",
+        "日向坂で会いましょう"
+      ]
+    },
+    "https://note.com/annaeuscaesar/n/n83aec65b3be1": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "ー最高地点はまだずっと先だー 櫻坂46 5th YEAR ANNIVERSARY LIVE@新国立競技場",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/annaeuscaesar/n/n83aec65b3be1",
+      "reason": "国立競技場の5周年公演で、特別版の音源や映像演出、山下瞳月のパフォーマンスなどを振り返る。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "ダンス・パフォーマンス考察"
+      ]
+    },
+    "https://note.com/shiroi_yuki/n/n8ef38fcc7e2c": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "大丈夫、あなたは最初から「正解」を出していた　～愛と感謝を込めて～櫻坂46 5th YEAR ANNIVERSARY LIVE/MUFGスタジアム",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/shiroi_yuki/n/n8ef38fcc7e2c",
+      "reason": "国立公演の冒頭映像と『Nobody’s fault』の全員披露を、櫻坂46が歩んだ時間と結びつけて論じる。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/shou_4846/n/ne511a21ea32a": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "日向坂で会いましょう#358",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/shou_4846/n/ne511a21ea32a",
+      "reason": "『日向坂で会いましょう』での名作ドラマ再現への短い感想。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "日向坂で会いましょう"
+      ]
+    },
+    "https://note.com/shou_4846/n/n7b6180aadfcf": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "そこ曲がったら、櫻坂？#280",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/shou_4846/n/n7b6180aadfcf",
+      "reason": "嘘を仕掛ける冠番組の企画を観て、松本和子のキャラクターや先輩メンバーごとの反応を語る。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "そこ曲がったら、櫻坂？",
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/skerok/n/nbb0c5fd0c0c5": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "櫻坂46　5th YEAR ANNIVERSARY LIVE＠国立競技場に行ってきた　DAY2",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/skerok/n/nbb0c5fd0c0c5",
+      "reason": "国立競技場公演2日目の現地レポート。前日との音の聞こえ方や曲目の違いを記す。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/springisintokyo/n/n4859a1fb702d": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "『Right?』／日向坂46の歌詞について考える",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/springisintokyo/n/n4859a1fb702d",
+      "reason": "『Right?』の言葉を、振られても相手を好きになったことに意味を見出す歌として読み解く。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/skerok/n/n24cbaf2ad270": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "櫻坂46　5th YEAR ANNIVERSARY LIVE＠国立競技場に行ってきた　DAY1",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/skerok/n/n24cbaf2ad270",
+      "reason": "国立公演初日の参戦記。山﨑天の独唱や村井優のソロダンスと曲の始まりを振り返る。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "ダンス・パフォーマンス考察"
+      ]
+    },
+    "https://note.com/asakusabashi/n/n6c84b4919d87": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "「最後に階段を駆け上がったのはいつだ？」について",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/asakusabashi/n/n6c84b4919d87",
+      "reason": "MVの左右対称の振付や配置、出演者が小部屋に戻る動きから、映像の不穏な印象を論じる。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察",
+        "ダンス・パフォーマンス考察"
+      ]
+    },
+    "https://note.com/jsapanexco/n/n4f2640509a51": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "465.  【ボヤキ】5thアニラ参戦前夜",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/jsapanexco/n/n4f2640509a51",
+      "reason": "5周年公演の前夜に、櫻坂46を応援して受け取ったものと自分の生活のバランスを考える。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/sakurahinata04/n/ne121ba1da20c": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "#44　日向坂46に入ってくれてありがとう",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/sakurahinata04/n/ne121ba1da20c",
+      "reason": "山口陽世の卒業発表を受け、日向坂46を推すと決めた頃の記憶を振り返る。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論",
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/ohisama__yossy/n/nef5d25b34759": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "はるよちゃん、ありがとう。",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/ohisama__yossy/n/nef5d25b34759",
+      "reason": "山口陽世の卒業発表に際し、ライブでの表情やダンス、周囲のメンバーとの関わりを振り返る。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論",
+        "ダンス・パフォーマンス考察"
+      ]
+    },
+    "https://note.com/footballlife07/n/n90df6cfba22d": {
+      "status": "excluded",
+      "reason": "櫻坂46の遠征に言及するが、本文の主題はFC町田ゼルビアとアルイテハドの試合展望。",
+      "reviewed_title": "2026/4/18 ACLEファイナルズ vsアルイテハド Preview ～結集～",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/hinatanofan/n/ncec8a22538b6": {
+      "status": "published",
+      "reason": "公開RSSで、櫻坂46の両A面を引き合いに日向坂46への同形式の導入に反対する意見記事と確認。",
+      "reviewed_title": "両A面シングル",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/hinatanofan/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46",
+        "櫻坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/hahifuhehox/n/nd08ad8f4dc0a": {
+      "status": "excluded",
+      "reason": "公開本文で、坂道を含む好きな音楽、スポーツなどを紹介する自己紹介が主題と確認。",
+      "reviewed_title": "ひさびさに自己紹介を更新",
+      "reviewed_at": "2026-11-18"
     }
   },
   "blocked_urls": [
