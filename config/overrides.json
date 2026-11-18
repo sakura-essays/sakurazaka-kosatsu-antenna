@@ -14210,10 +14210,19 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/hinata0514/n/ne4f452766367": {
-      "status": "pending",
-      "reason": "公開本文を取得できず、題名と保存メタデータからは坂道シリーズとの関係と記事の種類を確定できない。",
+      "status": "published",
+      "reason": "当該記事の公開RSSで、CD発売後の日向坂46の店頭展示を訪ね、他の来店者との距離感から購入を諦めたファンの体験記と確認。",
       "reviewed_title": "ただただ萎えた。",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/hinata0514/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化"
+      ]
     },
     "https://note.com/holy_oxalis1429/n/n9a0ab2a9c56f": {
       "status": "excluded",
@@ -14557,10 +14566,20 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/eagle131/n/nad775724ccf1": {
-      "status": "pending",
-      "reason": "公開本文を取得できず、乃木坂46の楽曲に関する感想かどうかを確定できない。",
+      "status": "published",
+      "reason": "当該記事の公開RSSで、福岡公演の『バンドエイド剥がすような別れ方』を『乃木坂工事中』で見られたことへの感想を確認。",
       "reviewed_title": "あの日のバンドエイド",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/eagle131/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "乃木坂工事中",
+        "楽曲・歌詞考察"
+      ]
     },
     "https://note.com/unique_sheep9947/n/ne3a5bee0f706": {
       "status": "excluded",
@@ -14569,10 +14588,20 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/hachon_mainichi/n/nf06424f0d7bf": {
-      "status": "pending",
-      "reason": "筆者の記事一覧で題名を照合したが、公開本文や判定に足る概要を確認できず保留。",
+      "status": "published",
+      "reason": "当該記事の題名と公開RSSの導入で、乃木坂46のファン体験とビジネスの構造を自身の比喩から論じる記事と確認。",
       "reviewed_title": "なぜ乃木坂46のファンは「腹が減っている」のか？――衰退するビジネスの構造",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/hachon_mainichi/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論",
+        "ファンダム・ファン文化"
+      ]
     },
     "https://note.com/shinigamidriver/n/n7ace33c8b533": {
       "status": "excluded",
@@ -14689,10 +14718,19 @@
       ]
     },
     "https://note.com/qururi_46/n/nbfd0a4b78f2b": {
-      "status": "pending",
-      "reason": "本文を取得できず、番組についての感想や具体的な記述を確認できないため保留。",
+      "status": "published",
+      "reason": "当該記事の公開RSSで、『心配警察』後半の回を、エピソードトークとジャージ姿という番組の作りから評する感想を確認。",
       "reviewed_title": "ひなあい9/21 神回",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/qururi_46/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "日向坂で会いましょう"
+      ]
     },
     "https://note.com/jellyfish_kaimii/n/n46d992d22687": {
       "status": "excluded",
@@ -14707,10 +14745,19 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/kaigan_sen/n/naf339fa047c0": {
-      "status": "pending",
-      "reason": "公開本文を取得できず、楽曲に関する感想の内容を確認できないため保留。",
+      "status": "published",
+      "reason": "当該記事の公開RSSで、櫻坂46『愛MUST BE』の公開を受け、合いの手の入らない楽曲への筆者の感想を確認。",
       "reviewed_title": "理想と現実に揺れ動く的な、愛MUST BE",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/kaigan_sen/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
     },
     "https://note.com/keiichi_kaneko/n/n82e4076d99d1": {
       "status": "excluded",
@@ -15114,10 +15161,12 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/thanks_kissme/n/n77e4e05689be": {
-      "status": "pending",
-      "reason": "同シリーズの別話は小説と確認済みだが、第五話の公開本文は取得できず、記事単位の確認を保留。",
+      "status": "excluded",
+      "reason": "当該記事の公開RSSの書き出しで、高校の放課後の通学路を舞台とする連載小説第五話と確認。",
       "reviewed_title": "【小説】マイネ・フロイデ（第五話）",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/thanks_kissme/rss"
     },
     "https://note.com/macaronloving/n/n07b95dd43053": {
       "status": "excluded",
@@ -15314,10 +15363,20 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/hiragana1/n/n1b0d13c874e3": {
-      "status": "pending",
-      "reason": "曲名とMV感想の題名は確認したが、公開本文や判定に足る概要を取得できない。",
+      "status": "published",
+      "reason": "当該記事の公開RSSで、日向坂46『イチャイチャ虫』のMVで見える正源司陽子の魅力についての感想と確認。",
       "reviewed_title": "よーこの魅力が全開！『イチャイチャ虫』MV感想",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/hiragana1/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察",
+        "メンバー考察・人物論"
+      ]
     },
     "https://note.com/kakkysan_4g46/n/n8d8d2f27fbfd": {
       "status": "published",
@@ -15493,10 +15552,12 @@
       ]
     },
     "https://note.com/thanks_kissme/n/naf8b71b18904": {
-      "status": "pending",
-      "reason": "公開本文を取得できず、同シリーズの他話が小説であることは確認したが、この話の記事単位の確認を保留。",
+      "status": "excluded",
+      "reason": "当該記事の公開RSSで、進級する登場人物を描く小説の第三話と著者が明記。",
       "reviewed_title": "【小説】マイネ・フロイデ（第三話）",
-      "reviewed_at": "2026-11-18"
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/thanks_kissme/rss"
     },
     "https://note.com/thanks_kissme/n/n584d46e73998": {
       "status": "excluded",
@@ -17406,6 +17467,106 @@
       "categories": [
         "楽曲・歌詞考察",
         "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/asakusabashi/n/nd8da90ee1ecf": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "「でこぴん」について",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/asakusabashi/n/nd8da90ee1ecf",
+      "reason": "『でこぴん』の衣装と楽曲が出演メンバーの交代を経ても歴史を感じさせるというバースデーライブの感想。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察",
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/hinatanofan/n/n844c3ee71d6b": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "17th Single ひなた坂46 LIVE",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/hinatanofan/n/n844c3ee71d6b",
+      "reason": "17thひなた坂ライブのチケットの入手しやすさを、同じ会場だった16th期と比べて考える。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "グループ運営・アイドル論"
+      ]
+    },
+    "https://note.com/ontaikun/n/n663898884ebb": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "乃木坂46 14th YEAR BIRTHDAY LIVE -Day1-",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/ontaikun/n/n663898884ebb",
+      "reason": "14thバースデーライブ初日を観覧し、楽曲や公演で印象に残ったところを振り返る。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/miona_mizuki/n/n32532d5563b3": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "梅澤美波卒業コンサート 現地",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/miona_mizuki/n/n32532d5563b3",
+      "reason": "梅澤美波卒業公演の現地で印象に残った世代別の選曲や、菅原咲月とのWセンターを語る。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/sakurahinata04/n/nda60d19bb645": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "#47　フォーメーションの話【櫻坂46 15th Single】",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/sakurahinata04/n/nda60d19bb645",
+      "reason": "15th『Lonesome rabbit』選抜で異なる期や経験のメンバーがどう配置されたかと、センター森田ひかるの役割を考える。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "グループ運営・アイドル論",
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/springisintokyo/n/ncba1945466c1": {
+      "status": "excluded",
+      "reason": "加藤史帆の出演は確認できるが、公開本文の中心はヨーロッパ企画の作品世界と主演・伊野尾慧の演技。",
+      "reviewed_title": "舞台『四畳半神話大系』感想：作品が繋ぐ並行観劇体験と丸ごと担う伊野尾慧",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/kaigan_sen/n/nccce856c8729": {
+      "status": "published",
+      "reason": "当該記事の公開RSSで、櫻坂46の15thシングルの音とMVを見聞きした筆者の第一印象を確認。",
+      "reviewed_title": "櫻坂46 15thシングル",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_rss",
+      "evidence_url": "https://note.com/kaigan_sen/rss",
+      "verified_nonfiction": true,
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
       ]
     }
   },
