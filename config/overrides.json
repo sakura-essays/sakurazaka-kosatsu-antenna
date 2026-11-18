@@ -14941,6 +14941,189 @@
       "reason": "公開本文で、noteの全体ビューとPVの計測差や運営初期の数字の分析が主題と確認。",
       "reviewed_title": "noteを始めて約2週間で1,000PV。数字を全部見たら、思っていたのと全然違った",
       "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/hiragana1/n/n01f1916d3bfd": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "次の未来へ「幕は上がる」――森本茉莉、卒業発表",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/hiragana1/n/n01f1916d3bfd",
+      "reason": "森本茉莉の卒業発表を受け、これまでの活動と卒業後への期待を綴る感想。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/shirokuma1112/n/nbffef0d10535": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "『イチャイチャ虫』が最高すぎる",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/shirokuma1112/n/nbffef0d10535",
+      "reason": "『イチャイチャ虫』の歌詞と、別の角度から恋を描くMVを併せて論じる。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/jellyfish_kaimii/n/n6531dd42693b": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "櫻坂46、国立競技場ライブ映像を今夜21時に1回限り公開　アーカイブなし、14万人の5周年公演が再び",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/jellyfish_kaimii/n/n6531dd42693b",
+      "reason": "配信告知に加え、国立での表現と森田ひかるの発言から、公演の意味を考える本文を確認。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート",
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/nogi_vector46/n/nd0d45621bfa6": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "#88 最近自分の中で乃木坂熱が再燃している",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/nogi_vector46/n/nd0d45621bfa6",
+      "reason": "ライブをきっかけに乃木坂46への熱が再燃したというファンの実感を綴る。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化",
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/reru1003/n/nfbe42241e898": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "【配信ライブレポート#XX】櫻坂46 Sakurazaka46 ARENA TOUR 2026 -What’s lonesome?- 香川公演 2日目",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/reru1003/n/nfbe42241e898",
+      "reason": "香川公演2日目の配信を見て、楽曲ごとの演出や客席とのやりとりを振り返る。",
+      "groups": [
+        "櫻坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/jellyfish_kaimii/n/n40173ee96160": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "乃木坂46・林瑠奈、初舞台『民王』が本日開幕　「成長して、変わった姿を」ミュージカルから始まる新しい挑戦",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/jellyfish_kaimii/n/n40173ee96160",
+      "reason": "林瑠奈の舞台初出演をきっかけに、グループでの活動とは異なる仕事が持つ意味を論じる。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "メンバー考察・人物論"
+      ]
+    },
+    "https://note.com/asakusabashi/n/n954cce2ea084": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "「アトノマツリ」について",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/asakusabashi/n/n954cce2ea084",
+      "reason": "『アトノマツリ』の曲調や自主制作MVを取り上げ、歌詞に出る環状線に注目する考察。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "楽曲・歌詞考察"
+      ]
+    },
+    "https://note.com/ontaikun/n/n21553ff32f5e": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "乃木坂46 真夏の全国ツアー2026 ファイナル 東京公演 in 明治神宮野球場",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/ontaikun/n/n21553ff32f5e",
+      "reason": "神宮ファイナルを、現地での体験とリピート配信を交えて楽曲ごとに振り返る。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/jellyfish_kaimii/n/n78324843dd4b": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "2026年、まさかの＝LOVE沼。乃木坂46を15年見てきた私が、今さら「新規ファン」に戻った話",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/jellyfish_kaimii/n/n78324843dd4b",
+      "reason": "乃木坂46で長くファンを続けた経験と、新たに＝LOVEを応援し始めた時の見え方を比較する。",
+      "groups": [
+        "乃木坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化"
+      ]
+    },
+    "https://note.com/kazuhito_hinata/n/n5ceb44f0c074": {
+      "status": "published",
+      "verified_nonfiction": true,
+      "reviewed_title": "『歩くような速さで――ひなたフェス2026中止を受けて――』",
+      "reviewed_at": "2026-11-18",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/kazuhito_hinata/n/n5ceb44f0c074",
+      "reason": "ひなたフェス中止について、安全面の判断への理解と参加できなかった悔しさを綴る。",
+      "groups": [
+        "日向坂46"
+      ],
+      "categories": [
+        "ファンダム・ファン文化",
+        "ライブ・コンサート"
+      ]
+    },
+    "https://note.com/thanks_kissme/n/n856f8b694a2a": {
+      "status": "excluded",
+      "reason": "公開本文で、学校生活や同級生との交流を描く連載小説の第六話と確認。",
+      "reviewed_title": "【小説】マイネ・フロイデ（第六話）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/qururi_46/n/nb57e85dba65f": {
+      "status": "pending",
+      "reason": "本文を取得できず、番組のどの内容に対する感想か確認できない。",
+      "reviewed_title": "大問題作　まだまだ日向坂で",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/cloudy_1110/n/n140f1a5b0401": {
+      "status": "excluded",
+      "reason": "公開本文で、Rain Tree、AsIs、fishbowl、ラフ×ラフなどのアイドルフェス参戦記と確認。",
+      "reviewed_title": "#40 人生初のアイドルフェス〜六本木アイドルフェスティバル2026 Day1〜感想",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/thanks_kissme/n/n77e4e05689be": {
+      "status": "pending",
+      "reason": "同シリーズの別話は小説と確認済みだが、第五話の公開本文は取得できず、記事単位の確認を保留。",
+      "reviewed_title": "【小説】マイネ・フロイデ（第五話）",
+      "reviewed_at": "2026-11-18"
+    },
+    "https://note.com/macaronloving/n/n07b95dd43053": {
+      "status": "excluded",
+      "reason": "公開本文で、僕が見たかった青空の公演構成とメンバーのパフォーマンスを論じるライブ感想と確認。",
+      "reviewed_title": "『アオゾラサマーフェスティバル2026』感想",
+      "reviewed_at": "2026-11-18"
     }
   },
   "blocked_urls": [
