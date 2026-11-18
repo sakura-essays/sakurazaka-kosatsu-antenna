@@ -253,11 +253,11 @@
     "name": "SK",
     "url": "https://note.com/shinigamidriver",
     "platform": "note",
-    "count": 2,
+    "count": 4,
     "themes": [
-      "ライブ・コンサート",
       "メンバー考察・人物論",
-      "グループ運営・アイドル論"
+      "ライブ・コンサート",
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -399,7 +399,7 @@
     "name": "[OH-26] 多摩川学園前",
     "url": "https://note.com/for_tmgwa_shako",
     "platform": "note",
-    "count": 14,
+    "count": 18,
     "themes": [
       "楽曲・歌詞考察",
       "ライブ・コンサート",
@@ -644,11 +644,11 @@
     "name": "ontaikun",
     "url": "https://note.com/ontaikun",
     "platform": "note",
-    "count": 6,
+    "count": 8,
     "themes": [
       "ライブ・コンサート",
-      "ダンス・パフォーマンス考察",
-      "メンバー考察・人物論"
+      "メンバー考察・人物論",
+      "ダンス・パフォーマンス考察"
     ]
   },
   {
@@ -656,7 +656,7 @@
     "name": "polyscore",
     "url": "https://note.com/polyscore",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
       "ライブ・コンサート"
     ]
@@ -710,11 +710,11 @@
     "name": "skerok",
     "url": "https://note.com/skerok",
     "platform": "note",
-    "count": 8,
+    "count": 16,
     "themes": [
       "ライブ・コンサート",
       "楽曲・歌詞考察",
-      "その他の感想・批評"
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -778,7 +778,7 @@
     "name": "threen",
     "url": "https://note.com/tgmmcbg",
     "platform": "note",
-    "count": 21,
+    "count": 22,
     "themes": [
       "ライブ・コンサート",
       "メンバー考察・人物論",
@@ -867,11 +867,11 @@
     "name": "あっす",
     "url": "https://note.com/noghin46",
     "platform": "note",
-    "count": 23,
+    "count": 24,
     "themes": [
       "ライブ・コンサート",
       "グループ運営・アイドル論",
-      "その他の感想・批評"
+      "ダンス・パフォーマンス考察"
     ]
   },
   {
@@ -927,10 +927,11 @@
     "name": "うすぽての尺",
     "url": "https://note.com/msh46_usp",
     "platform": "note",
-    "count": 2,
+    "count": 3,
     "themes": [
       "ライブ・コンサート",
-      "ファンダム・ファン文化"
+      "ファンダム・ファン文化",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -994,10 +995,11 @@
     "name": "おっちー",
     "url": "https://note.com/cloudy_1110",
     "platform": "note",
-    "count": 2,
+    "count": 3,
     "themes": [
       "ライブ・コンサート",
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -1095,10 +1097,11 @@
     "name": "かにゃこし",
     "url": "https://note.com/kanyakoshi",
     "platform": "note",
-    "count": 2,
+    "count": 5,
     "themes": [
       "ファンダム・ファン文化",
-      "メンバー考察・人物論"
+      "メンバー考察・人物論",
+      "ライブ・コンサート"
     ]
   },
   {
@@ -1140,8 +1143,9 @@
     "name": "きゅうりまん",
     "url": "https://note.com/kyuuriman46",
     "platform": "note",
-    "count": 1,
+    "count": 4,
     "themes": [
+      "ライブ・コンサート",
       "楽曲・歌詞考察"
     ]
   },
@@ -1314,11 +1318,11 @@
     "name": "しめしめじ",
     "url": "https://note.com/sakurahinata04",
     "platform": "note",
-    "count": 10,
+    "count": 12,
     "themes": [
       "グループ運営・アイドル論",
-      "メンバー考察・人物論",
-      "ダンス・パフォーマンス考察"
+      "ファンダム・ファン文化",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -1418,11 +1422,11 @@
     "name": "せ ん か ん",
     "url": "https://note.com/senkan_sakablog",
     "platform": "note",
-    "count": 5,
+    "count": 7,
     "themes": [
       "メンバー考察・人物論",
-      "楽曲・歌詞考察",
-      "ダンス・パフォーマンス考察"
+      "ライブ・コンサート",
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1624,9 +1628,11 @@
     "name": "なごしょー",
     "url": "https://note.com/shou_4846",
     "platform": "note",
-    "count": 1,
+    "count": 12,
     "themes": [
-      "楽曲・歌詞考察"
+      "そこ曲がったら、櫻坂？",
+      "日向坂で会いましょう",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -1676,10 +1682,11 @@
     "name": "にぶにぶしいティー",
     "url": "https://note.com/nibunibutea2708",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
       "グループ運営・アイドル論",
-      "制作者・クリエイター論"
+      "制作者・クリエイター論",
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1743,7 +1750,7 @@
     "name": "はひふへほ",
     "url": "https://note.com/hahifuhehox",
     "platform": "note",
-    "count": 3,
+    "count": 5,
     "themes": [
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察"
@@ -1866,7 +1873,7 @@
     "name": "ふな",
     "url": "https://note.com/nitan__cuag",
     "platform": "note",
-    "count": 9,
+    "count": 11,
     "themes": [
       "ライブ・コンサート",
       "楽曲・歌詞考察",
@@ -2126,7 +2133,7 @@
     "name": "よしあきら",
     "url": "https://note.com/torimono0",
     "platform": "note",
-    "count": 4,
+    "count": 5,
     "themes": [
       "ダンス・パフォーマンス考察",
       "グループ運営・アイドル論",
@@ -2138,7 +2145,7 @@
     "name": "よっしー🟦🟧",
     "url": "https://note.com/ohisama__yossy",
     "platform": "note",
-    "count": 15,
+    "count": 17,
     "themes": [
       "ダンス・パフォーマンス考察",
       "ライブ・コンサート",
@@ -2498,9 +2505,10 @@
     "name": "セネカ",
     "url": "https://note.com/annaeuscaesar",
     "platform": "note",
-    "count": 3,
+    "count": 5,
     "themes": [
-      "ライブ・コンサート"
+      "ライブ・コンサート",
+      "ダンス・パフォーマンス考察"
     ]
   },
   {
@@ -2544,10 +2552,11 @@
     "name": "タラカン",
     "url": "https://note.com/jsapanexco",
     "platform": "note",
-    "count": 2,
+    "count": 8,
     "themes": [
+      "メンバー考察・人物論",
       "楽曲・歌詞考察",
-      "メンバー考察・人物論"
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -2599,7 +2608,7 @@
     "name": "トミロウ",
     "url": "https://note.com/harukiruha",
     "platform": "note",
-    "count": 21,
+    "count": 22,
     "themes": [
       "グループ運営・アイドル論",
       "楽曲・歌詞考察",
@@ -2621,7 +2630,7 @@
     "name": "ニカスのまるぴ",
     "url": "https://note.com/miona_mizuki",
     "platform": "note",
-    "count": 7,
+    "count": 10,
     "themes": [
       "ライブ・コンサート",
       "ファンダム・ファン文化",
@@ -2676,7 +2685,7 @@
     "name": "バックフライヤー",
     "url": "https://note.com/libralibera49",
     "platform": "note",
-    "count": 20,
+    "count": 21,
     "themes": [
       "ライブ・コンサート",
       "グループ運営・アイドル論",
@@ -2722,7 +2731,7 @@
     "name": "ペン侍",
     "url": "https://note.com/hinatanofan",
     "platform": "note",
-    "count": 18,
+    "count": 19,
     "themes": [
       "グループ運営・アイドル論",
       "ライブ・コンサート",
@@ -2768,10 +2777,11 @@
     "name": "マカロンは好きではない",
     "url": "https://note.com/macaronloving",
     "platform": "note",
-    "count": 2,
+    "count": 4,
     "themes": [
       "ファンダム・ファン文化",
-      "ライブ・コンサート"
+      "その他の感想・批評",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -2851,7 +2861,7 @@
     "name": "ユウキ",
     "url": "https://note.com/yuuki_1001",
     "platform": "note",
-    "count": 3,
+    "count": 4,
     "themes": [
       "ライブ・コンサート",
       "ダンス・パフォーマンス考察",
@@ -2951,10 +2961,11 @@
     "name": "三鷹鞦韆",
     "url": "https://note.com/hearty_iris9009",
     "platform": "note",
-    "count": 5,
+    "count": 6,
     "themes": [
       "グループ運営・アイドル論",
-      "ライブ・コンサート"
+      "ライブ・コンサート",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -3020,7 +3031,7 @@
     "name": "今日から一番たくましいとわ",
     "url": "https://note.com/kakkysan_4g46",
     "platform": "note",
-    "count": 10,
+    "count": 11,
     "themes": [
       "楽曲・歌詞考察",
       "ファンダム・ファン文化",
@@ -3243,11 +3254,11 @@
     "name": "春",
     "url": "https://note.com/springisintokyo",
     "platform": "note",
-    "count": 7,
+    "count": 11,
     "themes": [
       "メンバー考察・人物論",
-      "ライブ・コンサート",
-      "グループ運営・アイドル論"
+      "その他の感想・批評",
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -3448,7 +3459,7 @@
     "name": "浅草橋",
     "url": "https://note.com/asakusabashi",
     "platform": "note",
-    "count": 20,
+    "count": 26,
     "themes": [
       "楽曲・歌詞考察",
       "ダンス・パフォーマンス考察",
@@ -3460,9 +3471,10 @@
     "name": "海岸線",
     "url": "https://note.com/kaigan_sen",
     "platform": "note",
-    "count": 4,
+    "count": 7,
     "themes": [
       "楽曲・歌詞考察",
+      "グループ運営・アイドル論",
       "制作者・クリエイター論"
     ]
   },
@@ -3483,9 +3495,11 @@
     "name": "渡邉 清文",
     "url": "https://note.com/milia639",
     "platform": "note",
-    "count": 1,
+    "count": 4,
     "themes": [
-      "楽曲・歌詞考察"
+      "楽曲・歌詞考察",
+      "グループ運営・アイドル論",
+      "メンバー考察・人物論"
     ]
   },
   {
@@ -3515,10 +3529,10 @@
     "name": "福岡住みのおひさま",
     "url": "https://note.com/pokapokarin",
     "platform": "note",
-    "count": 9,
+    "count": 10,
     "themes": [
-      "グループ運営・アイドル論",
       "日向坂で会いましょう",
+      "グループ運営・アイドル論",
       "メンバー考察・人物論"
     ]
   },
@@ -3750,7 +3764,7 @@
     "name": "雪峰",
     "url": "https://note.com/shiroi_yuki",
     "platform": "note",
-    "count": 2,
+    "count": 4,
     "themes": [
       "ライブ・コンサート",
       "メンバー考察・人物論",
