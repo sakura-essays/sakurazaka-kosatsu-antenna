@@ -129,7 +129,7 @@
     "name": "KEI",
     "url": "https://note.com/kkwus_nmomo",
     "platform": "note",
-    "count": 21,
+    "count": 22,
     "themes": [
       "メンバー考察・人物論",
       "ライブ・コンサート",
@@ -173,7 +173,7 @@
     "name": "Koki",
     "url": "https://note.com/sannie_blog",
     "platform": "note",
-    "count": 11,
+    "count": 12,
     "themes": [
       "ライブ・コンサート",
       "楽曲・歌詞考察",
@@ -508,11 +508,11 @@
     "name": "fuwa",
     "url": "https://note.com/fwsuk5150_0220",
     "platform": "note",
-    "count": 2,
+    "count": 6,
     "themes": [
-      "ファンダム・ファン文化",
-      "メンバー考察・人物論",
-      "グループ運営・アイドル論"
+      "グループ運営・アイドル論",
+      "その他の感想・批評",
+      "ファンダム・ファン文化"
     ]
   },
   {
@@ -1262,9 +1262,11 @@
     "name": "こけまる",
     "url": "https://note.com/525_518",
     "platform": "note",
-    "count": 1,
+    "count": 3,
     "themes": [
-      "乃木坂工事中"
+      "乃木坂工事中",
+      "その他の感想・批評",
+      "楽曲・歌詞考察"
     ]
   },
   {
@@ -1284,8 +1286,10 @@
     "name": "こんどう",
     "url": "https://note.com/status_123456ak",
     "platform": "note",
-    "count": 1,
+    "count": 9,
     "themes": [
+      "ファンダム・ファン文化",
+      "ライブ・コンサート",
       "その他の感想・批評"
     ]
   },
@@ -1294,7 +1298,7 @@
     "name": "さんせん",
     "url": "https://note.com/nibutaro",
     "platform": "note",
-    "count": 25,
+    "count": 26,
     "themes": [
       "日向坂で会いましょう",
       "ライブ・コンサート",
@@ -1420,11 +1424,11 @@
     "name": "すきなこと。",
     "url": "https://tkmt-182.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 22,
+    "count": 30,
     "themes": [
+      "ファンダム・ファン文化",
       "ライブ・コンサート",
-      "グループ運営・アイドル論",
-      "ファンダム・ファン文化"
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -1528,7 +1532,7 @@
     "name": "だいせんせの日記",
     "url": "https://kokokokua2.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 15,
+    "count": 17,
     "themes": [
       "楽曲・歌詞考察",
       "ライブ・コンサート",
@@ -1646,7 +1650,7 @@
     "name": "とーや",
     "url": "https://note.com/tmcs0616",
     "platform": "note",
-    "count": 1,
+    "count": 2,
     "themes": [
       "楽曲・歌詞考察"
     ]
@@ -1702,11 +1706,11 @@
     "name": "にた",
     "url": "https://note.com/nitani555",
     "platform": "note",
-    "count": 4,
+    "count": 7,
     "themes": [
       "その他の感想・批評",
-      "グループ運営・アイドル論",
-      "楽曲・歌詞考察"
+      "日向坂で会いましょう",
+      "グループ運営・アイドル論"
     ]
   },
   {
@@ -1772,7 +1776,7 @@
     "name": "はなさかく",
     "url": "https://note.com/hot_wolf3427",
     "platform": "note",
-    "count": 11,
+    "count": 12,
     "themes": [
       "乃木坂工事中",
       "ライブ・コンサート",
@@ -2237,7 +2241,7 @@
     "name": "るん",
     "url": "https://note.com/rrrrrnrn27",
     "platform": "note",
-    "count": 13,
+    "count": 15,
     "themes": [
       "楽曲・歌詞考察",
       "グループ運営・アイドル論",
@@ -2352,10 +2356,10 @@
     "name": "カスキ。",
     "url": "https://ksk.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 15,
+    "count": 26,
     "themes": [
       "ライブ・コンサート",
-      "ダンス・パフォーマンス考察",
+      "その他の感想・批評",
       "グループ運営・アイドル論"
     ]
   },
@@ -2530,10 +2534,10 @@
     "name": "ショウ",
     "url": "https://note.com/showf",
     "platform": "note",
-    "count": 4,
+    "count": 6,
     "themes": [
-      "ダンス・パフォーマンス考察",
       "その他の感想・批評",
+      "ダンス・パフォーマンス考察",
       "そこ曲がったら、櫻坂？"
     ]
   },
@@ -2731,11 +2735,11 @@
     "name": "ハリネズミの道",
     "url": "https://nash96.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 17,
+    "count": 24,
     "themes": [
       "メンバー考察・人物論",
-      "ライブ・コンサート",
-      "ファンダム・ファン文化"
+      "ファンダム・ファン文化",
+      "ライブ・コンサート"
     ]
   },
   {
@@ -2971,10 +2975,11 @@
     "name": "ラーグ",
     "url": "https://note.com/pgdjwpap",
     "platform": "note",
-    "count": 2,
+    "count": 5,
     "themes": [
-      "その他の感想・批評",
-      "グループ運営・アイドル論"
+      "グループ運営・アイドル論",
+      "楽曲・歌詞考察",
+      "その他の感想・批評"
     ]
   },
   {
@@ -3071,7 +3076,7 @@
     "name": "乃木坂ファンになってみた",
     "url": "https://comeon46.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 25,
+    "count": 27,
     "themes": [
       "グループ運営・アイドル論",
       "ライブ・コンサート",
@@ -3844,7 +3849,7 @@
     "name": "雑踏より愛をこめて",
     "url": "https://husigiyt.hatenablog.com",
     "platform": "はてなブログ",
-    "count": 14,
+    "count": 15,
     "themes": [
       "グループ運営・アイドル論",
       "ダンス・パフォーマンス考察",
