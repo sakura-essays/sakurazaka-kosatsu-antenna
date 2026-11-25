@@ -1,28 +1,29 @@
 {
-  "updated_at": "2026-11-25T04:45:00.722171+00:00",
+  "updated_at": "2026-11-25T04:54:47.194374+00:00",
   "collected_unique": 6634,
   "new_auto_published": 0,
   "new_auto_excluded": 0,
-  "rechecked_and_published": 1,
+  "rechecked_and_published": 0,
   "retry_count": 15,
   "unresolved_count": 775,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 1,
-    "p50": 11726.6,
-    "max": 11726.6
+    "count": 0,
+    "p50": null,
+    "max": null
   },
   "transitions": {
     "excluded -> excluded": 2958,
     "pending -> pending": 3,
-    "published -> published": 3729,
+    "published -> excluded": 10,
+    "published -> published": 3720,
     "retry -> retry": 15,
-    "unresolved -> published": 1,
     "unresolved -> unresolved": 775
   },
   "decision_reasons": {
+    "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
     "excluded: other_topic": 2465,
@@ -30,7 +31,7 @@
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 69,
+    "published: feed": 59,
     "published: title": 149,
     "published: work": 14,
     "retry: fiction": 1,
