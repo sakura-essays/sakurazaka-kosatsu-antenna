@@ -1,29 +1,28 @@
 {
-  "updated_at": "2026-11-25T15:33:20.732388+00:00",
+  "updated_at": "2026-11-25T19:00:00.485806+00:00",
   "collected_unique": 6635,
-  "new_auto_published": 1,
-  "new_auto_excluded": 1,
+  "new_auto_published": 0,
+  "new_auto_excluded": 0,
   "rechecked_and_published": 0,
-  "retry_count": 17,
-  "unresolved_count": 777,
+  "retry_count": 18,
+  "unresolved_count": 779,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
   "missing_feeds": 1,
   "paused_feeds": 0,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 1,
-    "p50": 0.0,
-    "max": 0.0
+    "count": 0,
+    "p50": null,
+    "max": null
   },
   "transitions": {
-    "excluded -> excluded": 2973,
-    "new -> excluded": 1,
-    "new -> published": 1,
-    "new -> retry": 2,
+    "excluded -> excluded": 2974,
+    "new -> retry": 3,
     "pending -> pending": 3,
-    "published -> published": 3721,
+    "published -> published": 3722,
     "retry -> retry": 15,
+    "retry -> unresolved": 2,
     "unresolved -> unresolved": 777
   },
   "decision_reasons": {
@@ -39,9 +38,9 @@
     "published: title": 150,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 16,
+    "retry: insufficient": 17,
     "unresolved: fiction": 2,
-    "unresolved: insufficient": 774,
+    "unresolved: insufficient": 776,
     "unresolved: notice": 1
   },
   "authors": {
@@ -378,9 +377,11 @@
     },
     "echoyamabikosan": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 1,
       "tier": "A",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "eternalpush_nr": {
       "collected": 25,
@@ -824,11 +825,9 @@
     },
     "kn_ykh_1985": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
-      "unresolved": 1,
+      "unresolved": 2,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "kokokokua2": {
       "collected": 30,
@@ -930,9 +929,11 @@
     },
     "legit_hare5977": {
       "collected": 22,
+      "collected_retry": 2,
+      "retry": 2,
       "unresolved": 1,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 9.09
     },
     "lhd": {
       "collected": 25,
@@ -1538,11 +1539,11 @@
     },
     "shiho_yofukashi": {
       "collected": 25,
-      "collected_retry": 3,
-      "retry": 3,
-      "unresolved": 13,
+      "collected_retry": 2,
+      "retry": 2,
+      "unresolved": 14,
       "tier": "B",
-      "retry_rate_percent": 12.0
+      "retry_rate_percent": 8.0
     },
     "shinigamidriver": {
       "collected": 8,
