@@ -12872,9 +12872,21 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/kotechi20010625/n/n6c18cfd7a28e": {
-      "status": "pending",
-      "reason": "坂道AKB・平手友梨奈の考察と思われるが公開本文を取得できず保留",
-      "reviewed_at": "2026-11-18"
+      "status": "published",
+      "reason": "坂道AKBの楽曲と平手友梨奈のパフォーマンス・歩みを論じる記事。",
+      "reviewed_at": "2026-11-25",
+      "reviewed_title": "一番の場所で、彼女は顔を伏せた。〜平手友梨奈と坂道AKB「誰のことを一番 愛してる？」〜",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/kotechi20010625/n/n6c18cfd7a28e",
+      "verified_nonfiction": true,
+      "categories": [
+        "メンバー考察・人物論",
+        "楽曲・歌詞考察"
+      ],
+      "groups": [
+        "櫻坂46",
+        "乃木坂46"
+      ]
     },
     "https://note.com/light_clover2567/n/ne5cd3345930f": {
       "status": "pending",
@@ -12887,14 +12899,38 @@
       "reviewed_at": "2026-11-18"
     },
     "https://note.com/qururi_46/n/n15bfb8744d4d": {
-      "status": "pending",
-      "reason": "日向坂を話題にしているが記事全体の批評・感想性を確認できず保留",
-      "reviewed_at": "2026-11-18"
+      "status": "published",
+      "reason": "日向坂46の番組と外部共演者を通じたグループの特色についての感想。",
+      "reviewed_at": "2026-11-25",
+      "reviewed_title": "日向坂の指標",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/qururi_46/n/n15bfb8744d4d",
+      "verified_nonfiction": true,
+      "categories": [
+        "日向坂で会いましょう",
+        "グループ運営・アイドル論"
+      ],
+      "groups": [
+        "日向坂46"
+      ]
     },
     "https://note.com/nogi_thinker/n/n7054fb439072": {
-      "status": "pending",
-      "reason": "公開検索抜粋で坂道の新参者世代論と分かるが本文全体を取得できず保留",
-      "reviewed_at": "2026-11-18"
+      "status": "published",
+      "reason": "三グループの新参者世代と世代交代、青葉坂46との関連を論じる記事。",
+      "reviewed_at": "2026-11-25",
+      "reviewed_title": "今こそ語りたい「新参者世代」──坂道の未来を背負わされた彼女たち",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/nogi_thinker/n/n7054fb439072",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論"
+      ],
+      "groups": [
+        "乃木坂46",
+        "櫻坂46",
+        "日向坂46",
+        "青葉坂46"
+      ]
     },
     "https://note.com/echoyamabikosan/n/nc5a9004d3dda": {
       "status": "published",
@@ -17702,12 +17738,12 @@
       "evidence_url": "https://note.com/forest_bulky/rss"
     },
     "https://note.com/clever_ixia399/n/ncfde7a32485b": {
-      "status": "pending",
-      "reason": "公開RSSで日向坂46の加入予定者へのメッセージと分かるが、確認できた範囲では一般的な助言と坂道についての論考のどちらが主題か判断できない。",
+      "status": "excluded",
+      "reason": "加入予定者への歯列矯正に関する一般的な助言のみで、坂道についての考察・感想を主題としない。",
       "reviewed_title": "日向坂6期生になる子たちへ",
-      "reviewed_at": "2026-11-18",
-      "review_method": "public_rss",
-      "evidence_url": "https://note.com/clever_ixia399/rss"
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/clever_ixia399/n/ncfde7a32485b"
     },
     "https://note.com/skerok/n/n78c230513ca3": {
       "status": "pending",
@@ -30532,6 +30568,159 @@
       "review_method": "public_article_body",
       "evidence_url": "https://ksk.hatenablog.com/entry/2013/05/11/020000_1",
       "reason": "配役結果と加入への反応を扱う一方、メンバーの過去をめぐる示唆が評の中心にあり、記事内で根拠を確認できない。"
+    },
+    "https://note.com/alone46fan/n/n52fe6d836616": {
+      "status": "published",
+      "reviewed_title": "まつりちゃん、引き続きがんばります",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/alone46fan/n/n52fe6d836616",
+      "reason": "松田里奈の卒業後の番組出演継続についての感想・人物論。",
+      "verified_nonfiction": true,
+      "categories": [
+        "メンバー考察・人物論"
+      ],
+      "groups": [
+        "櫻坂46"
+      ]
+    },
+    "https://note.com/jsapanexco/n/n3da6b03a6d92": {
+      "status": "published",
+      "reviewed_title": "483. 【櫻坂】キャプテン二期生山﨑天の誕生！",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/jsapanexco/n/n3da6b03a6d92",
+      "reason": "山﨑天のキャプテン就任と世代交代への論考。",
+      "verified_nonfiction": true,
+      "categories": [
+        "メンバー考察・人物論",
+        "グループ運営・アイドル論"
+      ],
+      "groups": [
+        "櫻坂46"
+      ]
+    },
+    "https://note.com/legit_hare5977/n/n76c3051baf7b": {
+      "status": "published",
+      "reviewed_title": "『未熟な怒り』――なぜその感情は「怒り」になったのか？ 自分の無力さともどかしさが生む、痛切で純粋な成長の証",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/legit_hare5977/n/n76c3051baf7b",
+      "reason": "けやき坂46の既存曲の歌詞・感情表現の解釈。",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ],
+      "groups": [
+        "日向坂46"
+      ]
+    },
+    "https://note.com/eagle131/n/n9bd88ad9fb18": {
+      "status": "published",
+      "reviewed_title": "《君ロス》MV妄想",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/eagle131/n/n9bd88ad9fb18",
+      "reason": "実在のMVの場面と歌詞を対応させた解釈。題名の妄想は作品解釈であり、実在人物の創作小説ではない。",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ],
+      "groups": [
+        "乃木坂46"
+      ]
+    },
+    "https://note.com/legit_hare5977/n/ne501b35c5515": {
+      "status": "published",
+      "reviewed_title": "『約束の卵』――まだ殻の中で眠る「未来の夢」を、笑顔で温め続ける約束。ハッピーオーラが照らす希望の物語",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/legit_hare5977/n/ne501b35c5515",
+      "reason": "けやき坂46の既存曲の歌詞とグループの歴史を論じる楽曲解釈。",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ],
+      "groups": [
+        "日向坂46"
+      ]
+    },
+    "https://note.com/8823film/n/n285d8e93c6ee": {
+      "status": "published",
+      "reviewed_title": "らしさの話",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/8823film/n/n285d8e93c6ee",
+      "reason": "乃木坂らしさの概念を検討するグループ論。",
+      "verified_nonfiction": true,
+      "categories": [
+        "グループ運営・アイドル論"
+      ],
+      "groups": [
+        "乃木坂46"
+      ]
+    },
+    "https://note.com/seichourampo/n/n06c6d38b3dd7": {
+      "status": "published",
+      "reviewed_title": "色彩美は最高！からの…？な櫻坂46 6thアニラ",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/seichourampo/n/n06c6d38b3dd7",
+      "reason": "公開部分で実際の周年ライブの衣装・演出への感想を確認。有料部分は未確認。",
+      "verified_nonfiction": true,
+      "categories": [
+        "ライブ・コンサート"
+      ],
+      "groups": [
+        "櫻坂46"
+      ]
+    },
+    "https://note.com/tk39fish/n/nf235a57a88ca": {
+      "status": "published",
+      "reviewed_title": "坂道好き曲ランキングを作る【abm5】",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/tk39fish/n/nf235a57a88ca",
+      "reason": "乃木坂46ベストアルバム収録曲の個別レビューと順位付け。",
+      "verified_nonfiction": true,
+      "categories": [
+        "楽曲・歌詞考察"
+      ],
+      "groups": [
+        "乃木坂46"
+      ]
+    },
+    "https://note.com/ao_urawazakanote/n/n63c8698f7396": {
+      "status": "published",
+      "reviewed_title": "チケット取れなきゃ即引退！Buddies人生を賭けろ！決戦！櫻坂46さいたま公演",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/ao_urawazakanote/n/n63c8698f7396",
+      "reason": "櫻坂46のツアー発表に対するファンの体験・感想。",
+      "verified_nonfiction": true,
+      "categories": [
+        "ファンダム・ファン文化",
+        "ライブ・コンサート"
+      ],
+      "groups": [
+        "櫻坂46"
+      ]
+    },
+    "https://note.com/holy_oxalis1429/n/naf047b1855c0": {
+      "status": "excluded",
+      "reviewed_title": "乃木坂・イコラブの他に好きなアーティスト・曲リスト",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/holy_oxalis1429/n/naf047b1855c0",
+      "reason": "乃木坂・イコラブ以外の好みのアーティスト一覧が主題であり、坂道の考察・感想を主題としない。"
+    },
+    "https://note.com/ni46/n/n865aa9d60fff": {
+      "status": "excluded",
+      "reviewed_title": "【乃木坂46SFコメディ】銀河坂から来ました-ep06-選抜発表！総統の長い一日",
+      "reviewed_at": "2026-11-25",
+      "review_method": "public_article_body",
+      "evidence_url": "https://note.com/ni46/n/n865aa9d60fff",
+      "reason": "架空の宇宙国家を舞台としたSFコメディ創作であり、通常掲載対象外。"
     }
   },
   "blocked_urls": [

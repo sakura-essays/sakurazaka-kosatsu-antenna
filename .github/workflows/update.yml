@@ -19,6 +19,7 @@ on:
         description: '承認・停止する書き手のID（config/sources.json）'
         type: string
 permissions:
+  actions: read
   contents: write
   pages: write
   id-token: write
@@ -85,6 +86,18 @@ jobs:
         with:
           path: dist
           retention-days: 1
+      - name: Wait for Pages artifact metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for attempt in {1..12}; do
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq '.artifacts[] | select(.expired == false) | .id' | grep -q '[0-9]'; then
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Pages artifact metadata did not become visible"
+          exit 1
       - name: Deploy GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
