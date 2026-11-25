@@ -1,0 +1,1985 @@
+{
+  "updated_at": "2026-11-25T04:35:18.183451+00:00",
+  "collected_unique": 6634,
+  "new_auto_published": 1,
+  "new_auto_excluded": 0,
+  "rechecked_and_published": 129,
+  "retry_count": 15,
+  "unresolved_count": 776,
+  "manual_exceptions": 3,
+  "overdue_in_retry": 0,
+  "fetch_failures": 1,
+  "minutes_from_first_seen_to_eligibility": {
+    "count": 238,
+    "p50": 18313.9,
+    "max": 27259.7
+  },
+  "transitions": {
+    "excluded -> excluded": 2952,
+    "excluded -> published": 108,
+    "excluded -> retry": 14,
+    "excluded -> unresolved": 755,
+    "new -> published": 1,
+    "pending -> excluded": 6,
+    "pending -> pending": 3,
+    "pending -> published": 129,
+    "pending -> retry": 1,
+    "pending -> unresolved": 21,
+    "published -> published": 3491
+  },
+  "decision_reasons": {
+    "excluded: fiction": 13,
+    "excluded: notice": 2,
+    "excluded: other_topic": 2465,
+    "published: alias": 1,
+    "published: author_context": 2,
+    "published: creator": 1,
+    "published: editorial": 1845,
+    "published: feed": 69,
+    "published: title": 149,
+    "published: work": 14,
+    "retry: fiction": 1,
+    "retry: insufficient": 14,
+    "unresolved: fiction": 2,
+    "unresolved: insufficient": 773,
+    "unresolved: notice": 1
+  },
+  "authors": {
+    "124578": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "1421191035": {
+      "collected": 2,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "24maal": {
+      "collected": 25,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "2boshiwa_082": {
+      "collected": 22,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "3939_nekoze": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "3kumo0ka": {
+      "collected": 25,
+      "unresolved": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "44134413": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "525_518": {
+      "collected": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "6669kt": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "777incage": {
+      "collected": 25,
+      "unresolved": 9,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "8823film": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "_pironpan": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "_yatu_hasyi": {
+      "collected": 7,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "akaineko": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "akirasatoru": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "alone46fan": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "amakai": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "annaeuscaesar": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ao_urawazakanote": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "applegalleon": {
+      "collected": 21,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "araki7788": {
+      "collected": 25,
+      "unresolved": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "archie_archiee": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "armi": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "asakusabashi": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "askaryo3": {
+      "collected": 25,
+      "unresolved": 9,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "asu-travel": {
+      "collected": 14,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "atsu_go_": {
+      "collected": 5,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "babuchi": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "badterumaru": {
+      "collected": 24,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "bellcy23": {
+      "collected": 25,
+      "unresolved": 16,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "blueorange": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "bluesuikun": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "bonnieidol": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "boss_night46": {
+      "collected": 9,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "bright_gnu360": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "brocken_jr": {
+      "collected": 25,
+      "collected_retry": 3,
+      "retry": 3,
+      "unresolved": 13,
+      "tier": "B",
+      "retry_rate_percent": 12.0
+    },
+    "bunko_x": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "cathouse": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "chat__noir": {
+      "collected": 17,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "cheeeehan": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "chikazoemakoto": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "chugakujukentk": {
+      "collected": 25,
+      "unresolved": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "clever_beetle339": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "clever_ixia399": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "cloudy_1110": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "comeon46": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "cozy_poppy3166": {
+      "collected": 8,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "cress": {
+      "collected": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "crybaby_tokyo": {
+      "collected": 5,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "current46": {
+      "collected": 20,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "cute_poppy614": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "daaken": {
+      "collected": 4,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "ddmaru_saku": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "driftwood": {
+      "collected": 37,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "e_and_p5166": {
+      "collected": 7,
+      "unresolved": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "eagle131": {
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 4.0
+    },
+    "earphone_half": {
+      "collected": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "echoyamabikosan": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "eternalpush_nr": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "fab877": {
+      "collected": 13,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "firm_fennel8957": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "fleuves_64": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "fmlrkm": {
+      "collected": 25,
+      "unresolved": 15,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "footballista_lab": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "footballlife07": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "for_tmgwa_shako": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "forest_bulky": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "fukurou_city": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "fullinning": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "funahashi_ngzk46": {
+      "collected": 10,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "fwsuk5150_0220": {
+      "collected": 18,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "gam_note": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "gano_nagi": {
+      "collected": 25,
+      "unresolved": 15,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "gayasu0305": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "gentle_elk1411": {
+      "collected": 5,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "gentle_tern772": {
+      "collected": 25,
+      "unresolved": 9,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "givemeyour": {
+      "collected": 32,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "gordon0519": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "gufu_honyo": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "gunastasia": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "guzen_sakura46": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hachon_mainichi": {
+      "collected": 25,
+      "unresolved": 10,
+      "pending": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hahifuhehox": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "halu1023": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "harukiruha": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hassin_yoh": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hattori823": {
+      "collected": 25,
+      "unresolved": 16,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hayashi10": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hearty_iris9009": {
+      "collected": 15,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hi0220": {
+      "collected": 30,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "himari01": {
+      "collected": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hina_english46": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hinata0514": {
+      "collected": 8,
+      "collected_retry": 1,
+      "retry": 1,
+      "tier": "C",
+      "retry_rate_percent": 12.5
+    },
+    "hinatahappy": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hinatanofan": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hinatazaka_write": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "hiragana1": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "hiroo-a744": {
+      "collected": 30,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hiyo_parumi": {
+      "collected": 9,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hiyoco_hiyo": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "holy_oxalis1429": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "honoyuzu_skz46": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "hot_badger7460": {
+      "collected": 12,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hot_wolf3427": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hsj231od": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "hurohuro": {
+      "collected": 24,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "husigiyt": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ice_d_tea": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "idle_kenkyu": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "idolking": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "inosato02": {
+      "collected": 12,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "inti_machine": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "itagakiblog": {
+      "collected": 25,
+      "unresolved": 9,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "iwa_m_flyer": {
+      "collected": 12,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "j_y545": {
+      "collected": 23,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "jafanalysisroom": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "jellyfish_kaimii": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "jsapanexco": {
+      "collected": 25,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "jupemovie": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "jyuntyan46": {
+      "collected": 25,
+      "unresolved": 15,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "k_takase_02": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kaigan_sen": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kakkysan_4g46": {
+      "collected": 22,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kanyakoshi": {
+      "collected": 15,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kawaya333": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kayn_0424": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kazuhito_hinata": {
+      "collected": 18,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kazuki_mmr": {
+      "collected": 17,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kei_menshan": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "keiichi_kaneko": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kentaterunuma": {
+      "collected": 5,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "keyaki3rd": {
+      "collected": 5,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "keyasaku_4646": {
+      "collected": 8,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kikuchiyo_956": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kitoka_": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kkwus_nmomo": {
+      "collected": 25,
+      "collected_retry": 2,
+      "retry": 2,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 8.0
+    },
+    "kn_ykh_1985": {
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 4.0
+    },
+    "kokokokua2": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kokuto_9611": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "komura3": {
+      "collected": 22,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "konno723": {
+      "collected": 8,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kooly317": {
+      "collected": 17,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "korokke_da_yo": {
+      "collected": 8,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "korori_omusubi": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kotechi20010625": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "ksk": {
+      "collected": 30,
+      "pending": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kuminkurun2_": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kuniraxxx": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kurikintom": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kuroihitsuzi46": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "kusofantasy": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "kuzenzetsugo": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "kyuuriman46": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lc_ai7": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lefty_moon_18": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "legit_hare5977": {
+      "collected": 22,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lhd": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "libido17": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "libralibera49": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "light_clover2567": {
+      "collected": 32,
+      "collected_retry": 2,
+      "retry": 2,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 6.25
+    },
+    "like_danke1003": {
+      "collected": 8,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "like_dill7264": {
+      "collected": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "liquidmaniacs": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lively_auklet75": {
+      "collected": 16,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lively_fennel526": {
+      "collected": 55,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "lofty_hyena7409": {
+      "collected": 24,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "lovelikefoot": {
+      "collected": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "lovely_camel310": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "macaronloving": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "malymo_rinne": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mamama_222": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "maru_music": {
+      "collected": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "masamk2": {
+      "collected": 21,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "masashi3122": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "matobanaoki": {
+      "collected": 16,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "mattsu_memo": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "mawaru_magari": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "maxkoo": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "mayo_46": {
+      "collected": 9,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "mc_joem": {
+      "collected": 16,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mell15": {
+      "collected": 12,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "mendel0102": {
+      "collected": 20,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "meshow": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mild_orca9446": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "milia639": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "millecrepes2": {
+      "collected": 25,
+      "unresolved": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mina_mo_okimochi": {
+      "collected": 6,
+      "unresolved": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "mio_yu_know": {
+      "collected": 18,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "miona_mizuki": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mito31": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "miyamikan": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mn15922": {
+      "collected": 7,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "mochikuma": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "modern_willet231": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "moni_gaoo": {
+      "collected": 5,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "motomoto_kz": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "msh46_usp": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "mukielesta": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nametake46": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "naochan0918": {
+      "collected": 5,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "naoimokakikaki": {
+      "collected": 7,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "nash96": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "necohanoinuzuki": {
+      "collected": 21,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "neruson17": {
+      "collected": 24,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ni46": {
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 4.0
+    },
+    "nibunibutea2708": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nibutaro": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nice_mimosa5884": {
+      "collected": 3,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "nitan__cuag": {
+      "collected": 13,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nitani555": {
+      "collected": 20,
+      "unresolved": 12,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nobihodai": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "noghin46": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "nogi_thinker": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "nogi_vector46": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nogikeyaksh": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nomuyo_gurt": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "novel_oxalis6466": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "nyachar4869": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ohichantik": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ohisama46hi": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "ohisama__yossy": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ohisama_trainee": {
+      "collected": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ontaikun": {
+      "collected": 25,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "oolong2321": {
+      "collected": 14,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "oseti_46": {
+      "collected": 13,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "peep_46": {
+      "collected": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "pgdjwpap": {
+      "collected": 21,
+      "unresolved": 3,
+      "pending": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "pokapokarin": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "polyscore": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "ponoponono": {
+      "collected": 17,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ponzu_1220": {
+      "collected": 3,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "quomoeer": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "qururi_46": {
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 4.0
+    },
+    "r1242": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "rayseimiya": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "ready_crocus7691": {
+      "collected": 14,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "reru1003": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "result33": {
+      "collected": 4,
+      "unresolved": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "rich_echium506": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "richnoise": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "rivzerooooo": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "rollallo": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "rrrrrnrn27": {
+      "collected": 23,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "runpp": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "rush283": {
+      "collected": 30,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ryouta-mizuking": {
+      "collected": 23,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sakamichi_lover": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "sakamichigroup46": {
+      "collected": 12,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "sakananosurimi": {
+      "collected": 7,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "sakura_hinata46": {
+      "collected": 27,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "sakurahinata04": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sakurasaku_kira": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sama_migirou": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sanbooks": {
+      "collected": 7,
+      "unresolved": 3,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "sannie_blog": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "satomitsuharu": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sayumari1434": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "seichourampo": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "seizemen": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "senkan_sakablog": {
+      "collected": 14,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "serene_shark4853": {
+      "collected": 6,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "shack_46": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "shiho_yofukashi": {
+      "collected": 25,
+      "collected_retry": 2,
+      "retry": 2,
+      "unresolved": 13,
+      "tier": "B",
+      "retry_rate_percent": 8.0
+    },
+    "shinigamidriver": {
+      "collected": 8,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "shiroi_yuki": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "shirokuma1112": {
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
+      "tier": "B",
+      "retry_rate_percent": 4.0
+    },
+    "shou_4846": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "showf": {
+      "collected": 15,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sickpplus": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "sign_at_deep": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "siragen": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "skerok": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "skr_souken": {
+      "collected": 5,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "sktalk": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sleepy_pug": {
+      "collected": 12,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "snashi": {
+      "collected": 30,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sola4959": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sonkami": {
+      "collected": 46,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "soupcurryhorse": {
+      "collected": 24,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "soutanopapa0722": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "springisintokyo": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "status_123456ak": {
+      "collected": 25,
+      "unresolved": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "sung_xing_63": {
+      "collected": 25,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "super_eider4334": {
+      "collected": 11,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "suzukikenjiro": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "swingo": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "syu_spring": {
+      "collected": 25,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "takanohashi_46": {
+      "tier": "B",
+      "retry_rate_percent": null
+    },
+    "takebuchan": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "taketosy": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "takiyan_slope": {
+      "collected": 14,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "takotako14": {
+      "collected": 12,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tamamokaru_saka": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tamuraharuki": {
+      "collected": 25,
+      "unresolved": 8,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "taplus_skmc": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tasty_beetle735": {
+      "collected": 8,
+      "unresolved": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "taurusssssssss": {
+      "collected": 6,
+      "unresolved": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "tgmmcbg": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "thank0122": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "thanks_kissme": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "thetheteatea": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "tk39fish": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tkakab": {
+      "collected": 1,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "tkfuji": {
+      "collected": 30,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "tkmt-182": {
+      "collected": 30,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "tkycircus": {
+      "collected": 25,
+      "unresolved": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tmcs0616": {
+      "collected": 14,
+      "unresolved": 6,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tobita_1031": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tomslife": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tonytani37": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "torimono0": {
+      "collected": 25,
+      "unresolved": 4,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "toshi_suzu_46": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "toshitoshikats1": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "tsukagirei": {
+      "collected": 31,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tsukurumizuno": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tsuyopongram_": {
+      "collected": 25,
+      "unresolved": 5,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tunabook03": {
+      "collected": 30,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "twc_corpworks": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "tyoroid": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "ui_ui": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "umi_diversity": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "unique_ixora6392": {
+      "collected": 15,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "unique_sheep9947": {
+      "collected": 25,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "usaku": {
+      "collected": 25,
+      "unresolved": 9,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "varioion": {
+      "collected": 25,
+      "unresolved": 7,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "willfq": {
+      "collected": 25,
+      "unresolved": 14,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "wise_yarrow1996": {
+      "collected": 25,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "witty_yarrow2667": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "witty_zuuki": {
+      "collected": 23,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yangyang_film987": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yasushi_diary": {
+      "collected": 20,
+      "unresolved": 1,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yiyi_sakuradron": {
+      "collected": 9,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "ymzk__karimero": {
+      "collected": 14,
+      "unresolved": 1,
+      "tier": "A",
+      "retry_rate_percent": 0.0
+    },
+    "you_your_yumu2": {
+      "collected": 25,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yukimaru66": {
+      "collected": 25,
+      "unresolved": 2,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yutantheta": {
+      "collected": 7,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "yutaro0518": {
+      "collected": 25,
+      "unresolved": 10,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yutto3843": {
+      "collected": 4,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "yuu_psychedelic": {
+      "collected": 25,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yuuki_1001": {
+      "collected": 15,
+      "unresolved": 3,
+      "tier": "B",
+      "retry_rate_percent": 0.0
+    },
+    "yuzunyank_0628": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    },
+    "zs_i0z7k": {
+      "collected": 2,
+      "tier": "C",
+      "retry_rate_percent": 0.0
+    }
+  }
+}
