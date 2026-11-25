@@ -1,43 +1,45 @@
 {
-  "updated_at": "2026-11-25T13:29:53.858098+00:00",
+  "updated_at": "2026-11-25T15:33:20.732388+00:00",
   "collected_unique": 6635,
   "new_auto_published": 1,
-  "new_auto_excluded": 5,
+  "new_auto_excluded": 1,
   "rechecked_and_published": 0,
-  "retry_count": 15,
+  "retry_count": 17,
   "unresolved_count": 777,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
-  "fetch_failures": 1,
+  "fetch_failures": 0,
+  "missing_feeds": 1,
+  "paused_feeds": 0,
   "minutes_from_first_seen_to_eligibility": {
     "count": 1,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2968,
-    "new -> excluded": 5,
+    "excluded -> excluded": 2973,
+    "new -> excluded": 1,
     "new -> published": 1,
     "new -> retry": 2,
     "pending -> pending": 3,
-    "published -> published": 3720,
-    "retry -> retry": 13,
+    "published -> published": 3721,
+    "retry -> retry": 15,
     "unresolved -> unresolved": 777
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2470,
+    "excluded: other_topic": 2471,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
     "published: feed": 60,
-    "published: title": 149,
+    "published: title": 150,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 14,
+    "retry: insufficient": 16,
     "unresolved: fiction": 2,
     "unresolved: insufficient": 774,
     "unresolved: notice": 1
@@ -1204,9 +1206,11 @@
     },
     "ni46": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "nibunibutea2708": {
       "collected": 25,
@@ -1534,11 +1538,11 @@
     },
     "shiho_yofukashi": {
       "collected": 25,
-      "collected_retry": 2,
-      "retry": 2,
+      "collected_retry": 3,
+      "retry": 3,
       "unresolved": 13,
       "tier": "B",
-      "retry_rate_percent": 8.0
+      "retry_rate_percent": 12.0
     },
     "shinigamidriver": {
       "collected": 8,
