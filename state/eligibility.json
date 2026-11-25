@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-25T04:54:47.194374+00:00",
+  "updated_at": "2026-11-25T07:29:43.748517+00:00",
   "collected_unique": 6634,
   "new_auto_published": 0,
   "new_auto_excluded": 0,
   "rechecked_and_published": 0,
-  "retry_count": 15,
-  "unresolved_count": 775,
+  "retry_count": 13,
+  "unresolved_count": 777,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 1,
@@ -15,11 +15,11 @@
     "max": null
   },
   "transitions": {
-    "excluded -> excluded": 2958,
+    "excluded -> excluded": 2968,
     "pending -> pending": 3,
-    "published -> excluded": 10,
     "published -> published": 3720,
-    "retry -> retry": 15,
+    "retry -> retry": 13,
+    "retry -> unresolved": 2,
     "unresolved -> unresolved": 775
   },
   "decision_reasons": {
@@ -35,9 +35,9 @@
     "published: title": 149,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 14,
+    "retry: insufficient": 12,
     "unresolved: fiction": 2,
-    "unresolved: insufficient": 772,
+    "unresolved: insufficient": 774,
     "unresolved: notice": 1
   },
   "authors": {
@@ -567,10 +567,9 @@
     },
     "hinata0514": {
       "collected": 8,
-      "collected_retry": 1,
-      "retry": 1,
+      "unresolved": 1,
       "tier": "C",
-      "retry_rate_percent": 12.5
+      "retry_rate_percent": 0.0
     },
     "hinatahappy": {
       "collected": 25,
@@ -1201,11 +1200,9 @@
     },
     "ni46": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
-      "unresolved": 5,
+      "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "nibunibutea2708": {
       "collected": 25,
