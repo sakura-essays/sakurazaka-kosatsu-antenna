@@ -18,29 +18,31 @@ on:
       source_id:
         description: '承認・停止する書き手のID（config/sources.json）'
         type: string
-permissions:
-  actions: read
-  contents: write
-  pages: write
-  id-token: write
+permissions: {}
 concurrency:
   group: antenna-state
   cancel-in-progress: false
 jobs:
-  publish:
+  build:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 20
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    permissions:
+      contents: write
+      pages: read
+    outputs:
+      artifact_name: ${{ steps.release.outputs.artifact_name }}
+      release_commit: ${{ steps.save.outputs.commit }}
+      release_digests: ${{ steps.release.outputs.digests }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: main
           fetch-depth: 0
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - uses: actions/configure-pages@v6
       - name: Tests
         run: python -m unittest discover -s tests -v
       - name: Apply administrator request
@@ -63,93 +65,158 @@ jobs:
             fi
           fi
           echo "collect=$collect" >> "$GITHUB_OUTPUT"
-      - name: Collect feeds (retain old records on failure)
-        id: collect
+      - name: Collect feeds and check collection health
         if: steps.changes.outputs.collect == 'true'
-        continue-on-error: true
-        run: python scripts/collect.py
+        run: |
+          result=0
+          python scripts/collect.py || result=$?
+          if [ "$result" -ne 0 ] && [ "$result" -ne 2 ]; then
+            echo "::error::The collector exited unexpectedly ($result)."
+            exit "$result"
+          fi
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          report = json.loads(Path("state/status.json").read_text())
+          successful = report["successful_feeds"]
+          total = report["total_feeds"]
+          failed = [feed for feed in report["feeds"] if feed["status"] == "error"]
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+              summary.write(f"### RSS collection\n\nSuccessful or unchanged: {successful}/{total}\n\n")
+              for feed in failed:
+                  reason = " ".join(str(feed.get("error", "unknown error")).split())
+                  summary.write(f"- {feed['id']}: {reason}\n")
+          if not successful:
+              raise SystemExit("::error::No RSS feeds could be verified. Previous records are retained.")
+          if failed:
+              print(f"::warning::{len(failed)} of {total} RSS feeds failed. Existing entries were retained. See the job summary.")
+          PY
       - name: Stop unexpected public article losses
         run: python scripts/check_release.py
       - name: Build metadata-only public site
         run: python scripts/build.py --public
       - name: Save cumulative records and moderation state
+        id: save
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          base=$(git rev-parse HEAD)
           git add config state dist
           if ! git diff --cached --quiet; then
             git commit -m 'Update RSS index and moderation state'
-            git push origin HEAD:main
           fi
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        id: upload
+          commit=$(git rev-parse HEAD)
+          saved=false
+          for attempt in {1..3}; do
+            if remote=$(git ls-remote --exit-code origin refs/heads/main | cut -f 1); then
+              if [[ "$remote" == "$commit" ]]; then
+                saved=true
+                break
+              fi
+              if [[ "$remote" != "$base" ]]; then
+                echo "::error::main advanced during the build. The newer work was preserved. Start a fresh run from main."
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                saved=true
+                break
+              fi
+            fi
+            if [[ "$attempt" != 3 ]]; then sleep 5; fi
+          done
+          if [[ "$saved" != true ]]; then
+            echo "::error::Could not save the generated release on main."
+            exit 1
+          fi
+          echo "commit=$commit" >> "$GITHUB_OUTPUT"
+      - name: Record public files to verify
+        id: release
+        working-directory: dist
+        run: |
+          echo "artifact_name=github-pages-$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+          {
+            echo 'digests<<SHA256'
+            sha256sum index.html data.js data/articles.json data/authors.json data/status.json \
+              app.js style.css analytics.js songs.html sitemap.xml robots.txt
+            echo SHA256
+          } >> "$GITHUB_OUTPUT"
+      - name: Upload GitHub Pages artifact
+        uses: actions/upload-pages-artifact@v5
         with:
+          name: ${{ steps.release.outputs.artifact_name }}
           path: dist
-          retention-days: 1
-      # deploy-pages' internal artifact listing can return zero despite a
-      # successful upload. Use the upload's exact ID and the Pages REST API.
-      - name: Deploy GitHub Pages by uploaded artifact ID
-        id: deploy
+          retention-days: 3
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url || steps.retry_deploy.outputs.page_url }}
+    steps:
+      - name: Check that main still matches the saved release
         env:
           GH_TOKEN: ${{ github.token }}
-          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
-        shell: bash
+          RELEASE_COMMIT: ${{ needs.build.outputs.release_commit }}
         run: |
-          set -euo pipefail
-          if [[ ! "$ARTIFACT_ID" =~ ^[1-9][0-9]*$ ]]; then
-            echo "::error::Pages artifact upload did not return a valid ID"
-            exit 1
-          fi
-          visible=false
-          for attempt in {1..12}; do
-            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq ".artifacts[] | select(.expired == false and .id == $ARTIFACT_ID) | .id" | grep -Fxq "$ARTIFACT_ID"; then
-              visible=true
-              break
+          for attempt in {1..3}; do
+            if head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha'); then
+              if [[ "$head" == "$RELEASE_COMMIT" ]]; then exit 0; fi
+              echo "::error::The saved release is no longer the tip of main. Start a fresh run from main."
+              exit 1
             fi
-            sleep 5
+            if [[ "$attempt" != 3 ]]; then sleep 5; fi
           done
-          if [[ "$visible" != true ]]; then
-            echo "::error::Uploaded Pages artifact is not visible in this workflow run"
-            exit 1
-          fi
-          oidc_token=$(curl --fail --silent --show-error --max-time 30 \
-            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-            "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -er '.value')
-          echo "::add-mask::$oidc_token"
-          deployment=$(jq -n --argjson artifact_id "$ARTIFACT_ID" \
-            --arg pages_build_version "$GITHUB_SHA" --arg oidc_token "$oidc_token" \
-            '{artifact_id:$artifact_id,pages_build_version:$pages_build_version,oidc_token:$oidc_token}' |
-            gh api --method POST "repos/$GITHUB_REPOSITORY/pages/deployments" --input -)
-          unset oidc_token
-          deployment_id=$(jq -er '(.id // (.status_url | split("/") | last)) | tostring | select(length > 0)' <<< "$deployment")
-          page_url=$(jq -er '.page_url | select(type == "string" and length > 0)' <<< "$deployment")
-          endpoint="repos/$GITHUB_REPOSITORY/pages/deployments/$deployment_id"
-          trap 'gh api --method POST "$endpoint/cancel" >/dev/null 2>&1 || true; exit 1' INT TERM
-          deadline=$((SECONDS + 480))
-          while (( SECONDS < deadline )); do
-            if status=$(gh api "$endpoint" --jq '.status'); then
-              echo "Pages deployment status: $status"
-              case "$status" in
-                succeed)
-                  echo "page_url=$page_url" >> "$GITHUB_OUTPUT"
-                  exit 0
-                  ;;
-                deployment_failed|deployment_content_failed|deployment_cancelled|deployment_lost)
-                  echo "::error::Pages deployment ended with $status"
-                  exit 1
-                  ;;
-              esac
-            else
-              echo "::warning::Pages status temporarily unavailable; retrying"
-            fi
-            sleep 10
-          done
-          gh api --method POST "$endpoint/cancel" >/dev/null 2>&1 || true
-          echo "::error::Pages deployment did not finish within 8 minutes"
+          echo "::error::Could not verify the current tip of main."
           exit 1
-      - name: Report feed failures
-        if: steps.collect.outcome == 'failure'
+      - name: Deploy GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
+          timeout: 240000
+      - name: Wait before retrying Pages
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 15
+      - name: Retry GitHub Pages deployment
+        if: steps.deploy.outcome == 'failure'
+        id: retry_deploy
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: ${{ needs.build.outputs.artifact_name }}
+          timeout: 240000
+      - name: Verify live site matches the release
+        env:
+          PAGE_URL: ${{ steps.deploy.outputs.page_url || steps.retry_deploy.outputs.page_url }}
+          RELEASE_DIGESTS: ${{ needs.build.outputs.release_digests }}
         run: |
-          echo '::error::一部またはすべてのRSS取得に失敗しました。state/status.jsonを確認してください。取得済み記事と取得状態は公開済みです。'
+          response=$(mktemp)
+          trap 'rm -f "$response"' EXIT
+          for attempt in {1..8}; do
+            stale=false
+            while read -r expected path; do
+              if [[ -z "$path" ]]; then continue; fi
+              url="${PAGE_URL%/}/$path?release=$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT-$attempt"
+              if curl -fsS --max-time 15 -H 'Cache-Control: no-cache' "$url" -o "$response" &&
+                [[ $(sha256sum "$response" | cut -d ' ' -f 1) == "$expected" ]]; then
+                continue
+              fi
+              echo "Live response not yet verified for $path (attempt $attempt)"
+              stale=true
+              break
+            done <<< "$RELEASE_DIGESTS"
+            if [[ "$stale" == false && -n "$RELEASE_DIGESTS" ]]; then
+              echo "Verified live homepage, article data, author data, frontend assets and SEO files."
+              exit 0
+            fi
+            if [[ "$attempt" != 8 ]]; then sleep 10; fi
+          done
+          echo "::error::The public site did not serve the files generated by this run."
           exit 1
