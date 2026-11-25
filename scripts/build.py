@@ -106,7 +106,7 @@ def build(public=False):
   else:
    a['groups']=a.get('groups') or detect_groups(a['title'],'',rules) or ['櫻坂46']
  for a in articles:
-  for key in ['status','reason','last_seen_at']:a.pop(key,None)
+  for key in ['status','reason','last_seen_at','retry_until','decision_code','content_warning']:a.pop(key,None)
  attach_article_guides(articles,read(ROOT/'config/article_guides.json',{}))
  sources=read(ROOT/'config/sources.json',[]);authors=[]
  blocked=read(ROOT/'config/overrides.json',{}).get('blocked_authors',[])

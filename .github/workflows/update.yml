@@ -60,7 +60,7 @@ jobs:
         run: |
           collect=true
           if [ "$EVENT_NAME" = push ] && git cat-file -e "$PREVIOUS_SHA^{commit}" 2>/dev/null; then
-            if ! git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep -Eq '^(config/|scripts/(collect|admin|review|review_articles)\.py$)'; then
+            if ! git diff --name-only "$PREVIOUS_SHA" "$CURRENT_SHA" | grep -Eq '^(config/|scripts/(collect|admin|eligibility|review|review_articles)\.py$)'; then
               collect=false
             fi
           fi
@@ -80,11 +80,19 @@ jobs:
           from pathlib import Path
 
           report = json.loads(Path("state/status.json").read_text())
+          eligibility = json.loads(Path("state/eligibility.json").read_text())
           successful = report["successful_feeds"]
           total = report["total_feeds"]
           failed = [feed for feed in report["feeds"] if feed["status"] == "error"]
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
               summary.write(f"### RSS collection\n\nSuccessful or unchanged: {successful}/{total}\n\n")
+              summary.write("### Article eligibility\n\n")
+              for key in ("collected_unique", "new_auto_published", "new_auto_excluded",
+                          "rechecked_and_published", "retry_count", "unresolved_count",
+                          "manual_exceptions", "overdue_in_retry"):
+                  summary.write(f"- {key}: {eligibility[key]}\n")
+              if failed:
+                  summary.write("\n### Feed failures\n\n")
               for feed in failed:
                   reason = " ".join(str(feed.get("error", "unknown error")).split())
                   summary.write(f"- {feed['id']}: {reason}\n")

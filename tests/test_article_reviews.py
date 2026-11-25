@@ -1,29 +1,59 @@
 import copy,json,pathlib,sys,tempfile,unittest
 from unittest.mock import patch
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'scripts'))
-import collect,review,admin
+import collect,review,admin,eligibility
 RULES=collect.read(collect.ROOT/'config/rules.json',{})
 class Gate(unittest.TestCase):
+ def verdict(self,title,body='',override=None,prior=None):
+  now=collect.dt.datetime(2026,11,25,tzinfo=collect.UTC)
+  row={'title':title,'url':'https://note.com/mixed/n/abc','author_id':'mixed',
+       'published_at':'2026-11-24','first_seen_at':'2026-11-25',
+       'status':(prior or {}).get('status','retry'),'groups':['櫻坂46'],'categories':[]}
+  eligibility.apply(row,eligibility.Eligibility(RULES,[],{}),override or {},prior or {},now,
+                    body=body,warning=collect.fiction_guard(title,body))
+  return row
  def test_fiction_and_names_not_evidence(self):
-  for title,text in [('藤吉夏鈴と同棲','櫻坂46のメンバーと暮らす話'),('井上和のライブ感想【妄ツイ】','乃木坂46の考察です'),('日向坂46の休日','△△：「好きです」')]:
-   status,reason,*_=collect.classify(title,text,RULES)
-   self.assertNotEqual(collect.rss_publication_gate({'article_policy':'review_required'},title,text,status,reason,{})[0],'published')
- def test_culture_criticism_is_reviewable(self):
-  title='妄ツイを公開するのはやめよう';body='櫻坂46に関する妄ツイの消費と表現の倫理を考えます。'
-  self.assertEqual(collect.fiction_guard(title,body)[0],'pending')
-  self.assertEqual(collect.publication_gate({},title,body,'published','',{'status':'published','verified_nonfiction':True})[0],'published')
- def test_insufficient_rss_and_previous_publication(self):
-  args=({},'藤吉夏鈴の表現','感想','published','',{})
-  self.assertEqual(collect.rss_publication_gate(*args)[0],'pending')
-  self.assertEqual(collect.rss_publication_gate(*args,{'title':args[1],'status':'published'})[0],'published')
+  for title,body in [('藤吉夏鈴と同棲','櫻坂46のメンバーと暮らす話'),('井上和のライブ感想【妄ツイ】','乃木坂46の考察です'),('日向坂46の休日','△△：「好きです」')]:
+   self.assertNotEqual(self.verdict(title,body)['status'],'published')
+ def test_culture_criticism_auto_passes(self):
+  self.assertEqual(self.verdict('櫻坂46の妄ツイ文化を批評する','ファンダム文化論です。')['status'],'published')
+ def test_short_excerpt_with_clear_subject(self):
+  self.assertEqual(self.verdict('藤吉夏鈴の表現について','良かった')['status'],'published')
+  self.assertEqual(self.verdict('夏のこと','良かった')['status'],'excluded')
+ def test_previous_publication_survives_missing_evidence(self):
+  title='少し遠い夜'
+  self.assertEqual(self.verdict(title)['status'],'retry')
+  self.assertEqual(self.verdict(title,prior={'title':title,'status':'published'})['status'],'published')
  def test_circle_section_heading_is_not_fictional_dialogue(self):
   self.assertIsNone(collect.fiction_guard('レコードを整理しようとしたけれど／青い影のこと','〇「青い影」のその後。乃木坂46の音楽についての感想。'))
   self.assertEqual(collect.fiction_guard('アイドルとの休日','〇：おはよう。')[0],'pending')
  def test_moderation_wins_over_fiction_and_verification(self):
   for status in ('pending','excluded'):
-   self.assertEqual(collect.publication_gate({},'妄ツイ','〇〇「会話」','published','',{'status':status,'verified_nonfiction':True})[0],status)
- def test_reviewed_title_changes_require_review(self):
-  self.assertEqual(collect.publication_gate({},'新しいタイトル','','published','',{'status':'published','verified_nonfiction':True,'reviewed_title':'元のタイトル'})[0],'pending')
+   self.assertEqual(self.verdict('櫻坂46のMV感想',override={'status':status,'verified_nonfiction':True,'manual_hold':True})['status'],status)
+ def test_changed_title_is_reassessed_without_old_override(self):
+  self.assertEqual(self.verdict('新しいタイトル',override={'status':'published','verified_nonfiction':True,'reviewed_title':'元のタイトル'})['status'],'retry')
+ def test_new_human_hold_and_legacy_evidence_holds_are_distinct(self):
+  self.assertEqual(self.verdict('櫻坂46のライブ感想',override={'status':'pending','reviewed_at':'2026-11-12','review_note':'初期収集'})['status'],'published')
+  self.assertEqual(self.verdict('櫻坂46の活動について',override={'status':'pending','reviewed_at':'2026-11-18','reason':'私生活に関する未確認の疑惑'})['status'],'pending')
+ def test_retry_expires_but_better_evidence_can_publish(self):
+  first=self.verdict('時間の話')
+  old=first|{'retry_until':'2026-11-24T00:00:00+00:00'}
+  self.assertEqual(self.verdict('時間の話',prior=old)['status'],'unresolved')
+  self.assertEqual(self.verdict('時間の話','乃木坂46のダンスで感じたこと',prior=old)['status'],'published')
+ def test_author_class_does_not_waive_article_evidence(self):
+  history=[{'url':str(i),'title':'乃木坂46の選抜感想','author_id':'mixed',
+            'published_at':'2026-01-01','status':'published'} for i in range(11)]
+  engine=eligibility.Eligibility(RULES,history,{})
+  self.assertEqual(engine.profiles['mixed'],('A',['乃木坂46']))
+  self.assertEqual(engine.decide('今日のお昼ご飯','カレー','', 'mixed',{},None)[0],'excluded')
+  self.assertEqual(engine.decide('推しメンのこと','',(), 'mixed',{},None)[0],'published')
+  self.assertEqual(engine.decide('推しメンのこと','',(), 'unknown',{},None)[0],'retry')
+ def test_group_evidence_requires_related_context(self):
+  engine=eligibility.Eligibility(RULES,[],{})
+  for title in ('日向坂46からのお知らせ', '承認欲求について'):
+   self.assertNotEqual(engine.decide(title,'',(), 'unknown',{},None)[0],'published')
+  self.assertEqual(engine.decide('夏の映像を見た','',('乃木坂46',), 'unknown',{},None)[0],'retry')
+  self.assertEqual(engine.decide('ステージの振付を見た','',('乃木坂46',), 'unknown',{},None)[0],'published')
 
 class Reviews(unittest.TestCase):
  def setUp(self):

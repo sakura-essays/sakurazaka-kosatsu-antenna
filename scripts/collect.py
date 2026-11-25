@@ -2,6 +2,7 @@
 import argparse, datetime as dt, email.utils, hashlib, html, ipaddress, json, pathlib, re, socket, sys, time, unicodedata
 import urllib.request, urllib.error, urllib.parse, urllib.robotparser
 import xml.etree.ElementTree as ET
+from collections import Counter, defaultdict
 from html.parser import HTMLParser
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 UTC=dt.timezone.utc
@@ -80,10 +81,21 @@ class Redirect(urllib.request.HTTPRedirectHandler):
 def fetch(url,headers=None):
     safe_url(url)
     req=urllib.request.Request(url,headers={'User-Agent':UA,**(headers or {})})
-    with urllib.request.build_opener(Redirect()).open(req,timeout=25) as r:
-        data=r.read(LIMIT+1)
-        if len(data)>LIMIT:raise ValueError('Feed exceeds 4 MB limit')
-        return data,dict(r.headers)
+    opener=urllib.request.build_opener(Redirect())
+    for attempt in range(2):
+        try:
+            with opener.open(req,timeout=25) as response:
+                data=response.read(LIMIT+1)
+                if len(data)>LIMIT:raise ValueError('Feed exceeds 4 MB limit')
+                return data,dict(response.headers)
+        except urllib.error.HTTPError as error:
+            if attempt or error.code not in (500,502,503,504) or error.headers.get('Retry-After'):
+                raise
+        except (TimeoutError, ConnectionResetError, urllib.error.URLError) as error:
+            if attempt or (isinstance(error, urllib.error.URLError)
+                           and not isinstance(error.reason,(TimeoutError, ConnectionResetError))):
+                raise
+        time.sleep(1)
 
 def date(value):
     try:d=dt.datetime.fromisoformat(value.replace('Z','+00:00'))
@@ -99,13 +111,16 @@ def parse(data):
     if root.tag.split('}')[-1] not in ('rss','feed','RDF'):raise ValueError('Not an RSS/Atom feed')
     for item in root.iter():
         if item.tag.split('}')[-1] not in ('item','entry'):continue
-        values={}
+        values={};tags=[]
         for node in item:
             key=node.tag.split('}')[-1]
             if key=='link' and node.attrib.get('href'):
                 if node.attrib.get('rel','alternate')=='alternate':values['link']=node.attrib['href']
+            elif key=='category':
+                tag=node.attrib.get('term') or node.text
+                if tag:tags.append(tag)
             elif node.text:values[key]=node.text
-        yield dict(title=html.unescape(values.get('title','')).strip(),url=values.get('link',''),published_at=date(values.get('pubDate') or values.get('published') or values.get('date')),text=plain(values.get('encoded') or values.get('content') or values.get('description') or values.get('summary') or ''))
+        yield dict(title=html.unescape(values.get('title','')).strip(),url=values.get('link',''),published_at=date(values.get('pubDate') or values.get('published') or values.get('date')),text=plain(values.get('encoded') or values.get('content') or values.get('description') or values.get('summary') or ''),tags=tags)
 
 def song_match(song,text):
     key=norm(song)
@@ -138,47 +153,6 @@ def fiction_guard(title,text):
     if re.search(r'第\s*[0-9０-９一二三四五六七八九十]+\s*話|幼馴染|幼なじみ|同棲',t) and not re.search(criticism,t):
         return 'pending','物語形式の可能性・実活動との関係を確認待ち'
     return None
-
-def clear_nonfiction_title(title,rules):
-    """Identify article genre, never assess the quality of the essay."""
-    if not rules:
-        return False
-    t=norm(title)
-    essay_terms=('考察','批評','感想','レビュー','分析','解説','論評','振り返り','レポート','参戦記')
-    if not any(word in t for word in essay_terms):
-        return False
-    # A general essay-like word without a title-level Sakamichi/creator subject
-    # is too weak to release a creative writer's entry automatically.
-    return bool(detect_groups(title,'',rules) or creator_focus(title))
-
-def publication_gate(source,title,text,status,reason,override,rules=None):
-    # Holds/removals must win over both fiction warnings and old approvals.
-    if override.get('status') in ('pending','excluded'):
-        return override['status'],override.get('reason','管理者による記事単位の判定')
-    if override.get('reviewed_title') and override['reviewed_title']!=title:
-        return 'pending','確認後にタイトル変更・再確認待ち'
-    guard=fiction_guard(title,text)
-    if guard and not override.get('verified_nonfiction'):
-        return guard
-    if source.get('article_policy')=='review_required' and status=='published' and not (override.get('status')=='published' and override.get('verified_nonfiction')):
-        # Clear, on-topic essay titles are eligible regardless of writing quality.
-        # Fiction warnings above still take precedence. RSS excerpts get an
-        # additional length check in rss_publication_gate().
-        if clear_nonfiction_title(title,rules):
-            return 'published','創作混在の書き手・考察や感想と分かる見出し'
-        return 'pending','創作混在の書き手・記事ごとの確認待ち'
-    return status,reason
-
-def rss_publication_gate(source,title,text,status,reason,override,previous=None,rules=None):
-    status,reason=publication_gate(source,title,text,status,reason,override,rules)
-    # A title, group/member name or isolated 感想 is not body evidence. Preserve
-    # established publications, but hold new entries with insufficient excerpts.
-    if (status=='published' and len(norm(text))<40
-            and not override.get('verified_nonfiction')
-            and not ((previous or {}).get('status')=='published'
-                     and (previous or {}).get('title')==title)):
-        return 'pending','RSS本文の判定材料不足・公開本文を確認待ち'
-    return status,reason
 
 def detect_groups(title,text,rules):
     """Assign group(s) from the article title first; body text is only a fallback."""
@@ -268,7 +242,101 @@ def classify(title,text,rules):
     if guard:status,reason=guard
     return status,reason,cats or ['その他の感想・批評'],members,songs
 
+def feed_record(url, item, source, previous, editorial, classification, eligibility, now):
+    from eligibility import apply, instant
+    _, _, categories, members, songs = classification
+    title, body = item['title'], item['text']
+    stamp = now.isoformat()
+    same_title = previous.get('title') == title
+    prior_metadata = previous if same_title else {}
+    prior_date = instant(previous.get('published_at'))
+    publication_date = (previous['published_at'] if prior_date and prior_date <= now + dt.timedelta(minutes=10)
+                        else item['published_at'])
+    row = {
+        'id': previous.get('id', hashlib.sha256(url.encode()).hexdigest()[:20]),
+        'url': url, 'title': title, 'author_id': source['id'],
+        'published_at': publication_date,
+        'first_seen_at': previous.get('first_seen_at', stamp), 'last_seen_at': stamp,
+        'status': prior_metadata.get('status', 'retry'), 'reason': prior_metadata.get('reason', ''),
+        'categories': categories, 'members': members, 'songs': songs,
+        'groups': prior_metadata.get('groups', []),
+    }
+    for name in ('decision_code', 'retry_until'):
+        if name in prior_metadata:
+            row[name] = prior_metadata[name]
+    warning = fiction_guard(title, body)
+    if not warning and same_title:
+        warning = previous.get('content_warning')
+    if warning:
+        row['content_warning'] = list(warning)
+    apply(row, eligibility, editorial, previous, now, body=body,
+          tags=item.get('tags', ()), warning=warning)
+    return row
+
+
+def eligibility_report(prior, current, collected, statuses, eligibility, now):
+    from eligibility import instant
+    previous = {row['url']: row['status'] for row in prior}
+    decisions = Counter()
+    transitions = Counter()
+    authors = defaultdict(Counter)
+    latencies = []
+    new_auto_published = new_auto_excluded = 0
+    for row in current:
+        status = row['status']
+        old = previous.get(row['url'])
+        transitions[f'{old or "new"} -> {status}'] += 1
+        count = authors[row['author_id']]
+        if row['url'] in collected:
+            count['collected'] += 1
+            if old is None and row.get('decision_code') not in (None, 'editorial'):
+                new_auto_published += status == 'published'
+                new_auto_excluded += status == 'excluded'
+            if status == 'retry':
+                count['collected_retry'] += 1
+        if status in ('retry', 'unresolved', 'pending'):
+            count[status] += 1
+        if row.get('decision_code'):
+            decisions[f"{status}: {row['decision_code']}"] += 1
+        if status == 'published' and old != 'published':
+            seen = instant(row.get('first_seen_at'))
+            if seen:
+                latencies.append(round(max(0, (now-seen).total_seconds()) / 60, 1))
+    latencies.sort()
+    return {
+        'updated_at': now.isoformat(),
+        'collected_unique': len(collected),
+        'new_auto_published': new_auto_published,
+        'new_auto_excluded': new_auto_excluded,
+        'rechecked_and_published': sum(transitions[f'{old} -> published']
+                                       for old in ('pending', 'retry', 'unresolved')),
+        'retry_count': sum(size['retry'] for size in authors.values()),
+        'unresolved_count': sum(size['unresolved'] for size in authors.values()),
+        'manual_exceptions': sum(size['pending'] for size in authors.values()),
+        'overdue_in_retry': sum(1 for row in current if row['status']=='retry'
+                                and instant(row['retry_until']) <= now),
+        'fetch_failures': sum(feed['status']=='error' for feed in statuses),
+        'minutes_from_first_seen_to_eligibility': {
+            'count': len(latencies),
+            'p50': latencies[(len(latencies)-1)//2] if latencies else None,
+            'max': latencies[-1] if latencies else None,
+        },
+        'transitions': dict(sorted(transitions.items())),
+        'decision_reasons': dict(sorted(decisions.items())),
+        'authors': {
+            author: dict(count) | {
+                'tier': eligibility.profiles.get(author, ('C', []))[0],
+                'retry_rate_percent': round(100*count['collected_retry']/count['collected'], 2)
+                                      if count['collected'] else None,
+            }
+            for author, count in sorted(authors.items())
+        },
+    }
+
+
 def run(cache_dir=None, source_ids=None):
+    from eligibility import Eligibility, apply, retained_hold
+
     now=dt.datetime.now(UTC);stamp=now.isoformat();rules=read(ROOT/'config/rules.json',{})
     sources=read(ROOT/'config/sources.json',[]);overrides=read(ROOT/'config/overrides.json',{})
     allowed={s['id'] for s in sources if s.get('enabled') and s['id'] not in overrides.get('blocked_authors',[])}
@@ -276,7 +344,10 @@ def run(cache_dir=None, source_ids=None):
     selected=set(source_ids) if source_ids else allowed
     if not selected <= allowed:raise ValueError('Selected source is unknown, disabled or blocked')
     prior=read(ROOT/'state/articles.json',[])
-    records={a['url']:a for a in prior if a['author_id'] in allowed and a['url'] not in blocked}
+    records={canonical(a['url']):dict(a) for a in prior if a['author_id'] in allowed and canonical(a['url']) not in blocked}
+    editorials=overrides.get('articles',{})
+    eligibility=Eligibility(rules,list(records.values()),editorials)
+    collected=set()
     # Earlier releases curated Sakura/Keyaki only. Title clues override that
     # legacy default, while group-ambiguous old articles keep their grouping.
     for article in records.values():
@@ -288,7 +359,7 @@ def run(cache_dir=None, source_ids=None):
                 '青葉坂46' not in article.get('groups',[]) and
                 'groups' not in group_override):
             article['groups']=title_groups
-        elif not article.get('groups'):
+        elif article['status']=='published' and not article.get('groups'):
             article['groups']=(title_groups
                                or ([] if creator_focus(article['title'])
                                    and '制作者・クリエイター論' in article.get('categories',[])
@@ -326,25 +397,10 @@ def run(cache_dir=None, source_ids=None):
                 # A feed may not publish links for a different site/author.
                 home=urllib.parse.urlsplit(source['url']);target=urllib.parse.urlsplit(u)
                 if target.hostname!=home.hostname or (home.hostname=='note.com' and not target.path.startswith(home.path.rstrip('/')+'/n/')):continue
-                status,reason,cats,members,songs=classify(item['title'],item['text'],rules)
-                published=item['published_at']
-                if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):status,reason='pending','公開日時が未確認・未来日'
-                override=overrides.get('articles',{}).get(u,{})
-                if published:status=override.get('status',status)
-                if status not in ('published','pending','excluded'):raise ValueError('Invalid article status override')
-                prev=records.get(u,{})
-                # Keep an already published article visible after dictionary changes.
-                # Explicit administrator status overrides always take precedence.
-                if (prev.get('status')=='published' and status!='published'
-                        and 'status' not in override and prev.get('title')==item['title']):
-                    status,reason='published','以前の公開判定を維持'
-                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev,rules)
-                if not published or dt.datetime.fromisoformat(published)>now+dt.timedelta(minutes=10):
-                    status,reason='pending','公開日時が未確認・未来日'
-                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],url=u,title=item['title'],author_id=sid,published_at=prev.get('published_at') or published,first_seen_at=prev.get('first_seen_at',stamp),last_seen_at=stamp,status=status,reason=reason,categories=normalize_categories(override.get('categories',cats)),members=members,songs=songs,groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]))
+                classification=classify(item['title'],item['text'],rules)
+                records[u]=feed_record(u,item,source,records.get(u,{}),editorials.get(u,{}),classification,eligibility,now)
+                collected.add(u)
                 count+=1
-                warning=fiction_guard(item['title'],item['text'])
-                if warning:records[u]['content_warning']=list(warning)
             state[sid]={'etag':headers.get('ETag'),'modified':headers.get('Last-Modified'),'last_success':stamp}
             log.update(status='ok',items=count,last_success=stamp);success+=1
         except urllib.error.HTTPError as e:
@@ -395,37 +451,15 @@ def run(cache_dir=None, source_ids=None):
                 # A magazine can contain third-party articles; index only this author.
                 if u in blocked or not item['title'] or target.hostname!=home.hostname or not target.path.startswith(home.path.rstrip('/')+'/n/'):
                     continue
-                status,reason,cats,members,songs=classify(item['title'],item['text'],rules)
+                classification=classify(item['title'],item['text'],rules)
                 if magazine.get('require_creator_focus') and not creator_focus(item['title'],item['text']):
                     continue
-                # General idol magazines also carry Nogizaka/Hinata-only essays.
-                # Keep only confidently Sakura-relevant records when requested.
-                if magazine.get('require_relevance') and status!='published':
+                row=feed_record(u,item,source,records.get(u,{}),editorials.get(u,{}),classification,eligibility,now)
+                if magazine.get('require_relevance') and row['status']!='published':
                     continue
-                pub=item['published_at']
-                if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
-                    status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
-                # Magazine membership alone is not evidence of relevance/nonfiction.
-                override=overrides.get('articles',{}).get(u,{})
-                if pub:status=override.get('status',status)
-                prev=records.get(u,{})
-                if (prev.get('status')=='published' and status!='published'
-                        and 'status' not in override and prev.get('title')==item['title']):
-                    status,reason='published','以前の公開判定を維持'
-                status,reason=rss_publication_gate(source,item['title'],item['text'],status,reason,override,prev,rules)
-                if not pub or dt.datetime.fromisoformat(pub)>now+dt.timedelta(minutes=10):
-                    status,reason='pending','マガジンRSSの公開日時が未確認・未来日'
-                records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
-                                url=u,title=item['title'],author_id=sid,
-                                published_at=prev.get('published_at') or pub,
-                                first_seen_at=prev.get('first_seen_at',stamp),
-                                last_seen_at=stamp,status=status,reason=reason,
-                                categories=normalize_categories(override.get('categories',cats)),
-                                members=members,songs=songs,
-                                groups=detect_groups(item['title'],item['text'],rules) or prev.get('groups',[]) or (['櫻坂46'] if '櫻坂' in magazine.get('name','') else []))
+                records[u]=row
+                collected.add(u)
                 count+=1
-                warning=fiction_guard(item['title'],item['text'])
-                if warning:records[u]['content_warning']=list(warning)
             state[feed_id]={'etag':headers.get('ETag'),
                             'modified':headers.get('Last-Modified'),
                             'last_success':stamp}
@@ -469,42 +503,36 @@ def run(cache_dir=None, source_ids=None):
         if not title:raise ValueError('Empty manual article title')
         _,_,_,members,songs=classify(title,'',rules)
         manual_override=overrides.get('articles',{}).get(u,{})
-        status,reason=publication_gate(src,title,'','published','管理者が元記事のタイトル・URL・公開日を照合して追加',manual_override,rules)
+        status,reason='published','管理者が元記事のタイトル・URL・公開日を照合して追加'
         records[u]=dict(id=hashlib.sha256(u.encode()).hexdigest()[:20],
                         url=u,title=title,author_id=sid,
                         published_at=parsed_pub or pub.isoformat(),first_seen_at=stamp,
                         last_seen_at=stamp,status=status,reason=reason,
                         categories=cats,members=members,songs=songs,
                         groups=(item['groups'] if 'groups' in item else (detect_groups(title,'',rules) or ['櫻坂46'])))
+        if manual_override.get('status') == 'excluded' or retained_hold(manual_override):
+            apply(records[u],eligibility,manual_override,{},now)
         manually_added+=1
     if manually_added:print('Manually backfilled:',manually_added,flush=True)
-    # Group-neutral creator essays belong to the overall feed, not Sakura by default.
-    for a in records.values():
-        if (not a.get('groups') and a['status']=='published'
-                and '制作者・クリエイター論' not in a.get('categories',[])):
-            a['status']='pending';a['reason']='対象グループを確認待ち'
-    # Apply moderation also to articles no longer present in recent feeds.
+    # Re-evaluate stored pending items even when they have dropped out of RSS.
     for u,a in records.items():
-        o=overrides.get('articles',{}).get(u,{})
-        if o.get('status') in ('published','pending','excluded') and a.get('published_at'):a['status']=o['status']
-        if 'categories' in o:a['categories']=normalize_categories(o['categories'])
-        elif creator_focus(a['title']) and '制作者・クリエイター論' not in a.get('categories',[]):
-            a.setdefault('categories',[]).append('制作者・クリエイター論')
-        if 'members' in o:a['members']=confirmed_members(o['members'],rules)
-        # Apply to retained records too, including ones outside the recent RSS.
-        a['status'],a['reason']=publication_gate(source_by_id[a['author_id']],a['title'],'',a['status'],a['reason'],o,rules)
-        if a.get('content_warning') and not o.get('verified_nonfiction') and o.get('status') not in ('pending','excluded'):
-            a['status'],a['reason']=a['content_warning']
-        # Creator essays without a title-specific Sakamichi group stay in the
-        # overall creator category, even when old records guessed Sakura.
-        if ('制作者・クリエイター論' in a.get('categories',[])
-                and not detect_groups(a['title'],'',rules)):
+        o=editorials.get(u,{})
+        if u not in collected and (
+            a['status'] in ('pending','retry') or o.get('status') in ('published','excluded')
+            or retained_hold(o)
+        ):
+            previous=dict(a)
+            apply(a,eligibility,o,previous,now,warning=a.get('content_warning') or fiction_guard(a['title'],''))
+        editor_title_matches=o.get('reviewed_title',a['title'])==a['title']
+        if editor_title_matches:
+            if 'groups' in o:a['groups']=o['groups']
+            if 'categories' in o:a['categories']=normalize_categories(o['categories'])
+            if 'members' in o:a['members']=confirmed_members(o['members'],rules)
+        if (a.get('decision_code')=='creator' or creator_focus(a['title'])) and CREATOR_CATEGORY not in a['categories']:
+            a['categories'].append(CREATOR_CATEGORY)
+        if (CREATOR_CATEGORY in a['categories'] and not detect_groups(a['title'],'',rules)
+                and not (editor_title_matches and 'groups' in o)):
             a['groups']=[]
-        if 'groups' in o:a['groups']=o['groups']
-        stored_date=a.get('published_at') or ''
-        parsed_date=date(stored_date if 'T' in stored_date else stored_date+'T00:00:00+00:00')
-        if a['status']=='published' and (not parsed_date or dt.datetime.fromisoformat(parsed_date)>now+dt.timedelta(minutes=10) or (not a.get('groups') and '制作者・クリエイター論' not in a.get('categories',[]))):
-            a['status']='pending';a['reason']='公開日時・対象グループを確認待ち'
     articles=sorted(records.values(),key=lambda a:(a.get('published_at') or '',a['url']),reverse=True)
     write(ROOT/'state/articles.json',articles);write(ROOT/'state/feeds.json',state)
     write(ROOT/'state/review.json',[a for a in articles if a['status']!='published'])
@@ -512,9 +540,15 @@ def run(cache_dir=None, source_ids=None):
     if source_ids:
         previous_logs=read(ROOT/'state/status.json',{}).get('feeds',[])
         statuses=[f for f in previous_logs if f['id'] not in selected and f['id'] in allowed]+statuses
-    report={'attempted_at':stamp,'successful_feeds':sum(f['status'] in ('ok','unchanged') for f in statuses),'total_feeds':len(statuses),'feeds':statuses,'counts':{s:sum(a['status']==s for a in articles) for s in ('published','pending','excluded')}}
+    report={'attempted_at':stamp,'successful_feeds':sum(f['status'] in ('ok','unchanged') for f in statuses),'total_feeds':len(statuses),'feeds':statuses,'counts':{s:sum(a['status']==s for a in articles) for s in ('published','pending','excluded','retry','unresolved')}}
     if source_ids:report.update(scope='selected',refreshed_source_ids=sorted(selected))
     write(ROOT/'state/status.json',report)
+    diagnostics=eligibility_report(prior,articles,collected,attempted_statuses,eligibility,now)
+    write(ROOT/'state/eligibility.json',diagnostics)
+    print('Eligibility:',json.dumps({k:diagnostics[k] for k in (
+        'collected_unique','new_auto_published','new_auto_excluded','rechecked_and_published',
+        'retry_count','unresolved_count','manual_exceptions','overdue_in_retry','fetch_failures'
+    )},ensure_ascii=False),flush=True)
     return 0 if success and success==len(attempted_statuses) else 2
 
 if __name__=='__main__':

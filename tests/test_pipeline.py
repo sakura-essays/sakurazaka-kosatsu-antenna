@@ -206,7 +206,7 @@ class Integration(unittest.TestCase):
  def test_author_removed(self):
   collect.run(self.cache);collect.write(self.root/'config/overrides.json',{'blocked_authors':['test']});collect.run(self.cache);self.assertEqual(self.rows(),[])
  def test_future_hold(self):
-  (self.cache/'test.xml').write_bytes(RSS.replace(b'2026',b'2099'));collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'pending')
+  (self.cache/'test.xml').write_bytes(RSS.replace(b'2026',b'2099'));collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'retry')
  def test_body_fiction_cannot_be_republished_by_unverified_override(self):
   (self.cache/'test.xml').write_bytes(RSS.replace(b'Test body','ここからはフィクションです'.encode()))
   collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'status':'published'}}})
@@ -239,17 +239,17 @@ class Integration(unittest.TestCase):
                  '藤吉夏鈴と学校から一緒に帰る物語を想像しました。帰り道で話をして、放課後の教室に戻り、二人だけで秘密の会話を続ける架空の物語です。')
   collect.run(self.cache)
   self.assertNotEqual(self.rows()[0]['status'],'published')
- def test_mixed_author_ambiguous_generic_essay_held(self):
+ def test_mixed_author_incidental_mention_retries(self):
   self.require_review_for_test_author()
   self.write_rss('日々の考察',
                  '櫻坂46の活動について考えることもありましたが、日々の暮らしの話が中心です。自分の感想としてさまざまな話題を書いています。')
   collect.run(self.cache)
-  self.assertEqual(self.rows()[0]['status'],'pending')
- def test_mixed_author_short_rss_excerpt_held(self):
+  self.assertEqual(self.rows()[0]['status'],'retry')
+ def test_mixed_author_short_rss_excerpt_can_publish(self):
   self.require_review_for_test_author()
   self.write_rss('日向坂46のライブ感想','とても楽しかったです。')
   collect.run(self.cache)
-  self.assertEqual(self.rows()[0]['status'],'pending')
+  self.assertEqual(self.rows()[0]['status'],'published')
  def test_mixed_author_admin_hold_wins(self):
   self.require_review_for_test_author()
   self.write_rss('櫻坂46のライブ感想',
@@ -262,11 +262,11 @@ class Integration(unittest.TestCase):
   self.write_rss('櫻坂46の妄ツイ文化を批評する',
                  '妄ツイという表現形式が櫻坂46のファンダムに与える影響を考えます。書き手と読み手が何を楽しんでいるかという文化論です。')
   collect.run(self.cache)
-  self.assertEqual(self.rows()[0]['status'],'pending')
+  self.assertEqual(self.rows()[0]['status'],'published')
  def test_mixed_source_article_approval_is_separate(self):
   sources=collect.read(self.root/'config/sources.json',[]);sources[0]['article_policy']='review_required'
   collect.write(self.root/'config/sources.json',sources);collect.run(self.cache)
-  self.assertEqual(self.rows()[0]['status'],'pending')
+  self.assertEqual(self.rows()[0]['status'],'published')
   collect.write(self.root/'config/overrides.json',{'articles':{'https://note.com/test/n/abc':{'status':'published','verified_nonfiction':True}}})
   collect.run(self.cache);self.assertEqual(self.rows()[0]['status'],'published')
  def test_absent_from_feed_retained(self):
@@ -279,7 +279,7 @@ class Integration(unittest.TestCase):
   collect.write(self.root/'state/articles.json',[old])
   collect.run(self.cache)
   restored=next(a for a in self.rows() if a['id']=='legacy')
-  self.assertEqual(restored['status'],'pending')
+  self.assertEqual(restored['status'],'published')
   collect.write(self.root/'config/overrides.json',{'articles':{old['url']:{'status':'published','verified_nonfiction':True}}})
   collect.run(self.cache)
   self.assertEqual(next(a for a in self.rows() if a['id']=='legacy')['status'],'published')

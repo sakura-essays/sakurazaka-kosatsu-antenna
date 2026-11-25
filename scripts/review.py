@@ -5,6 +5,7 @@ writing. Legacy admin approvals remain valid; new reviews record their evidence.
 """
 import argparse, datetime as dt, json, urllib.parse
 from collect import ROOT, read, write, canonical, date, UTC, confirmed_members
+from eligibility import retained_hold
 
 
 def apply_reviews(entries, dry_run=False):
@@ -46,7 +47,7 @@ def apply_reviews(entries, dry_run=False):
             new_day=dt.datetime.fromisoformat(pub).astimezone(dt.timezone(dt.timedelta(hours=9))).date().isoformat() if 'T' in pub else pub
             if old_day!=new_day:raise ValueError('Publication date differs from existing record: '+u)
         o=overrides.setdefault('articles',{}).setdefault(u,{})
-        if o.get('status') in ('pending','excluded'):
+        if o.get('status')=='excluded' or retained_hold(o):
             raise ValueError('Explicit moderation must be resolved separately: '+u)
         o.update(status='published',verified_nonfiction=True,reviewed_title=title,
                  reviewed_at=now.date().isoformat(),review_method='public_article_body',
@@ -73,7 +74,7 @@ def candidates():
                 and canonical(a['url']) not in blocked_urls and a['status']!='published'):
             # Include excluded metadata: a missed RSS excerpt must be recoverable.
             rows.append({k:a.get(k) for k in ('url','title','author_id','published_at','status','reason','groups','categories')} | {'article_policy':src.get('article_policy','automatic')})
-    return sorted(rows,key=lambda a:(a['article_policy']!='review_required',a['status']!='pending',a['url']))
+    return sorted(rows,key=lambda a:(a['article_policy']!='review_required',a['status'] not in ('pending','retry'),a['url']))
 
 
 if __name__=='__main__':
