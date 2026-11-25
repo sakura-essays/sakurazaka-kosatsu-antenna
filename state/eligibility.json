@@ -1,38 +1,33 @@
 {
-  "updated_at": "2026-11-25T04:35:18.183451+00:00",
+  "updated_at": "2026-11-25T04:45:00.722171+00:00",
   "collected_unique": 6634,
-  "new_auto_published": 1,
+  "new_auto_published": 0,
   "new_auto_excluded": 0,
-  "rechecked_and_published": 129,
+  "rechecked_and_published": 1,
   "retry_count": 15,
-  "unresolved_count": 776,
+  "unresolved_count": 775,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 238,
-    "p50": 18313.9,
-    "max": 27259.7
+    "count": 1,
+    "p50": 11726.6,
+    "max": 11726.6
   },
   "transitions": {
-    "excluded -> excluded": 2952,
-    "excluded -> published": 108,
-    "excluded -> retry": 14,
-    "excluded -> unresolved": 755,
-    "new -> published": 1,
-    "pending -> excluded": 6,
+    "excluded -> excluded": 2958,
     "pending -> pending": 3,
-    "pending -> published": 129,
-    "pending -> retry": 1,
-    "pending -> unresolved": 21,
-    "published -> published": 3491
+    "published -> published": 3729,
+    "retry -> retry": 15,
+    "unresolved -> published": 1,
+    "unresolved -> unresolved": 775
   },
   "decision_reasons": {
     "excluded: fiction": 13,
     "excluded: notice": 2,
     "excluded: other_topic": 2465,
     "published: alias": 1,
-    "published: author_context": 2,
+    "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
     "published: feed": 69,
@@ -41,7 +36,7 @@
     "retry: fiction": 1,
     "retry: insufficient": 14,
     "unresolved: fiction": 2,
-    "unresolved: insufficient": 773,
+    "unresolved: insufficient": 772,
     "unresolved: notice": 1
   },
   "authors": {
@@ -347,7 +342,7 @@
     },
     "ddmaru_saku": {
       "collected": 25,
-      "tier": "B",
+      "tier": "A",
       "retry_rate_percent": 0.0
     },
     "driftwood": {
@@ -422,8 +417,8 @@
     },
     "for_tmgwa_shako": {
       "collected": 25,
-      "unresolved": 2,
-      "tier": "B",
+      "unresolved": 1,
+      "tier": "A",
       "retry_rate_percent": 0.0
     },
     "forest_bulky": {
@@ -874,7 +869,7 @@
     "ksk": {
       "collected": 30,
       "pending": 1,
-      "tier": "B",
+      "tier": "A",
       "retry_rate_percent": 0.0
     },
     "kuminkurun2_": {
@@ -1507,7 +1502,7 @@
     "seichourampo": {
       "collected": 25,
       "unresolved": 1,
-      "tier": "B",
+      "tier": "A",
       "retry_rate_percent": 0.0
     },
     "seizemen": {
@@ -1556,7 +1551,7 @@
       "collected": 25,
       "collected_retry": 1,
       "retry": 1,
-      "tier": "B",
+      "tier": "A",
       "retry_rate_percent": 4.0
     },
     "shou_4846": {
@@ -1682,7 +1677,7 @@
     },
     "takebuchan": {
       "collected": 25,
-      "tier": "B",
+      "tier": "A",
       "retry_rate_percent": 0.0
     },
     "taketosy": {
