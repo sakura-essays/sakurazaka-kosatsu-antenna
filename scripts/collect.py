@@ -271,6 +271,9 @@ def feed_record(url, item, source, previous, editorial, classification, eligibil
         row['content_warning'] = list(warning)
     apply(row, eligibility, editorial, previous, now, body=body,
           tags=item.get('tags', ()), warning=warning)
+    if previous.get('status')=='published' and row['status'] in ('retry','unresolved'):
+        # A changed feed title with incomplete evidence does not erase a known release.
+        return previous | {'last_seen_at': stamp}
     return row
 
 

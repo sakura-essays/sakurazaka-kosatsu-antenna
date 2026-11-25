@@ -11,7 +11,7 @@ TOPIC = re.compile(
     r'考察|感想|印象|見立て|振り返|参戦|レポ|批評|レビュー|分析|解説|について|のこと|'
     r'読み解|観た|聴いた|見た|行ってきた|が好き|を好き|思っ|感じた|楽し|面白|'
     r'なぜ|理由|どう|という話|なった話|してほしい|おめでとう|ありがとう|最高|'
-    r'自分なり|メモ|気づ|推して|必要な|考え|を読む|所感|ひとこと'
+    r'自分なり|メモ|気づ|推して|必要な|考え|を読む|所感|ひとこと|空耳|思い出|推し活'
 )
 ACTIVITY = re.compile(
     r'ライブ|ツアー|アニラ|バスラ|公演|卒業|加入|選抜|センター|セトリ|振付|'
@@ -29,9 +29,10 @@ NOTICE = re.compile(
     r'商品紹介|クーポンコード|チケット(?:譲ります|お譲り|求む)|拡散希望.{0,15}販売|'
     r'公式.{0,12}(?:抜粋集|転載)|購入方法.{0,18}(?:特典|まとめ)'
 )
-INCIDENTAL = re.compile(r'一例として|話が中心|本題ではない|関係ありません|の名前を挙げただけ')
+INCIDENTAL = re.compile(r'一例として|話が中心|本題ではない|関係ありません|の名前を挙げただけ|'
+    r'(?:楽曲|アイドル|坂道).{0,8}の話(?:じゃ|では)ない')
 REFERENCE_LIST = re.compile(r'スタッフクレジット|情報整理|日替わり要素|情報一覧|データ一覧')
-ANNOUNCEMENT = re.compile(r'お知らせ|発売開始|情報まとめ|企画告知')
+ANNOUNCEMENT = re.compile(r'お知らせ|発売開始|情報まとめ|企画告知|速報|(?:発売|開催|出演)決定')
 ACCOUNT_UPDATE = re.compile(r'note(?:開設|開始).{0,8}周年')
 OTHER_TOPIC = re.compile(r'お昼ご飯|今日の献立|電車通勤|セブンカフェ|日々の暮らし|ドラゴンクエストからのお知らせ')
 SENSITIVE = re.compile(r'私生活.{0,18}(?:疑惑|裏付け)|事件と本人の心情|メンバーの過去をめぐる示唆')
@@ -171,7 +172,8 @@ class Eligibility:
                 return 'published', 'alias', supported
         if tier == 'A' and author_groups and FAN_CONTEXT.search(t) and (title_topic or title_activity):
             return 'published', 'author_context', author_groups
-        if body and not any((title_subjects, body_subjects, tag_subjects, song_groups, title_aliases, title_activity)):
+        # A short, context-free excerpt is missing evidence, not evidence of irrelevance.
+        if len(b) >= 35 and not any((title_subjects, body_subjects, tag_subjects, song_groups, title_aliases, title_activity)):
             return 'excluded', 'other_topic', []
         return 'retry', 'insufficient', []
 
@@ -216,7 +218,8 @@ def apply(record, eligibility, editorial, previous, now, *, body='', tags=(), wa
         verdict, code, groups = 'published', 'editorial', editorial.get('groups', record.get('groups', []))
     else:
         verdict, code, groups = eligibility.decide(record['title'], body, tags, record['author_id'], editorial, warning)
-    if verdict == 'published' and not groups and code != 'creator' and CREATOR_CATEGORY not in record.get('categories', []):
+    categories = editorial.get('categories', record.get('categories', []))
+    if verdict == 'published' and not groups and code != 'creator' and CREATOR_CATEGORY not in categories:
         verdict, code = 'retry', 'insufficient'
     if verdict == 'retry':
         deadline = instant(previous.get('retry_until'))

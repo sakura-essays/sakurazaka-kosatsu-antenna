@@ -311,7 +311,7 @@ class Integration(unittest.TestCase):
   collect.write(self.root/'config/rules.json',rules)
   collect.run(self.cache)
   self.assertEqual(self.rows()[0]['status'],'published')
- def test_previously_published_remains_published(self):
+ def test_confusing_retitle_preserves_the_previous_release(self):
   old={'id':'legacy','url':'https://note.com/test/n/abc','author_id':'test',
        'title':'櫻坂46 MV','published_at':'2026-01-01T00:00:00+00:00',
        'status':'published','reason':'管理者承認済み','categories':['楽曲・歌詞考察'],
@@ -319,8 +319,8 @@ class Integration(unittest.TestCase):
   collect.write(self.root/'state/articles.json',[old])
   (self.cache/'test.xml').write_bytes(RSS.replace(b'\xe6\xab\xbb\xe5\x9d\x8246 MV',b'Unrelated'))
   collect.run(self.cache)
-  # Changed titles are intentionally re-evaluated instead of whitelisted.
-  self.assertEqual(self.rows()[0]['status'],'excluded')
+  self.assertEqual(self.rows()[0]['status'],'published')
+  self.assertEqual(self.rows()[0]['title'],old['title'])
  def test_legacy_creator_category_migrates_without_changing_publication(self):
   old={'id':'legacy','url':'https://note.com/test/n/old','author_id':'test',
        'title':'秋元康は坂道グループから離れるべきか','published_at':'2026-01-01T00:00:00+00:00',

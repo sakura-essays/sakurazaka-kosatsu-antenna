@@ -19,7 +19,7 @@ class Gate(unittest.TestCase):
   self.assertEqual(self.verdict('櫻坂46の妄ツイ文化を批評する','ファンダム文化論です。')['status'],'published')
  def test_short_excerpt_with_clear_subject(self):
   self.assertEqual(self.verdict('藤吉夏鈴の表現について','良かった')['status'],'published')
-  self.assertEqual(self.verdict('夏のこと','良かった')['status'],'excluded')
+  self.assertEqual(self.verdict('夏のこと','良かった')['status'],'retry')
  def test_previous_publication_survives_missing_evidence(self):
   title='少し遠い夜'
   self.assertEqual(self.verdict(title)['status'],'retry')
@@ -48,6 +48,14 @@ class Gate(unittest.TestCase):
   self.assertEqual(engine.decide('今日のお昼ご飯','カレー','', 'mixed',{},None)[0],'excluded')
   self.assertEqual(engine.decide('推しメンのこと','',(), 'mixed',{},None)[0],'published')
   self.assertEqual(engine.decide('推しメンのこと','',(), 'unknown',{},None)[0],'retry')
+ def test_confirmed_group_neutral_creator_uses_editorial_categories(self):
+  override={'status':'published','verified_nonfiction':True,'groups':[],
+            'categories':['制作者・クリエイター論']}
+  row=self.verdict('バラバラなのに、並ぶとAKB48になる――茅野しのぶの衣装',override=override)
+  self.assertEqual(row['status'],'published')
+  self.assertEqual(row['groups'],[])
+ def test_song_subject_disclaimed_in_feed(self):
+  self.assertEqual(self.verdict('君に叱られた','乃木坂の楽曲の話じゃないです。家族にスマホの見すぎだと叱られました。')['status'],'retry')
  def test_group_evidence_requires_related_context(self):
   engine=eligibility.Eligibility(RULES,[],{})
   for title in ('日向坂46からのお知らせ', '承認欲求について'):
