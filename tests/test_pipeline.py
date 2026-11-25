@@ -1,4 +1,5 @@
-import copy,json,pathlib,shutil,sys,tempfile,unittest
+import copy,datetime as dt,json,pathlib,shutil,sys,tempfile,unittest
+from urllib.error import HTTPError
 from unittest.mock import patch
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/'scripts'))
 import collect,build
@@ -166,6 +167,85 @@ class SongIndex(unittest.TestCase):
   self.assertIn('楽曲別索引',html_doc)
   self.assertIn('現在、楽曲名が記事タイトルに含まれる収録記事はありません',html_doc)
 
+class FeedAvailability(unittest.TestCase):
+    url = 'https://note.com/test/rss'
+    start = dt.datetime(2026, 11, 25, tzinfo=dt.timezone.utc)
+    initial = {'etag': 'old', 'last_success': '2026-11-24T00:00:00+00:00'}
+
+    def response(self, url, headers=None):
+        if url.endswith('/robots.txt'):
+            return b'User-agent: *', {}
+        return RSS, {'ETag': 'new'}
+
+    def probe(self, when, state, status, **kwargs):
+        def fetch(url, headers=None):
+            if url.endswith('/robots.txt') and status != 'robots 410':
+                return self.response(url)
+            if isinstance(status, int) or status == 'robots 410':
+                code = status if isinstance(status, int) else 410
+                raise HTTPError(url, code, 'test', {}, None)
+            if status == 'empty':
+                return b'<rss><channel/></rss>', {}
+            return self.response(url)
+
+        url = kwargs.pop('url', self.url)
+        with patch.object(collect, 'fetch', side_effect=fetch) as requested:
+            with patch.object(collect.time, 'sleep'):
+                _, new, log = collect.probe_feed(url, state, {}, when, **kwargs)
+        return new, log, requested
+
+    def test_repeat_404_pauses_only_after_a_day_then_probes_weekly(self):
+        state = self.initial
+        for hours in (0, 6, 12, 24):
+            when = self.start + dt.timedelta(hours=hours)
+            state, log, _ = self.probe(when, state, 404)
+            self.assertEqual(log['status'], 'missing' if hours < 24 else 'paused')
+            self.assertEqual(log['last_success'], self.initial['last_success'])
+
+        skip, log, requested = self.probe(when + dt.timedelta(days=6), state, 404)
+        requested.assert_not_called()
+        self.assertEqual(skip, state)
+        self.assertEqual(log['checked_at'], when.isoformat())
+
+        due = when + dt.timedelta(days=7)
+        renewed, log, _ = self.probe(due, state, 404)
+        self.assertEqual(log['status'], 'paused')
+        self.assertEqual(renewed['missing']['next_probe_at'], (due + dt.timedelta(days=7)).isoformat())
+        recovered, log, requested = self.probe(due, state, 'ok')
+        requested.assert_called_with(self.url, {})
+        self.assertEqual(log['status'], 'ok')
+        self.assertNotIn('missing', recovered)
+        self.assertEqual(recovered['last_success'], due.isoformat())
+
+    def test_gone_pauses_but_new_url_or_selected_refresh_overrides_pause(self):
+        state, log, _ = self.probe(self.start, self.initial, 410)
+        self.assertEqual(log['status'], 'paused')
+        _, log, requested = self.probe(self.start, state, 'ok', force=True)
+        self.assertEqual(log['status'], 'ok')
+        requested.assert_called_with(self.url, {})
+        moved = 'https://note.com/test/new-rss'
+        recovered, log, requested = self.probe(self.start, state, 'ok', url=moved)
+        requested.assert_called_with(moved, {})
+        self.assertEqual(recovered['url'], moved)
+        self.assertNotIn('missing', recovered)
+
+    def test_server_limits_and_empty_feed_are_retried_without_suspension(self):
+        missing, _, _ = self.probe(self.start, self.initial, 404)
+        for status in (429, 503, 'robots 410', 'empty'):
+            with self.subTest(status=status):
+                state, log, _ = self.probe(self.start, missing, status)
+                self.assertEqual(log['status'], 'error')
+                self.assertNotIn('missing', state)
+                self.assertEqual(state['last_success'], self.initial['last_success'])
+
+    def test_not_modified_counts_only_for_validators_submitted_to_feed(self):
+        _, log, requested = self.probe(self.start, self.initial, 304)
+        requested.assert_called_with(self.url, {'If-None-Match': 'old'})
+        self.assertEqual(log['status'], 'unchanged')
+        _, log, _ = self.probe(self.start, {}, 304)
+        self.assertEqual(log['status'], 'error')
+
+
 class Integration(unittest.TestCase):
  def setUp(self):
   self.tmp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.tmp.name);self.mock=patch.object(collect,'ROOT',self.root);self.mock.start()
@@ -182,6 +262,27 @@ class Integration(unittest.TestCase):
   sources=collect.read(self.root/'config/sources.json',[])
   sources[0]['article_policy']='review_required'
   collect.write(self.root/'config/sources.json',sources)
+ def test_deleted_blog_retains_articles_while_other_feeds_continue(self):
+  collect.run(self.cache)
+  before=self.rows()[0]
+  sources=collect.read(self.root/'config/sources.json',[])
+  sources.append({'id':'other','url':'https://note.com/other','feed':'https://note.com/other/rss','enabled':True})
+  collect.write(self.root/'config/sources.json',sources)
+  collect.write(self.root/'config/magazine_feeds.json',[{'author_id':'test','name':'test magazine','feed':'https://note.com/test/m/m123/rss'}])
+  def fetch(url, headers=None):
+   if url.endswith('/robots.txt'):return b'User-agent: *',{}
+   if url=='https://note.com/test/rss':raise HTTPError(url,410,'Gone',{},None)
+   if url=='https://note.com/test/m/m123/rss':raise HTTPError(url,404,'Missing',{},None)
+   return RSS.replace(b'/test/n/',b'/other/n/'),{}
+  with patch.object(collect,'fetch',side_effect=fetch), patch.object(collect.time,'sleep'):
+   self.assertEqual(collect.run(),2)  # The magazine is still being checked.
+  self.assertEqual(next(row for row in self.rows() if row['author_id']=='test'),before)
+  self.assertEqual(len(self.rows()),2)
+  status=collect.read(self.root/'state/status.json',{})
+  self.assertEqual(status['successful_feeds'],1)
+  self.assertEqual([f['status'] for f in status['feeds']],['paused','ok','missing'])
+  self.assertIn('magazine:test:m123',collect.read(self.root/'state/feeds.json',{}))
+
  def test_selected_refresh_preserves_other_sources_and_feed_status(self):
   sources=collect.read(self.root/'config/sources.json',[])
   sources.append({'id':'other','url':'https://note.com/other','feed':'https://note.com/other/rss','enabled':True})

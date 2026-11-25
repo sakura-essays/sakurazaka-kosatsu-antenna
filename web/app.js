@@ -245,7 +245,14 @@
  const contact=D.settings.contact_url;const repo=D.settings.repository_url;
  $('contact').innerHTML=contact?`<p><a href="${url(contact)}" target="_blank" rel="noopener">お問い合わせ・掲載取り下げ窓口 ↗</a></p>`:'<p>現在は確認用サイトのため、受付窓口は未開設です。一般公開前に運営者の連絡窓口を設定します。</p>';
  if(repo)$('contact').insertAdjacentHTML('beforeend',`<p><a href="${url(repo+'/issues/new/choose')}" target="_blank" rel="noopener">書き手の推薦・訂正を申請する ↗</a>（GitHubアカウントが必要です。個人情報は記載しないでください。）</p>`);
- $('feed-status').innerHTML=`<p>${D.status.successful_feeds} / ${D.status.total_feeds} フィード取得成功。各記事の公開日はRSS、または手動登録時に確認した日付に基づきます。</p><table class="status-table"><thead><tr><th>書き手</th><th>状態</th><th>最終成功日</th></tr></thead><tbody>${D.status.feeds.map(f=>`<tr><td>${esc(byId[f.id]?.name||f.id)}</td><td>${f.status==='error'?'取得失敗：'+esc(f.error):'取得成功'}</td><td>${date(f.last_success)}</td></tr>`).join('')}</tbody></table>`;
+ const unavailable=D.status.feeds.filter(f=>['missing','paused'].includes(f.status)).length;
+ const feedStatus=f=>{
+  if(f.status==='paused')return `RSS取得休止（HTTP ${esc(f.http_status)}、${date(f.next_probe_at)}以降に再確認）`;
+  if(f.status==='missing')return `RSS取得不可（HTTP ${esc(f.http_status)}、次回更新時に再確認）`;
+  if(f.status==='error')return '取得失敗：'+esc(f.error);
+  return '取得成功';
+ };
+ $('feed-status').innerHTML=`<p>${D.status.successful_feeds} / ${D.status.total_feeds} フィード取得成功。${unavailable?`RSS取得不可・休止中 ${unavailable} 件。掲載済みの記事情報は保持しています。`:''}各記事の公開日はRSS、または手動登録時に確認した日付に基づきます。</p><table class="status-table"><thead><tr><th>書き手</th><th>状態</th><th>最終成功日</th></tr></thead><tbody>${D.status.feeds.map(f=>`<tr><td>${esc(byId[f.id]?.name||f.id)}${f.feed_name?'（'+esc(f.feed_name)+'）':''}</td><td>${feedStatus(f)}</td><td>${date(f.last_success)}</td></tr>`).join('')}</tbody></table>`;
 
  document.addEventListener('click',e=>{const clear=e.target.closest('[data-clear-filter]');if(clear){state[clear.dataset.clearFilter]='';limit=30;sync();save();$('reset').focus();return;}const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();document.querySelector('.group-tab.active').focus();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();document.querySelector('.category.active').focus();return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
  $('search-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('query').value;limit=30;save();window.AntennaAnalytics?.flushSearch();});

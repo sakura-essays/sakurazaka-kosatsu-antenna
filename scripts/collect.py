@@ -8,6 +8,9 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 UTC=dt.timezone.utc
 UA='SakuraEssayAntenna/1.0 (noncommercial RSS index)'
 LIMIT=4_000_000
+MISSING_MIN_CHECKS = 3
+MISSING_MIN_AGE = dt.timedelta(days=1)
+PAUSED_FEED_RECHECK = dt.timedelta(days=7)
 CREATOR_CATEGORY='制作者・クリエイター論'
 LEGACY_CREATOR_CATEGORY='秋元康・制作者論'
 # Relevant production contributors. A name match alone cannot publish an essay.
@@ -121,6 +124,90 @@ def parse(data):
                 if tag:tags.append(tag)
             elif node.text:values[key]=node.text
         yield dict(title=html.unescape(values.get('title','')).strip(),url=values.get('link',''),published_at=date(values.get('pubDate') or values.get('published') or values.get('date')),text=plain(values.get('encoded') or values.get('content') or values.get('description') or values.get('summary') or ''),tags=tags)
+
+def fetch_feed(url, old, robots):
+    host = urllib.parse.urlsplit(url).netloc
+    if host not in robots:
+        parser = urllib.robotparser.RobotFileParser()
+        try:
+            data, _ = fetch('https://' + host + '/robots.txt')
+            parser.parse(data.decode('utf-8').splitlines())
+        except urllib.error.HTTPError as error:
+            if error.code != 404:
+                raise
+            parser.parse([])
+        robots[host] = parser
+    if not robots[host].can_fetch(UA, url):
+        raise ValueError('robots.txt disallows feed')
+    time.sleep(1)
+    headers = {}
+    if not old.get('missing'):
+        if old.get('etag'):
+            headers['If-None-Match'] = old['etag']
+        if old.get('modified'):
+            headers['If-Modified-Since'] = old['modified']
+    try:
+        data, response_headers = fetch(url, headers)
+    except urllib.error.HTTPError as error:
+        if error.code == 304 and headers:
+            return None, {}, None
+        if error.code in (404, 410):
+            return None, {}, error.code
+        raise
+    return data, response_headers, None
+
+
+def probe_feed(url, old, robots, now, *, cached=None, force=False):
+    # A changed URL must be fetched immediately and without the old URL's validators.
+    health = dict(old) if old.get('url', url) == url else {'last_success': old.get('last_success')}
+    health['url'] = url
+    missing = health.get('missing', {})
+    stamp = now.isoformat()
+    log = {'checked_at': stamp, 'last_success': health.get('last_success')}
+    next_probe = missing.get('next_probe_at')
+    if cached is None and not force and next_probe and now < dt.datetime.fromisoformat(next_probe):
+        log.update(status='paused', checked_at=missing['last_checked_at'],
+                   http_status=missing['http_status'], next_probe_at=next_probe)
+        return (), health, log
+    try:
+        if cached is None:
+            data, headers, http_status = fetch_feed(url, health, robots)
+        else:
+            data, headers, http_status = cached.read_bytes(), {}, None
+        if http_status:
+            first_missing_at = missing.get('first_missing_at', stamp)
+            checks = missing.get('checks', 0) + 1
+            missing = dict(first_missing_at=first_missing_at, checks=checks,
+                           last_checked_at=stamp, http_status=http_status)
+            log.update(status='missing', http_status=http_status)
+            if (http_status == 410 or next_probe or
+                    (checks >= MISSING_MIN_CHECKS
+                     and now - dt.datetime.fromisoformat(first_missing_at) >= MISSING_MIN_AGE)):
+                next_probe = (now + PAUSED_FEED_RECHECK).isoformat()
+                missing['next_probe_at'] = next_probe
+                log.update(status='paused', next_probe_at=next_probe)
+            health.update(missing=missing)
+            return (), health, log
+        if data is None:
+            health['last_success'] = stamp
+            log.update(status='unchanged', last_success=stamp)
+            return (), health, log
+        items = list(parse(data))
+        if not items:
+            raise ValueError('Empty feed; existing articles retained')
+    except Exception as error:
+        # A feed or robots request failure cannot confirm a missing RSS endpoint.
+        # Keep a paused feed on its low-frequency schedule only after HTTP 404/410.
+        if cached is None:
+            health.pop('missing', None)
+        reason = f'HTTP {error.code}' if isinstance(error, urllib.error.HTTPError) else str(error)[:300]
+        log.update(status='error', error=reason)
+        return (), health, log
+    health = {'url': url, 'etag': headers.get('ETag'), 'modified': headers.get('Last-Modified'),
+              'last_success': stamp}
+    log.update(status='ok', last_success=stamp)
+    return items, health, log
+
 
 def song_match(song,text):
     key=norm(song)
@@ -319,6 +406,8 @@ def eligibility_report(prior, current, collected, statuses, eligibility, now):
         'overdue_in_retry': sum(1 for row in current if row['status']=='retry'
                                 and instant(row['retry_until']) <= now),
         'fetch_failures': sum(feed['status']=='error' for feed in statuses),
+        'missing_feeds': sum(feed['status']=='missing' for feed in statuses),
+        'paused_feeds': sum(feed['status']=='paused' for feed in statuses),
         'minutes_from_first_seen_to_eligibility': {
             'count': len(latencies),
             'p50': latencies[(len(latencies)-1)//2] if latencies else None,
@@ -368,123 +457,79 @@ def run(cache_dir=None, source_ids=None):
                                    and '制作者・クリエイター論' in article.get('categories',[])
                                    else ['櫻坂46']))
 
-    state=read(ROOT/'state/feeds.json',{});statuses=[];robots={};success=0
-    for source in sources:
-        if source['id'] not in selected:continue
-        sid=source['id'];url=source['feed'];log={'id':sid,'checked_at':stamp};old=state.get(sid,{})
-        try:
-            if cache_dir:
-                data=(pathlib.Path(cache_dir)/(sid+'.xml')).read_bytes();headers={}
+    state = read(ROOT/'state/feeds.json', {})
+    statuses = []
+    robots = {}
+    def collect_feed(source, feed_id, url, *, magazine=None, cached=None):
+        sid = source['id']
+        old = state.get(feed_id, {})
+        items, health, log = probe_feed(url, old, robots, now, cached=cached,
+                                        force=bool(source_ids))
+        if magazine is not None:
+            log['feed_name'] = magazine.get('name', 'magazine RSS')
+        if log['status'] == 'ok':
+            updates = {}
+            home = urllib.parse.urlsplit(source['url'])
+            try:
+                for item in items:
+                    try:
+                        u = canonical(item['url'])
+                    except ValueError:
+                        continue
+                    target = urllib.parse.urlsplit(u)
+                    # Only index original articles by the source, including in magazines.
+                    if u in blocked or not item['title'] or target.hostname != home.hostname:
+                        continue
+                    if ((home.hostname == 'note.com' or magazine is not None)
+                            and not target.path.startswith(home.path.rstrip('/')+'/n/')):
+                        continue
+                    if (magazine and magazine.get('require_creator_focus')
+                            and not creator_focus(item['title'], item['text'])):
+                        continue
+                    classification = classify(item['title'], item['text'], rules)
+                    previous = updates.get(u, records.get(u, {}))
+                    row = feed_record(u, item, source, previous, editorials.get(u, {}),
+                                      classification, eligibility, now)
+                    if magazine and magazine.get('require_relevance') and row['status'] != 'published':
+                        continue
+                    updates[u] = row
+            except Exception as error:
+                # Retry the same feed next time if processing failed after retrieval.
+                health = old
+                log.update(status='error', error=str(error)[:300], last_success=old.get('last_success'))
             else:
-                host=urllib.parse.urlsplit(url).netloc
-                if host not in robots:
-                    rp=urllib.robotparser.RobotFileParser()
-                    try:rd,_=fetch('https://'+host+'/robots.txt');rp.parse(rd.decode('utf-8').splitlines())
-                    except urllib.error.HTTPError as e:
-                        if e.code==404:rp.parse([])
-                        else:raise
-                    robots[host]=rp
-                if not robots[host].can_fetch(UA,url):raise ValueError('robots.txt disallows feed')
-                time.sleep(1)
-                cond={}
-                if old.get('etag'):cond['If-None-Match']=old['etag']
-                if old.get('modified'):cond['If-Modified-Since']=old['modified']
-                data,headers=fetch(url,cond)
-            items=list(parse(data))
-            if not items:raise ValueError('Empty feed; existing articles retained')
-            count=0
-            for item in items:
-                try:u=canonical(item['url'])
-                except ValueError:continue
-                if u in blocked or not item['title']:continue
-                # A feed may not publish links for a different site/author.
-                home=urllib.parse.urlsplit(source['url']);target=urllib.parse.urlsplit(u)
-                if target.hostname!=home.hostname or (home.hostname=='note.com' and not target.path.startswith(home.path.rstrip('/')+'/n/')):continue
-                classification=classify(item['title'],item['text'],rules)
-                records[u]=feed_record(u,item,source,records.get(u,{}),editorials.get(u,{}),classification,eligibility,now)
-                collected.add(u)
-                count+=1
-            state[sid]={'etag':headers.get('ETag'),'modified':headers.get('Last-Modified'),'last_success':stamp}
-            log.update(status='ok',items=count,last_success=stamp);success+=1
-        except urllib.error.HTTPError as e:
-            if e.code==304:log.update(status='unchanged',last_success=stamp);old['last_success']=stamp;state[sid]=old;success+=1
-            else:log.update(status='error',error='HTTP '+str(e.code),last_success=old.get('last_success'))
-        except Exception as e:log.update(status='error',error=str(e)[:300],last_success=old.get('last_success'))
-        statuses.append(log)
-        print(sid,log['status'],log.get('items',''),log.get('error',''),flush=True)
+                records.update(updates)
+                collected.update(updates)
+                log['items'] = len(updates)
+        state[feed_id] = health
+        statuses.append({'id': sid, **log})
+        print(feed_id, log['status'], log.get('items', ''), log.get('error', ''),
+              log.get('http_status', ''), flush=True)
+
+    for source in sources:
+        sid = source['id']
+        if sid in selected:
+            cached = pathlib.Path(cache_dir)/(sid+'.xml') if cache_dir else None
+            collect_feed(source, sid, source['feed'], cached=cached)
+
     # Topic-specific note magazine feeds can recover essays missing from the
     # author's general recent-25 RSS window. Preserve the original author ID.
-    for magazine in read(ROOT/'config/magazine_feeds.json',[]):
-        sid=magazine['author_id']
-        if sid not in selected:continue
-        source=next(s for s in sources if s['id']==sid)
-        feed=canonical(magazine['feed'])
-        prefix=source['url'].rstrip('/')+'/m/'
+    source_by_id = {source['id']: source for source in sources}
+    for magazine in read(ROOT/'config/magazine_feeds.json', []):
+        sid = magazine['author_id']
+        if sid not in selected:
+            continue
+        source = source_by_id[sid]
+        feed = canonical(magazine['feed'])
+        prefix = source['url'].rstrip('/')+'/m/'
         if not feed.startswith(prefix) or not feed.endswith('/rss'):
             raise ValueError('Magazine feed must be an RSS URL below its author profile')
-        feed_id='magazine:'+sid+':'+feed.split('/m/',1)[1].split('/',1)[0]
-        old=state.get(feed_id,{})
-        log={'id':sid,'feed_name':magazine.get('name','magazine RSS'),'checked_at':stamp}
-        try:
-            host=urllib.parse.urlsplit(feed).netloc
-            if host not in robots:
-                rp=urllib.robotparser.RobotFileParser()
-                try:
-                    rd,_=fetch('https://'+host+'/robots.txt')
-                    rp.parse(rd.decode('utf-8').splitlines())
-                except urllib.error.HTTPError as e:
-                    if e.code==404:rp.parse([])
-                    else:raise
-                robots[host]=rp
-            if not robots[host].can_fetch(UA,feed):
-                raise ValueError('robots.txt disallows magazine RSS')
-            time.sleep(1)
-            cond={}
-            if old.get('etag'):cond['If-None-Match']=old['etag']
-            if old.get('modified'):cond['If-Modified-Since']=old['modified']
-            data,headers=fetch(feed,cond)
-            items=list(parse(data))
-            if not items:raise ValueError('Empty magazine RSS; previous records retained')
-            count=0
-            home=urllib.parse.urlsplit(source['url'])
-            for item in items:
-                try:u=canonical(item['url'])
-                except ValueError:continue
-                target=urllib.parse.urlsplit(u)
-                # A magazine can contain third-party articles; index only this author.
-                if u in blocked or not item['title'] or target.hostname!=home.hostname or not target.path.startswith(home.path.rstrip('/')+'/n/'):
-                    continue
-                classification=classify(item['title'],item['text'],rules)
-                if magazine.get('require_creator_focus') and not creator_focus(item['title'],item['text']):
-                    continue
-                row=feed_record(u,item,source,records.get(u,{}),editorials.get(u,{}),classification,eligibility,now)
-                if magazine.get('require_relevance') and row['status']!='published':
-                    continue
-                records[u]=row
-                collected.add(u)
-                count+=1
-            state[feed_id]={'etag':headers.get('ETag'),
-                            'modified':headers.get('Last-Modified'),
-                            'last_success':stamp}
-            log.update(status='ok',items=count,last_success=stamp)
-            success+=1
-        except urllib.error.HTTPError as e:
-            if e.code==304:
-                log.update(status='unchanged',last_success=stamp)
-                old['last_success']=stamp;state[feed_id]=old;success+=1
-            else:
-                log.update(status='error',error='HTTP '+str(e.code),
-                           last_success=old.get('last_success'))
-        except Exception as e:
-            log.update(status='error',error=str(e)[:300],
-                       last_success=old.get('last_success'))
-        statuses.append(log)
-        print(feed_id,log['status'],log.get('items',''),log.get('error',''),flush=True)
+        feed_id = 'magazine:'+sid+':'+feed.split('/m/', 1)[1].split('/', 1)[0]
+        collect_feed(source, feed_id, feed, magazine=magazine)
     # Backfill curator-verified article metadata outside the limited RSS window.
     # RSS entries take precedence. Manual records persist without pretending
     # that their day-precision publication date is an exact timestamp.
     manually_added=0
-    source_by_id={s['id']:s for s in sources}
     for item in read(ROOT/'config/manual_articles.json',[]):
         sid=item['author_id']
         if sid not in allowed:continue
@@ -550,9 +595,12 @@ def run(cache_dir=None, source_ids=None):
     write(ROOT/'state/eligibility.json',diagnostics)
     print('Eligibility:',json.dumps({k:diagnostics[k] for k in (
         'collected_unique','new_auto_published','new_auto_excluded','rechecked_and_published',
-        'retry_count','unresolved_count','manual_exceptions','overdue_in_retry','fetch_failures'
+        'retry_count','unresolved_count','manual_exceptions','overdue_in_retry',
+        'fetch_failures','missing_feeds','paused_feeds'
     )},ensure_ascii=False),flush=True)
-    return 0 if success and success==len(attempted_statuses) else 2
+    return 0 if attempted_statuses and all(
+        feed['status'] in ('ok', 'unchanged', 'paused') for feed in attempted_statuses
+    ) else 2
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--cache-dir',help='Development only: pre-fetched RSS files');p.add_argument('--source-id',action='append',help='Refresh selected sources; retain other records and last feed checks');a=p.parse_args();sys.exit(run(a.cache_dir,a.source_id))

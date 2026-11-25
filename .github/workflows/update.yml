@@ -84,6 +84,7 @@ jobs:
           successful = report["successful_feeds"]
           total = report["total_feeds"]
           failed = [feed for feed in report["feeds"] if feed["status"] == "error"]
+          missing = [feed for feed in report["feeds"] if feed["status"] in ("missing", "paused")]
           with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
               summary.write(f"### RSS collection\n\nSuccessful or unchanged: {successful}/{total}\n\n")
               summary.write("### Article eligibility\n\n")
@@ -96,6 +97,12 @@ jobs:
               for feed in failed:
                   reason = " ".join(str(feed.get("error", "unknown error")).split())
                   summary.write(f"- {feed['id']}: {reason}\n")
+              if missing:
+                  summary.write("\n### Unavailable RSS endpoints (previous articles retained)\n\n")
+              for feed in missing:
+                  name = feed.get("feed_name", "author RSS")
+                  schedule = feed.get("next_probe_at", "next collection")
+                  summary.write(f"- {feed['id']} ({name}): HTTP {feed['http_status']}; next check {schedule}\n")
           if not successful:
               raise SystemExit("::error::No RSS feeds could be verified. Previous records are retained.")
           if failed:
