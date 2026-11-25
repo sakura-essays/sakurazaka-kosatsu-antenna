@@ -56,6 +56,20 @@ class Gate(unittest.TestCase):
   self.assertEqual(row['groups'],[])
  def test_song_subject_disclaimed_in_feed(self):
   self.assertEqual(self.verdict('君に叱られた','乃木坂の楽曲の話じゃないです。家族にスマホの見すぎだと叱られました。')['status'],'retry')
+ def test_incidental_references_in_opening_or_footer_do_not_publish(self):
+  cases=[
+   ('今季の鹿島アントラーズ','日向坂、櫻坂、ドラマは前にも書きましたが、今回は鹿島アントラーズについて書きます。試合を見ました。'),
+   ('広島旅行','広島を旅行した。自転車を借りた。昨年のひなたフェスをきっかけに遠征をするようになった。サイクリングの感想を書きました。'),
+   ('アイマスライブの感想','ランキング参加中乃木坂46 ランキング参加中日向坂46 アイドルマスターのライブを見ました。'),
+   ('2026年2月21日の雑記','35歳になった。朝起きてサクラミーツを見た。そのあとはギターを弾いた。'),
+  ]
+  for title,body in cases:
+   with self.subTest(title=title): self.assertNotEqual(self.verdict(title,body)['status'],'published')
+ def test_concrete_feed_topics_publish_an_abstract_title(self):
+  body='会場に行きました。櫻坂46のライブで印象に残ったのは、舞台の使い方でした。'
+  self.assertEqual(self.verdict('雨のあとで',body)['status'],'published')
+  body='サイン会では、思わず心に残る言葉を届けてくれます。それは藤吉夏鈴さんでも、村山美羽さんでも。'
+  self.assertEqual(self.verdict('重い課題',body)['status'],'published')
  def test_group_evidence_requires_related_context(self):
   engine=eligibility.Eligibility(RULES,[],{})
   for title in ('日向坂46からのお知らせ', '承認欲求について'):

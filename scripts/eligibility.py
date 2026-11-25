@@ -15,7 +15,7 @@ TOPIC = re.compile(
 )
 ACTIVITY = re.compile(
     r'ライブ|ツアー|アニラ|バスラ|公演|卒業|加入|選抜|センター|セトリ|振付|'
-    r'歌詞|楽曲|アルバム|曲評|パフォーマンス|ダンス|衣装|冠番組|個人pv|フォーメーション|'
+    r'歌詞|楽曲|アルバム|曲評|パフォーマンス|ダンス|衣装|冠番組|個人pv|フォーメーション|サイン会|'
     r'期生|ミーグリ|ミート[＆&]グリート|配信視聴|写真集|出演|キャプテン|選曲|'
     r'シングル|全ツ|\d+(?:st|nd|rd|th)sg|写真展|結成|トーク会|talkを|\d+人のプリンシパル|'
     r'mv(?![a-z])|(?<![a-z])live(?![a-z])'
@@ -31,9 +31,13 @@ NOTICE = re.compile(
 )
 INCIDENTAL = re.compile(r'一例として|話が中心|本題ではない|関係ありません|の名前を挙げただけ|'
     r'(?:楽曲|アイドル|坂道).{0,8}の話(?:じゃ|では)ない')
-REFERENCE_LIST = re.compile(r'スタッフクレジット|情報整理|日替わり要素|情報一覧|データ一覧')
+REFERENCE_LIST = re.compile(r'スタッフクレジット|情報整理|日替わり要素|情報一覧|データ一覧|身長.{0,12}血液型')
 ANNOUNCEMENT = re.compile(r'お知らせ|発売開始|情報まとめ|企画告知|速報|(?:発売|開催|出演)決定')
 ACCOUNT_UPDATE = re.compile(r'note(?:開設|開始).{0,8}周年')
+MENTION_ONLY = re.compile(
+    r'今回.{0,40}について書|前回.{0,32}について書|書く予定|ランキング参加中|'
+    r'思いを馳せ|きっかけに.{0,20}(?:旅行|遠征)|ついでに|時間があったので'
+)
 OTHER_TOPIC = re.compile(r'お昼ご飯|今日の献立|電車通勤|セブンカフェ|日々の暮らし|ドラゴンクエストからのお知らせ')
 SENSITIVE = re.compile(r'私生活.{0,18}(?:疑惑|裏付け)|事件と本人の心情|メンバーの過去をめぐる示唆')
 CURRENT_HOLD = re.compile(r'掲載停止|削除依頼|権利(?:侵害|関係)|プライバシー|管理者確認待ち')
@@ -119,6 +123,32 @@ class Eligibility:
     def matches(patterns, value):
         return [group for group in GROUP_ORDER if group in patterns and patterns[group].search(value)]
 
+    def feed_topics(self, body):
+        # An embedded recommendation, author bio or unrelated main story can
+        # mention a group. Require a topical sentence near the start, or more
+        # than one distinct sentence that discusses the group or its work.
+        started = set()
+        repeated = Counter()
+        sentences = dict.fromkeys(re.split(r'[。！？!?\n]+', body[:1800]))
+        activity_clauses = 0
+        previous_event = False
+        for sentence in sentences:
+            clause = norm(sentence)
+            if MENTION_ONLY.search(clause):
+                previous_event = False
+                continue
+            activity = ACTIVITY.search(clause)
+            continuation = previous_event and clause.startswith(('それは','そこで','その場で'))
+            previous_event = bool(activity)
+            if not (activity or TOPIC.search(clause) or continuation):
+                continue
+            topics = self.matches(self.subjects, clause)
+            repeated.update(topics)
+            activity_clauses += bool(activity)
+            if activity_clauses <= 2 and (activity or continuation):
+                started.update(topics)
+        return [group for group in GROUP_ORDER if group in started or repeated[group] >= 2]
+
     def decide(self, title, body, tags, author, editorial, warning):
         t, b = norm(title), norm(body)
         combined = t + ' ' + b
@@ -156,8 +186,9 @@ class Eligibility:
             return 'published', 'work', corroborated
         if not INCIDENTAL.search(b):
             # Tags supply a topic, while the title/feed contributes independent evidence.
-            if body_subjects and (body_activity or body_topic or title_activity):
-                return 'published', 'feed', title_subjects or body_subjects
+            feed_topics = self.feed_topics(body) if body_subjects else []
+            if feed_topics:
+                return 'published', 'feed', title_subjects or feed_topics
             if tag_subjects and (title_activity or (title_topic and body_topic)):
                 return 'published', 'tag', title_subjects or tag_subjects
         # The historical editorial evidence identifies a group for this article,
