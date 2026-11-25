@@ -1,41 +1,43 @@
 {
-  "updated_at": "2026-11-25T07:29:43.748517+00:00",
-  "collected_unique": 6634,
-  "new_auto_published": 0,
-  "new_auto_excluded": 0,
+  "updated_at": "2026-11-25T13:29:53.858098+00:00",
+  "collected_unique": 6635,
+  "new_auto_published": 1,
+  "new_auto_excluded": 5,
   "rechecked_and_published": 0,
-  "retry_count": 13,
+  "retry_count": 15,
   "unresolved_count": 777,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 0,
-    "p50": null,
-    "max": null
+    "count": 1,
+    "p50": 0.0,
+    "max": 0.0
   },
   "transitions": {
     "excluded -> excluded": 2968,
+    "new -> excluded": 5,
+    "new -> published": 1,
+    "new -> retry": 2,
     "pending -> pending": 3,
     "published -> published": 3720,
     "retry -> retry": 13,
-    "retry -> unresolved": 2,
-    "unresolved -> unresolved": 775
+    "unresolved -> unresolved": 777
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2465,
+    "excluded: other_topic": 2470,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 59,
+    "published: feed": 60,
     "published: title": 149,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 12,
+    "retry: insufficient": 14,
     "unresolved: fiction": 2,
     "unresolved: insufficient": 774,
     "unresolved: notice": 1
@@ -99,9 +101,11 @@
     },
     "8823film": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 5,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "_pironpan": {
       "collected": 25,
@@ -945,12 +949,12 @@
       "retry_rate_percent": 0.0
     },
     "light_clover2567": {
-      "collected": 32,
+      "collected": 33,
       "collected_retry": 2,
       "retry": 2,
       "unresolved": 5,
       "tier": "B",
-      "retry_rate_percent": 6.25
+      "retry_rate_percent": 6.06
     },
     "like_danke1003": {
       "collected": 8,
@@ -1355,8 +1359,10 @@
     },
     "quomoeer": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "qururi_46": {
       "collected": 25,
