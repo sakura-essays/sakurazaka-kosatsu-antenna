@@ -83,24 +83,71 @@ jobs:
           fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
+        id: upload
         with:
           path: dist
           retention-days: 1
-      - name: Wait for Pages artifact metadata
+      # deploy-pages' internal artifact listing can return zero despite a
+      # successful upload. Use the upload's exact ID and the Pages REST API.
+      - name: Deploy GitHub Pages by uploaded artifact ID
+        id: deploy
         env:
           GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        shell: bash
         run: |
+          set -euo pipefail
+          if [[ ! "$ARTIFACT_ID" =~ ^[1-9][0-9]*$ ]]; then
+            echo "::error::Pages artifact upload did not return a valid ID"
+            exit 1
+          fi
+          visible=false
           for attempt in {1..12}; do
-            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq '.artifacts[] | select(.expired == false) | .id' | grep -q '[0-9]'; then
-              exit 0
+            if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts?name=github-pages" --jq ".artifacts[] | select(.expired == false and .id == $ARTIFACT_ID) | .id" | grep -Fxq "$ARTIFACT_ID"; then
+              visible=true
+              break
             fi
             sleep 5
           done
-          echo "::error::Pages artifact metadata did not become visible"
+          if [[ "$visible" != true ]]; then
+            echo "::error::Uploaded Pages artifact is not visible in this workflow run"
+            exit 1
+          fi
+          oidc_token=$(curl --fail --silent --show-error --max-time 30 \
+            -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            "$ACTIONS_ID_TOKEN_REQUEST_URL" | jq -er '.value')
+          echo "::add-mask::$oidc_token"
+          deployment=$(jq -n --argjson artifact_id "$ARTIFACT_ID" \
+            --arg pages_build_version "$GITHUB_SHA" --arg oidc_token "$oidc_token" \
+            '{artifact_id:$artifact_id,pages_build_version:$pages_build_version,oidc_token:$oidc_token}' |
+            gh api --method POST "repos/$GITHUB_REPOSITORY/pages/deployments" --input -)
+          unset oidc_token
+          deployment_id=$(jq -er '(.id // (.status_url | split("/") | last)) | tostring | select(length > 0)' <<< "$deployment")
+          page_url=$(jq -er '.page_url | select(type == "string" and length > 0)' <<< "$deployment")
+          endpoint="repos/$GITHUB_REPOSITORY/pages/deployments/$deployment_id"
+          trap 'gh api --method POST "$endpoint/cancel" >/dev/null 2>&1 || true; exit 1' INT TERM
+          deadline=$((SECONDS + 480))
+          while (( SECONDS < deadline )); do
+            if status=$(gh api "$endpoint" --jq '.status'); then
+              echo "Pages deployment status: $status"
+              case "$status" in
+                succeed)
+                  echo "page_url=$page_url" >> "$GITHUB_OUTPUT"
+                  exit 0
+                  ;;
+                deployment_failed|deployment_content_failed|deployment_cancelled|deployment_lost)
+                  echo "::error::Pages deployment ended with $status"
+                  exit 1
+                  ;;
+              esac
+            else
+              echo "::warning::Pages status temporarily unavailable; retrying"
+            fi
+            sleep 10
+          done
+          gh api --method POST "$endpoint/cancel" >/dev/null 2>&1 || true
+          echo "::error::Pages deployment did not finish within 8 minutes"
           exit 1
-      - name: Deploy GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
       - name: Report feed failures
         if: steps.collect.outcome == 'failure'
         run: |
