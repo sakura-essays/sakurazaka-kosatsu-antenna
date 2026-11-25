@@ -254,7 +254,10 @@
  };
  $('feed-status').innerHTML=`<p>${D.status.successful_feeds} / ${D.status.total_feeds} フィード取得成功。${unavailable?`RSS取得不可・休止中 ${unavailable} 件。掲載済みの記事情報は保持しています。`:''}各記事の公開日はRSS、または手動登録時に確認した日付に基づきます。</p><table class="status-table"><thead><tr><th>書き手</th><th>状態</th><th>最終成功日</th></tr></thead><tbody>${D.status.feeds.map(f=>`<tr><td>${esc(byId[f.id]?.name||f.id)}${f.feed_name?'（'+esc(f.feed_name)+'）':''}</td><td>${feedStatus(f)}</td><td>${date(f.last_success)}</td></tr>`).join('')}</tbody></table>`;
 
- document.addEventListener('click',e=>{const clear=e.target.closest('[data-clear-filter]');if(clear){state[clear.dataset.clearFilter]='';limit=30;sync();save();$('reset').focus();return;}const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();document.querySelector('.group-tab.active').focus();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();document.querySelector('.category.active').focus();return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
+ document.addEventListener('click',e=>{const clear=e.target.closest('[data-clear-filter]');if(clear){state[clear.dataset.clearFilter]='';limit=30;sync();save();$('reset').focus();return;}const g=e.target.closest('[data-group]');if(g){state.group=g.dataset.group;state.member='';state.song='';state.view='articles';limit=30;sync();save();document.querySelector('.group-tab.active').focus();return;}const c=e.target.closest('[data-category]');if(c){state.cat=c.dataset.category;state.view='articles';limit=30;save();
+  const filters=document.querySelector('.filters');
+  document.querySelector(compact?.matches&&!filters.open?'.filters summary':'.category.active').focus();
+  return;}const nav=e.target.closest('[data-view]');if(nav){e.preventDefault();state.view=nav.dataset.view;save();}});
  $('search-form').addEventListener('submit',e=>{e.preventDefault();state.q=$('query').value;limit=30;save();window.AntennaAnalytics?.flushSearch();});
  $('query').addEventListener('input',()=>{state.q=$('query').value;limit=30;render();});
  controls.forEach(id=>$(id).addEventListener('change',()=>{state[id]=$(id).value;if(id==='sort'&&state.sort==='random')reshuffle();limit=30;save();}));
@@ -280,5 +283,28 @@
  });
  $('reset').addEventListener('click',reset);$('more').addEventListener('click',()=>{limit+=30;render();});
  $('past-shortcut').addEventListener('click',()=>{const d=new Date();d.setMonth(d.getMonth()-3);state.to=day(d.toISOString());state.sort='new';state.view='articles';limit=30;sync();save();});
+ // Keep the compact layout's reading and keyboard order aligned.
+ const compact=window.matchMedia?.('(max-width: 600px)');
+ if(compact){
+  const slots=[
+   [$('search-form'),$('article-view'),'prepend'],
+   [$('categories'),$('compact-topics')],
+   [$('sort-label'),$('compact-sort')],
+   [$('reshuffle'),$('compact-sort')],
+   [$('research-area'),$('compact-research')],
+   [$('stats'),$('compact-status')],
+   [$('notice'),$('compact-status')],
+  ].map(([element,destination,method='append'])=>{
+   const original=document.createComment('');
+   element.before(original);
+   return {element,destination,method,original};
+  });
+  const arrange=()=>slots.forEach(({element,destination,method,original})=>{
+   if(compact.matches)destination[method](element);
+   else original.after(element);
+  });
+  arrange();
+  compact.addEventListener('change',arrange);
+ }
  window.addEventListener('popstate',readState);readState();
 })();
