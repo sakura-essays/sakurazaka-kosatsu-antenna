@@ -1,46 +1,48 @@
 {
-  "updated_at": "2026-11-26T07:28:50.715407+00:00",
-  "collected_unique": 6636,
-  "new_auto_published": 0,
-  "new_auto_excluded": 3,
+  "updated_at": "2026-11-26T13:28:52.237600+00:00",
+  "collected_unique": 6637,
+  "new_auto_published": 4,
+  "new_auto_excluded": 4,
   "rechecked_and_published": 0,
-  "retry_count": 19,
-  "unresolved_count": 779,
+  "retry_count": 21,
+  "unresolved_count": 781,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
   "missing_feeds": 1,
   "paused_feeds": 0,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 0,
-    "p50": null,
-    "max": null
+    "count": 4,
+    "p50": 0.0,
+    "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2976,
-    "new -> excluded": 3,
-    "new -> retry": 1,
+    "excluded -> excluded": 2979,
+    "new -> excluded": 4,
+    "new -> published": 4,
+    "new -> retry": 4,
     "pending -> pending": 3,
     "published -> published": 3722,
-    "retry -> retry": 18,
+    "retry -> retry": 17,
+    "retry -> unresolved": 2,
     "unresolved -> unresolved": 779
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2476,
+    "excluded: other_topic": 2480,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 60,
-    "published: title": 151,
+    "published: feed": 62,
+    "published: title": 153,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 18,
+    "retry: insufficient": 20,
     "unresolved: fiction": 2,
-    "unresolved: insufficient": 776,
+    "unresolved: insufficient": 778,
     "unresolved: notice": 1
   },
   "authors": {
@@ -168,8 +170,10 @@
     },
     "archie_archiee": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "armi": {
       "collected": 25,
@@ -207,10 +211,12 @@
       "retry_rate_percent": 0.0
     },
     "badterumaru": {
-      "collected": 24,
+      "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "bellcy23": {
       "collected": 25,
@@ -620,9 +626,11 @@
     },
     "holy_oxalis1429": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 7,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "honoyuzu_skz46": {
       "collected": 2,
@@ -868,8 +876,10 @@
     },
     "kotechi20010625": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "tier": "A",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "ksk": {
       "collected": 30,
@@ -953,11 +963,11 @@
     },
     "light_clover2567": {
       "collected": 33,
-      "collected_retry": 2,
-      "retry": 2,
-      "unresolved": 5,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 6.06
+      "retry_rate_percent": 3.03
     },
     "like_danke1003": {
       "collected": 8,
@@ -1541,11 +1551,11 @@
     },
     "shiho_yofukashi": {
       "collected": 25,
-      "collected_retry": 2,
-      "retry": 2,
-      "unresolved": 14,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 15,
       "tier": "B",
-      "retry_rate_percent": 8.0
+      "retry_rate_percent": 4.0
     },
     "shinigamidriver": {
       "collected": 8,
