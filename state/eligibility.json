@@ -1,46 +1,45 @@
 {
-  "updated_at": "2026-11-26T13:28:52.237600+00:00",
+  "updated_at": "2026-11-26T19:06:48.214111+00:00",
   "collected_unique": 6637,
-  "new_auto_published": 4,
-  "new_auto_excluded": 4,
+  "new_auto_published": 1,
+  "new_auto_excluded": 3,
   "rechecked_and_published": 0,
-  "retry_count": 21,
+  "retry_count": 23,
   "unresolved_count": 781,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
-  "missing_feeds": 1,
-  "paused_feeds": 0,
+  "missing_feeds": 0,
+  "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 4,
+    "count": 1,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2979,
-    "new -> excluded": 4,
-    "new -> published": 4,
-    "new -> retry": 4,
+    "excluded -> excluded": 2983,
+    "new -> excluded": 3,
+    "new -> published": 1,
+    "new -> retry": 2,
     "pending -> pending": 3,
-    "published -> published": 3722,
-    "retry -> retry": 17,
-    "retry -> unresolved": 2,
-    "unresolved -> unresolved": 779
+    "published -> published": 3726,
+    "retry -> retry": 21,
+    "unresolved -> unresolved": 781
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2480,
+    "excluded: other_topic": 2483,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 62,
+    "published: feed": 63,
     "published: title": 153,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 20,
+    "retry: insufficient": 22,
     "unresolved: fiction": 2,
     "unresolved: insufficient": 778,
     "unresolved: notice": 1
@@ -939,11 +938,11 @@
     },
     "legit_hare5977": {
       "collected": 22,
-      "collected_retry": 2,
-      "retry": 2,
+      "collected_retry": 3,
+      "retry": 3,
       "unresolved": 1,
       "tier": "B",
-      "retry_rate_percent": 9.09
+      "retry_rate_percent": 13.64
     },
     "lhd": {
       "collected": 25,
@@ -1825,8 +1824,10 @@
     },
     "toshi_suzu_46": {
       "collected": 2,
+      "collected_retry": 1,
+      "retry": 1,
       "tier": "C",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 50.0
     },
     "toshitoshikats1": {
       "collected": 2,
