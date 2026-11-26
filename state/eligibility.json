@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-11-25T19:00:00.485806+00:00",
+  "updated_at": "2026-11-26T01:24:53.274375+00:00",
   "collected_unique": 6635,
   "new_auto_published": 0,
-  "new_auto_excluded": 0,
+  "new_auto_excluded": 2,
   "rechecked_and_published": 0,
   "retry_count": 18,
   "unresolved_count": 779,
@@ -18,18 +18,17 @@
   },
   "transitions": {
     "excluded -> excluded": 2974,
-    "new -> retry": 3,
+    "new -> excluded": 2,
     "pending -> pending": 3,
     "published -> published": 3722,
-    "retry -> retry": 15,
-    "retry -> unresolved": 2,
-    "unresolved -> unresolved": 777
+    "retry -> retry": 18,
+    "unresolved -> unresolved": 779
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2471,
+    "excluded: other_topic": 2473,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
