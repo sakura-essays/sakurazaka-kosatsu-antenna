@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-27T01:27:34.333771+00:00",
-  "collected_unique": 6638,
-  "new_auto_published": 1,
-  "new_auto_excluded": 3,
+  "updated_at": "2026-11-27T07:28:32.194628+00:00",
+  "collected_unique": 6640,
+  "new_auto_published": 2,
+  "new_auto_excluded": 4,
   "rechecked_and_published": 0,
-  "retry_count": 22,
+  "retry_count": 23,
   "unresolved_count": 782,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
@@ -12,34 +12,34 @@
   "missing_feeds": 0,
   "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 1,
+    "count": 2,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2986,
-    "new -> excluded": 3,
-    "new -> published": 1,
+    "excluded -> excluded": 2989,
+    "new -> excluded": 4,
+    "new -> published": 2,
+    "new -> retry": 1,
     "pending -> pending": 3,
-    "published -> published": 3727,
+    "published -> published": 3728,
     "retry -> retry": 22,
-    "retry -> unresolved": 1,
-    "unresolved -> unresolved": 781
+    "unresolved -> unresolved": 782
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2486,
+    "excluded: other_topic": 2490,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
     "published: feed": 64,
-    "published: title": 153,
-    "published: work": 14,
+    "published: title": 154,
+    "published: work": 15,
     "retry: fiction": 1,
-    "retry: insufficient": 21,
+    "retry: insufficient": 22,
     "unresolved: fiction": 2,
     "unresolved: insufficient": 779,
     "unresolved: notice": 1
@@ -1154,9 +1154,11 @@
     },
     "modern_willet231": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 2,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "moni_gaoo": {
       "collected": 5,
@@ -1580,7 +1582,7 @@
       "retry_rate_percent": 0.0
     },
     "showf": {
-      "collected": 15,
+      "collected": 16,
       "tier": "B",
       "retry_rate_percent": 0.0
     },
@@ -1634,7 +1636,7 @@
       "retry_rate_percent": 0.0
     },
     "sonkami": {
-      "collected": 46,
+      "collected": 47,
       "unresolved": 1,
       "tier": "A",
       "retry_rate_percent": 0.0
