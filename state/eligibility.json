@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-11-27T07:28:32.194628+00:00",
-  "collected_unique": 6640,
+  "updated_at": "2026-11-27T13:24:35.606344+00:00",
+  "collected_unique": 6616,
   "new_auto_published": 2,
-  "new_auto_excluded": 4,
+  "new_auto_excluded": 9,
   "rechecked_and_published": 0,
-  "retry_count": 23,
+  "retry_count": 27,
   "unresolved_count": 782,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
-  "missing_feeds": 0,
+  "missing_feeds": 1,
   "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
     "count": 2,
@@ -17,29 +17,29 @@
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2989,
-    "new -> excluded": 4,
+    "excluded -> excluded": 2993,
+    "new -> excluded": 9,
     "new -> published": 2,
-    "new -> retry": 1,
+    "new -> retry": 4,
     "pending -> pending": 3,
-    "published -> published": 3728,
-    "retry -> retry": 22,
+    "published -> published": 3730,
+    "retry -> retry": 23,
     "unresolved -> unresolved": 782
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2490,
+    "excluded: other_topic": 2499,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 64,
-    "published: title": 154,
+    "published: feed": 65,
+    "published: title": 155,
     "published: work": 15,
     "retry: fiction": 1,
-    "retry: insufficient": 22,
+    "retry: insufficient": 26,
     "unresolved: fiction": 2,
     "unresolved: insufficient": 779,
     "unresolved: notice": 1
@@ -205,9 +205,11 @@
     },
     "babuchi": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 2,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "badterumaru": {
       "collected": 25,
@@ -261,9 +263,11 @@
     },
     "bunko_x": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "cathouse": {
       "collected": 25,
@@ -517,11 +521,10 @@
       "retry_rate_percent": 0.0
     },
     "hachon_mainichi": {
-      "collected": 25,
       "unresolved": 10,
       "pending": 1,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": null
     },
     "hahifuhehox": {
       "collected": 25,
@@ -863,7 +866,7 @@
       "retry_rate_percent": 0.0
     },
     "korokke_da_yo": {
-      "collected": 8,
+      "collected": 9,
       "tier": "C",
       "retry_rate_percent": 0.0
     },
@@ -1271,9 +1274,11 @@
     },
     "nogi_vector46": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "nogikeyaksh": {
       "collected": 25,
@@ -1552,11 +1557,11 @@
     },
     "shiho_yofukashi": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
+      "collected_retry": 2,
+      "retry": 2,
       "unresolved": 15,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 8.0
     },
     "shinigamidriver": {
       "collected": 8,
