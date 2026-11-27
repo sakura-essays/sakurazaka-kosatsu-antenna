@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-26T19:06:48.214111+00:00",
-  "collected_unique": 6637,
+  "updated_at": "2026-11-27T01:27:34.333771+00:00",
+  "collected_unique": 6638,
   "new_auto_published": 1,
   "new_auto_excluded": 3,
   "rechecked_and_published": 0,
-  "retry_count": 23,
-  "unresolved_count": 781,
+  "retry_count": 22,
+  "unresolved_count": 782,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
@@ -17,31 +17,31 @@
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2983,
+    "excluded -> excluded": 2986,
     "new -> excluded": 3,
     "new -> published": 1,
-    "new -> retry": 2,
     "pending -> pending": 3,
-    "published -> published": 3726,
-    "retry -> retry": 21,
+    "published -> published": 3727,
+    "retry -> retry": 22,
+    "retry -> unresolved": 1,
     "unresolved -> unresolved": 781
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2483,
+    "excluded: other_topic": 2486,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 63,
+    "published: feed": 64,
     "published: title": 153,
     "published: work": 14,
     "retry: fiction": 1,
-    "retry: insufficient": 22,
+    "retry: insufficient": 21,
     "unresolved: fiction": 2,
-    "unresolved: insufficient": 778,
+    "unresolved: insufficient": 779,
     "unresolved: notice": 1
   },
   "authors": {
@@ -824,11 +824,11 @@
     },
     "kkwus_nmomo": {
       "collected": 25,
-      "collected_retry": 2,
-      "retry": 2,
-      "unresolved": 2,
+      "collected_retry": 1,
+      "retry": 1,
+      "unresolved": 3,
       "tier": "B",
-      "retry_rate_percent": 8.0
+      "retry_rate_percent": 4.0
     },
     "kn_ykh_1985": {
       "collected": 25,
@@ -991,7 +991,7 @@
       "retry_rate_percent": 0.0
     },
     "lively_fennel526": {
-      "collected": 55,
+      "collected": 56,
       "tier": "B",
       "retry_rate_percent": 0.0
     },
