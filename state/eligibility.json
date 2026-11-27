@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-11-27T13:24:35.606344+00:00",
-  "collected_unique": 6616,
-  "new_auto_published": 2,
-  "new_auto_excluded": 9,
+  "updated_at": "2026-11-27T19:05:32.492510+00:00",
+  "collected_unique": 6617,
+  "new_auto_published": 3,
+  "new_auto_excluded": 3,
   "rechecked_and_published": 0,
-  "retry_count": 27,
-  "unresolved_count": 782,
+  "retry_count": 23,
+  "unresolved_count": 789,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
   "missing_feeds": 1,
   "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 2,
+    "count": 3,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 2993,
-    "new -> excluded": 9,
-    "new -> published": 2,
-    "new -> retry": 4,
+    "excluded -> excluded": 3002,
+    "new -> excluded": 3,
+    "new -> published": 3,
+    "new -> retry": 3,
     "pending -> pending": 3,
-    "published -> published": 3730,
-    "retry -> retry": 23,
+    "published -> published": 3732,
+    "retry -> retry": 20,
+    "retry -> unresolved": 7,
     "unresolved -> unresolved": 782
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2499,
+    "excluded: other_topic": 2502,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 65,
-    "published: title": 155,
+    "published: feed": 66,
+    "published: title": 157,
     "published: work": 15,
-    "retry: fiction": 1,
-    "retry: insufficient": 26,
-    "unresolved: fiction": 2,
-    "unresolved: insufficient": 779,
+    "retry: insufficient": 23,
+    "unresolved: fiction": 3,
+    "unresolved: insufficient": 785,
     "unresolved: notice": 1
   },
   "authors": {
@@ -255,19 +255,16 @@
     },
     "brocken_jr": {
       "collected": 25,
-      "collected_retry": 3,
-      "retry": 3,
-      "unresolved": 13,
+      "unresolved": 16,
       "tier": "B",
-      "retry_rate_percent": 12.0
+      "retry_rate_percent": 0.0
     },
     "bunko_x": {
-      "collected": 25,
-      "collected_retry": 1,
       "retry": 1,
+      "collected": 25,
       "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "cathouse": {
       "collected": 25,
@@ -357,7 +354,7 @@
     },
     "ddmaru_saku": {
       "collected": 25,
-      "tier": "A",
+      "tier": "B",
       "retry_rate_percent": 0.0
     },
     "driftwood": {
@@ -373,11 +370,9 @@
     },
     "eagle131": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
-      "unresolved": 3,
+      "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "earphone_half": {
       "collected": 10,
@@ -827,11 +822,9 @@
     },
     "kkwus_nmomo": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
-      "unresolved": 3,
+      "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "kn_ykh_1985": {
       "collected": 25,
@@ -965,11 +958,9 @@
     },
     "light_clover2567": {
       "collected": 33,
-      "collected_retry": 1,
-      "retry": 1,
-      "unresolved": 6,
+      "unresolved": 7,
       "tier": "B",
-      "retry_rate_percent": 3.03
+      "retry_rate_percent": 0.0
     },
     "like_danke1003": {
       "collected": 8,
@@ -1274,11 +1265,11 @@
     },
     "nogi_vector46": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
+      "collected_retry": 2,
+      "retry": 2,
       "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 8.0
     },
     "nogikeyaksh": {
       "collected": 25,
@@ -1294,9 +1285,11 @@
     },
     "novel_oxalis6466": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 1,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "nyachar4869": {
       "collected": 25,
@@ -1391,7 +1384,7 @@
       "collected": 25,
       "collected_retry": 1,
       "retry": 1,
-      "unresolved": 4,
+      "unresolved": 5,
       "tier": "B",
       "retry_rate_percent": 4.0
     },
@@ -1641,7 +1634,7 @@
       "retry_rate_percent": 0.0
     },
     "sonkami": {
-      "collected": 47,
+      "collected": 48,
       "unresolved": 1,
       "tier": "A",
       "retry_rate_percent": 0.0
