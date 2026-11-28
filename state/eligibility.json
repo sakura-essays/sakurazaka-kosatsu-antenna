@@ -1,47 +1,47 @@
 {
-  "updated_at": "2026-11-27T19:05:32.492510+00:00",
-  "collected_unique": 6617,
-  "new_auto_published": 3,
+  "updated_at": "2026-11-28T01:22:41.136414+00:00",
+  "collected_unique": 6618,
+  "new_auto_published": 2,
   "new_auto_excluded": 3,
   "rechecked_and_published": 0,
-  "retry_count": 23,
-  "unresolved_count": 789,
+  "retry_count": 24,
+  "unresolved_count": 790,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
   "missing_feeds": 1,
   "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 3,
+    "count": 2,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 3002,
+    "excluded -> excluded": 3005,
     "new -> excluded": 3,
-    "new -> published": 3,
-    "new -> retry": 3,
+    "new -> published": 2,
+    "new -> retry": 2,
     "pending -> pending": 3,
-    "published -> published": 3732,
-    "retry -> retry": 20,
-    "retry -> unresolved": 7,
-    "unresolved -> unresolved": 782
+    "published -> published": 3735,
+    "retry -> retry": 22,
+    "retry -> unresolved": 1,
+    "unresolved -> unresolved": 789
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2502,
+    "excluded: other_topic": 2505,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 66,
-    "published: title": 157,
+    "published: feed": 67,
+    "published: title": 158,
     "published: work": 15,
-    "retry: insufficient": 23,
+    "retry: insufficient": 24,
     "unresolved: fiction": 3,
-    "unresolved: insufficient": 785,
+    "unresolved: insufficient": 786,
     "unresolved: notice": 1
   },
   "authors": {
@@ -370,9 +370,11 @@
     },
     "eagle131": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 4,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "earphone_half": {
       "collected": 10,
@@ -554,10 +556,12 @@
       "retry_rate_percent": 0.0
     },
     "hearty_iris9009": {
-      "collected": 15,
+      "collected": 16,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 8,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 6.25
     },
     "hi0220": {
       "collected": 30,
@@ -1569,10 +1573,9 @@
     },
     "shirokuma1112": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
+      "unresolved": 1,
       "tier": "A",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 0.0
     },
     "shou_4846": {
       "collected": 25,
