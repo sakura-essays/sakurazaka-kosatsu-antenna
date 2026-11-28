@@ -1,45 +1,44 @@
 {
-  "updated_at": "2026-11-28T01:22:41.136414+00:00",
-  "collected_unique": 6618,
-  "new_auto_published": 2,
-  "new_auto_excluded": 3,
+  "updated_at": "2026-11-28T07:22:45.953112+00:00",
+  "collected_unique": 6593,
+  "new_auto_published": 1,
+  "new_auto_excluded": 1,
   "rechecked_and_published": 0,
-  "retry_count": 24,
+  "retry_count": 26,
   "unresolved_count": 790,
   "manual_exceptions": 3,
   "overdue_in_retry": 0,
   "fetch_failures": 0,
-  "missing_feeds": 1,
+  "missing_feeds": 2,
   "paused_feeds": 1,
   "minutes_from_first_seen_to_eligibility": {
-    "count": 2,
+    "count": 1,
     "p50": 0.0,
     "max": 0.0
   },
   "transitions": {
-    "excluded -> excluded": 3005,
-    "new -> excluded": 3,
-    "new -> published": 2,
+    "excluded -> excluded": 3008,
+    "new -> excluded": 1,
+    "new -> published": 1,
     "new -> retry": 2,
     "pending -> pending": 3,
-    "published -> published": 3735,
-    "retry -> retry": 22,
-    "retry -> unresolved": 1,
-    "unresolved -> unresolved": 789
+    "published -> published": 3737,
+    "retry -> retry": 24,
+    "unresolved -> unresolved": 790
   },
   "decision_reasons": {
     "excluded: feed": 10,
     "excluded: fiction": 13,
     "excluded: notice": 2,
-    "excluded: other_topic": 2505,
+    "excluded: other_topic": 2506,
     "published: alias": 1,
     "published: author_context": 3,
     "published: creator": 1,
     "published: editorial": 1845,
-    "published: feed": 67,
+    "published: feed": 68,
     "published: title": 158,
     "published: work": 15,
-    "retry: insufficient": 24,
+    "retry: insufficient": 26,
     "unresolved: fiction": 3,
     "unresolved: insufficient": 786,
     "unresolved: notice": 1
@@ -103,17 +102,19 @@
     },
     "8823film": {
       "collected": 25,
-      "collected_retry": 1,
-      "retry": 1,
+      "collected_retry": 2,
+      "retry": 2,
       "unresolved": 5,
       "tier": "B",
-      "retry_rate_percent": 4.0
+      "retry_rate_percent": 8.0
     },
     "_pironpan": {
       "collected": 25,
+      "collected_retry": 1,
+      "retry": 1,
       "unresolved": 6,
       "tier": "B",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": 4.0
     },
     "_yatu_hasyi": {
       "collected": 7,
@@ -951,9 +952,8 @@
       "retry_rate_percent": 0.0
     },
     "libido17": {
-      "collected": 25,
       "tier": "A",
-      "retry_rate_percent": 0.0
+      "retry_rate_percent": null
     },
     "libralibera49": {
       "collected": 25,
